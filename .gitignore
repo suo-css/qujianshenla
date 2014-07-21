@@ -1,5 +1,5 @@
 #runtime files
-.\wwwroot\Runtime/
+/wwwroot/Runtime/
 
 # Windows image file caches
 Thumbs.db

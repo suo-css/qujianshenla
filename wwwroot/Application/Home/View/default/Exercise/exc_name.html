@@ -1,8 +1,16 @@
-<extend name="Base/common" />
- <include file="Public/excNav"/>
 
+<extend name="Base/common"/>
+<style type="text/css">
+     .content{
+        width: 900px;
+        height: 100px;
+        background-color: #000;
+     }
+</style>
 <block name="body">
-    <style type="text/css">
+
+      
+ <style type="text/css">
          .nav_s{width:623px; height:540px; }
          .goal{width:620px; height:47px;}
          .tus{width:620px;height:415px;}
@@ -11,10 +19,12 @@
          .dengji{width:620px;height:470px;}
          .dengjit{float:left;}
     </style>
+ 
 
- <form role="form" style="margin-top:10px;">
+<div   class="col-md-8">
+    <form role="form" style="margin-top:10px;">
 
-    <div class="form-group">
+       <div class="form-group">
       <label  for="exampleInputEmail1">项目名称</label>
       <div >
         <input type="PROGRAM NAME" class="form-control" id="exampleInputEmail1" placeholder="项目名称">
@@ -52,25 +62,14 @@
         <div class="dengjit"><img src="tu9" /></div>
         <div class="dengjit"><img src="tu10" /></div>
         <div class="dengjit"><img src="tu11" /></div>
- </div>
-
-<!--   <div >
-     男<input type="radio" name="sex" value="1" />
-     女<input type="radio" name="sex" value="0" />
-  </div>
-
-  <div>
-     <select name="age">
-        <option value="">儿童</option>
-        <option value="">青少年</option>
-        <option value="">壮年</option>
-        <option value="">老年</option>
-     </select>
-  </div> -->
-<a href="{:U('Exercise/exc_tml')}" class="btn btn-primary btn-lg active" role="button">下一步</a>
-</block>
-
-<block name="side"> </block>
-<block name="script">
  
+     
+ </div>
+       <div style="float:right;"> <a href="{:U('Exercise/exc_tml')}" class="btn btn-primary btn-lg active" role="button">下一步</a></div>
+
+</div>
+
+
 </block>
+
+

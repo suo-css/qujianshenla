@@ -3,20 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 <title><?php echo C('WEB_SITE_TITLE');?></title>
-<link href="/qujianshen/wwwroot/Public/static/bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="/qujianshen/wwwroot/Public/home/css/base.css" rel="stylesheet">
+<link href="/qujianshenla/wwwroot/Public/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="/qujianshenla/wwwroot/Public/home/css/base.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/Public/Admin/css/common.css" media="all">
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
-<script src="/qujianshen/wwwroot/Public/static/bootstrap/js/html5shiv.js"></script>
+<script src="/qujianshenla/wwwroot/Public/static/bootstrap/js/html5shiv.js"></script>
 <![endif]-->
 
 <!--[if lt IE 9]>
-<script type="text/javascript" src="/qujianshen/wwwroot/Public/static/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/qujianshenla/wwwroot/Public/static/jquery-1.10.2.min.js"></script>
 <![endif]-->
 <!--[if gte IE 9]><!-->
-<script type="text/javascript" src="/qujianshen/wwwroot/Public/static/jquery-2.0.3.min.js"></script>
-<script type="text/javascript" src="/qujianshen/wwwroot/Public/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/qujianshenla/wwwroot/Public/static/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/qujianshenla/wwwroot/Public/static/bootstrap/js/bootstrap.min.js"></script>
 <!--<![endif]-->
 <!-- 页面header钩子，一般用于加载插件CSS文件和代码 -->
 <?php echo hook('pageHeader');?>
@@ -27,92 +27,90 @@
 	<!-- 导航条
 ================================================== -->
 <style type="text/css">
-        #Nutri_nav,#Index_nav,#User_nav,#Exercise_nav,#Around_nav,#Mall_nav{
-    font-size:20px;
-    color:white;
-    font-weight:800;
-}
+   .navbar-default{
+    color: #383735;
+    background: #ffffff;
+   background-image: -moz-linear-gradient(270deg, #ffffff 0%, rgba(201, 203, 202, 0.870588) 95%);
+   background-image: -webkit-linear-gradient(270deg, #ffffff 0%, rgba(201, 203, 202, 0.870588) 95%);
+   background-image: -o-linear-gradient(270deg, #ffffff 0%, rgba(201, 203, 202, 0.870588) 95%);
+   background-image: linear-gradient(180deg, #ffffff 0%, rgba(201, 203, 202, 0.870588) 95%);
+    font-family:"Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu;
+   }
+   #Index_nav{
+    margin-left: 80px;
+   }
+   #mid_nav{
+    margin-left: 240px;
+   }
+   .navbar-brand{
 
+   }
 </style>
-<nav class="navbar navbar-default " role="navigation" style="
-  background: #3399FF; 
-  background: -webkit-gradient(linear, left top, left bottom, from(#3399FF), to(#336699));
-  background: -moz-linear-gradient(top,  #faa51a,  #3399FF); 
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorStr='#e9e9e9', EndColorStr='#cccccc');padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
-    
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            
-            <a class="navbar-brand" href="<?php echo U('Index/Index');?>" style="font-size:20px;font-weight:800;color: #2a6496;background-color: #0aa;">去健身啦.com......</a>
-        </div>
+ <nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="padding-top: 3px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
-            <ul class="nav navbar-nav">
-                <li><a href="<?php echo U('Index/Index');?>" id="Index_nav" style="margin-left:3px">主页</a></li>
+      <a class="navbar-brand" href="<?php echo U('Index/Index');?>" id="Index_nav"><img src="/qujianshenla/wwwroot/Public/Home/images/logo.png" class="image">去健身啦</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-middle" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav" id="mid_nav">
                 <li><a href="<?php echo U('BodySpace/Index');?>" id="User_nav" >空间</a></li>
                 <li><a href="<?php echo U('Exercise/exc_common');?>" id="Exercise_nav">健身</a></li>
-                <li><a href="<?php echo U('Index/Index');?>" id="Nutri_nav">饮食</a></li>
-                <li><a href="<?php echo U('User/login');?>" id="Around_nav">周边</a></li>
+                <li><a href="<?php echo U('nri/Index');?>" id="Nutri_nav">饮食</a></li>
+                <li><a href="<?php echo U('near/Index');?>" id="Around_nav">周边</a></li>
                 <li><a href="#" id="Mall_nav">商城</a></li>
+
             </ul>
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="文章,計劃..">
                 </div>
                 <button type="submit" class="btn btn-default">搜索</button>
+                <?php echo hook('login');?>
             </form>
+
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
-</nav>
-<div class="container-fluid">
-    <div class="row" style="margin-top:-28px">
-        <div class="col-md-12" style="background-color: white">
-            <p>&nbsp</p>
-        </div>
-    </div>
-</div>
 
-<script type="text/javascript">
-    $("#Index_nav").mouseover(function(){
-  $("#Index_nav").css({"background-color":"white","color":"#3399FF"});
-});
-$("#Index_nav").mouseleave(function(){
-  $("#Index_nav").css({"background-color":"#3399FF","color":"white"});
-});
- $("#User_nav").mouseover(function(){
-  $("#User_nav").css({"background-color":"white","color":"#3399FF"});
-});
-$("#User_nav").mouseleave(function(){
-  $("#User_nav").css({"background-color":"#3399FF","color":"white"});
-});
- $("#Exercise_nav").mouseover(function(){
-  $("#Exercise_nav").css({"background-color":"white","color":"#3399FF"});
-});
-$("#Exercise_nav").mouseleave(function(){
-  $("#Exercise_nav").css({"background-color":"#3399FF","color":"white"});
-});
- $("#Nutri_nav").mouseover(function(){
-  $("#Nutri_nav").css({"background-color":"white","color":"#3399FF"});
-});
-$("#Nutri_nav").mouseleave(function(){
-  $("#Nutri_nav").css({"background-color":"#3399FF","color":"white"});
-});
-$("#Around_nav").mouseover(function(){
-  $("#Around_nav").css({"background-color":"white","color":"#3399FF"});
-});
-$("#Around_nav").mouseleave(function(){
-  $("#Around_nav").css({"background-color":"#3399FF","color":"white"});
-});
-$("#Mall_nav").mouseover(function(){
-  $("#Mall_nav").css({"background-color":"white","color":"#3399FF"});
-});
-$("#Mall_nav").mouseleave(function(){
-  $("#Mall_nav").css({"background-color":"#3399FF","color":"white"});
-});
-    
-</script>
+      </ul>
+      
+      
+        <div class="collapse navbar-collapse navbar-right">
+                <?php if(is_login()): ?><ul class="nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-left:0;padding-right:0"><?php echo get_username();?> <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="<?php echo U('User/profile');?>">修改密码</a>
+                                <li><a href="<?php echo U('User/logout');?>">退出</a>
+                            </ul>
+                      
+                    </ul>
+                <?php else: ?>
+                    <ul class="nav" style="margin-right:0">
+                        <li>
+                            <a href="<?php echo U('User/login');?>">登录</a>
+                        
+                        <li>
+                            <a href="<?php echo U('User/register');?>" style="padding-left:0;padding-right:0">注册</a>
+                        
+                    </ul><?php endif; ?>
+            </div>
+       
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+
+</nav>
+
+
 
 	<!-- /头部 -->
 	
@@ -205,7 +203,7 @@ $("#Mall_nav").mouseleave(function(){
                             </div>
                             <div id="collapseFour" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                            <a href="<?php echo U('User/profile');?>">个人信息</a>
+                                            <a href="<?php echo U('User/profiles');?>">个人信息</a>
                                 </div>
                             </div>
                         </div>
@@ -214,31 +212,203 @@ $("#Mall_nav").mouseleave(function(){
             </div>
         
         
-        <div class="col-md-10" style="background-color: white;">
-       <nav class="navbar" role="navigation" style="background-color: white; margin-top:-8px;margin-left: -15px; padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
+        
+    <div class="col-md-10" style="background-color: #F7F7F7;">
+       <nav class="navbar" role="navigation" style="margin-top:0px;margin-left:0px; padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
+        <a class="navbar-brand" href="<?php echo U('Exercise/exc_common');?>" id="exc_nav">健身</a>
         <!-- Brand and toggle get grouped for better mobile display -->
         
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style=" padding-top: 3px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style=" margin-left: 600px; padding-top: 3px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
             <ul class="nav navbar-nav">
-                <li><a href="<?php echo U('Exercise/exc_common');?>" id="exc_nav">健身主页</a></li>
                 <li><a href="<?php echo U('Exercise/exc_filter');?>" id="filter_nav" >过滤器</a></li>
-                <li><a href="<?php echo U('Exercise/exc_ind');?>" id="tml_nav">制定计划</a></li>
-                <li><a href="<?php echo U('Index/Index');?>" id="Nutri_nav">饮食</a></li>
-                <li><a href="<?php echo U('User/login');?>" id="Around_nav">周边</a></li>
-                <li><a href="#" id="Mall_nav">商城</a></li>
+                <li><a href="<?php echo U('Exercise/exc_ind');?>" id="tml_nav">计划</a></li>
+                <li><a href="<?php echo U('Exercise/exc_doc');?>" id="doc_nav">文章</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
 </nav>
     </div>
+
+
+    <script type="text/javascript">
+ $("#filter_nav").mouseover(function(){
+  $("#filter_nav").css({"border-bottom-style":"solid"," border-bottom-color":"#EB6001"});
+});
+$("#filter_nav").mouseleave(function(){
+  $("#filter_nav").css({"border-bottom-style":""});
+});
+ 
+$("#tml_nav").mouseover(function(){
+  $("#tml_nav").css({"border-bottom-style":"solid"," border-color":"#EB6001"});
+});
+$("#tml_nav").mouseleave(function(){
+  $("#tml_nav").css({"border-bottom-style":""});
+});
+$("#doc_nav").mouseover(function(){
+  $("#doc_nav").css({"border-bottom-style":"solid"," border-color":"#EB6001"});
+});
+$("#doc_nav").mouseleave(function(){
+  $("#doc_nav").css({"border-bottom-style":""});
+});
+$("#").mouseleave(function(){
+  $("#Mall_nav").css({"background-color":"#3399FF","color":"white"});
+});
     
-        <div class="col-md-5" id="video_con">
-video
-        </div>
-        <div class="col-md-5" id="describe_con">
-          describe
-        </div>
+</script>
+    
+    
+<div class="col-md-10" id="video_con"> 
+      <div class="col-md-6" id="video_con">
+   video
+     </div>
+        <div class="col-md-6" id="describe_con";>
+           <p>Bodyweight Squat </p>
+           <p>Also Known As: prisoner squat, air squat </p>
+
+           <p>Exercise Data</p>
+           <p>Type: Strength</p>
+           <p>Main Muscle Worked: Quadriceps </p>
+           <p>Other Muscles: Glutes, Hamstrings </p>
+           <p>Equipment:Body Only</p>
+           <p>Mechanics Type: Compound</p>
+           <p>Level: Beginner</p>
+           <p>Sport: No</p>
+           <p>Force: Push</p>
+           <p>Your Rating: </p> 
+
+           <p> Login to rate</p>
+
+  
+            <p>Excellent</p>
+            <p>Exercise Rating Read Bodyweight Squat Reviews SHARE </p> 
+
+            <p>Print Exercise Widget SHARE  </p>
+            <p>Print Exercise Widget </p>
+        
+          </div>
+   
+    <div class="col-md-12";>
+        <div class="nav_s">
+            <div class="col-md-12";style="margin-bottom:20px;">
+                <h4 style="padding-top:30px;">Bodyweight Squat Images</h4>
+            </div>
+                  <div class="col-md-12" style="margin-top:20px;">
+                        <div class="col-md-6"><img src="" alt="tu1" /></div>
+                        <div class="col-md-6"><img src="" alt="tu2" /></div>
+                  </div>
+         </div>
+    </div>
+
+
+  <div class="col-md-12";>
+        <div class="nav_s" >
+            <div class="col-md-12";>
+                <h4 style="padding-top:30px;">Bodyweight Squat Guide</h4>
+            </div>
+                  <div class="col-md-12" style="margin-top:20px;">
+                        <div class="col-md-4"><img src="/qujianshenla/wwwroot/Public/Home/images/jirou.jpg" alt="tu1" /></div>
+                        <div class="col-md-8">
+                            <p>1.Stand with your feet shoulder width apart. You can place your hands behind your head. This will be your starting position.
+                             </p>
+                            <p>2.Stand with your feet shoulder width apart. You can place your hands behind your head. This will be your starting position.
+                             </p>
+                            <p>3.Stand with your feet shoulder width apart. You can place your hands behind your head. This will be your starting position.
+                            </p>
+                        </div>
+                  </div>
+         </div>
+    </div>  
+
+
+   <div  class="col-md-12";style="margin-top:20px;">
+        <div class="nav_s">
+            <div class="col-md-12";>
+                <h4 style="padding-top:30px;">Alternative Exercises For Bodyweight Squat</h4>
+            </div>
+                  <div class="col-md-12" style="margin-top:20px;">
+                        <div class="col-md-7">No alternative exercises found. Know of one? Tell us in the tips section below.</div>
+                        <div class="col-md-5">
+                             <p>1.Stand with your feet shoulder width apart. You can place your hands behind your head. This will be your starting position.
+                             </p>
+                            <p>2.Stand with your feet shoulder width apart. You can place your hands behind your head. This will be your starting position.
+                             </p>
+                            <p>3.Stand with your feet shoulder width apart. You can place your hands behind your head. This will be your starting position.
+                            </p>
+
+                        </div>
+                  </div>
+         </div>
+    </div>
+
+
+
+   <div  class="col-md-12";style="margin-top:20px;">
+        <div class="nav_s">
+                 <div class="col-md-12";><h4 >Tips and Reviews - Login to rate</h4></div>
+                
+                  <div class="col-md-12" >
+                        <div class="col-md-12"style="background-color:#ccc; height:50px;  border: 1px solid #BABABA;line-heioght:50px;margin-bottom:30px;padding-top:15px;margin-top:10px;">Login to rate, review, or leave a tip for this exercise</div>
+                        <div  class="col-md-12" style="border:1px solid #ccc;height:auto;">
+                              <div  class="col-md-12" style="border-bottom:1px solid #ccc;height:150px;padding-top:30px;">
+                                    <div class="col-md-10"><h5>TIP:REVERSE flyes</h5><p style="padding-top:10px;">Mar 2, 2014 4:38 AM: Why not try push ups hands shoulder width apart habds turned in fingers facing in</p></div>
+                                    <div class="col-md-2"><p>A:xxxxxxxxxx</p>B:xxxxxxxxxx<p></p>B:xxxxxxxxxx<p></p>C:xxxxxxxxxx</div>
+                              </div>
+
+
+                              <div  class="col-md-12" style="border-bottom:1px solid #ccc;height:150px;padding-top:30px;">
+                                    <div class="col-md-10"><h5>TIP:REVERSE flyes</h5><p style="padding-top:10px;">Mar 2, 2014 4:38 AM: Why not try push ups hands shoulder width apart habds turned in fingers facing in</p></div>
+                                    <div class="col-md-2"><p>A:xxxxxxxxxx</p>B:xxxxxxxxxx<p></p>B:xxxxxxxxxx<p></p>C:xxxxxxxxxx</div>
+                              </div>
+
+
+
+                              <div  class="col-md-12" style="border-bottom:1px solid #ccc;height:150px;padding-top:30px;">
+                                    <div class="col-md-10"><h5>TIP:REVERSE flyes</h5><p style="padding-top:10px;">Mar 2, 2014 4:38 AM: Why not try push ups hands shoulder width apart habds turned in fingers facing in</p></div>
+                                    <div class="col-md-2"><p>A:xxxxxxxxxx</p>B:xxxxxxxxxx<p></p>B:xxxxxxxxxx<p></p>C:xxxxxxxxxx</div>
+                              </div>
+
+
+
+                              <div  class="col-md-12" style="border-bottom:1px solid #ccc;height:150px;padding-top:30px;">
+                                    <div class="col-md-10"><h5>TIP:REVERSE flyes</h5><p style="padding-top:10px;">Mar 2, 2014 4:38 AM: Why not try push ups hands shoulder width apart habds turned in fingers facing in</p></div>
+                                    <div class="col-md-2"><p>A:xxxxxxxxxx</p>B:xxxxxxxxxx<p></p>B:xxxxxxxxxx<p></p>C:xxxxxxxxxx</div>
+                              </div>
+
+
+                              <div  class="col-md-12" style="border-bottom:1px solid #ccc;height:150px;padding-top:30px;">
+                                    <div class="col-md-10"><h5>TIP:REVERSE flyes</h5><p style="padding-top:10px;">Mar 2, 2014 4:38 AM: Why not try push ups hands shoulder width apart habds turned in fingers facing in</p></div>
+                                    <div class="col-md-2"><p>A:xxxxxxxxxx</p>B:xxxxxxxxxx<p></p>B:xxxxxxxxxx<p></p>C:xxxxxxxxxx</div>
+                              </div>
+
+
+
+                              <div  class="col-md-12" style="border-bottom:1px solid #ccc;height:150px;padding-top:30px;">
+                                    <div class="col-md-10"><h5>TIP:REVERSE flyes</h5><p style="padding-top:10px;">Mar 2, 2014 4:38 AM: Why not try push ups hands shoulder width apart habds turned in fingers facing in</p></div>
+                                    <div class="col-md-2"><p>A:xxxxxxxxxx</p>B:xxxxxxxxxx<p></p>B:xxxxxxxxxx<p></p>C:xxxxxxxxxx</div>
+                              </div>
+                              
+                        </div> 
+
+                  </div>
+         </div>
+    </div>
+
+
+
+
+
+</div>
+
+ 
+
+
+
+
+
+
+
+
         <div class="col-md-2" id="rating_con">
 
             <div id="save_con">
@@ -358,9 +528,9 @@ save
 <script type="text/javascript">
 (function(){
 	var ThinkPHP = window.Think = {
-		"ROOT"   : "/qujianshen/wwwroot", //当前网站地址
-		"APP"    : "/qujianshen/wwwroot/index.php?s=", //当前项目地址
-		"PUBLIC" : "/qujianshen/wwwroot/Public", //项目公共目录地址
+		"ROOT"   : "/qujianshenla/wwwroot", //当前网站地址
+		"APP"    : "/qujianshenla/wwwroot/index.php?s=", //当前项目地址
+		"PUBLIC" : "/qujianshenla/wwwroot/Public", //项目公共目录地址
 		"DEEP"   : "<?php echo C('URL_PATHINFO_DEPR');?>", //PATHINFO分割符
 		"MODEL"  : ["<?php echo C('URL_MODEL');?>", "<?php echo C('URL_CASE_INSENSITIVE');?>", "<?php echo C('URL_HTML_SUFFIX');?>"],
 		"VAR"    : ["<?php echo C('VAR_MODULE');?>", "<?php echo C('VAR_CONTROLLER');?>", "<?php echo C('VAR_ACTION');?>"]

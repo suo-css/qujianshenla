@@ -1,0 +1,139 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>新增动作</h2>
+    </div>
+    <form action="{:U()}" method="post" class="form-horizontal">
+
+        <div class="form-item">
+            <label class="item-label">ID<span class="check-tips">（ID不能为空）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="eid" id="eid" value="">
+            </div>
+        </div>   
+
+        <div class="form-item">
+            <label class="item-label">动作名称<span class="check-tips">（动作名称不能为空）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="ename" id="ename" value="">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">适用性别<span class="check-tips">（不能为空）</span></label>
+                    <select name="sex">
+                            <volist name=":get_sex_type(null, true)" id="vo">
+                                    <option value="{$vo}">{$vo}</option>
+                            </volist>
+                    </select>
+        </div>
+        <div class="form-item">
+            <label class="item-label">肌群类型<span class="check-tips">（不能为空）</span></label>
+                    <select name="mainmuscletype">
+                            <volist name=":get_mainmuscletype(1)" id="vo">
+                                    <option value="{$key}">{$vo}</option>
+                            </volist>
+                    </select>
+        </div>
+        <div class="form-item">
+            <label class="item-label">锻炼类型<span class="check-tips">（不能为空）</span></label>
+                    <select name="exercisetype">
+                            <volist name=":get_mainmuscletype(2)" id="vo">
+                                    <option value="{$key}">{$vo}</option>
+                            </volist>
+                    </select>
+        </div>
+        <div class="form-item">
+            <label class="item-label">设备类型<span class="check-tips">（不能为空）</span></label>
+                    <select name="equiptype">
+                            <volist name=":get_mainmuscletype(3)" id="vo">
+                                    <option value="{$key}">{$vo}</option>
+                            </volist>
+                    </select>
+        </div>
+                <div class="form-item">
+            <label class="item-label">力量形式<span class="check-tips">（不能为空）</span></label>
+                    <select name="forcetype">
+                            <volist name=":get_mainmuscletype(4)" id="vo">
+                                    <option value="{$key}">{$vo}</option>
+                            </volist>
+                    </select>
+        </div>
+        
+                        <div class="form-item">
+            <label class="item-label">运动<span class="check-tips">（不能为空）</span></label>
+                    <select name="sport">
+                            <volist name=":get_mainmuscletype(5)" id="vo">
+                                    <option value="{$key}">{$vo}</option>
+                            </volist>
+                    </select>
+        </div>
+        
+        <div class="form-item">
+            <label class="item-label">等级<span class="check-tips">（不能为空）</span></label>
+                    <select name="level">
+                            <volist name=":get_mainmuscletype(6)" id="vo">
+                                    <option value="{$key}">{$vo}</option>
+                            </volist>
+                    </select>
+        </div>
+       
+    
+    
+       <link rel="stylesheet" type="text/css" href="__ROOT__/webuploader/demo/webuploader.css" />
+       <link rel="stylesheet" type="text/css" href="__ROOT__/webuploader/demo/style.css" />
+        <div id="wrapper">
+            <div id="container">
+                <!--头部，相册选择和格式选择-->
+                <div id="uploader">
+                    <div class="queueList">
+                        <div id="dndArea" class="placeholder">
+                            <div id="filePicker"></div>
+                            <p>或将照片拖到这里，单次最多可选300张</p>
+                        </div>
+                    </div>
+                    <div class="statusBar" style="display:none;">
+                        <div class="progress">
+                            <span class="text">0%</span>
+                            <span class="percentage"></span>
+                        </div><div class="info"></div>
+                        <div class="btns">
+                            <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="__ROOT__/webuploader/demo/webuploader.js"></script>
+        <script type="text/javascript" src="__ROOT__/webuploader/demo/upload.js"></script>     
+
+        <div class="form-item">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        var url_img = "{:U('Exercise/uploadPicture')}";
+        $("#eid").keyup(function(){
+            if($(this).val().replace(/(\s+$)|(^\s+)/g, '')!=""){
+                $("#container").show();
+                var name = $("#eid").val();
+                uploader.option( 'formData', {
+                    action_name: name,
+                });
+            }else{
+                $("#container").hide();
+            }
+        })
+        $(document).ready(function(){
+            $("#container").hide();
+        })
+        
+        //导航高亮
+        highlight_subnav('{:U('User/index')}');
+    </script>
+</block>
+

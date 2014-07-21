@@ -1,0 +1,178 @@
+<extend name="Base/common" />
+<block name="header">
+    <header class="jumbotron subhead" id="overview">
+        <div class="container">
+            <h2>用户信息</h2>
+        </div>
+    </header>
+</block>
+
+<block name="body">
+    <section>
+        <div class="row">
+            <div class="col-md-4">
+                <form class="form-horizontal" action="{:U()}" method="post" >
+                    
+                    <div id="img_save"><?php echo avatars();?></div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="nickname">昵称</label>
+                        <div class="col-md-8">
+                            <input type="text" value="{$result.nickname}" name="nickname" class="form-control" placeholder="请输入昵称">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="realname">真实姓名</label>
+                        <div class="col-md-8">
+                            <input type="text" value="{$result.realname}" name="realname"  class="form-control" placeholder="请输入真实姓名">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="realname">电话号码</label>
+                        <div class="col-md-8">
+                            <input type="text" name="telephone" value="{$result.telephone}"  class="form-control" placeholder="请输入真实姓名">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="sex">性别</label>
+                        <div class="col-md-8">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" value="1" name='sex' <if condition="$result['sex'] eq 1 ">checked</if>>
+                                    男
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio"  name="sex" value="2" <if condition="$result['sex'] eq 2 ">checked</if>>
+                                    女
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="telephone">家庭地址</label>
+                        <div class="col-md-8">
+                            <input type="text" value="{$result.homeadd}" name="homeadd"  class="form-control" placeholder="请输入家庭地址">
+                        </div>    
+                    </div>  
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="telephone">健身房地址</label>
+                        <div class="col-md-8">
+                            <input type="text" value="{$result.gymadd}" name="gymadd"  class="form-control" placeholder="请输入健身房地址">
+                        </div>    
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="telephone">职业</label>
+                        <div class="col-md-8">
+                            <input type="text" name="occupation" value="{$result.occupation}"  class="form-control" placeholder="请输入职业">
+                         </div> 
+                    </div>      
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="telephone">生日</label>
+                        <div class="col-md-8">
+                            <input type="text" id="time-start" name="birthday"  value="{$result.birthday}"  class="form-control" onkeyup="$(this).val('')" placeholder="请输入生日">
+                        </div>
+                        
+                    <div>
+                        
+                    </div>
+                                        
+                    <div class="form-group">
+                        <div class="col-md-8 col-md-offset-4">
+                            <button type="submit" class="btn submit-btn ajax-post">保存</button>
+                        </div>
+                    </div>
+                    <div class="controls Validform_checktip text-warning"></div>
+                    <input type="hidden" name=id value="{$result.id}">
+                </form>
+            </div>
+        </div>
+
+        <!-- Button trigger modal -->
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          上传头像
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">上传头像</h4>
+              </div>
+              <div class="modal-body">
+                  <div id="altContent"  ><!-- 上传图片容器 -->
+                        
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+</block>
+<block name="side"> </block>
+<block name="script">
+<link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+<php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+<link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+
+    <script src="http://open.web.meitu.com/sources/xiuxiu.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        window.onload=function(){
+            xiuxiu.embedSWF("altContent",5,"850","560");
+               /*第1个参数是加载编辑器div容器，第2个参数是编辑器类型，第3个参数是div容器宽，第4个参数是div容器高*/
+            var url = "{:U('user/upload')}";
+            xiuxiu.setUploadURL("http://127.0.0.1/"+url);//修改为您自己的上传接收图片程序 
+            xiuxiu.onUploadResponse = function (data)
+            {
+                if(data==1){
+                  $("#img_save").html("<img width=60 height=60 src=./Uploads/avatars/{$result.uid}/{$result.uid}.jpg?<?php echo rand(100,999);  ?> alt=>");
+                }else{
+                    alert('服务器繁忙！');
+                }
+            }
+        }
+        $(document)
+                .ajaxStart(function() {
+                    $("button:submit").addClass("log-in").attr("disabled", true);
+                })
+                .ajaxStop(function() {
+                    $("button:submit").removeClass("log-in").attr("disabled", false);
+                });
+        $("form").submit(function(){
+            var self = $(this);
+            $.post(self.attr("action"), self.serialize(), success, "json");
+            return false;
+
+            function success(data){
+                if(data.status){
+                    window.location.href = data.url;
+                } else {
+                    self.find(".Validform_checktip").text(data.info);
+                }
+            }
+        });
+    $('#time-start').datetimepicker({
+        format: 'yyyy-mm-dd',
+        language:"zh-CN",
+        minView:2,
+        autoclose:true
+    });
+
+
+    </script>
+</block>

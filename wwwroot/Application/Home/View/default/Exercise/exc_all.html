@@ -1,0 +1,171 @@
+
+<extend name="Base/common"/>
+<block name="body">
+    <include file="Public/excNav"/>
+    
+        <div class="col-md-5" id="video_con">
+video
+        </div>
+        <div class="col-md-5" id="describe_con">
+          describe
+        </div>
+        <div class="col-md-2" id="rating_con">
+
+            <div id="save_con">
+save
+            </div>
+        </div>
+
+        <div class="col-md-6" id="img1_con">
+
+        </div>
+        <div class="col-md-6" id="img2_con">
+
+        </div>
+        <div class="col-md-6" id="img3_con">
+
+        </div>
+        <div class="col-md-6" id="img4_con">
+
+        </div>
+
+        <div class="col-md-3" id="group_con">
+
+        </div>
+        <div class="col-md-9" id="text_con">
+
+        </div>
+ 
+        <div class="col-md-7" id="relate_con">
+
+        </div>
+        <div class="col-md-5" id="top_con">
+
+        </div>
+
+        <div class="col-md-6" id="img1_con">
+
+        </div>
+        <div class="col-md-6" id="img2_con">
+
+        </div>
+        <div class="col-md-6" id="img3_con">
+
+        </div>
+        <div class="col-md-6" id="img4_con">
+
+        </div>
+
+
+
+<div class="col-md-6">
+ <label class="item-label">内容<span class="check-tips"></span></label>
+          <label class="textarea input-large">
+                <textarea id="content"></textarea>
+          </label>
+          <span id="error_content" style="color:red;display:none;">内容不能为空!</span>
+        <br>
+        <div class="form-item">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    <br>
+    <div id="save">
+      <volist name="list" id="vo">
+          <div class="wc_list_nod clearfix">
+                  <br>
+                  <div class="nod_inner clearfix" >
+                      <div><?php $result = review_comment($vo['uid']);echo $result['username']; ?></div>
+                      <div class="wb_cmR comm_main">
+                          <div class="content_txt">{$vo.content}</div>
+                          <div class="content_txt">{$vo.create_time}</div>
+                          <?php echo reply_comment($vo['cid']) ?>
+                          <div class="rl_area" id="{$vo['cid']}_reply">
+                                <a href="javascript:;" onclick="$(this).siblings('div').toggle();">回复</a>
+                                <div style="display:none;" id={$vo.uid}_togg>
+                                  <label class="textarea input-large">
+                                        <textarea id="content_reply-{$vo.cid}"></textarea>
+                                  </label>  
+                                  <div style="display:none;color:red;">评论不能为空!</div>
+                                  <a href="javascript:;" id="content_submit" onclick='content_submit(this)' name={$vo.cid}-<?php echo is_login()  ?>>提交</a>
+                                </div>
+                          </div>
+                      </div>
+                  </div>
+                  <br>
+          </div>
+      </volist>
+    </div>
+	</div>
+
+</block>
+
+<block name="script">
+<script type="text/javascript">
+    $(document).ready(function(){
+          var url     = "{:U('Exercise/add_review')}"; 
+          $("#submit").click(function(){
+            var eid     = "<?php echo $_GET['eid'] ?>";
+            if(eid==""){return}
+            var content = $("#content").val();
+            var content = content.replace(/[ ]/g,"");
+            if(content!=""){
+              $("#error_content").hide();
+              $.post(url,{content:content,eid:eid},function(data){
+                if(data.status){
+                  $("#content").val("");
+                  $("#save").prepend("<div class='nod_inner clearfix' ><div>"+data.name+"</div><div class='wb_cmR comm_main'><div class='content_txt'>"+data.content+"</div><div class='content_txt' >"+data.create_time+"</div><div class='rl_area' id="+data.cid+"_reply><a onclick=togg("+data.cid+");>回复</a><div style='display:none;' id="+data.cid+"-togg><label class='textarea input-large'><textarea id=content_reply-"+data.cid+"></textarea></label><div style='display:none;color:red;' id=nu-"+data.cid+">评论不能为空!</div><a onclick=content_submit(this); name="+data.cid+"-"+data.uid+">提交</a></div></div></div></div>").fadeIn();
+                }
+              },'json')
+            }else{
+              $("#error_content").show();
+            }
+          })
+    })
+
+    function togg(obj){
+      var togg = "#"+obj+"-togg";
+      $(togg).show();
+    }
+
+    function togghide(obj){
+      var togg = "#"+obj+"-togg";
+      $(togg).hide();
+    }
+
+    function reply_show(obj,type){
+      if(type=="show"){
+         var togg = "#nu-"+obj;
+        $(togg).show();
+      }else{
+        var togg = "#nu-"+obj;
+        $(togg).hide();
+      }
+    }
+
+    function content_submit(obj){
+        var id      = obj.name.split("-");
+        var cid     = id[0];
+        var reply   = "#content_reply-"+cid;
+        var content = "#content_reply-"+cid;
+        var content = $(content).val();
+        var content = content.replace(/[ ]/g,"");
+        var uid     = id[1];
+        var url     = "{:U('Exercise/reply_save')}";
+        var save    = "#"+cid+"_reply";
+        if(content!=""){
+          reply_show(cid,'hide');
+          togghide(cid)
+          $.post(url,{content:content,cid:cid,uid:uid},function(data){
+            if(data.status){
+              $(reply).val("");
+              $(save).before("<div style='margin-left:7px;' class='nod_inner clearfix' ><div>"+data.name+"</div><div class='wb_cmR comm_main'><div class='content_txt'>"+data.content+"</div><div class='content_txt'>"+data.create_time+"</div></div>").fadeIn();
+            }
+          },'json')
+        }else{
+           reply_show(cid,'show');
+        }
+    }
+  </script>
+</block>
+

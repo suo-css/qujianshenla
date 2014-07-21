@@ -1,0 +1,162 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+    <div class="main-title">
+        <h2>新增动作</h2>
+    </div>
+    <form action="{:U()}" method="post" class="form-horizontal">
+
+        <div class="form-item">
+            <label class="item-label">ID<span class="check-tips">（ID不能为空）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="eid" id="eid" value="{$info.eid}">
+            </div>
+        </div>   
+
+        <div class="form-item">
+            <label class="item-label">动作名称<span class="check-tips">（动作名称不能为空）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="ename" value="{$info.ename}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">适用性别<span class="check-tips">（不能为空）</span></label>
+                    <select name="sex">
+                            <volist name=":get_sex_type(null, true)" id="vo">
+                                    <option value="{$vo}" 
+                                    <if condition="$vo eq $info['sex']">selected</if>
+                                    > 
+                                        {$vo} 
+                                    </option>
+                            </volist>
+                    </select>
+        </div>
+        <div class="form-item">
+            <label class="item-label">肌群类型<span class="check-tips">（不能为空）</span></label>
+                    <select name="mainmuscleID">
+                            <volist name=":get_mainmuscletype(1)" id="vo">
+                                    <option value="{$key}" <if condition="$key eq $info['mainmuscleID']">selected</if>>{$vo}</option>
+                            </volist>
+                    </select>
+        </div>
+        <div class="form-item">
+            <label class="item-label">锻炼类型<span class="check-tips">（不能为空）</span></label>
+                    <select name="exercisetypeID">
+                            <volist name=":get_mainmuscletype(2)" id="vo">
+                                    <option value="{$key}" <if condition="$key eq $info['exercisetypeID']">selected</if>>{$vo}</option>
+                            </volist>
+                    </select>
+        </div>
+        <div class="form-item">
+            <label class="item-label">设备类型<span class="check-tips">（不能为空）</span></label>
+                    <select name="equiptypeID">
+                            <volist name=":get_mainmuscletype(3)" id="vo">
+                                    <option value="{$key}" <if condition="$key eq $info['equiptypeID']">selected</if>>{$vo}</option>
+                            </volist>
+                    </select>
+        </div>
+                <div class="form-item">
+            <label class="item-label">力量形式<span class="check-tips">（不能为空）</span></label>
+                    <select name="forcetypeID">
+                            <volist name=":get_mainmuscletype(4)" id="vo">
+                                    <option value="{$key}" <if condition="$key eq $info['forcetypeID']">selected</if>>{$vo}</option>
+                            </volist>
+                    </select>
+        </div>
+        
+                        <div class="form-item">
+            <label class="item-label">运动<span class="check-tips">（不能为空）</span></label>
+                    <select name="sporttypeID">
+                            <volist name=":get_mainmuscletype(5)" id="vo">
+                                    <option value="{$key}" <if condition="$key eq $info['sporttypeID']">selected</if> >{$vo}</option>
+                            </volist>
+                    </select>
+        </div>
+        
+        <div class="form-item">
+            <label class="item-label">等级<span class="check-tips">（不能为空）</span></label>
+                    <select name="levelID">
+                            <volist name=":get_mainmuscletype(6)" id="vo">
+                                    <option value="{$key}" <if condition="$key eq $info['levelID']">selected</if>>{$vo}</option>
+                            </volist>
+                    </select>
+        </div>
+        
+       <link rel="stylesheet" type="text/css" href="__ROOT__/webuploader/demo/webuploader.css" />
+       <link rel="stylesheet" type="text/css" href="__ROOT__/webuploader/demo/style.css" />
+            <div id="wrapper">
+                <div id="container">
+                    <!--头部，相册选择和格式选择-->
+                    <div id="uploader">
+                        <div class="queueList">
+                            <div id="dndArea" class="placeholder">
+                                <div id="filePicker"></div>
+                                <p>或将照片拖到这里，单次最多可选300张</p>
+                            </div>
+                        </div>
+                        <div class="statusBar" style="display:none;">
+                            <div class="progress">
+                                <span class="text">0%</span>
+                                <span class="percentage"></span>
+                            </div><div class="info"></div>
+                            <div class="btns">
+                                <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <script type="text/javascript" src="__ROOT__/webuploader/demo/webuploader.js"></script>
+        <script type="text/javascript" src="__ROOT__/webuploader/demo/upload.js"></script>    
+
+        <input type="hidden" name="id" value="{$info.eid}">
+        
+        <a id="add_img">添加图片</a>
+        <div class="form-item">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+<input type="button"  value="全选" onclick=qx(1) />
+<input type="button"  value="取消" onclick=qx(2) />
+<button class="btn ajax-post confirm" url="{:U('Exercise/delete_img')}" target-form="ids">删 除</button>
+<?php 
+//执行函数
+listDir($_SERVER['DOCUMENT_ROOT']."Uploads/ExercisePic/".$info['eid']."/",false,$info['eid']);
+?>
+
+
+
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        var url_img = "{:U('Exercise/uploadPicture')}";
+        var name = $("#eid").val();
+        $("#add_img").click(function(){
+            $("#container").show();
+            uploader.option( 'formData', {
+                action_name: name,
+            });
+        })
+        $(document).ready(function(){
+            $("#container").hide();
+        })
+        //导航高亮
+        highlight_subnav('{:U('User/index')}');
+
+        function qx(obj){
+            switch (obj){
+                    case 1:
+                    $(".ids").each(function(){$(this).attr('checked',true);})  
+                    break;
+                    case 2:
+                    $(".ids").each(function(){$(this).removeAttr('checked');})
+                    break;
+            }
+
+        }
+
+    </script>
+</block>

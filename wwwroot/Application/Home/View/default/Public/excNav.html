@@ -1,0 +1,44 @@
+    
+    <div class="col-md-10" style="background-color: #F7F7F7;">
+       <nav class="navbar" role="navigation" style="margin-top:0px;margin-left:0px; padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
+        <a class="navbar-brand" href="{:U('Exercise/exc_common')}" id="exc_nav">健身</a>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style=" margin-left: 600px; padding-top: 3px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
+            <ul class="nav navbar-nav">
+                <li><a href="{:U('Exercise/exc_filter')}" id="filter_nav" >过滤器</a></li>
+                <li><a href="{:U('Exercise/exc_ind')}" id="tml_nav">计划</a></li>
+                <li><a href="{:U('Exercise/exc_doc')}" id="doc_nav">文章</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+</nav>
+    </div>
+
+
+    <script type="text/javascript">
+ $("#filter_nav").mouseover(function(){
+  $("#filter_nav").css({"border-bottom-style":"solid"," border-bottom-color":"#EB6001"});
+});
+$("#filter_nav").mouseleave(function(){
+  $("#filter_nav").css({"border-bottom-style":""});
+});
+ 
+$("#tml_nav").mouseover(function(){
+  $("#tml_nav").css({"border-bottom-style":"solid"," border-color":"#EB6001"});
+});
+$("#tml_nav").mouseleave(function(){
+  $("#tml_nav").css({"border-bottom-style":""});
+});
+$("#doc_nav").mouseover(function(){
+  $("#doc_nav").css({"border-bottom-style":"solid"," border-color":"#EB6001"});
+});
+$("#doc_nav").mouseleave(function(){
+  $("#doc_nav").css({"border-bottom-style":""});
+});
+$("#").mouseleave(function(){
+  $("#Mall_nav").css({"background-color":"#3399FF","color":"white"});
+});
+    
+</script>

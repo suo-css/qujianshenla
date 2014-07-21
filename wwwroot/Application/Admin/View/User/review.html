@@ -1,0 +1,85 @@
+<extend name="Public/base"/>
+<block name="body">
+          <label class="item-label">内容<span class="check-tips"></span></label>
+          <label class="textarea input-large">
+                <textarea id="content"></textarea>
+          </label>
+          <span id="error_content" style="color:red;display:none;">内容不能为空!</span>
+        <br>
+        <div class="form-item">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    <br>
+    <div id="save">
+      <volist name="list" id="vo">
+          <div class="wc_list_nod clearfix" >
+                  <br>
+                  <div class="nod_inner clearfix" >
+                      <div><?php $result = review_comment($vo['uid']);echo $result['realname']; ?></div>
+                      <div class="wb_cmR comm_main">
+                          <div class="content_txt">{$vo.content}</div>
+                          <div class="content_txt">{$vo.create_time}</div>
+                          <?php echo reply_comment($vo['cid']) ?>
+                          <div class="rl_area" id="{$vo['cid']}_reply">
+                                <a href="javascript:;" onclick="$(this).siblings('div').toggle();">回复</a>
+                                <div style="display:none;" id={$vo.uid}_toggle>
+                                  <label class="textarea input-large">
+                                        <textarea id="content_reply"></textarea>
+                                  </label>  
+                                  <div style="display:none;color:red;">评论不能为空!</div>
+                                  <a href="javascript:;" id="content_submit" name={$vo.cid}-3>提交</a>
+                                </div>
+                          </div>
+                      </div>
+                  </div>
+                  <br>
+          </div>
+      </volist>
+    </div>
+</block>
+
+<block name="script">
+  <script type="text/javascript">
+    $(document).ready(function(){
+          var url     = "{:U('User/add_review')}"; 
+          $("#submit").click(function(){
+            var content = $("#content").val();
+            var content = content.replace(/[ ]/g,"");
+            if(content!=""){
+              $("#error_content").hide();
+              $.post(url,{content:content},function(data){
+                if(data.status){
+                  $("#content").val("");
+                  $("#save").prepend("<div class='nod_inner clearfix' ><div>"+data.name+"</div><div class='wb_cmR comm_main'><div class='content_txt'>"+data.content+"</div><div class='content_txt'>"+data.create_time+"</div><div class='rl_area'><a href='javascript:;' onclick='$(this).siblings(div).toggle()'>回复</a><div style='display:none;'><label class='textarea input-large'><textarea id='content_reply'></textarea></label><div style='display:none;color:red;'>评论不能为空!</div><a href='javascript:;' id='content_submit' name="+data.cid+"-3>提交</a></div></div></div></div>").fadeIn();
+                }
+              },'json')
+            }else{
+              $("#error_content").show();
+            }
+          })
+
+          $("#content_submit").click(function(){
+            var content = $("#content_reply").val();
+            var content = content.replace(/[ ]/g,"");
+            var id      = $(this).attr('name').split("-");
+            var cid     = id[0];
+            var uid     = id[1];
+            var url     = "{:U('User/reply_save')}";
+            var save    = "#"+cid+"_reply";
+            if(content!=""){
+              $(this).siblings('div').hide();
+              $.post(url,{content:content,cid:cid,uid:uid},function(data){
+                if(data.status){
+                  $("#content_reply").val("");
+                  $(save).before("<div class='nod_inner clearfix' ><div>"+data.name+"</div><div class='wb_cmR comm_main'><div class='content_txt'>"+data.content+"</div><div class='content_txt'>"+data.create_time+"</div></div>").fadeIn();
+                }
+              },'json')
+            }else{
+              $(this).siblings('div').show();
+            }
+          })
+    })
+
+  </script>
+</block>

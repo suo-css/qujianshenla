@@ -1,0 +1,76 @@
+<extend name="Base/common" />
+ <include file="Public/excNav"/>
+
+<block name="body">
+    <style type="text/css">
+         .nav_s{width:623px; height:540px; }
+         .goal{width:620px; height:47px;}
+         .tus{width:620px;height:415px;}
+         .tu1{width:176px; height:187px;float:left;}
+         .tu2{width:137px; height:80px;float:left;}
+         .dengji{width:620px;height:470px;}
+         .dengjit{float:left;}
+    </style>
+
+ <form role="form" style="margin-top:10px;">
+
+    <div class="form-group">
+      <label  for="exampleInputEmail1">项目名称</label>
+      <div >
+        <input type="PROGRAM NAME" class="form-control" id="exampleInputEmail1" placeholder="项目名称">
+      </div>
+    </div>
+
+    <div class="form-group">
+       <label  for="exampleInputEmail1">规范（可选）</label>
+    </div>
+
+  <textarea class="form-control" rows="4"></textarea>
+
+</form>
+
+<div>
+  <div class="nav_s">
+    <div class="goal" style="margin-top:5px;"><h4><b>目标（选择一个）</b></h4></div>
+              <div class="tus">
+                <div class="tu1"><img src="" alt="tu1" /></div>
+                <div class="tu1"><img src="" alt="tu2" /></div>
+                <div class="tu1"><img src="" alt="tu3" /></div>
+              </div>
+              <div>
+                <div class="tu2"><img src="" alt="tu4" /></div>
+                <div class="tu2"><img src="" alt="tu5" /></div>
+                <div class="tu2"><img src="" alt="tu6" /></div>
+                <div class="tu2"><img src="" alt="tu7" /></div>
+              </div>
+   </div>
+</div>
+
+ <div class="dengji" style="width:600px;height:250px;">
+        <div style="width:100%;height:100px;"><h4 style="float:left;">难度级别（选择一个）</h4></div>
+        <div class="dengjit"><img src="tu8" /></div>
+        <div class="dengjit"><img src="tu9" /></div>
+        <div class="dengjit"><img src="tu10" /></div>
+        <div class="dengjit"><img src="tu11" /></div>
+ </div>
+
+<!--   <div >
+     男<input type="radio" name="sex" value="1" />
+     女<input type="radio" name="sex" value="0" />
+  </div>
+
+  <div>
+     <select name="age">
+        <option value="">儿童</option>
+        <option value="">青少年</option>
+        <option value="">壮年</option>
+        <option value="">老年</option>
+     </select>
+  </div> -->
+<a href="{:U('Exercise/exc_tml')}" class="btn btn-primary btn-lg active" role="button">下一步</a>
+</block>
+
+<block name="side"> </block>
+<block name="script">
+ 
+</block>

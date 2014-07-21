@@ -1,0 +1,276 @@
+
+<extend name="Base/common"/>
+<block name="body">
+    <include file="Public/excNav"/>
+    <div class="col-md-8">
+        <!-- Contents
+        ================================================== -->
+        <h3> 过滤后的动作 </h3>
+        <div id = "excInfo">
+           
+        </div>
+    </div>
+    <div id="finderLeft" class="col-md-2">
+
+        <h4>
+            --动作过滤器--1
+        </h4>
+        <div class="filterSep"></div>
+        <div id="Filters">
+            <div id="muscleFilter">
+                <h4>
+                    <div style="padding-bottom: 0px">肌群:&nbsp;&nbsp;
+                        <a href="javascript: //" class="blueLink">全选</a>
+                    </div>
+                </h4>
+                <table class="filterTable" id="muscleFilterTable">
+                    <tbody>
+                    <volist name="_list" id="vo" key="k">
+                        <if condition="$k % 2 == '1' ">
+                            <tr>
+                                <td><input class="ids" type="checkbox" checked name="mainmuscleid" value="{$k}" /></td>
+                                <td>
+                                    {$vo}
+                                </td>
+                        </if>
+                        <if condition="$k % 2 == '0' ">   
+                            <td><input class="ids" type="checkbox" checked name="mainmuscleid" value="{$k}" /></td>
+                            <td>
+                                {$vo}
+                            </td>
+                            </tr>
+                        </if>
+                    </volist>
+
+                    </tbody>
+                </table>
+
+                <h4>
+                    <div style="padding-bottom: 0px">锻炼类型:&nbsp;&nbsp;
+                        <a href="javascript: //" class="blueLink">全选</a>
+                    </div>
+                </h4>
+                <table class="filterTable" id="ExerciseTypeTable">
+
+                    <tbody>
+                    <volist name="_list2" id="vo" key="k">
+                        <if condition="$k % 2 == '1' ">
+                            <tr>
+                                <td><input class="ids" type="checkbox" checked name="exercisetypeid" value="{$k}" /></td>
+                                <td>
+                                    {$vo}
+                                </td>
+                        </if>
+                        <if condition="$k % 2 == '0' ">   
+                            <td><input class="ids" type="checkbox" checked name="exercisetypeid" value="{$k}" /></td>
+                            <td>
+                                {$vo}
+                            </td>
+                            </tr>
+                        </if>
+                    </volist>
+
+                    </tbody>
+                </table>
+
+
+                <h4>
+                    <div style="padding-bottom: 0px">设备类型:&nbsp;&nbsp;
+                        <a href="javascript: //" class="blueLink">全选</a>
+                    </div>
+                </h4>
+                <table class="filterTable" id="EquipTypeTable">
+
+                    <tbody>
+                    <volist name="_list3" id="vo" key="k">
+                        <if condition="$k % 2 == '1' ">
+                            <tr>
+                                <td><input class="ids" type="checkbox" checked name="equiptypeid" value="{$k}" /></td>
+                                <td>
+                                    {$vo}
+                                </td>
+                        </if>
+                        <if condition="$k % 2 == '0' ">   
+                            <td><input class="ids" type="checkbox" checked name="equiptypeid" value="{$k}" /></td>
+                            <td>
+                                {$vo}
+                            </td>
+                            </tr>
+                        </if>
+                    </volist>
+
+                    </tbody>
+                </table>
+
+                <h4>
+                    <div style="padding-bottom: 0px">力量类型:&nbsp;&nbsp;
+                        <a href="javascript: //" class="blueLink">全选</a>
+                    </div>
+                </h4>
+                <table class="filterTable" id="ForceTypeTable">
+
+                    <tbody>
+                    <volist name="_list4" id="vo" key="k">
+                        <if condition="$k % 2 == '1' ">
+                            <tr>
+                                <td><input class="ids" checked type="checkbox" name="forcetypeid" value="{$k}" /></td>
+                                <td>
+                                    {$vo}
+                                </td>
+                        </if>
+                        <if condition="$k % 2 == '0' ">   
+                            <td><input class="ids" checked type="checkbox" name="forcetypeid" value="{$k}" /></td>
+                            <td>
+                                {$vo}
+                            </td>
+                            </tr>
+                        </if>
+                    </volist>
+
+                    </tbody>
+                </table>
+
+
+                <h4>
+                    <div style="padding-bottom: 0px">运行类型:&nbsp;&nbsp;
+                        <a href="javascript: //" class="blueLink">全选</a>
+                    </div>
+                </h4>
+                <table class="filterTable" id="SportTypeTable">
+
+                    <tbody>
+                    <volist name="_list5" id="vo" key="k">
+                        <if condition="$k % 2 == '1' ">
+                            <tr>
+                                <td><input class="ids" checked type="checkbox" name="sporttypeid" value="{$k}" /></td>
+                                <td>
+                                    {$vo}
+                                </td>
+                        </if>
+                        <if condition="$k % 2 == '0' ">   
+                            <td><input class="ids" checked type="checkbox" name="sporttypeid" value="{$k}" /></td>
+                            <td>
+                                {$vo}
+                            </td>
+                            </tr>
+                        </if>
+                    </volist>
+
+                    </tbody>
+                </table>
+
+                <h4>
+                    <div style="padding-bottom: 0px">专家类型:&nbsp;&nbsp;
+                        <a href="javascript: //" class="blueLink">全选</a>
+                    </div>
+                </h4>
+                <table class="filterTable" id="LevelTypeTable">
+
+                    <tbody>
+                    <volist name="_list6" id="vo" key="k">
+                        <if condition="$k % 2 == '1' ">
+                            <tr>
+                                <td><input class="ids" checked type="checkbox" name="leveltypeid" value="{$k}" /></td>
+                                <td>
+                                    {$vo}
+                                </td>
+                        </if>
+                        <if condition="$k % 2 == '0' ">   
+                            <td><input class="ids" checked type="checkbox" name="leveltypeid" value="{$k}" /></td>
+                            <td>
+                                {$vo}
+                            </td>
+                            </tr>
+                        </if>
+                    </volist>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" >
+        $("document").ready(function() {
+            $(".ids").click(function() {
+                var filter_1 = "";
+                var filter_2 = "";
+                var filter_3 = "";
+                var filter_4 = "";
+                var filter_5 = "";
+                var filter_6 = "";
+                $("input[name='mainmuscleid']:checkbox:checked").each(function() {
+                    filter_1 += $(this).val() + ',';
+                });
+                $("input[name='exercisetypeid']:checkbox:checked").each(function() {
+                    filter_2 += $(this).val() + ',';
+                });
+                $("input[name='equiptypeid']:checkbox:checked").each(function() {
+                    filter_3 += $(this).val() + ',';
+                });
+                $("input[name='forcetypeid']:checkbox:checked").each(function() {
+                    filter_4 += $(this).val() + ',';
+                });
+                $("input[name='sporttypeid']:checkbox:checked").each(function() {
+                    filter_5 += $(this).val() + ',';
+                });
+                $("input[name='leveltypeid']:checkbox:checked").each(function() {
+                    filter_6 += $(this).val() + ',';
+                });
+
+                $.post("{:U('Exercise/search')}", {'filter_1': filter_1, 'filter_2': filter_2,
+                    'filter_3': filter_3, 'filter_4': filter_4, 'filter_5': filter_5, 'filter_6': filter_6},
+                function(data) {
+                    if (data.status)
+                    {
+                        //alert(data.info[0].ename);
+                        
+                        $("#excInfo").empty();
+                        for (var i = 0; i < data.info.length; i++)
+                        {
+                            
+                            var exc = '<div class="col-md-12" style="border:2px;outline:#3399FF solid thick;">';
+                            exc += '<div class="col-md-3"><image src="Public/Exercise/images/1.png" /><image src="Public/Exercise/images/2.png" /></div>';
+                          exc +='<div class="col-md-7"><h5>'+"<a href={:U("Exercise/exc_all",'','')}/eid/"+data.info[i].eid+">" + data.info[i].ename+"</a>"+data.info[i].action+"</h5>";
+                          exc +='<h6>目标肌群</h6><h6>'+data.info[i].mtname+'</h6>';
+                           exc +='<h6>器械</h6><h6>'+data.info[i].eqtname+'</h6></div>';
+                            exc +='</div>';
+         // <a href=javascript:; onclick=action(this); id="+data.info[i].eid+">添加为喜欢动作</a>
+                            $("#excInfo").append(exc);
+//                            $("#excInfo").append("<tr>");
+//                            $("#excInfo").append("<td><a href='{:U("Exercise/exc_all")}'>" + data.info[i].ename + "</a></td>");
+//                            $("#excInfo").append("<td>" + data.info[i].mtname + "</td>");
+//                            $("#excInfo").append("<td>" + data.info[i].etname + "</td>");
+//                            $("#excInfo").append("<td>" + data.info[i].eqtname + "</td>");
+//                            $("#excInfo").append("<td>" + data.info[i].ftname + "</td>");
+//                            $("#excInfo").append("<td>" + data.info[i].stname + "</td>");
+//                            $("#excInfo").append("<td>" + data.info[i].ltname + "</td>");
+//                            $("#excInfo").append("<td>" + data.info[i].sex + "</td>");
+//                            $("#excInfo").append("<tr>");
+                        }
+                        
+                    }
+                    else
+                    {
+                        //$("#excInfo").append("获取失败");
+                    }
+                }, 'json');
+            });
+
+        })
+
+    function action(obj){
+        var id  = obj.id;
+        var url = "{:U('Exercise/addaction')}";
+        $.post(url,{id:id},function(data){
+            if(data==1){
+               $("#"+obj.id).hide(); 
+            }else{
+                alert('已经添加过了！');
+            }
+        })
+    }
+    </script>
+
+</block>
+

@@ -1,0 +1,126 @@
+
+<extend name="Base/common"/>
+<style type="text/css">
+     .content{
+        width: 900px;
+        height: 100px;
+        background-color: #000;
+     }
+</style>
+<block name="body">
+
+      
+            <div class="col-md-8" style="background-color:#FFF; height:150px; ">
+                   <div  class="col-md-12" style=" height:330px; ">
+                              <div  class="col-md-3" style="background-color:#FFF; height:160px;  border:0.3px; border-color:#D5D5D5; 
+                                                                                        border-style:dashed none solid none;   border-radius: 20px; ">
+                                         <div  class="col-md-12" style="background-color:#BABABA; height:20px;  text-align:center;  
+                                                                  border-radius: 7px; ">STEP1</div>
+                                       <div  class="col-md-12" style="height:100px;  text-align:center;"></div>
+                                       <div  class="col-md-12" style=" height:40px;  text-align:center;">aababcadftg</div>
+                              </div>
+                              <div  class="col-md-3" style="background-color:#FFF; height:160px;  border:0.3px; border-color:#D5D5D5; 
+                                                                                        border-style:dashed none solid none; ">
+                                         <div  class="col-md-12" style="background-color:#BABABA; height:20px;  text-align:center;
+                                                                                                        border-radius: 7px; ">STEP1</div>
+                                       <div  class="col-md-12" style=" height:100px;  text-align:center;"></div>
+                                       <div  class="col-md-12" style=" height:40px;  text-align:center;">aababcadftg</div>
+                              </div>
+                               <div  class="col-md-3" style="background-color:#FFF; height:160px;  border:0.3px; border-color:#D5D5D5; 
+                                                                                        border-style:dashed none solid none; ">
+                                         <div  class="col-md-12" style="background-color:#BABABA; height:20px;  text-align:center;
+                                                                                                        border-radius: 7px; ">STEP1</div>
+                                       <div  class="col-md-12" style=" height:100px;  text-align:center;"></div>
+                                       <div  class="col-md-12" style=" height:40px;  text-align:center;">aababcadftg</div>
+                              </div>
+                               <div  class="col-md-3" style="background-color:#FFF; height:160px;  border:0.3px; border-color:#D5D5D5; 
+                                                                                        border-style:dashed none solid none; ">
+                                         <div  class="col-md-12" style="background-color:#BABABA; height:20px;  text-align:center;
+                                                                                                        border-radius: 7px; ">STEP1</div>
+                                       <div  class="col-md-12" style=" height:100px;  text-align:center;"></div>
+                                       <div  class="col-md-12" style=" height:40px;  text-align:center;">aababcadftg</div>
+                              </div>
+                               <div    id="week"  class="col-md-12" style="background-color:#FFF; height:350px; margin-top: 10px; padding: 0; ">
+                                                                                                                              
+                               </div>
+                              <!--  <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"   class="col-md-12"  style="background-color:#A7C0DC; height:50px; margin-top: 60px; padding: 0; " ></div>
+ -->
+                                                             
+                   </div>
+
+             </div>
+                            
+          
+</block>
+
+<block name="right">
+             <div class="col-md-2" >
+                  <div class="col-md-2"  style=" border: 1px solid #BABABA; height:500px;  position:fixed;" >
+                    <volist id="vo" name="res" >
+                             <!--  {$vo.ename} -->
+                                                        
+                   </volist>
+                    <span  id="drag1" draggable="true" ondragstart="drag(event)">拖拽我把</span>
+                    
+                 </div>
+           </div>
+  </block>
+  <block name="script">
+ <script type="text/javascript">
+       var day=0;
+     $(function() {
+          for (i = 0; i < 20; i++) {
+            day=day+1;
+            if(day%8==0){
+                  day=1;
+            }
+
+            $("#week")
+                .append(
+                    "<div    id='div1'  ondrop='drop(event)'  ondragover='allowDrop(event)'   class='col-md-2'   style='height:300px; border: 1px solid  #BABABA; padding: 0; width:102px;>"
+                     +"<div  style='text-align: right;'>"
+                     +"<img src='__PUBLIC__/Home/images/exc/close.png'  width:20px; height:20px;>"
+                     +"<div>"
+                     +"<div style='text-align: center; margin-top: 5px;'>"
+                     + "<span>"+"aaaa"+"</span>"
+                     +"<div style='text-align: center;'>"
+                     +"<img src='__PUBLIC__/Home/images/exc/close.png'  width:20px; height:20px;>"
+                     +"<div>"
+                     +"<div>"
+                     + "<div  class='col-md-12'   style='height:70px; border: 1px solid  #BABABA; padding: 0; margin-top: 163px; text-align: center;'>" 
+                     +"<div style='width:80px; height:25px; background-color:#004F7D; margin: 5px auto; color:#FFF;'>"
+
+                     +" 星期 "+day
+                     + "<div>"
+                     +"<div style='width:80px; height:25px;  margin: 5px auto; color:#FFF'>"
+
+                     +"<img src='__PUBLIC__/Home/images/exc/up2.png' alt='copy copy ' >"
+                     + "<div>"
+                     + "<div>"
+                     + "<div>"
+                
+                       
+         );
+                       
+          }
+    })
+     
+
+ function allowDrop(ev)
+{
+ev.preventDefault();
+}
+ 
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+}
+ 
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+}    
+</script>
+  </block>

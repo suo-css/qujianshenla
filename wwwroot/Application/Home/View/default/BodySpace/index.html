@@ -1,0 +1,33 @@
+<extend name="Base/common"/>
+
+
+<style type="text/css">
+       #filter_nav,#exc_nav{
+    color:#3399FF;
+    background-color: white;
+}
+</style>
+<block name="body">
+    <block name="exc_header">
+    <div class="col-md-10" style="background-color: white;">
+       <nav class="navbar" role="navigation" style="background-color: white; margin-top:-8px;margin-left: -15px; padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style=" padding-top: 3px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
+            <ul class="nav navbar-nav">
+                <li><a href="{:U('Exercise/exc_common')}" id="exc_nav">制定目标</a></li>
+                <li><a href="{:U('Exercise/exc_filter')}" id="filter_nav" >过滤器</a></li>
+                <li><a href="{:U('Exercise/exc_common')}" id="Exercise_nav">健身</a></li>
+                <li><a href="{:U('Index/Index')}" id="Nutri_nav">饮食</a></li>
+                <li><a href="{:U('User/login')}" id="Around_nav">周边</a></li>
+                <li><a href="#" id="Mall_nav">商城</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+</nav>
+    </div>
+    </block>
+    <block name="exc_content">
+    </block>
+</block>

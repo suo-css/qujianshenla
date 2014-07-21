@@ -85,62 +85,29 @@
             
 
             
-	<!-- 标题栏 -->
-	<div class="main-title">
-		<h2>插件列表</h2>
-	</div>
-	<div>
-		<a href="<?php echo U('create');?>" class="btn">快速创建</a>
-	</div>
-
-	<!-- 数据列表 -->
-	<div class="data-table table-striped">
-		<table>
-			<thead>
-				<tr>
-					<th>名称</th>
-					<th>标识</th>
-					<th >描述</th>
-					<th width="43px">状态</th>
-					<th>作者</th>
-					<th width="43px">版本</th>
-					<th width="94px">操作</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php if(!empty($_list)): if(is_array($_list)): $i = 0; $__LIST__ = $_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-					<td><?php echo ($vo["title"]); ?></td>
-					<td><?php echo ($vo["name"]); ?></td>
-					<td><?php echo ($vo["description"]); ?></td>
-					<td><?php echo ((isset($vo["status_text"]) && ($vo["status_text"] !== ""))?($vo["status_text"]):"未安装"); ?></td>
-					<td><a target="_blank" href="<?php echo ((isset($vo["url"]) && ($vo["url"] !== ""))?($vo["url"]):'http://www.onethink.cn'); ?>"><?php echo ($vo["author"]); ?></a></td>
-					<td><?php echo ($vo["version"]); ?></td>
-					<td>
-						<?php if(empty($vo["uninstall"])): $class = get_addon_class($vo['name']); if(!class_exists($class)){ $has_config = 0; }else{ $addon = new $class(); $has_config = count($addon->getConfig()); } ?>
-							<?php if ($has_config): ?>
-								<a href="<?php echo U('config',array('id'=>$vo['id']));?>">设置</a>
-							<?php endif ?>
-						<?php if ($vo['status'] >=0): ?>
-							<?php if(($vo["status"]) == "0"): ?><a class="ajax-get" href="<?php echo U('enable',array('id'=>$vo['id']));?>">启用</a>
-							<?php else: ?>
-								<a class="ajax-get" href="<?php echo U('disable',array('id'=>$vo['id']));?>">禁用</a><?php endif; ?>
-						<?php endif ?>
-							
-								<a class="ajax-get" href="<?php echo U('uninstall?id='.$vo['id']);?>">卸载</a>
-							
-						<?php else: ?>
-							<a class="ajax-get" href="<?php echo U('install?addon_name='.$vo['name']);?>">安装</a><?php endif; ?>
-					</td>
-				</tr><?php endforeach; endif; else: echo "" ;endif; ?>
-				<?php else: ?>
-				<td colspan="6" class="text-center"> aOh! 暂时还没有内容! </td><?php endif; ?>
-			</tbody>
-		</table>
-	</div>
-	<!-- 分页 -->
-    <div class="page">
-        <?php echo ($_page); ?>
+    <div class="main-title">
+        <h2>新增</h2>
     </div>
+    <form action="<?php echo U('user/add_info');?>" method="post" class="form-horizontal">
+
+        <div class="form-item">
+            <label class="item-label">ID<span class="check-tips">（ID不能为空）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="id" value="">
+            </div>
+        </div> 
+        <div class="form-item">
+            <label class="item-label">名称<span class="check-tips">（名称不能为空）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="name" value="">
+            </div>
+        </div>
+        <input type="hidden" value="<?php echo $_GET['table'] ?>" name="table">
+        <div class="form-item">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
 
         </div>
         <div class="cont-ft">
@@ -235,5 +202,10 @@
         }();
     </script>
     
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('<?php echo U('User/index');?>');
+    </script>
+
 </body>
 </html>

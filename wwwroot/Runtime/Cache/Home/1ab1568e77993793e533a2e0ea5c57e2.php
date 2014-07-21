@@ -255,43 +255,17 @@
                 <h4 class="modal-title" id="myModalLabel">地址选择</h4>
               </div>
               <div class="modal-body">
-
-                <div class="bs-example" style='width:50px;'>
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>省市</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                        </tr>                                                                  
-                      </tbody>
-                    </table>
-                  </div>
-
+                    <div style="width:100%;">
+                        <?php if(is_array($province)): $i = 0; $__LIST__ = $province;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><a href="javascript:;" id="<?php echo ($vo["id"]); ?>" onclick="show_citys(this);$(this).css('color','red').siblings().css('color','');"><?php echo ($vo["name"]); ?></a>&nbsp&nbsp&nbsp&nbsp&nbsp<?php endforeach; endif; else: echo "" ;endif; ?>
+                    </div>
+                    <div style="width:100%;margin-top:5px;" class="show_div">
+                        <hr>
+                        <?php  foreach ($cityinfo as $k => $v) { echo "<div  id=city-".$k.">"; foreach ($cityinfo[$k] as $key => $value) { echo "<a href=javascript:; onclick=$(this).css('color','red').siblings().css('color','')>$value[name]</a>&nbsp&nbsp&nbsp&nbsp&nbsp"; } echo "</div>"; } ?>
+                    </div>
+                    <div style="width:100%;margin-top:5px;">
+                        <hr>
+                        
+                    </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -299,9 +273,6 @@
             </div>
           </div>
         </div>
-
-
-
 
     </section>
 
@@ -397,7 +368,14 @@
     });
 
     function show_address(){
+        $(".show_div div:gt(0)").hide();
         $('#Address').modal();
+    }
+
+    function show_citys(obj){
+        $("#city-"+obj.id).show()
+                          .siblings('div').hide();
+        
     }
     </script>
  <!-- 用于加载js代码 -->

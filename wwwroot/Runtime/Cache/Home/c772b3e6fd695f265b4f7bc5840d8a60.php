@@ -3,20 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 <title><?php echo C('WEB_SITE_TITLE');?></title>
-<link href="/qujianshen/wwwroot/Public/static/bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="/qujianshen/wwwroot/Public/home/css/base.css" rel="stylesheet">
+<link href="/qujianshenla/wwwroot/Public/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="/qujianshenla/wwwroot/Public/home/css/base.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/Public/Admin/css/common.css" media="all">
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
-<script src="/qujianshen/wwwroot/Public/static/bootstrap/js/html5shiv.js"></script>
+<script src="/qujianshenla/wwwroot/Public/static/bootstrap/js/html5shiv.js"></script>
 <![endif]-->
 
 <!--[if lt IE 9]>
-<script type="text/javascript" src="/qujianshen/wwwroot/Public/static/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/qujianshenla/wwwroot/Public/static/jquery-1.10.2.min.js"></script>
 <![endif]-->
 <!--[if gte IE 9]><!-->
-<script type="text/javascript" src="/qujianshen/wwwroot/Public/static/jquery-2.0.3.min.js"></script>
-<script type="text/javascript" src="/qujianshen/wwwroot/Public/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/qujianshenla/wwwroot/Public/static/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/qujianshenla/wwwroot/Public/static/bootstrap/js/bootstrap.min.js"></script>
 <!--<![endif]-->
 <!-- 页面header钩子，一般用于加载插件CSS文件和代码 -->
 <?php echo hook('pageHeader');?>
@@ -57,7 +57,7 @@
         <span class="icon-bar"></span>
       </button>
 
-      <a class="navbar-brand" href="<?php echo U('Index/Index');?>" id="Index_nav"><img src="/qujianshen/wwwroot/Public/Home/images/logo.png" class="image">去健身啦</a>
+      <a class="navbar-brand" href="<?php echo U('Index/Index');?>" id="Index_nav"><img src="/qujianshenla/wwwroot/Public/Home/images/logo.png" class="image">去健身啦</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -68,6 +68,19 @@
                 <li><a href="<?php echo U('nri/Index');?>" id="Nutri_nav">饮食</a></li>
                 <li><a href="<?php echo U('near/Index');?>" id="Around_nav">周边</a></li>
                 <li><a href="#" id="Mall_nav">商城</a></li>
+
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="文章,計劃..">
+                </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+                <?php echo hook('login');?>
+            </form>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+
       </ul>
       
       
@@ -94,6 +107,7 @@
        
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
+
 </nav>
 
 
@@ -246,8 +260,9 @@
              <div class="col-md-2" >
                   <div class="col-md-2"  style=" border: 1px solid #BABABA; height:500px;  position:fixed;" >
                     <?php if(is_array($res)): $i = 0; $__LIST__ = $res;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><!--  <?php echo ($vo["ename"]); ?> --><?php endforeach; endif; else: echo "" ;endif; ?>
-                    <span  id="drag1" draggable="true" ondragstart="drag(event)">拖拽我把</span>
-                    
+                    <span  id="drag1" class="draggable" draggable="true" ondragstart="drag(event)">拖拽我把1</span>
+                    <span  id="drag2" class="draggable" draggable="true" ondragstart="drag(event)">拖拽我把2</span>
+                    <span  id="drag3" class="draggable" draggable="true" ondragstart="drag(event)">拖拽我把3</span>
                  </div>
            </div>
   
@@ -279,9 +294,9 @@
 <script type="text/javascript">
 (function(){
 	var ThinkPHP = window.Think = {
-		"ROOT"   : "/qujianshen/wwwroot", //当前网站地址
-		"APP"    : "/qujianshen/wwwroot/index.php?s=", //当前项目地址
-		"PUBLIC" : "/qujianshen/wwwroot/Public", //项目公共目录地址
+		"ROOT"   : "/qujianshenla/wwwroot", //当前网站地址
+		"APP"    : "/qujianshenla/wwwroot/index.php?s=", //当前项目地址
+		"PUBLIC" : "/qujianshenla/wwwroot/Public", //项目公共目录地址
 		"DEEP"   : "<?php echo C('URL_PATHINFO_DEPR');?>", //PATHINFO分割符
 		"MODEL"  : ["<?php echo C('URL_MODEL');?>", "<?php echo C('URL_CASE_INSENSITIVE');?>", "<?php echo C('URL_HTML_SUFFIX');?>"],
 		"VAR"    : ["<?php echo C('VAR_MODULE');?>", "<?php echo C('VAR_CONTROLLER');?>", "<?php echo C('VAR_ACTION');?>"]
@@ -302,12 +317,12 @@
                 .append(
                     "<div    id='div1'  ondrop='drop(event)'  ondragover='allowDrop(event)'   class='col-md-2'   style='height:300px; border: 1px solid  #BABABA; padding: 0; width:102px;>"
                      +"<div  style='text-align: right;'>"
-                     +"<img src='/qujianshen/wwwroot/Public/Home/images/exc/close.png'  width:20px; height:20px;>"
+                     +"<img src='/qujianshenla/wwwroot/Public/Home/images/exc/close.png'  width:20px; height:20px;>"
                      +"<div>"
                      +"<div style='text-align: center; margin-top: 5px;'>"
                      + "<span>"+"aaaa"+"</span>"
                      +"<div style='text-align: center;'>"
-                     +"<img src='/qujianshen/wwwroot/Public/Home/images/exc/close.png'  width:20px; height:20px;>"
+                     +"<img src='/qujianshenla/wwwroot/Public/Home/images/exc/close.png'  width:20px; height:20px;>"
                      +"<div>"
                      +"<div>"
                      + "<div  class='col-md-12'   style='height:70px; border: 1px solid  #BABABA; padding: 0; margin-top: 163px; text-align: center;'>" 
@@ -317,7 +332,7 @@
                      + "<div>"
                      +"<div style='width:80px; height:25px;  margin: 5px auto; color:#FFF'>"
 
-                     +"<img src='/qujianshen/wwwroot/Public/Home/images/exc/up2.png' alt='copy copy ' >"
+                     +"<img src='/qujianshenla/wwwroot/Public/Home/images/exc/up2.png' alt='copy copy ' >"
                      + "<div>"
                      + "<div>"
                      + "<div>"
@@ -328,7 +343,6 @@
           }
     })
      
-
  function allowDrop(ev)
 {
 ev.preventDefault();
@@ -343,7 +357,13 @@ function drop(ev)
 {
 ev.preventDefault();
 var data=ev.dataTransfer.getData("Text");
-ev.target.appendChild(document.getElementById(data));
+//ev.target.appendChild(document.getElementById(data));
+var beforeChild = $(ev.target).find("div:eq(0)")[0];
+var data = document.getElementById(data);
+ev.target.insertBefore(data,beforeChild);
+$(data).dblclick(function(){
+  $(this).remove();
+});
 }    
 </script>
    <!-- 用于加载js代码 -->

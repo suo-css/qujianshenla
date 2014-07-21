@@ -10217,3 +10217,66 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTrace [ RunTime:0.000855s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000989s ]
 
+[ 2014-07-21T16:38:28+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.007496s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.000439s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.005681s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` = 1 ) AND ( `pid` = 0 ) AND ( `create_time` < 1405931907 ) AND ( deadline = 0 OR deadline > 1405931907 ) ORDER BY `id` DESC  [ RunTime:0.000465s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000724s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000886s ]
+INFO: [ pageHeader ] --START--
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000514s ]
+INFO: Run QuickLogin [ RunTime:0.016231s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.016382s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `onethink_category` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001108s ]
+SQL: SELECT `id`,`name`,`pid`,`title`,`link_id` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.000429s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` = 1 ) AND ( `pid` = 0 ) AND ( `category_id` = 2 ) AND ( `create_time` < 1405931907 ) AND ( deadline = 0 OR deadline > 1405931907 ) ORDER BY `level` DESC,`id` DESC LIMIT 0,10   [ RunTime:0.017036s ]
+NOTIC: [8] unserialize() [<a href='function.unserialize'>function.unserialize</a>]: Error at offset 0 of 27 bytes D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 104 行.
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.061437s ]
+SQL: SELECT `id`,`username`,`email`,`mobile`,`status` FROM `onethink_ucenter_member` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.005492s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.300003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.300161s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.015140s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015351s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.009017s ]
+INFO: [ app_end ] --END-- [ RunTime:0.009161s ]
+
+[ 2014-07-21T16:38:34+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/profiles.html
+SQL: SHOW COLUMNS FROM `onethink_cityinfo` [ RunTime:0.021086s ]
+SQL: INSERT INTO `onethink_cityinfo` (`name`,`province_id`) VALUES ('花地玛堂区',31) [ RunTime:0.341399s ]
+SQL: INSERT INTO `onethink_cityinfo` (`name`,`province_id`) VALUES ('圣安多尼堂区',31) [ RunTime:0.080785s ]
+SQL: INSERT INTO `onethink_cityinfo` (`name`,`province_id`) VALUES ('大堂区',31) [ RunTime:0.048935s ]
+SQL: INSERT INTO `onethink_cityinfo` (`name`,`province_id`) VALUES ('望德堂区',31) [ RunTime:0.040869s ]
+SQL: INSERT INTO `onethink_cityinfo` (`name`,`province_id`) VALUES ('风顺堂区',31) [ RunTime:0.040981s ]
+SQL: INSERT INTO `onethink_cityinfo` (`name`,`province_id`) VALUES ('嘉模堂区',31) [ RunTime:0.039573s ]
+SQL: INSERT INTO `onethink_cityinfo` (`name`,`province_id`) VALUES ('圣方济各堂区',31) [ RunTime:0.040921s ]
+SQL: SHOW COLUMNS FROM `onethink_personal` [ RunTime:0.050178s ]
+SQL: SELECT * FROM `onethink_personal` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.008824s ]
+SQL: SELECT * FROM `onethink_personal` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000283s ]
+NOTIC: [8] unserialize() [<a href='function.unserialize'>function.unserialize</a>]: Error at offset 0 of 1797 bytes D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 104 行.
+SQL: SHOW COLUMNS FROM `onethink_provinceinfo` [ RunTime:0.031740s ]
+SQL: SELECT `id`,`name` FROM `onethink_provinceinfo`  [ RunTime:0.013314s ]
+NOTIC: [8] unserialize() [<a href='function.unserialize'>function.unserialize</a>]: Error at offset 0 of 14464 bytes D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 104 行.
+SQL: SELECT `name`,`province_id` FROM `onethink_cityinfo`  [ RunTime:0.032866s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000213s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000356s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.006140s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000672s ]
+INFO: Run QuickLogin [ RunTime:0.010799s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.010993s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.052424s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.052600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000727s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000859s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000973s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001120s ]
+

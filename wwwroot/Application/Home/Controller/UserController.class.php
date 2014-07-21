@@ -186,7 +186,6 @@ class UserController extends HomeController {
         }else{
         	if(!M('personal')->where(array('uid'=>is_login()))->find()){$data=array('uid'=>is_login(),'birthday'=>'');M('personal')->add($data);}
         	$result = M('personal')->where(array('uid'=>is_login()))->find();
-			p($result);
         	$this->result = $result;
             $this->display();
         }

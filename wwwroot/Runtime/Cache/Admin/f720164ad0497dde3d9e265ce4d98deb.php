@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title><?php echo ($meta_title); ?>|OneThink管理平台</title>
-    <link href="/git/qujianshen/wwwroot/Public/favicon.ico" type="image/x-icon" rel="shortcut icon">
-    <link rel="stylesheet" type="text/css" href="/git/qujianshen/wwwroot/Public/Admin/css/base.css" media="all">
-    <link rel="stylesheet" type="text/css" href="/git/qujianshen/wwwroot/Public/Admin/css/common.css" media="all">
-    <link rel="stylesheet" type="text/css" href="/git/qujianshen/wwwroot/Public/Admin/css/module.css">
-    <link rel="stylesheet" type="text/css" href="/git/qujianshen/wwwroot/Public/Admin/css/style.css" media="all">
-	<link rel="stylesheet" type="text/css" href="/git/qujianshen/wwwroot/Public/Admin/css/<?php echo (C("COLOR_STYLE")); ?>.css" media="all">
+    <link href="/qujianshenla/wwwroot/Public/favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <link rel="stylesheet" type="text/css" href="/qujianshenla/wwwroot/Public/Admin/css/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/qujianshenla/wwwroot/Public/Admin/css/common.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/qujianshenla/wwwroot/Public/Admin/css/module.css">
+    <link rel="stylesheet" type="text/css" href="/qujianshenla/wwwroot/Public/Admin/css/style.css" media="all">
+	<link rel="stylesheet" type="text/css" href="/qujianshenla/wwwroot/Public/Admin/css/<?php echo (C("COLOR_STYLE")); ?>.css" media="all">
      <!--[if lt IE 9]>
-    <script type="text/javascript" src="/git/qujianshen/wwwroot/Public/static/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/qujianshenla/wwwroot/Public/static/jquery-1.10.2.min.js"></script>
     <![endif]--><!--[if gte IE 9]><!-->
-    <script type="text/javascript" src="/git/qujianshen/wwwroot/Public/static/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" src="/git/qujianshen/wwwroot/Public/Admin/js/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="/qujianshenla/wwwroot/Public/static/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="/qujianshenla/wwwroot/Public/Admin/js/jquery.mousewheel.js"></script>
     <!--<![endif]-->
     
 </head>
@@ -151,17 +151,17 @@
     <script type="text/javascript">
     (function(){
         var ThinkPHP = window.Think = {
-            "ROOT"   : "/git/qujianshen/wwwroot", //当前网站地址
-            "APP"    : "/git/qujianshen/wwwroot/index.php?s=", //当前项目地址
-            "PUBLIC" : "/git/qujianshen/wwwroot/Public", //项目公共目录地址
+            "ROOT"   : "/qujianshenla/wwwroot", //当前网站地址
+            "APP"    : "/qujianshenla/wwwroot/index.php?s=", //当前项目地址
+            "PUBLIC" : "/qujianshenla/wwwroot/Public", //项目公共目录地址
             "DEEP"   : "<?php echo C('URL_PATHINFO_DEPR');?>", //PATHINFO分割符
             "MODEL"  : ["<?php echo C('URL_MODEL');?>", "<?php echo C('URL_CASE_INSENSITIVE');?>", "<?php echo C('URL_HTML_SUFFIX');?>"],
             "VAR"    : ["<?php echo C('VAR_MODULE');?>", "<?php echo C('VAR_CONTROLLER');?>", "<?php echo C('VAR_ACTION');?>"]
         }
     })();
     </script>
-    <script type="text/javascript" src="/git/qujianshen/wwwroot/Public/static/think.js"></script>
-    <script type="text/javascript" src="/git/qujianshen/wwwroot/Public/Admin/js/common.js"></script>
+    <script type="text/javascript" src="/qujianshenla/wwwroot/Public/static/think.js"></script>
+    <script type="text/javascript" src="/qujianshenla/wwwroot/Public/Admin/js/common.js"></script>
     <script type="text/javascript">
         +function(){
             var $window = $(window), $subnav = $("#subnav"), url;
@@ -232,7 +232,7 @@
         }();
     </script>
     
-	<script src="/git/qujianshen/wwwroot/Public/static/thinkbox/jquery.thinkbox.js"></script>
+	<script src="/qujianshenla/wwwroot/Public/static/thinkbox/jquery.thinkbox.js"></script>
 
 	<script type="text/javascript">
 	//搜索功能

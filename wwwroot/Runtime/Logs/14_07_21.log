@@ -2936,6 +2936,1237 @@ INFO: Run Behavior\ShowPageTrace [ RunTime:0.000898s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001023s ]
 >>>>>>> test
 
+<<<<<<< HEAD
+[ 2014-07-21T11:20:14+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_all/eid/19
+SQL: SHOW COLUMNS FROM `onethink_exercisecomment` [ RunTime:0.007171s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_exercisecomment` WHERE ( `eid` = 19 ) LIMIT 1   [ RunTime:0.000530s ]
+SQL: SELECT * FROM `onethink_exercisecomment` WHERE ( `eid` = 19 ) LIMIT 0,10   [ RunTime:0.000562s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000519s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000729s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.045647s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.045906s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001287s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001500s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001733s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001956s ]
+
+[ 2014-07-21T11:20:16+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_all/eid/19
+SQL: SHOW COLUMNS FROM `onethink_exercisecomment` [ RunTime:0.005968s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_exercisecomment` WHERE ( `eid` = 19 ) LIMIT 1   [ RunTime:0.000511s ]
+SQL: SELECT * FROM `onethink_exercisecomment` WHERE ( `eid` = 19 ) LIMIT 0,10   [ RunTime:0.000508s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000502s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000727s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.045366s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.045626s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001464s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001681s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001646s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001869s ]
+
+[ 2014-07-21T11:20:19+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_filter.html
+SQL: SHOW COLUMNS FROM `onethink_mainmuscletype` [ RunTime:0.006198s ]
+SQL: SELECT `id`,`name` FROM `onethink_mainmuscletype`  [ RunTime:0.000500s ]
+SQL: SHOW COLUMNS FROM `onethink_exercisetype` [ RunTime:0.006628s ]
+SQL: SELECT `id`,`name` FROM `onethink_exercisetype`  [ RunTime:0.000463s ]
+SQL: SHOW COLUMNS FROM `onethink_equiptype` [ RunTime:0.006190s ]
+SQL: SELECT `id`,`name` FROM `onethink_equiptype`  [ RunTime:0.000450s ]
+SQL: SHOW COLUMNS FROM `onethink_forcetype` [ RunTime:0.006140s ]
+SQL: SELECT `id`,`name` FROM `onethink_forcetype`  [ RunTime:0.000427s ]
+SQL: SHOW COLUMNS FROM `onethink_sporttype` [ RunTime:0.006157s ]
+SQL: SELECT `id`,`name` FROM `onethink_sporttype`  [ RunTime:0.000457s ]
+SQL: SHOW COLUMNS FROM `onethink_leveltype` [ RunTime:0.006220s ]
+SQL: SELECT `id`,`name` FROM `onethink_leveltype`  [ RunTime:0.000437s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000512s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000734s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.062329s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.062586s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001224s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001458s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001601s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001842s ]
+
+[ 2014-07-21T11:20:22+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/search.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001641s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002498s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.007097s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000608s ]
+SQL: SHOW COLUMNS FROM `onethink_exercise` [ RunTime:0.006807s ]
+SQL: SHOW COLUMNS FROM `onethink_exercise` [ RunTime:0.006419s ]
+SQL: SELECT exc.ename as ename,t1.name as mtname,t2.name as etname,t3.name as eqtname,t4.name as ftname,t5.name as stname,exc.eid,t6.name as ltname,exc.sex,exc.rating FROM onethink_exercise exc INNER JOIN onethink_mainmuscletype t1 on exc.mainmuscleID = t1.id INNER JOIN onethink_exercisetype t2 on exc.exercisetypeID = t2.id INNER JOIN onethink_equiptype t3 on exc.equiptypeID = t3.id INNER JOIN onethink_forcetype t4 on exc.forcetypeID = t4.id INNER JOIN onethink_sporttype t5 on exc.sporttypeID = t5.id INNER JOIN onethink_leveltype t6 on exc.levelID = t6.id  WHERE ( `mainmuscleID` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17') ) AND ( `exercisetypeID` IN ('1','2','3') ) AND ( `equiptypeID` IN ('1','2') ) AND ( `forcetypeID` IN ('1','2','3','4') ) AND ( `sporttypeID` IN ('1','2') ) AND ( `levelID` IN ('1','2','3') )  [ RunTime:0.001276s ]
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006630s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1   [ RunTime:0.001872s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1  
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1   [ RunTime:0.001668s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1  
+
+[ 2014-07-21T11:20:22+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/search.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002446s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006409s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000636s ]
+SQL: SHOW COLUMNS FROM `onethink_exercise` [ RunTime:0.006241s ]
+SQL: SHOW COLUMNS FROM `onethink_exercise` [ RunTime:0.006508s ]
+SQL: SELECT exc.ename as ename,t1.name as mtname,t2.name as etname,t3.name as eqtname,t4.name as ftname,t5.name as stname,exc.eid,t6.name as ltname,exc.sex,exc.rating FROM onethink_exercise exc INNER JOIN onethink_mainmuscletype t1 on exc.mainmuscleID = t1.id INNER JOIN onethink_exercisetype t2 on exc.exercisetypeID = t2.id INNER JOIN onethink_equiptype t3 on exc.equiptypeID = t3.id INNER JOIN onethink_forcetype t4 on exc.forcetypeID = t4.id INNER JOIN onethink_sporttype t5 on exc.sporttypeID = t5.id INNER JOIN onethink_leveltype t6 on exc.levelID = t6.id  WHERE ( `mainmuscleID` IN ('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17') ) AND ( `exercisetypeID` IN ('1','2','3') ) AND ( `equiptypeID` IN ('1','2') ) AND ( `forcetypeID` IN ('1','2','3','4') ) AND ( `sporttypeID` IN ('1','2') ) AND ( `levelID` IN ('1','2','3') )  [ RunTime:0.001243s ]
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006414s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1   [ RunTime:0.001700s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1  
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1   [ RunTime:0.001676s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1  
+
+[ 2014-07-21T14:07:54+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_filter.html
+SQL: SHOW COLUMNS FROM `onethink_mainmuscletype` [ RunTime:0.006745s ]
+SQL: SELECT `id`,`name` FROM `onethink_mainmuscletype`  [ RunTime:0.052251s ]
+SQL: SHOW COLUMNS FROM `onethink_exercisetype` [ RunTime:0.006532s ]
+SQL: SELECT `id`,`name` FROM `onethink_exercisetype`  [ RunTime:0.012857s ]
+SQL: SHOW COLUMNS FROM `onethink_equiptype` [ RunTime:0.006624s ]
+SQL: SELECT `id`,`name` FROM `onethink_equiptype`  [ RunTime:0.006339s ]
+SQL: SHOW COLUMNS FROM `onethink_forcetype` [ RunTime:0.006788s ]
+SQL: SELECT `id`,`name` FROM `onethink_forcetype`  [ RunTime:0.000439s ]
+SQL: SHOW COLUMNS FROM `onethink_sporttype` [ RunTime:0.028799s ]
+SQL: SELECT `id`,`name` FROM `onethink_sporttype`  [ RunTime:0.001217s ]
+SQL: SHOW COLUMNS FROM `onethink_leveltype` [ RunTime:0.006620s ]
+SQL: SELECT `id`,`name` FROM `onethink_leveltype`  [ RunTime:0.000522s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000476s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000693s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.124104s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.124346s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.011374s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011597s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.007788s ]
+INFO: [ app_end ] --END-- [ RunTime:0.008000s ]
+
+[ 2014-07-21T14:07:57+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/BodySpace/Index.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000287s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000503s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.037119s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038115s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001515s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001729s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001679s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001924s ]
+
+[ 2014-07-21T14:07:58+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_common.html
+SQL: SHOW COLUMNS FROM `onethink_goalmodule` [ RunTime:0.006836s ]
+SQL: SELECT * FROM `onethink_goalmodule`  [ RunTime:0.000461s ]
+SQL: SHOW COLUMNS FROM `onethink_goalcontinuetype` [ RunTime:0.006621s ]
+SQL: SELECT * FROM `onethink_goalcontinuetype` WHERE ( `status` = 1 )  [ RunTime:0.000484s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000390s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000616s ]
+NOTIC: [8] Undefined variable: tinue C:\wamp\www\qujianshenla\wwwroot\Runtime\Cache\Home\78f19b806e1cecf46779d8356fee07d0.php 第 269 行.
+SQL: SHOW COLUMNS FROM `onethink_goaltype` [ RunTime:0.033988s ]
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 1 )  [ RunTime:0.030435s ]
+SQL: SHOW COLUMNS FROM `onethink_goal` [ RunTime:0.007089s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 2 ) LIMIT 1   [ RunTime:0.006162s ]
+NOTIC: [8] Undefined variable: data C:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 5 ) LIMIT 1   [ RunTime:0.000815s ]
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 2 )  [ RunTime:0.000566s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 3 ) LIMIT 1   [ RunTime:0.000531s ]
+NOTIC: [8] Undefined variable: data C:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 4 ) LIMIT 1   [ RunTime:0.000496s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.137083s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.137366s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001295s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001535s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001656s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001898s ]
+
+[ 2014-07-21T15:02:08+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_common.html
+SQL: SHOW COLUMNS FROM `onethink_goalmodule` [ RunTime:0.006516s ]
+SQL: SELECT * FROM `onethink_goalmodule`  [ RunTime:0.000443s ]
+SQL: SHOW COLUMNS FROM `onethink_goalcontinuetype` [ RunTime:0.007204s ]
+SQL: SELECT * FROM `onethink_goalcontinuetype` WHERE ( `status` = 1 )  [ RunTime:0.000486s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000402s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000630s ]
+NOTIC: [8] Undefined variable: tinue C:\wamp\www\qujianshenla\wwwroot\Runtime\Cache\Home\78f19b806e1cecf46779d8356fee07d0.php 第 269 行.
+SQL: SHOW COLUMNS FROM `onethink_goaltype` [ RunTime:0.007142s ]
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 1 )  [ RunTime:0.000622s ]
+SQL: SHOW COLUMNS FROM `onethink_goal` [ RunTime:0.006863s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 2 ) LIMIT 1   [ RunTime:0.000530s ]
+NOTIC: [8] Undefined variable: data C:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 5 ) LIMIT 1   [ RunTime:0.000495s ]
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 2 )  [ RunTime:0.000509s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 3 ) LIMIT 1   [ RunTime:0.000521s ]
+NOTIC: [8] Undefined variable: data C:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 4 ) LIMIT 1   [ RunTime:0.000577s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.076240s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.076462s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001332s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001554s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001704s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001919s ]
+
+[ 2014-07-21T15:02:09+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Index/index.html
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.053495s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.000816s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.032037s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` = 1 ) AND ( `pid` = 0 ) AND ( `create_time` < 1405926129 ) AND ( deadline = 0 OR deadline > 1405926129 ) ORDER BY `id` DESC  [ RunTime:0.018905s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000314s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000544s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `onethink_category` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.011811s ]
+SQL: SELECT `id`,`name`,`pid`,`title`,`link_id` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.000517s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` = 1 ) AND ( `pid` = 0 ) AND ( `category_id` = 2 ) AND ( `create_time` < 1405926129 ) AND ( deadline = 0 OR deadline > 1405926129 ) ORDER BY `level` DESC,`id` DESC LIMIT 0,10   [ RunTime:0.013223s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.095330s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.095563s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001345s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001581s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001661s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001880s ]
+
+[ 2014-07-21T15:02:18+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_common.html
+SQL: SHOW COLUMNS FROM `onethink_goalmodule` [ RunTime:0.006203s ]
+SQL: SELECT * FROM `onethink_goalmodule`  [ RunTime:0.000482s ]
+SQL: SHOW COLUMNS FROM `onethink_goalcontinuetype` [ RunTime:0.007159s ]
+SQL: SELECT * FROM `onethink_goalcontinuetype` WHERE ( `status` = 1 )  [ RunTime:0.000497s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000414s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000630s ]
+NOTIC: [8] Undefined variable: tinue C:\wamp\www\qujianshenla\wwwroot\Runtime\Cache\Home\78f19b806e1cecf46779d8356fee07d0.php 第 269 行.
+SQL: SHOW COLUMNS FROM `onethink_goaltype` [ RunTime:0.006170s ]
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 1 )  [ RunTime:0.000518s ]
+SQL: SHOW COLUMNS FROM `onethink_goal` [ RunTime:0.006733s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 2 ) LIMIT 1   [ RunTime:0.000570s ]
+NOTIC: [8] Undefined variable: data C:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 5 ) LIMIT 1   [ RunTime:0.000557s ]
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 2 )  [ RunTime:0.000569s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 3 ) LIMIT 1   [ RunTime:0.000505s ]
+NOTIC: [8] Undefined variable: data C:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 4 ) LIMIT 1   [ RunTime:0.000539s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.073553s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073774s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001325s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001548s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001753s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002206s ]
+
+[ 2014-07-21T15:14:26+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_ind.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000337s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000584s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.069882s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.070868s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001444s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001664s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001804s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002045s ]
+
+[ 2014-07-21T15:14:28+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_name.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000317s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000530s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.079736s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.080756s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001333s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001545s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001749s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001994s ]
+
+[ 2014-07-21T15:14:30+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_tml.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000393s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000614s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.064470s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.065457s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001453s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001669s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001687s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001903s ]
+
+[ 2014-07-21T15:14:34+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.028923s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001716s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000340s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000545s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.038579s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038818s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001284s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001498s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001663s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001886s ]
+
+[ 2014-07-21T15:19:02+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006925s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001740s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000345s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000553s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.038495s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038743s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001271s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001485s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001712s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001938s ]
+
+[ 2014-07-21T15:19:03+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006775s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001712s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000449s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000683s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.038290s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038526s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001301s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001514s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001672s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001893s ]
+
+[ 2014-07-21T15:19:04+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006906s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001826s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000350s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000564s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.038409s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038641s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001297s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001523s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001628s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001869s ]
+
+[ 2014-07-21T15:19:26+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006706s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001716s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000354s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000580s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.038877s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039114s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001589s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001807s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001709s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001927s ]
+
+[ 2014-07-21T15:20:44+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006763s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001698s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000353s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000576s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.040649s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040904s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001563s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001793s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002421s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002673s ]
+
+[ 2014-07-21T15:21:43+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.007564s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001683s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000352s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000570s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039372s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039612s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001298s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001513s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001898s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002123s ]
+
+[ 2014-07-21T15:22:48+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006742s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001899s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000351s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000575s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.040258s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040556s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001434s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001687s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002116s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002356s ]
+
+[ 2014-07-21T15:33:54+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006759s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001739s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000387s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000690s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039706s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039944s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001406s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001618s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001774s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002014s ]
+
+[ 2014-07-21T15:34:18+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.007114s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001748s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000366s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000579s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039853s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040125s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001279s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001491s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001714s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001933s ]
+
+[ 2014-07-21T15:34:21+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.007105s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001737s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000365s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000581s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.040214s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040457s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001538s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001754s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001855s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002072s ]
+
+[ 2014-07-21T15:34:37+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006882s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001673s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000373s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000591s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039599s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039955s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001397s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001609s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002134s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002375s ]
+
+[ 2014-07-21T15:34:40+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006774s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.002010s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000350s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000578s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.069205s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.069446s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001389s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001602s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001842s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002093s ]
+
+[ 2014-07-21T15:35:01+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006963s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001894s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000373s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000593s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.040088s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040319s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001431s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001648s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001939s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002254s ]
+
+[ 2014-07-21T15:35:20+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.007270s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001854s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000548s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000796s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039768s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040015s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001417s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001629s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001778s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002002s ]
+
+[ 2014-07-21T15:35:32+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006982s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001739s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000364s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000581s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039736s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039972s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001459s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001677s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001669s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001889s ]
+
+[ 2014-07-21T15:35:52+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006691s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001747s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000367s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000693s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.041100s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.041345s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001447s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001666s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001881s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002101s ]
+
+[ 2014-07-21T15:36:29+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006766s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001767s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000357s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000576s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039885s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040130s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001437s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001649s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001819s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002041s ]
+
+[ 2014-07-21T15:38:02+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006879s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001689s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000357s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000563s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.040100s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040424s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001379s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001591s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001783s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002020s ]
+
+[ 2014-07-21T15:38:18+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.010686s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001704s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000351s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000565s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039880s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040117s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001586s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001811s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001802s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002022s ]
+
+[ 2014-07-21T15:38:41+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006747s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001887s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000354s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000578s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.040539s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040788s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001414s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001635s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001848s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002097s ]
+
+[ 2014-07-21T15:38:45+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006742s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001702s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000356s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000582s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039732s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039968s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001453s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001758s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001786s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002002s ]
+
+[ 2014-07-21T15:38:49+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.007150s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001708s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000368s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000590s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039706s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040067s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001408s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001624s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001794s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002017s ]
+
+[ 2014-07-21T15:39:19+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006871s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001763s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000443s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000707s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.040234s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040485s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001648s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001902s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001780s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001999s ]
+
+[ 2014-07-21T15:39:30+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006716s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001696s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000369s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000598s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.040499s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040738s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001618s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001840s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001893s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002126s ]
+
+[ 2014-07-21T15:39:42+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006889s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001703s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000374s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000597s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.038995s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039229s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001523s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001744s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001696s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002077s ]
+
+[ 2014-07-21T15:40:25+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006885s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001712s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000370s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000588s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039374s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039613s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001389s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001622s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001789s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002011s ]
+
+[ 2014-07-21T15:40:47+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006724s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001776s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000357s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000583s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039132s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039368s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001302s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001516s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001639s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001863s ]
+
+[ 2014-07-21T16:13:59+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006014s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001034s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000351s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000558s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.036224s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036468s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001608s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001828s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001511s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001737s ]
+
+[ 2014-07-21T16:14:27+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.005843s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001071s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000354s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000569s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.036837s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037074s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001210s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001444s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001611s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001942s ]
+
+[ 2014-07-21T16:14:45+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.005760s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001028s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000370s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000607s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.037808s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038044s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001272s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001491s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001619s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001846s ]
+
+[ 2014-07-21T16:21:13+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_common.html
+SQL: SHOW COLUMNS FROM `onethink_goalmodule` [ RunTime:0.006628s ]
+SQL: SELECT * FROM `onethink_goalmodule`  [ RunTime:0.000485s ]
+SQL: SHOW COLUMNS FROM `onethink_goalcontinuetype` [ RunTime:0.006751s ]
+SQL: SELECT * FROM `onethink_goalcontinuetype` WHERE ( `status` = 1 )  [ RunTime:0.000592s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000389s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000619s ]
+NOTIC: [8] Undefined variable: tinue C:\wamp\www\qujianshenla\wwwroot\Runtime\Cache\Home\78f19b806e1cecf46779d8356fee07d0.php 第 269 行.
+SQL: SHOW COLUMNS FROM `onethink_goaltype` [ RunTime:0.006980s ]
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 1 )  [ RunTime:0.000597s ]
+SQL: SHOW COLUMNS FROM `onethink_goal` [ RunTime:0.006835s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 2 ) LIMIT 1   [ RunTime:0.000538s ]
+NOTIC: [8] Undefined variable: data C:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 5 ) LIMIT 1   [ RunTime:0.000511s ]
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 2 )  [ RunTime:0.000516s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 3 ) LIMIT 1   [ RunTime:0.000525s ]
+NOTIC: [8] Undefined variable: data C:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 4 ) LIMIT 1   [ RunTime:0.000521s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.073757s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073968s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001506s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001719s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002034s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002261s ]
+
+[ 2014-07-21T16:21:16+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_filter.html
+SQL: SHOW COLUMNS FROM `onethink_mainmuscletype` [ RunTime:0.006593s ]
+SQL: SELECT `id`,`name` FROM `onethink_mainmuscletype`  [ RunTime:0.000543s ]
+SQL: SHOW COLUMNS FROM `onethink_exercisetype` [ RunTime:0.006539s ]
+SQL: SELECT `id`,`name` FROM `onethink_exercisetype`  [ RunTime:0.000438s ]
+SQL: SHOW COLUMNS FROM `onethink_equiptype` [ RunTime:0.006634s ]
+SQL: SELECT `id`,`name` FROM `onethink_equiptype`  [ RunTime:0.000489s ]
+SQL: SHOW COLUMNS FROM `onethink_forcetype` [ RunTime:0.006577s ]
+SQL: SELECT `id`,`name` FROM `onethink_forcetype`  [ RunTime:0.000452s ]
+SQL: SHOW COLUMNS FROM `onethink_sporttype` [ RunTime:0.006647s ]
+SQL: SELECT `id`,`name` FROM `onethink_sporttype`  [ RunTime:0.000429s ]
+SQL: SHOW COLUMNS FROM `onethink_leveltype` [ RunTime:0.006663s ]
+SQL: SELECT `id`,`name` FROM `onethink_leveltype`  [ RunTime:0.000431s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000496s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000715s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.067709s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.067948s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001427s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001644s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001825s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002057s ]
+
+[ 2014-07-21T16:21:23+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/search.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001772s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002768s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006492s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000635s ]
+SQL: SHOW COLUMNS FROM `onethink_exercise` [ RunTime:0.007289s ]
+SQL: SHOW COLUMNS FROM `onethink_exercise` [ RunTime:0.006735s ]
+SQL: SELECT exc.ename as ename,t1.name as mtname,t2.name as etname,t3.name as eqtname,t4.name as ftname,t5.name as stname,exc.eid,t6.name as ltname,exc.sex,exc.rating FROM onethink_exercise exc INNER JOIN onethink_mainmuscletype t1 on exc.mainmuscleID = t1.id INNER JOIN onethink_exercisetype t2 on exc.exercisetypeID = t2.id INNER JOIN onethink_equiptype t3 on exc.equiptypeID = t3.id INNER JOIN onethink_forcetype t4 on exc.forcetypeID = t4.id INNER JOIN onethink_sporttype t5 on exc.sporttypeID = t5.id INNER JOIN onethink_leveltype t6 on exc.levelID = t6.id  WHERE ( `mainmuscleID` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17') ) AND ( `exercisetypeID` IN ('1','2','3') ) AND ( `equiptypeID` IN ('1','2') ) AND ( `forcetypeID` IN ('1','2','3','4') ) AND ( `sporttypeID` IN ('1','2') ) AND ( `levelID` IN ('1','2','3') )  [ RunTime:0.092452s ]
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.018629s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1   [ RunTime:0.004061s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1  
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1   [ RunTime:0.002272s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1  
+
+[ 2014-07-21T16:21:24+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/search.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001787s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002720s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006716s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000636s ]
+SQL: SHOW COLUMNS FROM `onethink_exercise` [ RunTime:0.006676s ]
+SQL: SHOW COLUMNS FROM `onethink_exercise` [ RunTime:0.007053s ]
+SQL: SELECT exc.ename as ename,t1.name as mtname,t2.name as etname,t3.name as eqtname,t4.name as ftname,t5.name as stname,exc.eid,t6.name as ltname,exc.sex,exc.rating FROM onethink_exercise exc INNER JOIN onethink_mainmuscletype t1 on exc.mainmuscleID = t1.id INNER JOIN onethink_exercisetype t2 on exc.exercisetypeID = t2.id INNER JOIN onethink_equiptype t3 on exc.equiptypeID = t3.id INNER JOIN onethink_forcetype t4 on exc.forcetypeID = t4.id INNER JOIN onethink_sporttype t5 on exc.sporttypeID = t5.id INNER JOIN onethink_leveltype t6 on exc.levelID = t6.id  WHERE ( `mainmuscleID` IN ('1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17') ) AND ( `exercisetypeID` IN ('1','2','3') ) AND ( `equiptypeID` IN ('1','2') ) AND ( `forcetypeID` IN ('1','2','3','4') ) AND ( `sporttypeID` IN ('1','2') ) AND ( `levelID` IN ('1','2','3') )  [ RunTime:0.001284s ]
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006845s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1   [ RunTime:0.001735s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1  
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1   [ RunTime:0.002100s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 0 ) LIMIT 1  
+
+[ 2014-07-21T16:21:42+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_all/eid/19
+SQL: SHOW COLUMNS FROM `onethink_exercisecomment` [ RunTime:0.026068s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_exercisecomment` WHERE ( `eid` = 19 ) LIMIT 1   [ RunTime:0.040157s ]
+SQL: SELECT * FROM `onethink_exercisecomment` WHERE ( `eid` = 19 ) LIMIT 0,10   [ RunTime:0.001178s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000479s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000715s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.113293s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.113771s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001468s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001684s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001811s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002033s ]
+
+[ 2014-07-21T16:22:31+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_all/eid/20
+SQL: SHOW COLUMNS FROM `onethink_exercisecomment` [ RunTime:0.006213s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_exercisecomment` WHERE ( `eid` = 20 ) LIMIT 1   [ RunTime:0.000518s ]
+SQL: SELECT * FROM `onethink_exercisecomment` WHERE ( `eid` = 20 ) LIMIT 0,10   [ RunTime:0.000489s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000513s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000839s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.048626s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.048863s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001374s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001654s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001739s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001957s ]
+
+[ 2014-07-21T16:22:51+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_all/eid/19
+SQL: SHOW COLUMNS FROM `onethink_exercisecomment` [ RunTime:0.006273s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_exercisecomment` WHERE ( `eid` = 19 ) LIMIT 1   [ RunTime:0.000545s ]
+SQL: SELECT * FROM `onethink_exercisecomment` WHERE ( `eid` = 19 ) LIMIT 0,10   [ RunTime:0.000532s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000486s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000700s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.049363s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.049620s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001270s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001483s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001686s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001908s ]
+
+[ 2014-07-21T16:23:56+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_all/eid/19
+SQL: SHOW COLUMNS FROM `onethink_exercisecomment` [ RunTime:0.006477s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_exercisecomment` WHERE ( `eid` = 19 ) LIMIT 1   [ RunTime:0.000623s ]
+SQL: SELECT * FROM `onethink_exercisecomment` WHERE ( `eid` = 19 ) LIMIT 0,10   [ RunTime:0.000511s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000499s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000719s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.049337s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.049578s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001596s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001809s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001968s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002192s ]
+
+[ 2014-07-21T16:24:52+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_all/eid/19
+SQL: SHOW COLUMNS FROM `onethink_exercisecomment` [ RunTime:0.006679s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_exercisecomment` WHERE ( `eid` = 19 ) LIMIT 1   [ RunTime:0.000550s ]
+SQL: SELECT * FROM `onethink_exercisecomment` WHERE ( `eid` = 19 ) LIMIT 0,10   [ RunTime:0.000503s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000479s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000692s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.048847s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.049119s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001267s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001484s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001712s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001933s ]
+
+[ 2014-07-21T16:25:12+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_ind.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000340s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000583s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039424s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040517s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001320s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001532s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001749s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001989s ]
+
+[ 2014-07-21T16:25:15+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_name.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000296s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000509s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.036203s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037255s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001522s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001772s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001794s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002041s ]
+
+[ 2014-07-21T16:25:17+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_tml.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000421s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000644s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.037812s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038864s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001235s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001470s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001632s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001882s ]
+
+[ 2014-07-21T16:25:19+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.006912s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001681s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000356s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000574s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.038723s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038963s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001233s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001448s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001610s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001848s ]
+
+[ 2014-07-21T16:32:00+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_common.html
+SQL: SHOW COLUMNS FROM `onethink_goalmodule` [ RunTime:0.046164s ]
+SQL: SELECT * FROM `onethink_goalmodule`  [ RunTime:0.000541s ]
+SQL: SHOW COLUMNS FROM `onethink_goalcontinuetype` [ RunTime:0.006218s ]
+SQL: SELECT * FROM `onethink_goalcontinuetype` WHERE ( `status` = 1 )  [ RunTime:0.000495s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000395s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000621s ]
+NOTIC: [8] Undefined variable: tinue C:\wamp\www\qujianshenla\wwwroot\Runtime\Cache\Home\78f19b806e1cecf46779d8356fee07d0.php 第 269 行.
+SQL: SHOW COLUMNS FROM `onethink_goaltype` [ RunTime:0.006244s ]
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 1 )  [ RunTime:0.000532s ]
+SQL: SHOW COLUMNS FROM `onethink_goal` [ RunTime:0.006468s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 2 ) LIMIT 1   [ RunTime:0.000552s ]
+NOTIC: [8] Undefined variable: data C:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 5 ) LIMIT 1   [ RunTime:0.000515s ]
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 2 )  [ RunTime:0.000508s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 3 ) LIMIT 1   [ RunTime:0.000526s ]
+NOTIC: [8] Undefined variable: data C:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 4 ) LIMIT 1   [ RunTime:0.000498s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.072140s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.072350s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001454s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001667s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001627s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001844s ]
+
+[ 2014-07-21T16:48:45+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_mte.html
+SQL: SHOW COLUMNS FROM `onethink_likeaction` [ RunTime:0.007274s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_likeaction`
+SQL: SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1   [ RunTime:0.001748s ]
+ERR: 1146:Table 'jianshen.onethink_likeaction' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_likeaction` WHERE ( `uid` = 2 ) LIMIT 1  
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\ExerciseController.class.php 第 236 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000364s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000588s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039530s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039778s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001522s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001737s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001684s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001932s ]
+=======
 [ 2014-07-21T11:17:08+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php
 SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.008322s ]
 SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.000550s ]
@@ -10216,4 +11447,5 @@ INFO: [ view_filter ] --END-- [ RunTime:0.000861s ]
 INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTrace [ RunTime:0.000855s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000989s ]
+>>>>>>> upstream/master
 

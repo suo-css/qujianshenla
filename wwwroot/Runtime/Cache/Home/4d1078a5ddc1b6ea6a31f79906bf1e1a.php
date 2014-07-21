@@ -132,9 +132,89 @@
         }
     </style>
     <div class="row" style="margin-top:-20px">
-         
         
-    <style type="text/css">
+            <!-- 左侧 nav
+            ================================================== -->
+            <div class="col-md-2 bs-docs-sidebar" style="font-size:16px;color:darkslategrey;font-weight:800; padding-top: 0px;padding-right:0px;padding-bottom:0px;padding-left: 0px;">
+
+                <div class="user_space">
+                    <div class="user_information" style="color:white;font-weight:800;background-color:darkslategrey padding-top: 3px;padding-right:3px;padding-bottom:3px;padding-left:3px;border-style: solid;" >
+                        <p>..........</p>
+                        <p>..........</p>
+                        <p>..........</p>
+                    </div>
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="sidenav_panel_1">
+                                <h4 class="panel-title"> 
+                                    <span class="glyphicon glyphicon-home"></span> &nbsp
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        我的主页
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <a href="<?php echo U('User/login');?>">登陆</a>
+                                     <a href="<?php echo U('User/password');?>">修改</a>
+                                      <a href="<?php echo U('User/register');?>">注册</a>
+                                       <a href="<?php echo U('User/logout');?>">退出</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="sidenav_panel_2">
+                                <h4 class="panel-title">
+                                    <span class="glyphicon glyphicon-calendar"></span> &nbsp
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                        我的计划
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Anim pariatur cliche ch 3 wolf moonente ea le, raw denim aestheabore sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="sidenav_panel_3">
+                                <h4 class="panel-title">
+                                    <span class="glyphicon glyphicon-user"></span> &nbsp
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                        健身小组
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Anim pariatur cliche atatquer farm-to-tablee sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" id="sidenav_panel_4">
+                                <h4 class="panel-title">
+                                    <span class="glyphicon glyphicon-wrench"></span> &nbsp
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                        设置
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                            <a href="<?php echo U('User/profiles');?>">个人信息</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+
+      
+ <style type="text/css">
          .nav_s{width:623px; height:540px; }
          .goal{width:620px; height:47px;}
          .tus{width:620px;height:415px;}
@@ -143,10 +223,12 @@
          .dengji{width:620px;height:470px;}
          .dengjit{float:left;}
     </style>
+ 
 
- <form role="form" style="margin-top:10px;">
+<div   class="col-md-8">
+    <form role="form" style="margin-top:10px;">
 
-    <div class="form-group">
+       <div class="form-group">
       <label  for="exampleInputEmail1">项目名称</label>
       <div >
         <input type="PROGRAM NAME" class="form-control" id="exampleInputEmail1" placeholder="项目名称">
@@ -184,22 +266,14 @@
         <div class="dengjit"><img src="tu9" /></div>
         <div class="dengjit"><img src="tu10" /></div>
         <div class="dengjit"><img src="tu11" /></div>
+ 
+     
  </div>
+       <div style="float:right;"> <a href="<?php echo U('Exercise/exc_tml');?>" class="btn btn-primary btn-lg active" role="button">下一步</a></div>
 
-<!--   <div >
-     男<input type="radio" name="sex" value="1" />
-     女<input type="radio" name="sex" value="0" />
-  </div>
+</div>
 
-  <div>
-     <select name="age">
-        <option value="">儿童</option>
-        <option value="">青少年</option>
-        <option value="">壮年</option>
-        <option value="">老年</option>
-     </select>
-  </div> -->
-<a href="<?php echo U('Exercise/exc_tml');?>" class="btn btn-primary btn-lg active" role="button">下一步</a>
+
 
          
 
@@ -241,8 +315,6 @@
 	}
 })();
 </script>
-
- 
  <!-- 用于加载js代码 -->
 <!-- 页面footer钩子，一般用于加载插件JS文件和JS代码 -->
 <?php echo hook('pageFooter', 'widget');?>

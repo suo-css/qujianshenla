@@ -60,8 +60,9 @@
                              <!--  {$vo.ename} -->
                                                         
                    </volist>
-                    <span  id="drag1" draggable="true" ondragstart="drag(event)">拖拽我把</span>
-                    
+                    <span  id="drag1" class="draggable" draggable="true" ondragstart="drag(event)">拖拽我把1</span>
+                    <span  id="drag2" class="draggable" draggable="true" ondragstart="drag(event)">拖拽我把2</span>
+                    <span  id="drag3" class="draggable" draggable="true" ondragstart="drag(event)">拖拽我把3</span>
                  </div>
            </div>
   </block>
@@ -105,7 +106,6 @@
           }
     })
      
-
  function allowDrop(ev)
 {
 ev.preventDefault();
@@ -120,7 +120,13 @@ function drop(ev)
 {
 ev.preventDefault();
 var data=ev.dataTransfer.getData("Text");
-ev.target.appendChild(document.getElementById(data));
+//ev.target.appendChild(document.getElementById(data));
+var beforeChild = $(ev.target).find("div:eq(0)")[0];
+var data = document.getElementById(data);
+ev.target.insertBefore(data,beforeChild);
+$(data).dblclick(function(){
+  $(this).remove();
+});
 }    
 </script>
   </block>

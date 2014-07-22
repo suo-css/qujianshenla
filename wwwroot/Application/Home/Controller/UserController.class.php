@@ -31,15 +31,14 @@ class UserController extends HomeController {
 			if(!check_verify($verify)){
 				$this->error('验证码输入错误！');
 			}
-
 			/* 检测密码 */
 			if($password != $repassword){
 				$this->error('密码和重复密码不一致！');
-			}			
-
+			}	
 			/* 调用注册接口注册用户 */
             $User = new UserApi;
-			$uid = $User->register($username, $password, $email);
+            $id   = uuid();
+			$uid  = $User->register($id,$username, $password, $email);
 			if(0 < $uid){ //注册成功
 				//TODO: 发送验证邮件
 				$this->success('注册成功！',U('login'));
@@ -47,7 +46,7 @@ class UserController extends HomeController {
 				$this->error($this->showRegError($uid));
 			}
 
-		} else { //显示注册表单
+		} else { //显示注册表单 
 			$this->display();
 		}
 	}

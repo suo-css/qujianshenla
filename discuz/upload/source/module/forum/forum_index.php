@@ -430,7 +430,16 @@ if($gid && !empty($catlist)) {
 	$_G['fid'] = $gid;
 }
 
+
+
+$view = "三个";
+
+$gid = 0;
+
 include template('diy:forum/discuz:'.$gid);
+
+
+
 
 function get_index_announcements() {
 	global $_G;
@@ -530,4 +539,6 @@ function categorycollapse() {
 		}
 	}
 }
+
+
 ?>

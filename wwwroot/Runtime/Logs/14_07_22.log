@@ -242,3 +242,2706 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTrace [ RunTime:0.000651s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000771s ]
 
+[ 2014-07-22T15:15:59+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.022777s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.000821s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.027597s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` = 1 ) AND ( `pid` = 0 ) AND ( `create_time` < 1406013357 ) AND ( deadline = 0 OR deadline > 1406013357 ) ORDER BY `id` DESC  [ RunTime:0.001014s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000365s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000883s ]
+INFO: [ pageHeader ] --START--
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000598s ]
+INFO: Run QuickLogin [ RunTime:0.121965s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.122227s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `onethink_category` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000746s ]
+SQL: SELECT `id`,`name`,`pid`,`title`,`link_id` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.000507s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` = 1 ) AND ( `pid` = 0 ) AND ( `category_id` = 2 ) AND ( `create_time` < 1406013357 ) AND ( deadline = 0 OR deadline > 1406013357 ) ORDER BY `level` DESC,`id` DESC LIMIT 0,10   [ RunTime:0.000776s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.087256s ]
+SQL: SELECT `id`,`username`,`email`,`mobile`,`status` FROM `onethink_ucenter_member` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.028965s ]
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.009931s ]
+SQL: SELECT * FROM `onethink_category` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.000571s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.567431s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.567685s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.040531s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.040760s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.031518s ]
+INFO: [ app_end ] --END-- [ RunTime:0.031749s ]
+
+[ 2014-07-22T15:16:16+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000192s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000346s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005733s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000348s ]
+INFO: Run QuickLogin [ RunTime:0.009577s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009723s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.062627s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.063305s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000783s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000921s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000908s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001039s ]
+
+[ 2014-07-22T15:16:16+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001562s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002928s ]
+
+[ 2014-07-22T15:18:03+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+ERR: Think\Controller:dbÊñπÊ≥ï‰∏çÂ≠òÂú®ÔºÅ
+
+[ 2014-07-22T15:21:22+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `pre_common_member` [ RunTime:0.007807s ]
+NOTIC: [2] Missing argument 1 for Think\Model::query(), called in D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php on line 51 and defined D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Model.class.php Á¨¨ 1187 Ë°å.
+NOTIC: [8] Undefined variable: sql D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Model.class.php Á¨¨ 1192 Ë°å.
+SQL:  [ RunTime:0.009463s ]
+ERR: 1065:Query was empty
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000190s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000327s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005770s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000378s ]
+INFO: Run QuickLogin [ RunTime:0.009375s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009533s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.028922s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029064s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000681s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000813s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000848s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000980s ]
+
+[ 2014-07-22T15:21:22+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000849s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001621s ]
+
+[ 2014-07-22T15:21:30+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `pre_common_member` [ RunTime:0.006082s ]
+NOTIC: [2] Missing argument 1 for Think\Model::query(), called in D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php on line 51 and defined D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Model.class.php Á¨¨ 1187 Ë°å.
+NOTIC: [8] Undefined variable: sql D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Model.class.php Á¨¨ 1192 Ë°å.
+SQL:  [ RunTime:0.000199s ]
+ERR: 1065:Query was empty
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000186s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000329s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.006172s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000317s ]
+INFO: Run QuickLogin [ RunTime:0.009560s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009726s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.028601s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028731s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000646s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000779s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000875s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001025s ]
+
+[ 2014-07-22T15:21:30+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001995s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003223s ]
+
+[ 2014-07-22T15:21:50+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `pre_common_member` [ RunTime:0.005805s ]
+SQL: select * from common_member [ RunTime:0.023220s ]
+ERR: 1146:Table 'ultrax.common_member' doesn't exist
+ [ SQLËØ≠Âè• ] : select * from common_member
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000186s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000335s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005663s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000378s ]
+INFO: Run QuickLogin [ RunTime:0.009650s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009808s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.029004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029156s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000839s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000979s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000915s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001037s ]
+
+[ 2014-07-22T15:21:50+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000882s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001587s ]
+
+[ 2014-07-22T15:24:56+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+ERR: Think\Controller:dbÊñπÊ≥ï‰∏çÂ≠òÂú®ÔºÅ
+
+[ 2014-07-22T15:25:20+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+ERR: Think\Controller:dbÊñπÊ≥ï‰∏çÂ≠òÂú®ÔºÅ
+
+[ 2014-07-22T15:27:20+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005170s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+
+[ 2014-07-22T15:27:52+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004926s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: [2002] php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  (trying to connect via tcp://locahost:3306) D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+ERR: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£ 
+
+[ 2014-07-22T15:28:42+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005134s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: [2002] php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  (trying to connect via tcp://locahost:3306) D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+ERR: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£ 
+
+[ 2014-07-22T15:29:04+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005321s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: [2002] php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  (trying to connect via tcp://locahost:3306) D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+ERR: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£ 
+
+[ 2014-07-22T15:29:18+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005159s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+
+[ 2014-07-22T15:30:33+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004860s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: select * from pre_common_member [ RunTime:0.022382s ]
+ERR: 1146:Table 'jianshen.pre_common_member' doesn't exist
+ [ SQLËØ≠Âè• ] : select * from pre_common_member
+
+[ 2014-07-22T15:30:36+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005246s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: select * from pre_common_member [ RunTime:0.000440s ]
+ERR: 1146:Table 'jianshen.pre_common_member' doesn't exist
+ [ SQLËØ≠Âè• ] : select * from pre_common_member
+
+[ 2014-07-22T15:30:43+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004918s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: select * form pre_common_member [ RunTime:0.000180s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'form pre_common_member' at line 1
+ [ SQLËØ≠Âè• ] : select * form pre_common_member
+
+[ 2014-07-22T15:30:50+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005116s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: select * from pre_common_member [ RunTime:0.000387s ]
+ERR: 1146:Table 'jianshen.pre_common_member' doesn't exist
+ [ SQLËØ≠Âè• ] : select * from pre_common_member
+
+[ 2014-07-22T15:31:00+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005327s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: [2002] php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  (trying to connect via tcp://locahost:3306) D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+ERR: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£ 
+
+[ 2014-07-22T15:34:00+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+ERR: Ê≤°ÊúâÂÆö‰πâÊï∞ÊçÆÂ∫ìÈÖçÁΩÆ
+
+[ 2014-07-22T15:34:29+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005069s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: [2002] php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  (trying to connect via tcp://locahost:3306) D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+ERR: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£ 
+
+[ 2014-07-22T15:34:46+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004846s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+ERR: Think\Controller:dbÊñπÊ≥ï‰∏çÂ≠òÂú®ÔºÅ
+
+[ 2014-07-22T15:36:34+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: [2002] php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  (trying to connect via tcp://locahost:3306) D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+NOTIC: [2] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£  D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 52 Ë°å.
+ERR: php_network_getaddresses: getaddrinfo failed: ≤ª÷™µ¿’‚—˘µƒ÷˜ª˙°£ 
+
+[ 2014-07-22T15:45:17+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+ERR: Think\Controller:dbÊñπÊ≥ï‰∏çÂ≠òÂú®ÔºÅ
+
+[ 2014-07-22T15:46:30+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004963s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005236s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: select * from pre_common_member [ RunTime:0.010085s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000192s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000335s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.006870s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000352s ]
+INFO: Run QuickLogin [ RunTime:0.034433s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.034656s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.112772s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.112914s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001215s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001414s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.016361s ]
+INFO: [ app_end ] --END-- [ RunTime:0.016589s ]
+
+[ 2014-07-22T15:46:30+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001496s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002742s ]
+
+[ 2014-07-22T15:46:43+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005370s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005457s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: select * from pre_common_member [ RunTime:0.000387s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000188s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000327s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.007443s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000421s ]
+INFO: Run QuickLogin [ RunTime:0.011404s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.011564s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.052236s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.052380s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000625s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000763s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000785s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000925s ]
+
+[ 2014-07-22T15:46:43+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001262s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002269s ]
+
+[ 2014-07-22T15:48:22+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005041s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005100s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: select * from pre_common_member [ RunTime:0.000414s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000185s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000328s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.006090s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000312s ]
+INFO: Run QuickLogin [ RunTime:0.010727s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.011016s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.034734s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034882s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000663s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000796s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000820s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000955s ]
+
+[ 2014-07-22T15:48:22+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002031s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003289s ]
+
+[ 2014-07-22T16:01:30+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000207s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000375s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005753s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000365s ]
+INFO: Run QuickLogin [ RunTime:0.040806s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.040978s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.114978s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.116078s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001181s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001329s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.025948s ]
+INFO: [ app_end ] --END-- [ RunTime:0.026093s ]
+
+[ 2014-07-22T16:01:30+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001034s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001812s ]
+
+[ 2014-07-22T16:01:39+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000778s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001310s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006488s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000611s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.007853s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'zy' ) LIMIT 1   [ RunTime:0.018583s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000911s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001049s ]
+
+[ 2014-07-22T16:01:39+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002150s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.007228s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000383s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006800s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'zy' ) LIMIT 1   [ RunTime:0.000252s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000901s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001028s ]
+
+[ 2014-07-22T16:01:39+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000993s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001675s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005664s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000372s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006260s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'zyy' ) LIMIT 1   [ RunTime:0.000311s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000908s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001032s ]
+
+[ 2014-07-22T16:01:39+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001123s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001923s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005729s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000558s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006210s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'zyy' ) LIMIT 1   [ RunTime:0.000343s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000903s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001024s ]
+
+[ 2014-07-22T16:01:40+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000865s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001445s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006667s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000570s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006199s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = '' ) LIMIT 1   [ RunTime:0.000297s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000804s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000927s ]
+
+[ 2014-07-22T16:01:40+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000720s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001303s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005944s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000380s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005850s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = '' ) LIMIT 1   [ RunTime:0.000435s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001313s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001525s ]
+
+[ 2014-07-22T16:01:41+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000680s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001207s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005988s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000462s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006529s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'zy' ) LIMIT 1   [ RunTime:0.001369s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000923s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001059s ]
+
+[ 2014-07-22T16:01:41+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000725s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001220s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006547s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000414s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005394s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'zy' ) LIMIT 1   [ RunTime:0.000310s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001545s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001773s ]
+
+[ 2014-07-22T16:01:41+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000720s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001201s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.007095s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000509s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005429s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'zyy' ) LIMIT 1   [ RunTime:0.000303s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000912s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001034s ]
+
+[ 2014-07-22T16:01:43+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000813s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001755s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006622s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000458s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006273s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'zyya' ) LIMIT 1   [ RunTime:0.000314s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001231s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001438s ]
+
+[ 2014-07-22T16:01:46+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000971s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001634s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005831s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000529s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006051s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'd' ) LIMIT 1   [ RunTime:0.000313s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000920s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001045s ]
+
+[ 2014-07-22T16:01:47+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000747s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001318s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.033962s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000438s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005850s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'di' ) LIMIT 1   [ RunTime:0.000300s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001101s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001283s ]
+
+[ 2014-07-22T16:01:47+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000732s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001237s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006572s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000493s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005892s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'dis' ) LIMIT 1   [ RunTime:0.000283s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000904s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001027s ]
+
+[ 2014-07-22T16:01:48+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000810s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001409s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005702s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000420s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005620s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'disc' ) LIMIT 1   [ RunTime:0.000390s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000934s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001060s ]
+
+[ 2014-07-22T16:01:48+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000729s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001218s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006088s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000543s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005499s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discu' ) LIMIT 1   [ RunTime:0.000292s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000911s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001039s ]
+
+[ 2014-07-22T16:01:48+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000801s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001340s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006018s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000618s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005731s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) LIMIT 1   [ RunTime:0.000310s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000921s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001045s ]
+
+[ 2014-07-22T16:01:55+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000915s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001663s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005787s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000582s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005828s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com' ) LIMIT 1   [ RunTime:0.000336s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000903s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001027s ]
+
+[ 2014-07-22T16:01:57+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000739s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001217s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005971s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000481s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005777s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com2' ) LIMIT 1   [ RunTime:0.000312s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000990s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001167s ]
+
+[ 2014-07-22T16:01:59+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000730s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001214s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006822s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000955s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.007768s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com' ) LIMIT 1   [ RunTime:0.000364s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000913s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001036s ]
+
+[ 2014-07-22T16:01:59+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000927s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001871s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006143s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000447s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005375s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com' ) LIMIT 1   [ RunTime:0.000320s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000900s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001027s ]
+
+[ 2014-07-22T16:02:00+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000706s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001264s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005915s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000512s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005521s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com2' ) LIMIT 1   [ RunTime:0.000319s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000905s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001037s ]
+
+[ 2014-07-22T16:02:02+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000701s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001241s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005808s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000506s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005736s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com' ) LIMIT 1   [ RunTime:0.000318s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001035s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001174s ]
+
+[ 2014-07-22T16:02:02+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000785s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001332s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006066s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000411s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005638s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com' ) LIMIT 1   [ RunTime:0.000316s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000912s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001121s ]
+
+[ 2014-07-22T16:02:03+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000848s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001450s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005827s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000422s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005571s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com' ) LIMIT 1   [ RunTime:0.000338s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000909s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001032s ]
+
+[ 2014-07-22T16:02:03+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000756s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001277s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005743s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000468s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005559s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com' ) LIMIT 1   [ RunTime:0.000367s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000948s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001074s ]
+
+[ 2014-07-22T16:02:04+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000726s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001222s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005544s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000492s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005667s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com' ) LIMIT 1   [ RunTime:0.000323s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000908s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001052s ]
+
+[ 2014-07-22T16:02:04+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000792s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001375s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005874s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000452s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005920s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '4550783892@qq.com' ) LIMIT 1   [ RunTime:0.000315s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000910s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001032s ]
+
+[ 2014-07-22T16:02:04+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000804s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001442s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005873s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000435s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005520s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '4550783892@qq.com' ) LIMIT 1   [ RunTime:0.000403s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000941s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001069s ]
+
+[ 2014-07-22T16:02:10+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000734s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001220s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005893s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000443s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006596s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) AND ( `id` <> '{B1936F4F-0A12-4A25-A381-7EF688FEFC72}' ) LIMIT 1   [ RunTime:0.000449s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '4550783892@qq.com' ) AND ( `id` <> '{B1936F4F-0A12-4A25-A381-7EF688FEFC72}' ) LIMIT 1   [ RunTime:0.000450s ]
+SQL: INSERT INTO `onethink_ucenter_member` (`id`,`username`,`password`,`email`,`status`) VALUES ('{B1936F4F-0A12-4A25-A381-7EF688FEFC72}','discuz','7241a04353ab7c4cad8e9845ccbd6670','4550783892@qq.com',1) [ RunTime:0.030316s ]
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.009745s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.009445s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+NOTIC: [2] Missing argument 1 for Think\Model::query(), called in D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php on line 48 and defined D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Model.class.php Á¨¨ 1187 Ë°å.
+NOTIC: [8] Undefined variable: sql D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Model.class.php Á¨¨ 1192 Ë°å.
+SQL:  [ RunTime:0.000261s ]
+ERR: 1065:Query was empty
+
+[ 2014-07-22T16:02:48+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000182s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000330s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005739s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000287s ]
+INFO: Run QuickLogin [ RunTime:0.009423s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009563s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.029395s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030037s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000669s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000808s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000791s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000935s ]
+
+[ 2014-07-22T16:02:49+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000908s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001642s ]
+
+[ 2014-07-22T16:02:50+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000838s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001382s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005568s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000421s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005624s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'd' ) LIMIT 1   [ RunTime:0.000366s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001150s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001394s ]
+
+[ 2014-07-22T16:02:50+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000822s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001344s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005627s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000587s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006041s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'di' ) LIMIT 1   [ RunTime:0.000486s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001131s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001273s ]
+
+[ 2014-07-22T16:02:50+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000834s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001375s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005570s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000419s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005739s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'dis' ) LIMIT 1   [ RunTime:0.000328s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001076s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001215s ]
+
+[ 2014-07-22T16:02:52+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000827s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001347s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005763s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000498s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005771s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'disz' ) LIMIT 1   [ RunTime:0.000411s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001056s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001178s ]
+
+[ 2014-07-22T16:02:52+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000861s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001477s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005825s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000416s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005350s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'diszu' ) LIMIT 1   [ RunTime:0.000257s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001023s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001144s ]
+
+[ 2014-07-22T16:02:52+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000893s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001441s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005739s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000472s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005936s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'diszuc' ) LIMIT 1   [ RunTime:0.000416s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001091s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001220s ]
+
+[ 2014-07-22T16:02:52+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000824s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001340s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006058s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000565s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005960s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'diszu' ) LIMIT 1   [ RunTime:0.000310s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001025s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001144s ]
+
+[ 2014-07-22T16:02:52+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000880s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001444s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005580s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000423s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.007833s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'disz' ) LIMIT 1   [ RunTime:0.000317s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001036s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001161s ]
+
+[ 2014-07-22T16:02:53+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000942s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001543s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005678s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000422s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005897s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'dis' ) LIMIT 1   [ RunTime:0.000491s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001068s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001204s ]
+
+[ 2014-07-22T16:02:53+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000826s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001349s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005804s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000492s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.013705s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'disc' ) LIMIT 1   [ RunTime:0.000360s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001206s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001345s ]
+
+[ 2014-07-22T16:02:53+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000819s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001342s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005943s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000428s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005580s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discu' ) LIMIT 1   [ RunTime:0.000268s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001012s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001137s ]
+
+[ 2014-07-22T16:02:53+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000830s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001359s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005885s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000411s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005433s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) LIMIT 1   [ RunTime:0.000304s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001002s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001125s ]
+
+[ 2014-07-22T16:03:59+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000186s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000347s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.006634s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000351s ]
+INFO: Run QuickLogin [ RunTime:0.010316s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.010477s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.054620s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.055361s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000804s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000953s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001217s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001373s ]
+
+[ 2014-07-22T16:03:59+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000875s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001736s ]
+
+[ 2014-07-22T16:04:05+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000177s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000316s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005662s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000364s ]
+INFO: Run QuickLogin [ RunTime:0.009141s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009286s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.027894s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028542s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000679s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000821s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000823s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000966s ]
+
+[ 2014-07-22T16:04:05+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001720s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002944s ]
+
+[ 2014-07-22T16:04:05+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000247s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000420s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005621s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000310s ]
+INFO: Run QuickLogin [ RunTime:0.009056s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009229s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.029512s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030186s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000655s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000785s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000770s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000896s ]
+
+[ 2014-07-22T16:04:05+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001296s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002966s ]
+
+[ 2014-07-22T16:04:06+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000180s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000321s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005682s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000330s ]
+INFO: Run QuickLogin [ RunTime:0.009036s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009183s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.027875s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028511s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000646s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000785s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000785s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000928s ]
+
+[ 2014-07-22T16:04:06+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001059s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002073s ]
+
+[ 2014-07-22T16:04:07+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000178s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000347s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005582s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000346s ]
+INFO: Run QuickLogin [ RunTime:0.008932s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009087s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.027966s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028688s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000802s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000941s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001087s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001215s ]
+
+[ 2014-07-22T16:04:07+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000918s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001705s ]
+
+[ 2014-07-22T16:04:14+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000179s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000322s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005846s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000414s ]
+INFO: Run QuickLogin [ RunTime:0.010108s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.010268s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.036948s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037616s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000600s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000718s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000792s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000910s ]
+
+[ 2014-07-22T16:04:14+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000880s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001640s ]
+
+[ 2014-07-22T16:07:11+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000189s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000336s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.006165s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000375s ]
+INFO: Run QuickLogin [ RunTime:0.009523s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009675s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.028376s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029053s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001051s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001203s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000979s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001109s ]
+
+[ 2014-07-22T16:07:11+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000763s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001417s ]
+
+[ 2014-07-22T16:07:21+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000184s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000322s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.029286s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000302s ]
+INFO: Run QuickLogin [ RunTime:0.032835s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.032999s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.054157s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.054909s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000648s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000786s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000780s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000916s ]
+
+[ 2014-07-22T16:07:21+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001007s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001988s ]
+
+[ 2014-07-22T16:07:24+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000773s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001350s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006194s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000502s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006404s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'i' ) LIMIT 1   [ RunTime:0.000353s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000917s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001039s ]
+
+[ 2014-07-22T16:07:24+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000797s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001465s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005944s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000435s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005664s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'id' ) LIMIT 1   [ RunTime:0.000361s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000984s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001106s ]
+
+[ 2014-07-22T16:07:25+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000722s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001259s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006012s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000596s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.007428s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'i' ) LIMIT 1   [ RunTime:0.000303s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000897s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001024s ]
+
+[ 2014-07-22T16:07:25+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000776s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001366s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.021728s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000419s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005542s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = '' ) LIMIT 1   [ RunTime:0.000266s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001118s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001286s ]
+
+[ 2014-07-22T16:07:25+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000730s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001272s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006036s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000425s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005612s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'd' ) LIMIT 1   [ RunTime:0.000348s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000968s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001100s ]
+
+[ 2014-07-22T16:07:25+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000754s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001360s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006716s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000404s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005968s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'dis' ) LIMIT 1   [ RunTime:0.000291s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000949s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001073s ]
+
+[ 2014-07-22T16:07:25+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000731s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001350s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006278s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000404s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005473s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'dis' ) LIMIT 1   [ RunTime:0.000296s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000897s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001023s ]
+
+[ 2014-07-22T16:07:26+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000726s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001315s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006364s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000676s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006043s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'disc' ) LIMIT 1   [ RunTime:0.000337s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000922s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001045s ]
+
+[ 2014-07-22T16:07:26+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000756s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001368s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006901s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.001137s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006237s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discu' ) LIMIT 1   [ RunTime:0.000307s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001132s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001337s ]
+
+[ 2014-07-22T16:07:26+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000727s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001290s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005910s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000405s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005830s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) LIMIT 1   [ RunTime:0.000279s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000917s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001037s ]
+
+[ 2014-07-22T16:07:34+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001268s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002106s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.007209s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000489s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005978s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com' ) LIMIT 1   [ RunTime:0.000434s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001401s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001640s ]
+
+[ 2014-07-22T16:07:35+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000727s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001277s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005989s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000428s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006331s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) LIMIT 1   [ RunTime:0.000339s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001128s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001299s ]
+
+[ 2014-07-22T16:07:41+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006097s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) AND ( `id` <> 'f1203951032625fee0efb65d69626a30' ) LIMIT 1   [ RunTime:0.000364s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) AND ( `id` <> 'f1203951032625fee0efb65d69626a30' ) LIMIT 1   [ RunTime:0.000267s ]
+SQL: INSERT INTO `onethink_ucenter_member` (`id`,`username`,`password`,`email`,`status`) VALUES ('f1203951032625fee0efb65d69626a30','discuz','e97a48ac25901d67c4efdd9ce1f27f0c','455078389@qq.com1',1) [ RunTime:0.027799s ]
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005285s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005352s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+NOTIC: [2] Missing argument 1 for Think\Model::query(), called in D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php on line 48 and defined D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Model.class.php Á¨¨ 1187 Ë°å.
+NOTIC: [8] Undefined variable: sql D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Model.class.php Á¨¨ 1192 Ë°å.
+SQL:  [ RunTime:0.000187s ]
+ERR: 1065:Query was empty
+
+[ 2014-07-22T16:07:56+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000085s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000236s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.054500s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.055342s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000624s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000749s ]
+
+[ 2014-07-22T16:07:59+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000196s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000347s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.006662s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000327s ]
+INFO: Run QuickLogin [ RunTime:0.010115s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.010264s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.029511s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030202s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000679s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000817s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000807s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000942s ]
+
+[ 2014-07-22T16:08:48+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000801s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001405s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006307s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000709s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006792s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) LIMIT 1   [ RunTime:0.000299s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000904s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001025s ]
+
+[ 2014-07-22T16:08:48+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000987s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001657s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.009348s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000373s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005961s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) LIMIT 1   [ RunTime:0.000591s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000964s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001095s ]
+
+[ 2014-07-22T16:08:53+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005659s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) AND ( `id` <> '6e8f6020ac8c5e20e42ab875be98af59' ) LIMIT 1   [ RunTime:0.000474s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) AND ( `id` <> '6e8f6020ac8c5e20e42ab875be98af59' ) LIMIT 1   [ RunTime:0.001020s ]
+SQL: INSERT INTO `onethink_ucenter_member` (`id`,`username`,`password`,`email`,`status`) VALUES ('6e8f6020ac8c5e20e42ab875be98af59','discuz','7241a04353ab7c4cad8e9845ccbd6670','455078389@qq.com1',1) [ RunTime:0.000522s ]
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004941s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005049s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+NOTIC: [2] Missing argument 1 for Think\Model::query(), called in D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php on line 48 and defined D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Model.class.php Á¨¨ 1187 Ë°å.
+NOTIC: [8] Undefined variable: sql D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Model.class.php Á¨¨ 1192 Ë°å.
+SQL:  [ RunTime:0.000164s ]
+ERR: 1065:Query was empty
+
+[ 2014-07-22T16:09:21+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006112s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) AND ( `id` <> '6fb70a6318acd9cb3b6465d627581901' ) LIMIT 1   [ RunTime:0.000557s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000086s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000230s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.011061s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011238s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000891s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001087s ]
+
+[ 2014-07-22T16:09:25+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000190s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000360s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005628s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000323s ]
+INFO: Run QuickLogin [ RunTime:0.009112s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009270s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.029750s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030502s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000721s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000874s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000862s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001010s ]
+
+[ 2014-07-22T16:21:53+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001022s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001737s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005452s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000429s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005495s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) LIMIT 1   [ RunTime:0.000299s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001035s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001156s ]
+
+[ 2014-07-22T16:21:55+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005240s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.009466s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO 'pre_common_member' VALUES ('3', '455078@163.com', 'zyy1', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0'); [ RunTime:0.000300s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pre_common_member' VALUES ('3', '455078@163.com', 'zyy1', '6cae282cc90ca5869c34' at line 1
+ [ SQLËØ≠Âè• ] : INSERT INTO 'pre_common_member' VALUES ('3', '455078@163.com', 'zyy1', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0');
+
+[ 2014-07-22T16:23:13+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.006069s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005841s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO 'pre_common_member' VALUES ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','1406012756','2','0','9999','0','1','0','0','0','0','0') [ RunTime:0.000185s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pre_common_member' VALUES ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a' at line 1
+ [ SQLËØ≠Âè• ] : INSERT INTO 'pre_common_member' VALUES ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','1406012756','2','0','9999','0','1','0','0','0','0','0')
+
+[ 2014-07-22T16:23:28+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004811s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005073s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO 'pre_common_member' VALUES ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','1406012756','2','0','9999','0','1','0','0','0','0','0') [ RunTime:0.000210s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pre_common_member' VALUES ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a' at line 1
+ [ SQLËØ≠Âè• ] : INSERT INTO 'pre_common_member' VALUES ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','1406012756','2','0','9999','0','1','0','0','0','0','0')
+
+[ 2014-07-22T16:23:39+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004908s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.008961s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO 'pre_common_member' VALUES ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','1406012756','2','0','9999','0','1','0','0','0','0','0') [ RunTime:0.000254s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pre_common_member' VALUES ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a' at line 1
+ [ SQLËØ≠Âè• ] : INSERT INTO 'pre_common_member' VALUES ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','1406012756','2','0','9999','0','1','0','0','0','0','0')
+
+[ 2014-07-22T16:23:47+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.012715s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004824s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO 'pre_common_member' VALUES ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','1406012756','2','0','9999','0','1','0','0','0','0','0') [ RunTime:0.000174s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pre_common_member' VALUES ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a' at line 1
+ [ SQLËØ≠Âè• ] : INSERT INTO 'pre_common_member' VALUES ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','1406012756','2','0','9999','0','1','0','0','0','0','0')
+
+[ 2014-07-22T16:24:48+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004683s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005362s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: insert into 'pre_common_member' VALUES ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','1406012756','2','0','9999','0','1','0','0','0','0','0') [ RunTime:0.000206s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pre_common_member' VALUES ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a' at line 1
+ [ SQLËØ≠Âè• ] : insert into 'pre_common_member' VALUES ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','1406012756','2','0','9999','0','1','0','0','0','0','0')
+
+[ 2014-07-22T16:24:55+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005331s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004928s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: insert into 'pre_common_member' values ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','1406012756','2','0','9999','0','1','0','0','0','0','0') [ RunTime:0.000176s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pre_common_member' values ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a' at line 1
+ [ SQLËØ≠Âè• ] : insert into 'pre_common_member' values ('3','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','1406012756','2','0','9999','0','1','0','0','0','0','0')
+
+[ 2014-07-22T16:25:04+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005512s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005034s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: insert into 'pre_common_member' values ('3123123','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','1406012756','2','0','9999','0','1','0','0','0','0','0') [ RunTime:0.000204s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pre_common_member' values ('3123123','455078@163.com','zyy1','6cae282cc90ca5869' at line 1
+ [ SQLËØ≠Âè• ] : insert into 'pre_common_member' values ('3123123','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','1406012756','2','0','9999','0','1','0','0','0','0','0')
+
+[ 2014-07-22T16:25:17+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005045s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004800s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: insert into 'pre_common_member' values ('3123123','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','12312311312','2','0','9999','0','1','0','0','0','0','0') [ RunTime:0.000183s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pre_common_member' values ('3123123','455078@163.com','zyy1','6cae282cc90ca5869' at line 1
+ [ SQLËØ≠Âè• ] : insert into 'pre_common_member' values ('3123123','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','12312311312','2','0','9999','0','1','0','0','0','0','0')
+
+[ 2014-07-22T16:25:29+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005141s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004938s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: insert into 'pre_common_member' values ('3123123','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','12312311312','0','0','9999','0','1','0','0','0','0','0') [ RunTime:0.000179s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pre_common_member' values ('3123123','455078@163.com','zyy1','6cae282cc90ca5869' at line 1
+ [ SQLËØ≠Âè• ] : insert into 'pre_common_member' values ('3123123','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','12312311312','0','0','9999','0','1','0','0','0','0','0')
+
+[ 2014-07-22T16:26:02+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005475s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004832s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: insert into 'pre_common_member' values ('3123123','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','12312311312','0','0','9999','0','1','0','0','0','0','0') [ RunTime:0.000200s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pre_common_member' values ('3123123','455078@163.com','zyy1','6cae282cc90ca5869' at line 1
+ [ SQLËØ≠Âè• ] : insert into 'pre_common_member' values ('3123123','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','12312311312','0','0','9999','0','1','0','0','0','0','0')
+
+[ 2014-07-22T16:26:24+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004783s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004836s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: select * from pre_common_member [ RunTime:0.000640s ]
+
+[ 2014-07-22T16:26:47+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004929s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005035s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: insert into 'pre_common_member' values ('3123123','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','12312311312','2','0','9999','0','1','0','0','0','0','0') [ RunTime:0.000176s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pre_common_member' values ('3123123','455078@163.com','zyy1','6cae282cc90ca5869' at line 1
+ [ SQLËØ≠Âè• ] : insert into 'pre_common_member' values ('3123123','455078@163.com','zyy1','6cae282cc90ca5869c34c0a58767bc0c','0','0','0','0','0','10','0','','12312311312','2','0','9999','0','1','0','0','0','0','0')
+
+[ 2014-07-22T16:30:05+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004952s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005194s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES ('3', '455078@163.com', 'zyy1', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0'); [ RunTime:0.033219s ]
+ERR: 1062:Duplicate entry '3' for key 'PRIMARY'
+ [ SQLËØ≠Âè• ] : INSERT INTO `pre_common_member` VALUES ('3', '455078@163.com', 'zyy1', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0');
+
+[ 2014-07-22T16:30:12+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005492s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004969s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES ('3', '455078@163.com', 'zyy1', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0') [ RunTime:0.000246s ]
+ERR: 1062:Duplicate entry '3' for key 'PRIMARY'
+ [ SQLËØ≠Âè• ] : INSERT INTO `pre_common_member` VALUES ('3', '455078@163.com', 'zyy1', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0')
+
+[ 2014-07-22T16:33:05+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005033s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005019s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES ('3', '455078@163.com', 'youyi', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0') [ RunTime:0.000240s ]
+ERR: 1062:Duplicate entry '3' for key 'PRIMARY'
+ [ SQLËØ≠Âè• ] : INSERT INTO `pre_common_member` VALUES ('3', '455078@163.com', 'youyi', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0')
+
+[ 2014-07-22T16:34:21+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [8] Undefined variable: id D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 41 Ë°å.
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005311s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005072s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES ('3', '455078@163.com', 'zyy1', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0') [ RunTime:0.000331s ]
+NOTIC: [2] mysql_num_rows() expects parameter 1 to be resource, boolean given D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 106 Ë°å.
+
+[ 2014-07-22T16:35:34+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004924s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005173s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES (.adsfsadf, '455078@163.com', 'zyy14545', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0') [ RunTime:0.000184s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' '455078@163.com', 'zyy14545', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0'' at line 1
+ [ SQLËØ≠Âè• ] : INSERT INTO `pre_common_member` VALUES (.adsfsadf, '455078@163.com', 'zyy14545', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0')
+
+[ 2014-07-22T16:35:49+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005290s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005216s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES (.adsfsadf, '455078@163.com', 'zyy14545', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0') [ RunTime:0.000183s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' '455078@163.com', 'zyy14545', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0'' at line 1
+ [ SQLËØ≠Âè• ] : INSERT INTO `pre_common_member` VALUES (.adsfsadf, '455078@163.com', 'zyy14545', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0')
+
+[ 2014-07-22T16:36:01+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005540s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005279s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES (.3, '455078@163.com', 'zyy14545', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0') [ RunTime:0.000339s ]
+NOTIC: [2] mysql_num_rows() expects parameter 1 to be resource, boolean given D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 106 Ë°å.
+
+[ 2014-07-22T16:36:51+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005055s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005129s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES (.3, '455078@163.com', 'zyy14545', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0') [ RunTime:0.000478s ]
+NOTIC: [2] mysql_num_rows() expects parameter 1 to be resource, boolean given D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 106 Ë°å.
+
+[ 2014-07-22T16:37:44+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005634s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005076s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES (.3sdfasdfsdaf, '455078@163.com', 'zyy14545', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0') [ RunTime:0.000181s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sdfasdfsdaf, '455078@163.com', 'zyy14545', '6cae282cc90ca5869c34c0a58767bc0c', '' at line 1
+ [ SQLËØ≠Âè• ] : INSERT INTO `pre_common_member` VALUES (.3sdfasdfsdaf, '455078@163.com', 'zyy14545', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0')
+
+[ 2014-07-22T16:37:55+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005061s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005326s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES (3sdfasdfsdaf, '455078@163.com', 'zyy14545', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0') [ RunTime:0.000307s ]
+ERR: 1054:Unknown column '3sdfasdfsdaf' in 'field list'
+ [ SQLËØ≠Âè• ] : INSERT INTO `pre_common_member` VALUES (3sdfasdfsdaf, '455078@163.com', 'zyy14545', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0')
+
+[ 2014-07-22T16:38:13+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005075s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005058s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES ('3sdfasdfsdaf', '455078@163.com', 'zyy14545', '6cae282cc90ca5869c34c0a58767bc0c', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0') [ RunTime:0.000373s ]
+NOTIC: [2] mysql_num_rows() expects parameter 1 to be resource, boolean given D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 106 Ë°å.
+
+[ 2014-07-22T16:40:30+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005369s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005218s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES ('3sdfasdfsdaf', '455078389@qq.com1', 'discuz', '123456', '0', '0', '0', '0', '0', '10', '0', '', '1406012756', '2', '0', '9999', '0', '1', '0', '0', '0', '0', '0') [ RunTime:0.000383s ]
+NOTIC: [2] mysql_num_rows() expects parameter 1 to be resource, boolean given D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 106 Ë°å.
+
+[ 2014-07-22T16:41:15+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005091s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005191s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES ('3sdfasdfsdaf', '455078389@qq.com1', 'discuz', '123456', '0', '0', '0', '0', '0', '10', '0', '', '2014-07-22 16:41:15', '0', '0', '9999', '0', '0', '0', '0', '0', '0', '0') [ RunTime:0.000399s ]
+NOTIC: [2] mysql_num_rows() expects parameter 1 to be resource, boolean given D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 106 Ë°å.
+
+[ 2014-07-22T16:43:29+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.021303s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) AND ( `id` <> '15a91bb4cffcc1dfa3be92ecdac19f3e' ) LIMIT 1   [ RunTime:0.000423s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) AND ( `id` <> '15a91bb4cffcc1dfa3be92ecdac19f3e' ) LIMIT 1   [ RunTime:0.000432s ]
+SQL: INSERT INTO `onethink_ucenter_member` (`id`,`username`,`password`,`email`,`status`) VALUES ('15a91bb4cffcc1dfa3be92ecdac19f3e','discuz','7241a04353ab7c4cad8e9845ccbd6670','455078389@qq.com1',1) [ RunTime:0.000450s ]
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005477s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.008786s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES ('3sdfasdfsdaf', '455078389@qq.com1', 'discuz', '123456', '0', '0', '0', '0', '0', '10', '0', '', '2014-07-22 16:43:29', '0', '0', '9999', '0', '0', '0', '0', '0', '0', '0') [ RunTime:0.000414s ]
+NOTIC: [2] mysql_num_rows() expects parameter 1 to be resource, boolean given D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 106 Ë°å.
+
+[ 2014-07-22T16:44:48+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005808s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) AND ( `id` <> '6f71e02ce4414122bc07e71a63bc9a4a' ) LIMIT 1   [ RunTime:0.000520s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) AND ( `id` <> '6f71e02ce4414122bc07e71a63bc9a4a' ) LIMIT 1   [ RunTime:0.000392s ]
+SQL: INSERT INTO `onethink_ucenter_member` (`id`,`username`,`password`,`email`,`status`) VALUES ('6f71e02ce4414122bc07e71a63bc9a4a','discuz','7241a04353ab7c4cad8e9845ccbd6670','455078389@qq.com1',1) [ RunTime:0.000511s ]
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005057s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005090s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES ('3sdfasdfsdaf', '455078389@qq.com1', 'discuz', 'e10adc3949ba59abbe56e057f20f883e', '0', '0', '0', '0', '0', '10', '0', '', '2014-07-22 16:44:48', '0', '0', '9999', '0', '0', '0', '0', '0', '0', '0') [ RunTime:0.000349s ]
+ERR: 1062:Duplicate entry '3sdfasdfsdaf' for key 'PRIMARY'
+ [ SQLËØ≠Âè• ] : INSERT INTO `pre_common_member` VALUES ('3sdfasdfsdaf', '455078389@qq.com1', 'discuz', 'e10adc3949ba59abbe56e057f20f883e', '0', '0', '0', '0', '0', '10', '0', '', '2014-07-22 16:44:48', '0', '0', '9999', '0', '0', '0', '0', '0', '0', '0')
+
+[ 2014-07-22T16:47:24+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000355s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000636s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.006303s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000382s ]
+INFO: Run QuickLogin [ RunTime:0.033289s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.033548s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.131232s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.131906s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001240s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001383s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000805s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000937s ]
+
+[ 2014-07-22T16:47:25+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000782s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001449s ]
+
+[ 2014-07-22T16:47:27+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000759s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001436s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.007310s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000456s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005435s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'zy' ) LIMIT 1   [ RunTime:0.000287s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000976s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001147s ]
+
+[ 2014-07-22T16:47:27+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000774s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001418s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.008782s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.001017s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.007293s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'zy' ) LIMIT 1   [ RunTime:0.000319s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000947s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001077s ]
+
+[ 2014-07-22T16:47:27+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000734s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001313s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005665s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000400s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005545s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'zyy' ) LIMIT 1   [ RunTime:0.000488s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001405s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001604s ]
+
+[ 2014-07-22T16:47:28+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000718s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001259s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005570s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000423s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005383s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'z' ) LIMIT 1   [ RunTime:0.000371s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000955s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001085s ]
+
+[ 2014-07-22T16:47:28+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000865s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001496s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006880s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000570s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005558s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'z' ) LIMIT 1   [ RunTime:0.000285s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000914s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001036s ]
+
+[ 2014-07-22T16:47:28+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000741s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001306s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005783s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000460s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006117s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'z' ) LIMIT 1   [ RunTime:0.000315s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000898s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001019s ]
+
+[ 2014-07-22T16:47:28+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000756s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001414s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005744s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000418s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006443s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'z' ) LIMIT 1   [ RunTime:0.000316s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000928s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001072s ]
+
+[ 2014-07-22T16:47:29+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000700s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001244s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005809s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000436s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005470s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = '' ) LIMIT 1   [ RunTime:0.000283s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000923s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001081s ]
+
+[ 2014-07-22T16:47:36+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000686s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001236s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005859s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000426s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005449s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'd' ) LIMIT 1   [ RunTime:0.000304s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001407s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001595s ]
+
+[ 2014-07-22T16:47:37+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000707s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001283s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005736s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000413s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005372s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = '' ) LIMIT 1   [ RunTime:0.000281s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000986s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001113s ]
+
+[ 2014-07-22T16:47:37+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000788s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001392s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005599s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000434s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005666s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = '' ) LIMIT 1   [ RunTime:0.000399s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000982s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001113s ]
+
+[ 2014-07-22T16:47:37+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000733s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001291s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005961s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000471s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005750s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'd' ) LIMIT 1   [ RunTime:0.000568s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000978s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001115s ]
+
+[ 2014-07-22T16:47:37+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000845s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001493s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005630s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000442s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005666s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'di' ) LIMIT 1   [ RunTime:0.000276s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000887s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001016s ]
+
+[ 2014-07-22T16:47:37+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000798s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001402s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005563s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000423s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005765s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'dis' ) LIMIT 1   [ RunTime:0.000348s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000924s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001048s ]
+
+[ 2014-07-22T16:47:38+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000786s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001367s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005782s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000641s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005763s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'dis' ) LIMIT 1   [ RunTime:0.000289s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000903s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001025s ]
+
+[ 2014-07-22T16:47:38+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000739s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001307s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005869s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000438s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005847s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) LIMIT 1   [ RunTime:0.000436s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001045s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001187s ]
+
+[ 2014-07-22T16:47:40+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000184s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000336s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005698s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000292s ]
+INFO: Run QuickLogin [ RunTime:0.008896s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009045s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.028531s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029194s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000685s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000822s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000840s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000970s ]
+
+[ 2014-07-22T16:47:40+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000855s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001922s ]
+
+[ 2014-07-22T16:47:41+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000722s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001269s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005583s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000417s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005576s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'd' ) LIMIT 1   [ RunTime:0.000288s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000921s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001042s ]
+
+[ 2014-07-22T16:47:42+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000733s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001286s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005750s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000554s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005749s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'd' ) LIMIT 1   [ RunTime:0.000323s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000902s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001025s ]
+
+[ 2014-07-22T16:47:43+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000790s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001344s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005689s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000425s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006576s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) LIMIT 1   [ RunTime:0.000299s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000922s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001043s ]
+
+[ 2014-07-22T16:47:51+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000739s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001313s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005735s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000423s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005618s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz1' ) LIMIT 1   [ RunTime:0.000333s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001007s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001159s ]
+
+[ 2014-07-22T16:47:52+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000722s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001325s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005932s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000467s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005797s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) LIMIT 1   [ RunTime:0.000319s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000910s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001030s ]
+
+[ 2014-07-22T16:47:58+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000720s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001273s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005681s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000429s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006166s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) LIMIT 1   [ RunTime:0.000328s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000896s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001025s ]
+
+[ 2014-07-22T16:48:01+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html&random=0.6214702520519495
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000776s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001527s ]
+
+[ 2014-07-22T16:48:34+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005969s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) AND ( `id` <> '5ce119bb4dd54ef180a0bb6436325dcf' ) LIMIT 1   [ RunTime:0.000412s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) AND ( `id` <> '5ce119bb4dd54ef180a0bb6436325dcf' ) LIMIT 1   [ RunTime:0.000301s ]
+SQL: INSERT INTO `onethink_ucenter_member` (`id`,`username`,`password`,`email`,`status`) VALUES ('5ce119bb4dd54ef180a0bb6436325dcf','discuz','7241a04353ab7c4cad8e9845ccbd6670','455078389@qq.com1',1) [ RunTime:0.000346s ]
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005136s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005633s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES ('3sdfasdfsdaf', '455078389@qq.com1', 'discuz', '123456', '0', '0', '0', '0', '0', '10', '0', '', '2014-07-22 16:48:34', '0', '0', '9999', '0', '0', '0', '0', '0', '0', '0') [ RunTime:0.000370s ]
+NOTIC: [2] mysql_num_rows() expects parameter 1 to be resource, boolean given D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 106 Ë°å.
+
+[ 2014-07-22T16:52:23+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006389s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) AND ( `id` <> '77fbe4de5573c72de3fcd6c5142e724c' ) LIMIT 1   [ RunTime:0.000384s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) AND ( `id` <> '77fbe4de5573c72de3fcd6c5142e724c' ) LIMIT 1   [ RunTime:0.000301s ]
+SQL: INSERT INTO `onethink_ucenter_member` (`id`,`username`,`password`,`email`,`status`) VALUES ('77fbe4de5573c72de3fcd6c5142e724c','discuz','7241a04353ab7c4cad8e9845ccbd6670','455078389@qq.com1',1) [ RunTime:0.000342s ]
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005501s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005341s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_common_member` VALUES ('77fbe4de5573c72de3fcd6c5142e724c', '455078389@qq.com1', 'discuz', '51af7282e3693329a33dc2f2903cabb4', '0', '0', '0', '0', '0', '10', '0', '', '2014-07-22 16:52:23', '0', '0', '9999', '0', '0', '0', '0', '0', '0', '0') [ RunTime:0.000408s ]
+NOTIC: [2] mysql_num_rows() expects parameter 1 to be resource, boolean given D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 106 Ë°å.
+
+[ 2014-07-22T17:12:51+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006094s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) AND ( `id` <> '44cc776a96df1ab2a7fb6f62f67bf995' ) LIMIT 1   [ RunTime:0.000477s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) AND ( `id` <> '44cc776a96df1ab2a7fb6f62f67bf995' ) LIMIT 1   [ RunTime:0.000415s ]
+SQL: INSERT INTO `onethink_ucenter_member` (`id`,`username`,`password`,`email`,`status`) VALUES ('44cc776a96df1ab2a7fb6f62f67bf995','discuz','7241a04353ab7c4cad8e9845ccbd6670','455078389@qq.com1',1) [ RunTime:0.000693s ]
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.017303s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005031s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_ucenter_members` VALUES ('44cc776a96df1ab2a7fb6f62f67bf995', 'discuz', '233030d15bd61496512753bdbf90f462', '455078389@qq.com1', '', '', '127.0.0.1', '1406019681', '0', '0', '392f1a', '') [ RunTime:0.000438s ]
+ERR: 1062:Duplicate entry 'discuz' for key 'username'
+ [ SQLËØ≠Âè• ] : INSERT INTO `pre_ucenter_members` VALUES ('44cc776a96df1ab2a7fb6f62f67bf995', 'discuz', '233030d15bd61496512753bdbf90f462', '455078389@qq.com1', '', '', '127.0.0.1', '1406019681', '0', '0', '392f1a', '')
+
+[ 2014-07-22T17:13:09+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005713s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) AND ( `id` <> '5f2310ad67551ed95c9babbe7929fa9b' ) LIMIT 1   [ RunTime:0.000409s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000082s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000245s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.046376s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046613s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000823s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001021s ]
+
+[ 2014-07-22T17:13:12+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000192s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000338s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.006530s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000346s ]
+INFO: Run QuickLogin [ RunTime:0.009945s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.010099s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.029275s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029959s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000805s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000934s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000864s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000995s ]
+
+[ 2014-07-22T17:13:12+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000946s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001645s ]
+
+[ 2014-07-22T17:13:44+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000903s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001606s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005283s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000442s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005600s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) LIMIT 1   [ RunTime:0.000918s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001275s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001421s ]
+
+[ 2014-07-22T17:13:44+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000986s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001767s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005923s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000388s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005387s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) LIMIT 1   [ RunTime:0.000407s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001225s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001367s ]
+
+[ 2014-07-22T17:13:49+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005695s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) AND ( `id` <> 'b937e9b9574707fe9d4acfb801709775' ) LIMIT 1   [ RunTime:0.000383s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) AND ( `id` <> 'b937e9b9574707fe9d4acfb801709775' ) LIMIT 1   [ RunTime:0.000289s ]
+SQL: INSERT INTO `onethink_ucenter_member` (`id`,`username`,`password`,`email`,`status`) VALUES ('b937e9b9574707fe9d4acfb801709775','discuz','7241a04353ab7c4cad8e9845ccbd6670','455078389@qq.com1',1) [ RunTime:0.000528s ]
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004888s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.004978s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_ucenter_members` VALUES ('b937e9b9574707fe9d4acfb801709775', 'discuz', 'a35a3a830c28b3289b273c0b1ca90246', '455078389@qq.com1', '', '', '127.0.0.1', '1406019681', '0', '0', 'd64cd0', '') [ RunTime:0.000378s ]
+NOTIC: [2] mysql_num_rows() expects parameter 1 to be resource, boolean given D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 106 Ë°å.
+
+[ 2014-07-22T17:16:15+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.035053s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.000653s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.011574s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` = 1 ) AND ( `pid` = 0 ) AND ( `create_time` < 1406020574 ) AND ( deadline = 0 OR deadline > 1406020574 ) ORDER BY `id` DESC  [ RunTime:0.008374s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000369s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000561s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005248s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000316s ]
+INFO: Run QuickLogin [ RunTime:0.008530s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.008666s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `onethink_category` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000382s ]
+SQL: SELECT `id`,`name`,`pid`,`title`,`link_id` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.000257s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` = 1 ) AND ( `pid` = 0 ) AND ( `category_id` = 2 ) AND ( `create_time` < 1406020574 ) AND ( deadline = 0 OR deadline > 1406020574 ) ORDER BY `level` DESC,`id` DESC LIMIT 0,10   [ RunTime:0.000416s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.092249s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.092442s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000642s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000756s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000760s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000879s ]
+
+[ 2014-07-22T17:16:17+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [2] strtotime() expects at least 1 parameter, 0 given D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 51 Ë°å.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000177s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000320s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005956s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000501s ]
+INFO: Run QuickLogin [ RunTime:0.010085s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.010227s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.029767s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029919s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000755s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000910s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000842s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000970s ]
+
+[ 2014-07-22T17:16:17+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000916s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001612s ]
+
+[ 2014-07-22T17:16:25+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+NOTIC: [2] strtotime() expects at least 1 parameter, 0 given D:\wamp\www\qujianshenla\wwwroot\Application\Home\Controller\UserController.class.php Á¨¨ 51 Ë°å.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000185s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000345s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005364s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000333s ]
+INFO: Run QuickLogin [ RunTime:0.008653s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.008808s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.027592s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027742s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000953s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001096s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000896s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001026s ]
+
+[ 2014-07-22T17:16:25+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001386s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002402s ]
+
+[ 2014-07-22T17:17:49+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.006116s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.000726s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.006181s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` = 1 ) AND ( `pid` = 0 ) AND ( `create_time` < 1406020669 ) AND ( deadline = 0 OR deadline > 1406020669 ) ORDER BY `id` DESC  [ RunTime:0.000447s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000182s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000317s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005545s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000287s ]
+INFO: Run QuickLogin [ RunTime:0.009031s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009170s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `onethink_category` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000423s ]
+SQL: SELECT `id`,`name`,`pid`,`title`,`link_id` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.000249s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` = 1 ) AND ( `pid` = 0 ) AND ( `category_id` = 2 ) AND ( `create_time` < 1406020669 ) AND ( deadline = 0 OR deadline > 1406020669 ) ORDER BY `level` DESC,`id` DESC LIMIT 0,10   [ RunTime:0.000324s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.036466s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036599s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000584s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000699s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000758s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000876s ]
+
+[ 2014-07-22T17:17:52+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000189s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000334s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.008011s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000601s ]
+INFO: Run QuickLogin [ RunTime:0.011629s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.011811s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.031485s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032156s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000712s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000836s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000850s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000973s ]
+
+[ 2014-07-22T17:17:52+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000923s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001726s ]
+
+[ 2014-07-22T17:18:02+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000182s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000328s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.007461s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000497s ]
+INFO: Run QuickLogin [ RunTime:0.011093s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.011290s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.030731s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031419s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000705s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000836s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001740s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002065s ]
+
+[ 2014-07-22T17:18:02+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000905s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001648s ]
+
+[ 2014-07-22T17:18:40+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000344s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000621s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.006287s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000353s ]
+INFO: Run QuickLogin [ RunTime:0.009726s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009881s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.042432s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.043588s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000808s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000949s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000981s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001124s ]
+
+[ 2014-07-22T17:18:41+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000816s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001508s ]
+
+[ 2014-07-22T17:21:06+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000194s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000346s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.006074s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000311s ]
+INFO: Run QuickLogin [ RunTime:0.009338s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009481s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.029169s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029888s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000712s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000850s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000871s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001014s ]
+
+[ 2014-07-22T17:21:06+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000781s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001460s ]
+
+[ 2014-07-22T17:21:08+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000960s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001596s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005697s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000550s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005520s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'd' ) LIMIT 1   [ RunTime:0.000441s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001036s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001165s ]
+
+[ 2014-07-22T17:21:08+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000864s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001423s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005756s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000435s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005705s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'di' ) LIMIT 1   [ RunTime:0.000388s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001050s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001170s ]
+
+[ 2014-07-22T17:21:08+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000957s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001608s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005786s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000551s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005516s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'dis' ) LIMIT 1   [ RunTime:0.000339s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001067s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001199s ]
+
+[ 2014-07-22T17:21:09+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000828s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001384s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.007257s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000539s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005650s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = '' ) LIMIT 1   [ RunTime:0.000365s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001052s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001177s ]
+
+[ 2014-07-22T17:21:09+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000798s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001366s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005869s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000427s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005693s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = '' ) LIMIT 1   [ RunTime:0.000414s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000944s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001067s ]
+
+[ 2014-07-22T17:21:09+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000831s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001470s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005710s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000417s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005642s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'd' ) LIMIT 1   [ RunTime:0.000316s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000916s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001079s ]
+
+[ 2014-07-22T17:21:09+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000733s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001314s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006280s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000430s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005652s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'di' ) LIMIT 1   [ RunTime:0.000295s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000958s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001087s ]
+
+[ 2014-07-22T17:21:09+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000735s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001306s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005716s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000413s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005730s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'dis' ) LIMIT 1   [ RunTime:0.000298s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000902s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001062s ]
+
+[ 2014-07-22T17:21:10+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000729s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001229s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006053s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000579s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005820s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'dis' ) LIMIT 1   [ RunTime:0.000316s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001059s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001190s ]
+
+[ 2014-07-22T17:21:10+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000727s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001231s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006140s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000547s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005724s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) LIMIT 1   [ RunTime:0.000368s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000920s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001041s ]
+
+[ 2014-07-22T17:21:13+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000725s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001223s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005734s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000429s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005630s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) LIMIT 1   [ RunTime:0.000401s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001322s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001468s ]
+
+[ 2014-07-22T17:21:18+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000084s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000229s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039020s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039628s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000557s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000686s ]
+
+[ 2014-07-22T17:21:20+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000186s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000326s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.007252s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000363s ]
+INFO: Run QuickLogin [ RunTime:0.010803s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.010945s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.029444s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030065s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000682s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000812s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000767s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000898s ]
+
+[ 2014-07-22T17:21:24+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000083s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000223s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.010244s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010776s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000548s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000675s ]
+
+[ 2014-07-22T17:21:25+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000186s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000328s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005518s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000443s ]
+INFO: Run QuickLogin [ RunTime:0.009096s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009238s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.027872s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028486s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000705s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000836s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000772s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000902s ]
+
+[ 2014-07-22T17:21:28+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000085s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000231s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.011200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011927s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000761s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000968s ]
+
+[ 2014-07-22T17:21:30+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000185s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000326s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005858s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000401s ]
+INFO: Run QuickLogin [ RunTime:0.009470s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009610s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.028191s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028795s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000671s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000798s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000771s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000901s ]
+
+[ 2014-07-22T17:21:53+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000191s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000330s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.006071s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000339s ]
+INFO: Run QuickLogin [ RunTime:0.009540s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009679s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.028774s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029377s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000685s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000814s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000773s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000903s ]
+
+[ 2014-07-22T17:21:53+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001105s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001818s ]
+
+[ 2014-07-22T17:21:55+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000886s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001445s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005746s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000454s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006857s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'z' ) LIMIT 1   [ RunTime:0.000319s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001067s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001190s ]
+
+[ 2014-07-22T17:21:55+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000880s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001456s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006061s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000545s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.008612s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'zy' ) LIMIT 1   [ RunTime:0.000640s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001399s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001569s ]
+
+[ 2014-07-22T17:21:59+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000894s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001530s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005769s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000493s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005613s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'di' ) LIMIT 1   [ RunTime:0.000334s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001022s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001144s ]
+
+[ 2014-07-22T17:21:59+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000820s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001365s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005715s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000480s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005526s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'dis' ) LIMIT 1   [ RunTime:0.000283s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001013s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001137s ]
+
+[ 2014-07-22T17:21:59+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000827s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001364s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005612s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000423s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005732s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'dis' ) LIMIT 1   [ RunTime:0.000301s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001028s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001149s ]
+
+[ 2014-07-22T17:22:00+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001038s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001697s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.006272s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000438s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006542s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'dis' ) LIMIT 1   [ RunTime:0.000768s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001264s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001413s ]
+
+[ 2014-07-22T17:22:00+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001232s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001973s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005685s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000422s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006182s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) LIMIT 1   [ RunTime:0.000334s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001039s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001159s ]
+
+[ 2014-07-22T17:22:04+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/reg_email_name.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000841s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001403s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005710s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000448s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) LIMIT 1   [ RunTime:0.000572s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001068s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001194s ]
+
+[ 2014-07-22T17:22:08+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/register.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000897s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001465s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005844s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000464s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005681s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'discuz' ) AND ( `id` <> 'fe358248ae719b47996b476617bd30b5' ) LIMIT 1   [ RunTime:0.000393s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `email` = '455078389@qq.com1' ) AND ( `id` <> 'fe358248ae719b47996b476617bd30b5' ) LIMIT 1   [ RunTime:0.000310s ]
+SQL: INSERT INTO `onethink_ucenter_member` (`id`,`username`,`password`,`email`,`status`) VALUES ('fe358248ae719b47996b476617bd30b5','discuz','7241a04353ab7c4cad8e9845ccbd6670','455078389@qq.com1',1) [ RunTime:0.000391s ]
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005151s ]
+ERR: 1146:Table 'jianshen.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: SHOW COLUMNS FROM `onethink_user` [ RunTime:0.005440s ]
+ERR: 1146:Table 'ultrax.onethink_user' doesn't exist
+ [ SQLËØ≠Âè• ] : SHOW COLUMNS FROM `onethink_user`
+SQL: INSERT INTO `pre_ucenter_members` VALUES ('fe358248ae719b47996b476617bd30b5', 'discuz', 'fab56775607247f371f4d26e2a889197', '455078389@qq.com1', '', '', '127.0.0.1', '1406020928', '0', '0', '063145', '') [ RunTime:0.000414s ]
+NOTIC: [2] mysql_num_rows() expects parameter 1 to be resource, boolean given D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php Á¨¨ 106 Ë°å.
+
+[ 2014-07-22T17:22:08+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/login.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000168s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000318s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.007265s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000339s ]
+INFO: Run QuickLogin [ RunTime:0.010575s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.010717s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039624s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040391s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000778s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000908s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000870s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000990s ]
+
+[ 2014-07-22T17:22:08+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000825s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001487s ]
+

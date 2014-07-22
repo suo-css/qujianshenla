@@ -981,4 +981,5 @@ function forumdisplay_verify_author($ids) {
 	}
 	return $verify;
 }
+
 ?>

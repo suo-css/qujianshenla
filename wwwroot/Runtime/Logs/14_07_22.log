@@ -1,0 +1,198 @@
+[ 2014-07-22T09:38:19+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_common.html
+SQL: SHOW COLUMNS FROM `onethink_goalmodule` [ RunTime:0.058883s ]
+SQL: SELECT * FROM `onethink_goalmodule`  [ RunTime:0.019908s ]
+SQL: SHOW COLUMNS FROM `onethink_goalcontinuetype` [ RunTime:0.010026s ]
+SQL: SELECT * FROM `onethink_goalcontinuetype` WHERE ( `status` = 1 )  [ RunTime:0.001129s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000418s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000646s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.118143s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.009634s ]
+INFO: Run QuickLogin [ RunTime:0.217110s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.217348s ]
+NOTIC: [8] Undefined variable: tinue D:\wamp\www\qujianshenla\wwwroot\Runtime\Cache\Home\78f19b806e1cecf46779d8356fee07d0.php 第 269 行.
+SQL: SHOW COLUMNS FROM `onethink_goaltype` [ RunTime:0.010223s ]
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 1 )  [ RunTime:0.005109s ]
+SQL: SHOW COLUMNS FROM `onethink_goal` [ RunTime:0.019477s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 5 ) LIMIT 1   [ RunTime:0.000409s ]
+NOTIC: [8] Undefined variable: data D:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 2 )  [ RunTime:0.000305s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 3 ) LIMIT 1   [ RunTime:0.000329s ]
+NOTIC: [8] Undefined variable: data D:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 4 ) LIMIT 1   [ RunTime:0.000377s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.419477s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.419670s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001310s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001446s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.017961s ]
+INFO: [ app_end ] --END-- [ RunTime:0.018114s ]
+
+[ 2014-07-22T09:38:19+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_common.html
+SQL: SHOW COLUMNS FROM `onethink_goalmodule` [ RunTime:0.005526s ]
+SQL: SELECT * FROM `onethink_goalmodule`  [ RunTime:0.000328s ]
+SQL: SHOW COLUMNS FROM `onethink_goalcontinuetype` [ RunTime:0.018513s ]
+SQL: SELECT * FROM `onethink_goalcontinuetype` WHERE ( `status` = 1 )  [ RunTime:0.000355s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000246s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000384s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005408s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000312s ]
+INFO: Run QuickLogin [ RunTime:0.009105s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009242s ]
+NOTIC: [8] Undefined variable: tinue D:\wamp\www\qujianshenla\wwwroot\Runtime\Cache\Home\78f19b806e1cecf46779d8356fee07d0.php 第 269 行.
+SQL: SHOW COLUMNS FROM `onethink_goaltype` [ RunTime:0.005422s ]
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 1 )  [ RunTime:0.000395s ]
+SQL: SHOW COLUMNS FROM `onethink_goal` [ RunTime:0.005584s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 5 ) LIMIT 1   [ RunTime:0.000347s ]
+NOTIC: [8] Undefined variable: data D:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 2 )  [ RunTime:0.000282s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 3 ) LIMIT 1   [ RunTime:0.000326s ]
+NOTIC: [8] Undefined variable: data D:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 4 ) LIMIT 1   [ RunTime:0.000340s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.178768s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.178896s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000756s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000878s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000834s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000953s ]
+
+[ 2014-07-22T09:52:25+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/login.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000180s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000330s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005739s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000320s ]
+INFO: Run QuickLogin [ RunTime:0.009570s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.009714s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.034414s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035202s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000749s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000877s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001031s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001162s ]
+
+[ 2014-07-22T09:52:25+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000776s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001553s ]
+
+[ 2014-07-22T09:52:30+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/login.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000272s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000499s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.008281s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000330s ]
+INFO: Run QuickLogin [ RunTime:0.014591s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.014773s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.047146s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.048356s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000702s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000818s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000816s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000933s ]
+
+[ 2014-07-22T09:52:30+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/verify.html
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000968s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001717s ]
+
+[ 2014-07-22T09:52:41+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/User/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000779s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001373s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.005467s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.000440s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.084961s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'zyy' ) LIMIT 1   [ RunTime:0.037890s ]
+SQL: UPDATE `onethink_ucenter_member` SET `last_login_time`=1405993960,`last_login_ip`='2130706433' WHERE ( `id` = 1 ) [ RunTime:0.040975s ]
+SQL: SHOW COLUMNS FROM `onethink_member` [ RunTime:0.042500s ]
+SQL: SELECT `uid`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`status` FROM `onethink_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000761s ]
+SQL: UPDATE `onethink_member` SET `login`=`login`+1,`last_login_time`=1405993960,`last_login_ip`='2130706433' WHERE ( `uid` = 1 ) [ RunTime:0.021840s ]
+SQL: SHOW COLUMNS FROM `onethink_action` [ RunTime:0.019331s ]
+SQL: SELECT * FROM `onethink_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.001112s ]
+NOTIC: [8] unserialize() [<a href='function.unserialize'>function.unserialize</a>]: Error at offset 0 of 27 bytes D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 104 行.
+SQL: SHOW COLUMNS FROM `onethink_member` [ RunTime:0.009482s ]
+SQL: SELECT `nickname` FROM `onethink_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000420s ]
+SQL: SHOW COLUMNS FROM `onethink_action_log` [ RunTime:0.067384s ]
+SQL: INSERT INTO `onethink_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (1,1,2130706433,'member',1,1405993960,'zyy在2014-07-22 09:52登录了后台') [ RunTime:0.034609s ]
+SQL: SELECT * FROM `onethink_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.000561s ]
+NOTIC: [8] Undefined offset: 1 D:\wamp\www\qujianshenla\wwwroot\Application\Common\Common\function.php 第 665 行.
+NOTIC: [2] array_key_exists() expects parameter 2 to be array, null given D:\wamp\www\qujianshenla\wwwroot\Application\Common\Common\function.php 第 665 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_action_log` WHERE ( `action_id` = 1 ) AND ( `user_id` = 1 ) AND ( `create_time` > 1405907560 ) LIMIT 1   [ RunTime:0.154077s ]
+
+[ 2014-07-22T09:52:41+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Index/index.html
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.032097s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.000521s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.012818s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` = 1 ) AND ( `pid` = 0 ) AND ( `create_time` < 1405993961 ) AND ( deadline = 0 OR deadline > 1405993961 ) ORDER BY `id` DESC  [ RunTime:0.014660s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000297s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000506s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.009655s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000591s ]
+INFO: Run QuickLogin [ RunTime:0.016344s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.016600s ]
+SQL: SELECT `id`,`name`,`title`,`pid`,`sort`,`list_row`,`meta_title`,`keywords`,`description`,`template_index`,`template_lists`,`template_detail`,`template_edit`,`model`,`type`,`link_id`,`allow_publish`,`display`,`reply`,`check`,`reply_model`,`extend`,`create_time`,`update_time`,`status`,`icon` FROM `onethink_category` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000735s ]
+SQL: SELECT `id`,`name`,`pid`,`title`,`link_id` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.000503s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` = 1 ) AND ( `pid` = 0 ) AND ( `category_id` = 2 ) AND ( `create_time` < 1405993961 ) AND ( deadline = 0 OR deadline > 1405993961 ) ORDER BY `level` DESC,`id` DESC LIMIT 0,10   [ RunTime:0.000749s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.126788s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.126988s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000812s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000948s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000972s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001112s ]
+
+[ 2014-07-22T09:53:17+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/user/profiles
+SQL: SHOW COLUMNS FROM `onethink_cityinfo` [ RunTime:0.101758s ]
+SQL: INSERT INTO `onethink_cityinfo` (`name`,`province_id`) VALUES ('花地玛堂区',31) [ RunTime:0.107144s ]
+SQL: INSERT INTO `onethink_cityinfo` (`name`,`province_id`) VALUES ('圣安多尼堂区',31) [ RunTime:0.040683s ]
+SQL: INSERT INTO `onethink_cityinfo` (`name`,`province_id`) VALUES ('大堂区',31) [ RunTime:0.040841s ]
+SQL: INSERT INTO `onethink_cityinfo` (`name`,`province_id`) VALUES ('望德堂区',31) [ RunTime:0.040796s ]
+SQL: INSERT INTO `onethink_cityinfo` (`name`,`province_id`) VALUES ('风顺堂区',31) [ RunTime:0.040770s ]
+SQL: INSERT INTO `onethink_cityinfo` (`name`,`province_id`) VALUES ('嘉模堂区',31) [ RunTime:0.039540s ]
+SQL: INSERT INTO `onethink_cityinfo` (`name`,`province_id`) VALUES ('圣方济各堂区',31) [ RunTime:0.040733s ]
+SQL: SHOW COLUMNS FROM `onethink_personal` [ RunTime:0.056059s ]
+SQL: SELECT * FROM `onethink_personal` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000518s ]
+SQL: SELECT * FROM `onethink_personal` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000403s ]
+SQL: SHOW COLUMNS FROM `onethink_provinceinfo` [ RunTime:0.075262s ]
+SQL: SELECT `id`,`name` FROM `onethink_provinceinfo`  [ RunTime:0.000521s ]
+NOTIC: [8] unserialize() [<a href='function.unserialize'>function.unserialize</a>]: Error at offset 0 of 15379 bytes D:\wamp\www\qujianshenla\wwwroot\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 104 行.
+SQL: SELECT `name`,`province_id` FROM `onethink_cityinfo`  [ RunTime:0.002018s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000397s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000645s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005341s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000360s ]
+INFO: Run QuickLogin [ RunTime:0.008682s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.008821s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.130032s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.130231s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000629s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000750s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000754s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000884s ]
+

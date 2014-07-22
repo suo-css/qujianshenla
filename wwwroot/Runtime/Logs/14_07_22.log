@@ -196,3 +196,49 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTrace [ RunTime:0.000754s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000884s ]
 
+[ 2014-07-22T10:40:42+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/goal.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.034778s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.067278s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.099109s ]
+SQL: SELECT `type`,`name`,`value` FROM `onethink_config` WHERE ( `status` = 1 )  [ RunTime:0.019253s ]
+SQL: SHOW COLUMNS FROM `onethink_goal` [ RunTime:0.009987s ]
+SQL: DELETE FROM `onethink_goal` WHERE ( `uid` = 0 ) AND ( `detailtypeid` = 4 ) [ RunTime:0.016269s ]
+SQL: INSERT INTO `onethink_goal` (`uid`,`startvalue`,`startdate`,`goalvalue`,`goaldate`,`detailtypeid`,`status`,`create_time`) VALUES (0,0,'2014-07-22',0,'',4,1,'2014-07-22 10:40:42') [ RunTime:0.906284s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.013040s ]
+INFO: [ app_end ] --END-- [ RunTime:0.013278s ]
+
+[ 2014-07-22T10:40:48+08:00 ] 127.0.0.1 /qujianshenla/wwwroot/index.php?s=/Home/Exercise/exc_common.html
+SQL: SHOW COLUMNS FROM `onethink_goalmodule` [ RunTime:0.023883s ]
+SQL: SELECT * FROM `onethink_goalmodule`  [ RunTime:0.001398s ]
+SQL: SHOW COLUMNS FROM `onethink_goalcontinuetype` [ RunTime:0.006269s ]
+SQL: SELECT * FROM `onethink_goalcontinuetype` WHERE ( `status` = 1 )  [ RunTime:0.000315s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000250s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000389s ]
+INFO: [ pageHeader ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005422s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'QuickLogin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000345s ]
+INFO: Run QuickLogin [ RunTime:0.034223s ]
+INFO: [ pageHeader ] --END-- [ RunTime:0.034360s ]
+NOTIC: [8] Undefined variable: tinue D:\wamp\www\qujianshenla\wwwroot\Runtime\Cache\Home\78f19b806e1cecf46779d8356fee07d0.php 第 269 行.
+SQL: SHOW COLUMNS FROM `onethink_goaltype` [ RunTime:0.006438s ]
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 1 )  [ RunTime:0.000408s ]
+SQL: SHOW COLUMNS FROM `onethink_goal` [ RunTime:0.005515s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 5 ) LIMIT 1   [ RunTime:0.000370s ]
+NOTIC: [8] Undefined variable: data D:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goaltype` WHERE ( `status` = 1 ) AND ( `moduleid` = 2 )  [ RunTime:0.000286s ]
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 3 ) LIMIT 1   [ RunTime:0.000304s ]
+NOTIC: [8] Undefined variable: data D:\wamp\www\qujianshenla\wwwroot\Application\Home\Common\function.php 第 135 行.
+SQL: SELECT * FROM `onethink_goal` WHERE ( `status` = 1 ) AND ( `uid` = 0 ) AND ( `detailtypeid` = 4 ) LIMIT 1   [ RunTime:0.046550s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.187904s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.188030s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001065s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001192s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000651s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000771s ]
+

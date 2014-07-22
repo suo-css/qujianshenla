@@ -1,3 +1,6 @@
+#runtime files
+wwwroot/Runtime/*
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -7,7 +10,7 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
-D:\wamp\www\qujianshenla\wwwroot\Runtime
+
 # Windows Installer files
 *.cab
 *.msi

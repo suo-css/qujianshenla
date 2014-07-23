@@ -102,7 +102,7 @@ class UserController extends HomeController {
 		 			$status = (M('ucenter_member')->where(array('username'=>$_POST['name']))->find()) ? 1 : 0; 
 		 			break;	
 			} 
-			echo $status;
+			return $status;
 		}
 	}
 
@@ -155,9 +155,6 @@ class UserController extends HomeController {
         $mail->setServer($email['SYS_MAIL_SERVER'],$email['SYS_MAIL_USERNAME'],$email['SYS_MAIL_PWD'],$email['SYS_MAIL_PORT'],true); //设置smtp服务器，到服务器的SSL连接
         $mail->setFrom($email['SYS_MAIL_USERNAME']); //设置发件人
         $mail->setReceiver('455078389@qq.com'); //设置收件人，多个收件人，调用多次
-        //$mail->setCc("XXXX"); //设置抄送，多个抄送，调用多次
-        //$mail->setBcc("XXXXX"); //设置秘密抄送，多个秘密抄送，调用多次
-        //$mail->addAttachment("XXXX"); //添加附件，多个附件，调用多次
         $mail->setMail("eamil发送成功!"); //设置邮件主题、内容
         if($mail->sendMail()){ //发送
         	echo "发送成功!";
@@ -172,15 +169,6 @@ class UserController extends HomeController {
 		if ( !is_login() ) {
 			$this->error( '您还没有登陆',U('User/login') );
 		}
-
-		$array = explode(",",'花地玛堂区,圣安多尼堂区,大堂区,望德堂区,风顺堂区,嘉模堂区,圣方济各堂区');
-		//$array = array('南开区','和平区','河西区','河东区','红桥区','河北区','还有环城四区','西青区','津南区','北辰区','东丽区');
-		
-		foreach ($array as $value) {
-			$data = array('name'=>$value,'province_id'=>31);
-			M('cityinfo')->add($data);
-		}
-
         if (IS_POST) {
         	$personal      = D('personal');
             $data     	   = $personal->create();

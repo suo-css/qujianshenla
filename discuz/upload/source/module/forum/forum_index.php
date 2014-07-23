@@ -436,8 +436,6 @@ $view = "三个";
 
 $gid = 0;
 
-echo 1;
-
 include template('diy:forum/discuz:'.$gid);
 
 

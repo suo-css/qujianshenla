@@ -202,6 +202,8 @@ class UserController extends HomeController {
      			$this->cityinfo = $cityinfo = S('cityinfo');
      		}
         	$this->result = $result;
+
+        	
             $this->display();
         }
     }

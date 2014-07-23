@@ -181,10 +181,3 @@ function avatars(){
     return "<img width=60 height=60 src=./Uploads/avatars/".is_login()."/".is_login().".jpg alt=>";
   }
 }
-
-/**
- * uuid
- */
-function uuid() {
-  return md5(time() . mt_rand(1,1000000));
-}

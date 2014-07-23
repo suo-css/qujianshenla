@@ -2,60 +2,34 @@
 ================================================== -->
 <style type="text/css">
    .navbar-default{
-    color: #383735;
-    background: #ffffff;
-   background-image: -moz-linear-gradient(270deg, #ffffff 0%, rgba(201, 203, 202, 0.870588) 95%);
-   background-image: -webkit-linear-gradient(270deg, #ffffff 0%, rgba(201, 203, 202, 0.870588) 95%);
-   background-image: -o-linear-gradient(270deg, #ffffff 0%, rgba(201, 203, 202, 0.870588) 95%);
-   background-image: linear-gradient(180deg, #ffffff 0%, rgba(201, 203, 202, 0.870588) 95%);
-    font-family:"Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu;
+    
    }
    #Index_nav{
-    margin-left: 80px;
+   
    }
    #mid_nav{
-    margin-left: 240px;
+   
    }
    .navbar-brand{
 
    }
 </style>
- <nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+<div style="background-color: blue">
+ <ul class="nav nav-tabs">
 
-      <a class="navbar-brand" href="{:U('Index/Index')}" id="Index_nav"><img src="__PUBLIC__/Home/images/logo.png" class="image">去健身啦</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-middle" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav" id="mid_nav">
                 <li><a href="{:U('BodySpace/Index')}" id="User_nav" >空间</a></li>
                 <li><a href="{:U('Exercise/exc_common')}" id="Exercise_nav">健身</a></li>
-                <li><a href="{:U('nri/Index')}" id="Nutri_nav">饮食</a></li>
+                <li class="active"><a href="{:U('nri/Index')}" id="Nutri_nav">饮食</a></li>
                 <li><a href="{:U('near/Index')}" id="Around_nav">周边</a></li>
                 <li><a href="#" id="Mall_nav">商城</a></li>
 
-            </ul>
-            <form class="navbar-form navbar-right" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="文章,計劃..">
-                </div>
-                <button type="submit" class="btn btn-default">搜索</button>
-                {:hook('login')}
-            </form>
+</ul>
+</div>
 
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+          
+    
 
-      </ul>
+
       
       
         <div class="collapse navbar-collapse navbar-right">

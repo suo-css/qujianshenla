@@ -1,8 +1,14 @@
 <?php if(!defined('IN_DISCUZ')) exit('Access Denied'); 
 0
+<<<<<<< HEAD
 || checktplrefresh('./template/default/common/header.htm', './template/default/common/header_common.htm', 1406000748, '1', './data/template/1_1_common_header_forum_index.tpl.php', './template/default', 'common/header_forum_index')
 || checktplrefresh('./template/default/common/header.htm', './template/default/common/header_qmenu.htm', 1406000748, '1', './data/template/1_1_common_header_forum_index.tpl.php', './template/default', 'common/header_forum_index')
 || checktplrefresh('./template/default/common/header.htm', './template/default/common/pubsearchform.htm', 1406000748, '1', './data/template/1_1_common_header_forum_index.tpl.php', './template/default', 'common/header_forum_index')
+=======
+|| checktplrefresh('./template/default/common/header.htm', './template/default/common/header_common.htm', 1406000859, '1', './data/template/1_1_common_header_forum_index.tpl.php', './template/default', 'common/header_forum_index')
+|| checktplrefresh('./template/default/common/header.htm', './template/default/common/header_qmenu.htm', 1406000859, '1', './data/template/1_1_common_header_forum_index.tpl.php', './template/default', 'common/header_forum_index')
+|| checktplrefresh('./template/default/common/header.htm', './template/default/common/pubsearchform.htm', 1406000859, '1', './data/template/1_1_common_header_forum_index.tpl.php', './template/default', 'common/header_forum_index')
+>>>>>>> 9eca6beef1fde09ddb8a52ffb8e394ae530ae95d
 ;?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

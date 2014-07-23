@@ -2,7 +2,7 @@
 <extend name="Base/common"/>
 <block name="body">
     <include file="Public/excNav"/>
-    <div class="col-md-8">
+    <div class="span8">
         <!-- Contents
         ================================================== -->
         <h3> 过滤后的动作 </h3>
@@ -10,7 +10,7 @@
            
         </div>
     </div>
-    <div id="finderLeft" class="col-md-2">
+    <div id="finderLeft" class="span2">
 
         <h4>
             --动作过滤器--1
@@ -229,9 +229,9 @@
                         for (var i = 0; i < data.info.length; i++)
                         {
                             
-                            var exc = '<div class="col-md-12" style="border:2px;outline:#3399FF solid thick;">';
-                            exc += '<div class="col-md-3"><image src="Public/Exercise/images/1.png" /><image src="Public/Exercise/images/2.png" /></div>';
-                          exc +='<div class="col-md-7"><h5>'+"<a href={:U("Exercise/exc_all",'','')}/eid/"+data.info[i].eid+">" + data.info[i].ename+"</a>"+data.info[i].action+"</h5>";
+                            var exc = '<div class="span12" style="border:2px;outline:#3399FF solid thick;">';
+                            exc += '<div class="span3"><image src="Public/Exercise/images/1.png" /><image src="Public/Exercise/images/2.png" /></div>';
+                          exc +='<div class="span7"><h5>'+"<a href={:U("Exercise/exc_all",'','')}/eid/"+data.info[i].eid+">" + data.info[i].ename+"</a>"+data.info[i].action+"</h5>";
                           exc +='<h6>目标肌群</h6><h6>'+data.info[i].mtname+'</h6>';
                            exc +='<h6>器械</h6><h6>'+data.info[i].eqtname+'</h6></div>';
                             exc +='</div>';

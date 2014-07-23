@@ -16,7 +16,14 @@
 <a href="./" class="nvhm" title="首页"><?php echo $_G['setting']['bbname'];?></a><em>&raquo;</em><a href="forum.php"><?php echo $_G['setting']['navs']['2']['navname'];?></a><?php echo $navigation;?>
 </div>
 <div class="z"><?php if(!empty($_G['setting']['pluginhooks']['index_status_extra'])) echo $_G['setting']['pluginhooks']['index_status_extra'];?></div>
+<<<<<<< HEAD
 </div><?php echo $view; if(empty($gid)) { ?><?php echo adshow("text/wp a_t");?><?php } ?>
+=======
+</div>
+
+
+<?php if(empty($gid)) { ?><?php echo adshow("text/wp a_t");?><?php } ?>
+>>>>>>> 9eca6beef1fde09ddb8a52ffb8e394ae530ae95d
 
 <style id="diy_style" type="text/css"></style>
 

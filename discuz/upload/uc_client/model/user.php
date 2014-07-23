@@ -28,10 +28,7 @@ class usermodel {
 		return $arr;
 	}
 
-	function get_user_by_username($username) {
-		$arr = $this->db->fetch_first("SELECT * FROM ".UC_DBTABLEPRE."members WHERE username='$username'");
-		return $arr;
-	}
+
 
 	function get_user_by_email($email) {
 		$arr = $this->db->fetch_first("SELECT * FROM ".UC_DBTABLEPRE."members WHERE email='$email'");
@@ -114,6 +111,11 @@ class usermodel {
 		$sqladd = $username !== '' ? "AND username<>'$username'" : '';
 		$email = $this->db->result_first("SELECT email FROM  ".UC_DBTABLEPRE."members WHERE email='$email' $sqladd");
 		return $email;
+	}
+	
+	function get_user_by_username($username) {
+		$arr = $this->db->fetch_first("SELECT * FROM ".UC_DBTABLEPRE."members WHERE username='$username'");
+		return $arr;
 	}
 
 	function check_login($username, $password, &$user) {

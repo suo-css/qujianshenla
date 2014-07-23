@@ -114,6 +114,7 @@ class UcenterMemberModel extends Model{
 		if($this->create($data)){
 			$uid = $this->add();
 			if($uid>0){
+				//discuz用户表同步
 				$salt = substr(uniqid(rand()), -6);
 				$password = md5(md5($password).$salt);
 				$sql = "INSERT INTO `pre_ucenter_members` VALUES ('".$id."', '".$username."', '".$password."', '".$email."', '', '', '".$_SERVER['REMOTE_ADDR']."', '".time()."', '0', '0', '".$salt."', '')";

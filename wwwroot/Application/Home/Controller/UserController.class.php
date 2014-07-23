@@ -47,7 +47,24 @@ class UserController extends HomeController {
 			}
 
 		} else { //显示注册表单 
-			$this->display();
+			$uid  = "8";
+			$ucenterurl	  = './discuz/upload';
+			$uid  = sprintf("%09d", $uid);
+			$dir1 = substr($uid, 0, 3);
+			$dir2 = substr($uid, 3, 2);
+			$dir3 = substr($uid, 5, 2);
+			$file = $ucenterurl.'/data/avatar/'.$dir1.'/'.$dir2.'/'.$dir3.'/'.substr($uid, -2).($real ? '_real' : '').'_avatar_'.$size.'.jpg';
+			echo $file;
+			
+/*			$imgsrc = "./Uploads/User/1/1.jpg";
+
+			$width  = 200;
+
+			$height = 200;
+
+			resizejpg($imgsrc,$imgdst,$width,$height,$id='');*/
+
+			die;$this->display();
 		}
 	}
 

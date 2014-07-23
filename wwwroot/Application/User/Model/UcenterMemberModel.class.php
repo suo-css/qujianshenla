@@ -98,9 +98,8 @@ class UcenterMemberModel extends Model{
 	 * @param  string $mobile   用户手机号码
 	 * @return integer          注册成功-用户信息，注册失败-错误编号
 	 */
-	public function register($id,$username, $password, $email, $mobile){
+	public function register($username, $password, $email, $mobile){
 		$data = array(
-			'id'	   => $id,
 			'username' => $username,
 			'password' => $password,
 			'email'    => $email,
@@ -117,7 +116,7 @@ class UcenterMemberModel extends Model{
 				//discuz用户表同步
 				$salt = substr(uniqid(rand()), -6);
 				$password = md5(md5($password).$salt);
-				$sql = "INSERT INTO `pre_ucenter_members` VALUES ('".$id."', '".$username."', '".$password."', '".$email."', '', '', '".$_SERVER['REMOTE_ADDR']."', '".time()."', '0', '0', '".$salt."', '')";
+				$sql = "INSERT INTO `pre_ucenter_members` VALUES ('".$uid."', '".$username."', '".$password."', '".$email."', '', '', '".$_SERVER['REMOTE_ADDR']."', '".time()."', '0', '0', '".$salt."', '')";
 				$user = M('user')->db(2,"DB_CONFIG2")->query($sql);	
 			}
 			return $uid ? $uid : 0; //0-未知错误，大于0-注册成功

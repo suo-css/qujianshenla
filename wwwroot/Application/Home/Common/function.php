@@ -185,9 +185,10 @@ function avatars(){
 
 /**
  * 图片修改
+ * @param  $imgsrc 图片路径 $uid discuz 用户ID
+ * @return 保存更新用户头像
  */
-function resizejpg($imgsrc,$imgdst,$imgwidth,$imgheight,$id)
-{ 
+function resizejpg($imgsrc,$imgdst,$imgwidth,$imgheight,$uid,$size){ 
   //$imgsrc jpg格式图像路径 $imgdst jpg格式图像保存文件名 $imgwidth要改变的宽度 $imgheight要改变的高度
   //取得图片的宽度,高度值
   $arr = getimagesize($imgsrc);                     
@@ -198,8 +199,25 @@ function resizejpg($imgsrc,$imgdst,$imgwidth,$imgheight,$id)
   $imgsrc = imagecreatefromjpeg($imgsrc);
   $image = imagecreatetruecolor($imgWidth, $imgHeight);  //创建一个彩色的底图
   imagecopyresampled($image, $imgsrc, 0, 0, 0, 0,$imgWidth,$imgHeight,$arr[0], $arr[1]);
-
-  
-  imagejpeg($image,'./1.jpg');
+  $ucenterurl = './discuz/upload/uc_server';
+  $uid  = sprintf("%09d", $uid);
+  $dir1 = substr($uid, 0, 3);
+  $dir2 = substr($uid, 3, 2);
+  $dir3 = substr($uid, 5, 2);
+  $url  = $ucenterurl.'/data/avatar/'.$dir1.'/'.$dir2.'/'.$dir3.'/'.substr($uid, -2).($real ? '_real' : ''); 
+  $urls = $ucenterurl.'/data/avatar/'.$dir1.'/'.$dir2.'/'.$dir3.'/'; 
+  is_dir($urls) || mkdir($urls,'0755',true);
+  $file = $url.'_avatar_'.$size.'.jpg';  
+  imagejpeg($image,$file);
   imagedestroy($image);
+}
+
+/**
+ * 用户论坛头像更新
+ */
+function avatar_save(){
+  $size = array('big'=>'200','middle'=>'120','small'=>'48');
+  foreach ($size as $k => $v) {
+      resizejpg('./Uploads/avatars/'.is_login().'/'.is_login().'.jpg','jpg',$v,$v,is_login(),$k);
+  }
 }

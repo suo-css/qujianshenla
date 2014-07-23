@@ -37,8 +37,7 @@ class UserController extends HomeController {
 			}	
 			/* 调用注册接口注册用户 */
             $User = new UserApi;
-            $id   = uuid();
-			$uid  = $User->register($id,$username, $password, $email);
+			$uid  = $User->register($username, $password, $email);
 			if(0 < $uid){ //注册成功
 				//TODO: 发送验证邮件
 				$this->success('注册成功！',U('login'));
@@ -202,12 +201,10 @@ class UserController extends HomeController {
      			$this->cityinfo = $cityinfo = S('cityinfo');
      		}
         	$this->result = $result;
-
-        	
             $this->display();
         }
     }
-
+    //头像上传
     public function upload(){
     	$post_input = 'php://input';
 		$save_path = './Uploads/avatars/'.is_login();  //定义一个要上传头像的目录
@@ -219,6 +216,7 @@ class UserController extends HomeController {
 			fwrite( $handle, $postdata );
 			fclose( $handle );
 			if ( is_file( $filename ) ) {
+				avatar_save();
 				echo 1;
 				exit ();
 			}else {

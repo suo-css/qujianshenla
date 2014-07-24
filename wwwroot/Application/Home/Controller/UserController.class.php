@@ -51,7 +51,7 @@ class UserController extends HomeController {
 			$this->display();
 		}
 	}
-
+	
 	/* 登录页面 */
 	public function login($username = '', $password = '', $verify = ''){
 		if(IS_POST){ //登录验证

@@ -76,7 +76,7 @@ class UcenterMemberModel extends Model{
 	 * @return integer 用户状态
 	 */
 	protected function getStatus(){
-		return true; //TODO: 暂不限制，下一个版本完善
+		return 0; //TODO: 暂不限制，下一个版本完善
 	}
 
 	/**

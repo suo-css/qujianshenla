@@ -10,6 +10,7 @@
 </block>
 
 <block name="body">
+<<<<<<< HEAD
     <style type="text/css">
             .logo{
                 color: #31F4EC;
@@ -31,6 +32,13 @@
                 margin-bottom: 10px;
             }
         </style>
+=======
+    <style>
+        .emailist{border:1px solid #bdbdbd; border-radius: 4px; background-color:#fff; color:#666; font-size:14px; list-style-type:0; padding:0; margin:0; overflow:hidden;}
+        .emailist li{padding:2px 11px; cursor:pointer;}
+        .emailist .on, .emailist li:hover{background-color:#eee;}
+    </style>
+>>>>>>> upstream/master
     <section>
         <div class="row">
             <div class="span6 login-poster">
@@ -41,7 +49,14 @@
             <div>
                 <form class="form-horizontal" action="__SELF__" method="post">
                     <div class="form-group">
+<<<<<<< HEAD
                             <input type="text" id="inputEmail" class="form-control" placeholder="请输入用户名"  ajaxurl="/member/checkUserNameUnique.html" errormsg="请填写1-16位用户名" nullmsg="请填写用户名" datatype="*1-16" value="" name="username">
+=======
+                        <label class="span3 control-label" for="inputEmail">用户名</label>
+                        <div class="span8">
+                            <input type="text" id="inputEmail" class="form-control" placeholder="请输入邮箱地址"  ajaxurl="/member/checkUserNameUnique.html" errormsg="请填写1-16位用户名" nullmsg="请填写邮箱地址" datatype="*1-16" value="" name="username">
+                        </div>
+>>>>>>> upstream/master
                     </div>
                     <div class="form-group">
                             <input type="password" id="inputPassword"  class="form-control" placeholder="请输入密码"  errormsg="密码为6-20位" nullmsg="请填写密码" datatype="*6-20" name="password">
@@ -71,6 +86,7 @@
 
 <block name="side"> </block>
 <block name="script">
+    <script src="__STATIC__/jquery.mailAutoComplete-4.0.js"></script>
     <script type="text/javascript">
     //邮箱验证 /^([a-zA-Z0-9]+[_|/_|/.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|/_|/.]?)*[a-zA-Z0-9]+/.[a-zA-Z]{2,3}$/
     // 
@@ -100,6 +116,15 @@
         });
 
         $(function() {
+            $("#inputEmail").mailAutoComplete({
+                boxClass: "out_box", //外部box样式            
+                listClass: "list_box", //默认的列表样式            
+                focusClass: "focus_box", //列表选样式中            
+                markCalss: "mark_box", //高亮样式            
+                autoClass: false,            
+                textHint: true, //提示文字自动隐藏            
+                hintText: ""
+            });
             var verifyimg = $(".verifyimg").attr("src");
             $(".reloadverify").click(function() {
                 if (verifyimg.indexOf('?') > 0) {

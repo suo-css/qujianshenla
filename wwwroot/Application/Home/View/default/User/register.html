@@ -26,7 +26,7 @@
                     <div class="form-group">
                         <label class="span3 control-label" for="inputEmail">登录邮箱</label>
                         <div class="span8">
-                            <input type="text" id="inputEmail" class="form-control" placeholder="请输入电子邮件" onkeyup="reg_email(this)"  ajaxurl="/member/checkUserEmailUnique.html" errormsg="请填写正确格式的邮箱" nullmsg="请填写邮箱" datatype="e" value="" name="email">
+                            <input type="text" id="inputEmail" class="form-control" placeholder="请输入电子邮件" onkeyup="reg_email(this)"  ajaxurl="/member/checkUserEmailUnique.html" errormsg="请填写正确格式的邮箱" nullmsg="请填写邮箱" datatype="e" value="" name="username">
                             <label class="succeed hidden"></label>
                             <span id="email_error" style="display:none;"></span>
                         </div>
@@ -127,9 +127,9 @@
             $(obj).parent().find(".succeed").addClass("hidden");
             var reg = /^[a-zA-Z0-9_-]+(\.([a-zA-Z0-9_-])+)*@[a-zA-Z0-9_-]+[.][a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*$/;   
             if(reg.test(obj.value)){
-                $.post(url,{email:obj.value,key:'email'},function(data){
+                $.post(url,{username:obj.value},function(data){
                     if(data==1){
-                        $("#email_error").show().html('该邮箱已经被占用!').css('color','red');
+                        $("#email_error").show().html('该登陆邮箱已经被占用!').css('color','red');
                     }else{
                         $("#email_error").hide();
                         $(obj).parent().find(".succeed").removeClass("hidden");
@@ -137,9 +137,10 @@
                     }
                 })  
             }else{
-                $("#email_error").show().html('该邮箱格式不正确！').css('color','red');
+                $("#email_error").show().html('该登陆邮箱已经被占用').css('color','red');
             }
         }
+
         function reg_password(obj){
             var firstPassValue = obj.value;
             if(firstPassValue.length<6 || firstPassValue.length>20){

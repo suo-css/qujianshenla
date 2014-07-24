@@ -92,16 +92,8 @@ class UserController extends HomeController {
 	 */
 	public function reg_email_name(){
 		if(IS_AJAX){
-			$status = 0;
-			switch ($_POST['key']) {
-		 		case 'email':
-		 			$status = (M('ucenter_member')->where(array('email'=>$_POST['email']))->find()) ? 1 : 0; 
-		 			break;
-		 		case 'name':
-		 			$status = (M('ucenter_member')->where(array('username'=>$_POST['name']))->find()) ? 1 : 0; 
-		 			break;	
-			} 
-			return $status;
+		 	$status = (M('ucenter_member')->where(array('username'=>$_POST['username']))->find()) ? 1 : 0; 
+			echo $status;
 		}
 	}
 

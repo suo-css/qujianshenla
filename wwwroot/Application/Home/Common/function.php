@@ -189,15 +189,13 @@ function avatars(){
  * @return 保存更新用户头像
  */
 function resizejpg($imgsrc,$imgdst,$imgwidth,$imgheight,$uid,$size){ 
-  //$imgsrc jpg格式图像路径 $imgdst jpg格式图像保存文件名 $imgwidth要改变的宽度 $imgheight要改变的高度
-  //取得图片的宽度,高度值
   $arr = getimagesize($imgsrc);                     
   header("Content-type: image/jpg");
   $imgWidth = $imgwidth;
   $imgHeight = $imgheight;
   // Create image and define colors
   $imgsrc = imagecreatefromjpeg($imgsrc);
-  $image = imagecreatetruecolor($imgWidth, $imgHeight);  //创建一个彩色的底图
+  $image = imagecreatetruecolor($imgWidth, $imgHeight);
   imagecopyresampled($image, $imgsrc, 0, 0, 0, 0,$imgWidth,$imgHeight,$arr[0], $arr[1]);
   $ucenterurl = './discuz/upload/uc_server';
   $uid  = sprintf("%09d", $uid);

@@ -51,7 +51,13 @@ class UserController extends HomeController {
 			$this->display();
 		}
 	}
-	
+	public function regSus(){
+		$this->display();
+	}
+	// 邮箱验证
+    public function checkmail(){
+ 		$this->display();
+    }
 	/* 登录页面 */
 	public function login($username = '', $password = '', $verify = ''){
 		if(IS_POST){ //登录验证

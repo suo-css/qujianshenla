@@ -22,7 +22,7 @@ class UserController extends HomeController {
 	}
 
 	/* 注册页面 */
-	public function register($username = '', $password = '', $repassword = '', $email = '', $verify = ''){
+	public function register($username = '', $password = '', $repassword = '', $verify = ''){
         if(!C('USER_ALLOW_REGISTER')){
             $this->error('注册已关闭');
         }
@@ -34,11 +34,12 @@ class UserController extends HomeController {
 			/* 检测密码 */
 			if($password != $repassword){
 				$this->error('密码和重复密码不一致！');
-			}	
+			}
+
 			/* 调用注册接口注册用户 */
             $User = new UserApi;
-			$uid  = $User->register($username, $password, $email);
-			if(0 < $uid){ //注册成功
+			$uid  = $User->register($username, $password);
+			if($uid>0){ //注册成功
 				//TODO: 发送验证邮件
 				$this->success('注册成功！',U('login'));
 			} else { //注册失败，显示错误信息
@@ -92,16 +93,8 @@ class UserController extends HomeController {
 	 */
 	public function reg_email_name(){
 		if(IS_AJAX){
-			$status = 0;
-			switch ($_POST['key']) {
-		 		case 'email':
-		 			$status = (M('ucenter_member')->where(array('email'=>$_POST['email']))->find()) ? 1 : 0; 
-		 			break;
-		 		case 'name':
-		 			$status = (M('ucenter_member')->where(array('username'=>$_POST['name']))->find()) ? 1 : 0; 
-		 			break;	
-			} 
-			return $status;
+		 	$status = (M('ucenter_member')->where(array('username'=>$_POST['username']))->find()) ? 1 : 0; 
+			echo $status;
 		}
 	}
 

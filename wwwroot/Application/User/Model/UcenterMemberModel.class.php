@@ -33,17 +33,6 @@ class UcenterMemberModel extends Model{
 
 		/* 验证密码 */
 		array('password', '6,30', -4, self::EXISTS_VALIDATE, 'length'), //密码长度不合法
-
-		/* 验证邮箱 */
-		array('email', 'email', -5, self::EXISTS_VALIDATE), //邮箱格式不正确
-		array('email', '1,32', -6, self::EXISTS_VALIDATE, 'length'), //邮箱长度不合法
-		array('email', 'checkDenyEmail', -7, self::EXISTS_VALIDATE, 'callback'), //邮箱禁止注册
-		array('email', '', -8, self::EXISTS_VALIDATE, 'unique'), //邮箱被占用
-
-		/* 验证手机号码 */
-		array('mobile', '//', -9, self::EXISTS_VALIDATE), //手机格式不正确 TODO:
-		array('mobile', 'checkDenyMobile', -10, self::EXISTS_VALIDATE, 'callback'), //手机禁止注册
-		array('mobile', '', -11, self::EXISTS_VALIDATE, 'unique'), //手机号被占用
 	);
 
 	/* 用户模型自动完成 */
@@ -98,17 +87,12 @@ class UcenterMemberModel extends Model{
 	 * @param  string $mobile   用户手机号码
 	 * @return integer          注册成功-用户信息，注册失败-错误编号
 	 */
-	public function register($username, $password, $email, $mobile){
+	public function register($username,$password){
 		$data = array(
 			'username' => $username,
-			'password' => $password,
-			'email'    => $email,
-			'mobile'   => $mobile,
+			'mobile'   => '',
+			'password' => $password
 		);
-
-		//验证手机
-		if(empty($data['mobile'])) unset($data['mobile']);
-
 		/* 添加用户 */
 		if($this->create($data)){
 			$uid = $this->add();
@@ -116,7 +100,7 @@ class UcenterMemberModel extends Model{
 				//discuz用户表同步
 				$salt = substr(uniqid(rand()), -6);
 				$password = md5(md5($password).$salt);
-				$sql = "INSERT INTO `pre_ucenter_members` VALUES ('".$uid."', '".$username."', '".$password."', '".$email."', '', '', '".$_SERVER['REMOTE_ADDR']."', '".time()."', '0', '0', '".$salt."', '')";
+				$sql = "INSERT INTO `pre_ucenter_members` VALUES ('".$uid."', '".$username."', '".$password."', '".$username."', '', '', '".$_SERVER['REMOTE_ADDR']."', '".time()."', '0', '0', '".$salt."', '')";
 				$user = M('user')->db(2,"DB_CONFIG2")->query($sql);	
 			}
 			return $uid ? $uid : 0; //0-未知错误，大于0-注册成功

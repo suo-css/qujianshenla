@@ -9,40 +9,49 @@
 </block>
 
 <block name="body">
+<style>
+    .out_box{font-family:宋体,Verdana;border: 1px solid #ccc;background: #fff;font: 12px;color:#666;}     
+    .list_box{line-height:22px;cursor: pointer;padding:0 5px;}        
+    .list_box:hover{line-height:22px;cursor: pointer;background-color: #69C;color:#FFF;padding:0 5px;}        
+    .mark_box{font-weight:bold;}
+    .emailist{border:1px solid #bdbdbd; border-radius: 4px; background-color:#fff; color:#666; font-size:14px; list-style-type:0; padding:0; margin:0; overflow:hidden;}
+    .emailist li{padding:2px 11px; cursor:pointer;}
+    .emailist .on, .emailist li:hover{background-color:#eee;}
+    .succeed {padding: 3px;background: url(./Public/Home/images/sucess.png) no-repeat #ffffff;width: 16px;height: 16px;position: absolute;display: inline-block;}
+</style>
 <section>
         <div class="row">
             <div class="span4">
                 <form class="form-horizontal" action="__SELF__" method="post" role="form">
                     <div class="form-group">
-                        <label class="span3 control-label" for="inputEmail">用户名</label>
+                        <label class="span3 control-label" for="inputEmail">登录邮箱</label>
                         <div class="span8">
-                            <input type="text" id="inputEmail" class="form-control" placeholder="请输入用户名" onkeyup="reg_name(this)"  ajaxurl="/member/checkUserNameUnique.html" errormsg="请填写1-16位用户名" nullmsg="请填写用户名" datatype="*1-16" value="" name="username">
-                            <span id="name_error" style="display:none;"></span>
+                            <input type="text" id="inputEmail" class="form-control" placeholder="请输入电子邮件" onkeyup="reg_email(this)"  ajaxurl="/member/checkUserEmailUnique.html" errormsg="请填写正确格式的邮箱" nullmsg="请填写邮箱" datatype="e" value="" name="username">
+                            <label class="succeed hidden"></label>
+                            <span id="email_error" style="display:none;"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="span3 control-label" for="inputPassword">密码</label>
                         <div class="span8">
-                            <input type="password" id="inputPassword"  class="form-control" placeholder="请输入密码"  errormsg="密码为6-20位" nullmsg="请填写密码" datatype="*6-20" name="password">
+                            <input type="password" id="inputPassword"  class="form-control" placeholder="请输入密码" onkeyup="reg_password(this);"  errormsg="密码为6-20位" nullmsg="请填写密码" datatype="*6-20" name="password">
+                            <label class="succeed hidden"></label>
+                            <span id="password_error" style="display:none;"><span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="span3 control-label" for="inputPassword">确认密码</label>
+                        <label class="span3 control-label" for="inputRepassword">确认密码</label>
                         <div class="span8">
-                            <input type="password" id="inputPassword" class="form-control" placeholder="请再次输入密码" recheck="password" errormsg="您两次输入的密码不一致" nullmsg="请填确认密码" datatype="*" name="repassword">
+                            <input type="password" id="inputRepassword" class="form-control" placeholder="请再次输入密码" onkeyup="reg_repassword();" recheck="password" errormsg="您两次输入的密码不一致" nullmsg="请填确认密码" datatype="*" name="repassword">
+                            <label class="succeed hidden"></label>
+                            <span id="repassword_error" style="display:none;"><span>
                         </div>
                     </div>
+                    
                     <div class="form-group">
-                        <label class="span3 control-label" for="inputEmail">邮箱</label>
+                        <label class="span3 control-label" for="inputCode">验证码</label>
                         <div class="span8">
-                            <input type="text" id="inputEmail" class="form-control" placeholder="请输入电子邮件" onkeyup="reg_email(this)"  ajaxurl="/member/checkUserEmailUnique.html" errormsg="请填写正确格式的邮箱" nullmsg="请填写邮箱" datatype="e" value="" name="email">
-                            <span id="email_error" style="display:none;"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="span3 control-label" for="inputPassword">验证码</label>
-                        <div class="span8">
-                            <input type="text" id="inputPassword" class="form-control" placeholder="请输入验证码"  errormsg="请填写5位验证码" nullmsg="请填写验证码" datatype="*5-5" name="verify">
+                            <input type="text" id="inputCode" class="form-control" placeholder="请输入验证码"  errormsg="请填写5位验证码" nullmsg="请填写验证码" datatype="*5-5" name="verify">
                         </div>
                     </div>
                     <div class="form-group">
@@ -66,6 +75,7 @@
 
 <block name="side"> </block>
 <block name="script">
+    <script src="__STATIC__/jquery.mailAutoComplete-4.0.js"></script>
     <script type="text/javascript">
         $(document)
                 .ajaxStart(function() {
@@ -76,7 +86,6 @@
                 });
 
         $("form").submit(function() {
-
             var self = $(this);
             $.post(self.attr("action"), self.serialize(), success, "json");
             return false;
@@ -93,6 +102,16 @@
         });
 
         $(function() {
+            $("#inputEmail").mailAutoComplete({
+                boxClass: "out_box", //外部box样式            
+                listClass: "list_box", //默认的列表样式            
+                focusClass: "focus_box", //列表选样式中            
+                markCalss: "mark_box", //高亮样式            
+                autoClass: false,            
+                textHint: true, //提示文字自动隐藏            
+                hintText: ""
+            });
+
             var verifyimg = $(".verifyimg").attr("src");
             $(".reloadverify").click(function() {
                 if (verifyimg.indexOf('?') > 0) {
@@ -105,20 +124,54 @@
         
         var url = "{:U('User/reg_email_name')}";
         function reg_email(obj){
+            $(obj).parent().find(".succeed").addClass("hidden");
             var reg = /^[a-zA-Z0-9_-]+(\.([a-zA-Z0-9_-])+)*@[a-zA-Z0-9_-]+[.][a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*$/;   
             if(reg.test(obj.value)){
-                $.post(url,{email:obj.value,key:'email'},function(data){
+                $.post(url,{username:obj.value},function(data){
                     if(data==1){
-                        $("#email_error").show().html('该邮箱已经被占用!').css('color','red');
+                        $("#email_error").show().html('该登陆邮箱已经被占用!').css('color','red');
                     }else{
-                        $("#email_error").show().html('该邮箱可以使用！').css('color','greed');
+                        $("#email_error").hide();
+                        $(obj).parent().find(".succeed").removeClass("hidden");
                     }
                 })  
             }else{
-                $("#email_error").show().html('该邮箱格式不正确！').css('color','red');
+                $("#email_error").show().html('该登陆邮箱格式不正确!').css('color','red');
             }
         }
 
+        function reg_password(obj){
+            var firstPassValue = obj.value;
+            if(firstPassValue.length<6 || firstPassValue.length>20){
+                $(obj).parent().find(".succeed").addClass("hidden");
+                $(obj).css({border:"1px solid red"});
+                $("#password_error").show().html('密码为6-20位!').css('color','red');
+                return false;
+            }
+            $(obj).css({border:""});
+            $("#password_error").hide();
+            $(obj).parent().find(".succeed").removeClass("hidden");
+            var secondPassValue = $("#inputRepassword").val();
+            if(secondPassValue!=""){
+                return reg_repassword();
+            }
+                
+
+        }
+        function reg_repassword(){
+            var firstPassValue = $("#inputPassword").val();
+            var secondPassValue = $("#inputRepassword").val();
+            if(firstPassValue!=secondPassValue){
+                $("#inputRepassword").parent().find(".succeed").addClass("hidden");
+                $("#inputRepassword").css({border:"1px solid red"});
+                $("#repassword_error").show().html('密码与重复密码不一致').css('color','red');
+                return false;
+            }
+            $("#inputRepassword").css({border:""});
+            $("#inputRepassword").parent().find(".succeed").removeClass("hidden");
+            $("#repassword_error").hide();
+            return true;
+        }
         function reg_name(obj){
             $.post(url,{name:obj.value,key:'name'},function(data){
                 if(data==1){

@@ -41,6 +41,7 @@ class UserController extends HomeController {
 			$uid  = $User->register($username, $password);
 			if($uid>0){ //注册成功
 				//TODO: 发送验证邮件
+				email($username);
 				$this->success('注册成功！',U('login'));
 			} else { //注册失败，显示错误信息
 				$this->error($this->showRegError($uid));
@@ -137,22 +138,6 @@ class UserController extends HomeController {
 		}
 		return $error;
 	}
-
-
-    //发送email
-    public function email(){
-    	$email = C('email');
-        $localtime=date('y-m-d H:i:s',time());
-        $mail = new csmtp();
-        $mail->setServer($email['SYS_MAIL_SERVER'],$email['SYS_MAIL_USERNAME'],$email['SYS_MAIL_PWD'],$email['SYS_MAIL_PORT'],true); //设置smtp服务器，到服务器的SSL连接
-        $mail->setFrom($email['SYS_MAIL_USERNAME']); //设置发件人
-        $mail->setReceiver('455078389@qq.com'); //设置收件人，多个收件人，调用多次
-        $mail->setMail("eamil发送成功!"); //设置邮件主题、内容
-        if($mail->sendMail()){ //发送
-        	echo "发送成功!";
-     	}   
-    }
-
     /**
      * 个人用户信息更新
      * @author huajie <banhuajie@163.com>

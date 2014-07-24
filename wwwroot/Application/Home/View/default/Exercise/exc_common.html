@@ -1,129 +1,130 @@
-<extend name="Base/common"/>
+    <extend name="Base/common"/>
 
 
-<style type="text/css">
-       #filter_nav,#exc_nav{
-    color:#3399FF;
-    background-color: white;
-}
-</style>
-
-
-<block name="body">
-    <style type="text/css"> 
-        #faqbg{background-color:#666666; position:absolute; z-index:99; left:0; top:0; display:none; width:100%; height:1000px;opacity:0.5;filter: alpha(opacity=50);-moz-opacity: 0.5;} 
-        #faqdiv{position:absolute;width:400px; left:50%; top:50%; margin-left:-200px; height:auto; z-index:100;background-color:#fff; border:1px #8FA4F5 solid; padding:1px;} 
-        #faqdiv h2{ height:25px; font-size:14px; background-color:#8FA4F5; position:relative; padding-left:10px; line-height:25px;} 
-        #faqdiv h2 a{position:absolute; right:5px; font-size:12px; color:#FF0000} 
-        #faqdiv .form{padding:10px;} 
+    <style type="text/css">
+           #filter_nav,#exc_nav{
+        color:#3399FF;
+        background-color: white;
+    }
+           .mid-content{
+            background-color: #FFFFFF;
+           }
     </style>
-    <block name="exc_header">
-   
+
+
+    <block name="body">
+        <style type="text/css"> 
+            #faqbg{background-color:#666666; position:absolute; z-index:99; left:0; top:0; display:none; width:100%; height:1000px;opacity:0.5;filter: alpha(opacity=50);-moz-opacity: 0.5;} 
+            #faqdiv{position:absolute;width:400px; left:50%; top:50%; margin-left:-200px; height:auto; z-index:100;background-color:#fff; border:1px #8FA4F5 solid; padding:1px;} 
+            #faqdiv h2{ height:25px; font-size:14px; background-color:#8FA4F5; position:relative; padding-left:10px; line-height:25px;} 
+            #faqdiv h2 a{position:absolute; right:5px; font-size:12px; color:#FF0000} 
+            #faqdiv .form{padding:10px;} 
+        </style>
+       
         <include file="Public/excNav"/>
-  
-    <if condition="$tinue eq ''">
-        <form action="{:U('')}" method="post" onsubmit='return view();'>
-            <volist name="goaltype" id="vo">
-                {$vo.name}：<input type="text" class="value1" name="type[{$vo.id}]" value="">{$vo.unit}
-            </volist>
-            
-            <span id="error_show"></span>
-           <button type="submit" class="btn submit">保存</button>
-        </form>
-    <else />
-        <form action="{:U('')}" method="post" onsubmit='return view();'>
-            <volist name="goaltype" id="vo">
-                {$vo.name}：<input type="text" class="value1" name="type[{$vo['id']}]" value=<?php echo show_goal($vo['id']) ?>    >{$vo.unit}
-            </volist>
-   
-            <span id="error_show"></span>
-           <button type="submit" class="btn submit">修改</button>
-        </form>
-    </if>
-    
-    <volist name="list" id="vo">
-        <div style="height:344px;width:374px;float:right;">
-            <div style="height:41px;width:374px;float:right;">{$vo.name}</div>
-            <div   style="width: 374px;  height: 303px;">
-                 <?php echo goaltype($vo['id']) ?>
+        <div class="span8 mid-content">
+        <if condition="$tinue eq ''">
+            <form action="{:U('')}" method="post" onsubmit='return view();'>
+                <volist name="goaltype" id="vo">
+                    {$vo.name}：<input type="text" class="value1" name="type[{$vo.id}]" value="">{$vo.unit}
+                </volist>
+                
+                <span id="error_show"></span>
+               <button type="submit" class="btn submit">保存</button>
+            </form>
+        <else />
+            <form action="{:U('')}" method="post" onsubmit='return view();'>
+                <volist name="goaltype" id="vo">
+                    {$vo.name}：<input type="text" class="value1" name="type[{$vo['id']}]" value=<?php echo show_goal($vo['id']) ?>    >{$vo.unit}
+                </volist>
+       
+                <span id="error_show"></span>
+               <button type="submit" class="btn submit">修改</button>
+            </form>
+        </if>
+        
+        <volist name="list" id="vo">
+            <div style="height:344px;width:374px;float:right;">
+                <div style="height:41px;width:374px;float:right;">{$vo.name}</div>
+                <div   style="width: 374px;  height: 303px;">
+                     <?php echo goaltype($vo['id']) ?>
+                </div>
             </div>
-        </div>
-    </volist>   
+        </volist>   
 
-    <div id="faqbg"></div> 
-    <div id="faqdiv" style="display:none;"> 
-            
-    </div> 
-    </block>   
-<block name="exc_content">
-</block>
-</block>
+        <div id="faqbg"></div> 
+        <div id="faqdiv" style="display:none;">      
+        </div> 
+    </div>
+    <block name="exc_content">
+    </block>
+    </block>
 
-<block name="script">
-    <script type="text/javascript">
-        $(document)
-                .ajaxStart(function() {
-                    $("button:submit").addClass("log-in").attr("disabled", true);
-                })
-                .ajaxStop(function() {
-                    $("button:submit").removeClass("log-in").attr("disabled", false);
+    <block name="script">
+        <script type="text/javascript">
+            $(document)
+                    .ajaxStart(function() {
+                        $("button:submit").addClass("log-in").attr("disabled", true);
+                    })
+                    .ajaxStop(function() {
+                        $("button:submit").removeClass("log-in").attr("disabled", false);
+                    });
+
+
+            function ajax_form(typeid,sta){
+                var url         ="{:U('Exercise/goal')}";
+                var startvalue  = $("#startvalue").val();
+                var goalvalue   = $("#goalvalue").val();
+                var goaldate    = $("#goaldate").val();
+                var type        = "#type-"+typeid;
+                var d = new Date();
+                var str = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+                $.post(url,{startvalue:startvalue,goalvalue:goalvalue,goaldate:goaldate,id:typeid,sta:sta},function(data){
+                    if(data==1){
+                        $("#faqdiv").hide();
+                        $(type).html(startvalue+"-"+str+"-"+goalvalue+"-"+goaldate);
+                    }
                 });
 
+            }
 
-        function ajax_form(typeid,sta){
-            var url         ="{:U('Exercise/goal')}";
-            var startvalue  = $("#startvalue").val();
-            var goalvalue   = $("#goalvalue").val();
-            var goaldate    = $("#goaldate").val();
-            var type        = "#type-"+typeid;
-            var d = new Date();
-            var str = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
-            $.post(url,{startvalue:startvalue,goalvalue:goalvalue,goaldate:goaldate,id:typeid,sta:sta},function(data){
-                if(data==1){
-                    $("#faqdiv").hide();
-                    $(type).html(startvalue+"-"+str+"-"+goalvalue+"-"+goaldate);
-                }
-            });
+            function ajax_forms(typeid,sta){
+                var url         ="{:U('Exercise/goal')}";
+                var startvalue  = $("#startvalue").val();
+                var goalvalue   = $("#goalvalue").val();
+                var goaldate    = $("#goaldate").val();
+                var type        = "#type-"+typeid;
+                var currentvalue= $("#currentvalue").val();
+                var d = new Date();
+                var str = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+                $.post(url,{startvalue:startvalue,goalvalue:goalvalue,goaldate:goaldate,id:typeid,sta:sta,currentvalue:currentvalue},function(data){
+                    if(data==1){
+                        $("#faqdiv").hide();
+                        $(type).html(startvalue+"-"+str+"-"+goalvalue+"-"+goaldate+"-"+currentvalue+"-"+str);
+                    }
+                });
 
-        }
-
-        function ajax_forms(typeid,sta){
-            var url         ="{:U('Exercise/goal')}";
-            var startvalue  = $("#startvalue").val();
-            var goalvalue   = $("#goalvalue").val();
-            var goaldate    = $("#goaldate").val();
-            var type        = "#type-"+typeid;
-            var currentvalue= $("#currentvalue").val();
-            var d = new Date();
-            var str = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
-            $.post(url,{startvalue:startvalue,goalvalue:goalvalue,goaldate:goaldate,id:typeid,sta:sta,currentvalue:currentvalue},function(data){
-                if(data==1){
-                    $("#faqdiv").hide();
-                    $(type).html(startvalue+"-"+str+"-"+goalvalue+"-"+goaldate+"-"+currentvalue+"-"+str);
-                }
-            });
-
-        }
+            }
 
 
-        function update_goal(json){
-            var data = ""+json.name+"<div>startvalue:<input type='text' name='startvalue' id=startvalue value="+json.startvalue+"></div><div>goalvalue:<input type='text' name='goalvalue' id=goalvalue value="+json.goalvalue+"></div><div>goaldate:<input type='text' name='goaldate' id=goaldate value="+json.goaldate+"></div>currentvalue:<input type='text' name='currentvalue' id=currentvalue value="+json.currentvalue+"><button type='botton' class='btn ' onclick='ajax_forms("+json.id+",1);'>保存</button><div class='add_goal_error'></div>";
-            $("#faqdiv").show().html(data);
-        }
+            function update_goal(json){
+                var data = ""+json.name+"<div>startvalue:<input type='text' name='startvalue' id=startvalue value="+json.startvalue+"></div><div>goalvalue:<input type='text' name='goalvalue' id=goalvalue value="+json.goalvalue+"></div><div>goaldate:<input type='text' name='goaldate' id=goaldate value="+json.goaldate+"></div>currentvalue:<input type='text' name='currentvalue' id=currentvalue value="+json.currentvalue+"><button type='botton' class='btn ' onclick='ajax_forms("+json.id+",1);'>保存</button><div class='add_goal_error'></div>";
+                $("#faqdiv").show().html(data);
+            }
 
-        function add_goal(id,name){
-            var data = name+"<div>startvalue:<input type='text' name='startvalue' id=startvalue></div><div>goalvalue:<input type='text' name='goalvalue' id=goalvalue></div><div>goaldate:<input type='text' name='goaldate' id=goaldate></div><button type='botton' class='btn submit-btn ' onclick='ajax_form("+id+",0);'>保存</button><div class='add_goal_error'></div>";
-            $("#faqdiv").show().html(data);
-        }
-        function view(){
-           var sta = 0;
-           $(".value1").each(function(){
-                if($(this).val().replace(/\s+/,'') == ''){
-                    $("#error_show").html('数据不能为空!');
-                    sta++;
-                }
-            })
-           if(sta>0){return false;}
-        }
-    </script>
-</block>
+            function add_goal(id,name){
+                var data = name+"<div>startvalue:<input type='text' name='startvalue' id=startvalue></div><div>goalvalue:<input type='text' name='goalvalue' id=goalvalue></div><div>goaldate:<input type='text' name='goaldate' id=goaldate></div><button type='botton' class='btn submit-btn ' onclick='ajax_form("+id+",0);'>保存</button><div class='add_goal_error'></div>";
+                $("#faqdiv").show().html(data);
+            }
+            function view(){
+               var sta = 0;
+               $(".value1").each(function(){
+                    if($(this).val().replace(/\s+/,'') == ''){
+                        $("#error_show").html('数据不能为空!');
+                        sta++;
+                    }
+                })
+               if(sta>0){return false;}
+            }
+        </script>
+    </block>

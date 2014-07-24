@@ -59,6 +59,8 @@
                             <input type="text" value="{$result.homeadd}" onclick="show_address();"  name="homeadd"  class="form-control" placeholder="请输入家庭地址">
                         </div>    
                     </div>  
+        
+<a href="#myModal" role="button" class="btn" data-toggle="modal">查看演示案例</a>
 
                     <div class="form-group">
                         <label class="span4 control-label" for="telephone">健身房地址</label>
@@ -95,10 +97,9 @@
             </div>
         </div>
 
-        <!-- Button trigger modal -->
-        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-          上传头像
-        </button>
+                    <div id="altContent"  ><!-- 上传图片容器 -->
+                        
+                  </div>
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -109,9 +110,7 @@
                 <h4 class="modal-title" id="myModalLabel">上传头像</h4>
               </div>
               <div class="modal-body">
-                  <div id="altContent"  ><!-- 上传图片容器 -->
-                        
-                  </div>
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -169,7 +168,6 @@
 <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
 
     <script src="http://open.web.meitu.com/sources/xiuxiu.js" type="text/javascript"></script>
-
     <script type="text/javascript">
         window.onload=function(){
             xiuxiu.embedSWF("altContent",5,"850","560");
@@ -211,7 +209,7 @@
         minView:2,
         autoclose:true
     });
-
+/*
     function show_address(){
         $(".show_div div:gt(0)").hide();
         $('#Address').modal();
@@ -221,6 +219,6 @@
         $("#city-"+obj.id).show()
                           .siblings('div').hide();
         
-    }
+    }*/
     </script>
 </block>

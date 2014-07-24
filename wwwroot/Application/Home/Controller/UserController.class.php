@@ -42,7 +42,7 @@ class UserController extends HomeController {
 			if($uid>0){ //注册成功
 				//TODO: 发送验证邮件
 				email($username);
-				$this->success('注册成功！',U('login'));
+				$this->success('注册成功！',U('checkmail'));
 			} else { //注册失败，显示错误信息
 				$this->error($this->showRegError($uid));
 			}

@@ -17,7 +17,7 @@
     .emailist{border:1px solid #bdbdbd; border-radius: 4px; background-color:#fff; color:#666; font-size:14px; list-style-type:0; padding:0; margin:0; overflow:hidden;}
     .emailist li{padding:2px 11px; cursor:pointer;}
     .emailist .on, .emailist li:hover{background-color:#eee;}
-    .succeed {padding: 3px;background: url(__STATIC__/sucess.png) no-repeat #ffffff;width: 16px;height: 16px;position: absolute;display: inline-block;}
+    .succeed {padding: 3px;background: url(./Public/Home/images/sucess.png) no-repeat #ffffff;width: 16px;height: 16px;position: absolute;display: inline-block;}
 </style>
 <section>
         <div class="row">
@@ -133,11 +133,10 @@
                     }else{
                         $("#email_error").hide();
                         $(obj).parent().find(".succeed").removeClass("hidden");
-                        //$("#email_error").show().html('该邮箱可以使用！').css('color','green');
                     }
                 })  
             }else{
-                $("#email_error").show().html('该登陆邮箱已经被占用').css('color','red');
+                $("#email_error").show().html('该登陆邮箱格式不正确!').css('color','red');
             }
         }
 

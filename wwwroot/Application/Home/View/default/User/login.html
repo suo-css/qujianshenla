@@ -55,6 +55,8 @@
 <block name="side"> </block>
 <block name="script">
     <script type="text/javascript">
+    //邮箱验证 /^([a-zA-Z0-9]+[_|/_|/.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|/_|/.]?)*[a-zA-Z0-9]+/.[a-zA-Z]{2,3}$/
+    // 
         $(document)
                 .ajaxStart(function() {
                     $("button:submit").addClass("log-in").attr("disabled", true);

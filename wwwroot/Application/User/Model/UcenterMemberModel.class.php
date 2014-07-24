@@ -87,7 +87,7 @@ class UcenterMemberModel extends Model{
 	 * @param  string $mobile   用户手机号码
 	 * @return integer          注册成功-用户信息，注册失败-错误编号
 	 */
-	public function register($username,$password){
+	public function register($username,$password,$check){
 		$data = array(
 			'username' => $username,
 			'mobile'   => '',
@@ -100,8 +100,13 @@ class UcenterMemberModel extends Model{
 				//discuz用户表同步
 				$salt = substr(uniqid(rand()), -6);
 				$password = md5(md5($password).$salt);
-				$sql = "INSERT INTO `pre_ucenter_members` VALUES ('".$uid."', '".$username."', '".$password."', '".$username."', '', '', '".$_SERVER['REMOTE_ADDR']."', '".time()."', '0', '0', '".$salt."', '')";
-				$user = M('user')->db(2,"DB_CONFIG2")->query($sql);	
+				$sql  = "INSERT INTO `pre_ucenter_members` VALUES ('".$uid."', '".$username."', '".$password."', '".$username."', '', '', '".$_SERVER['REMOTE_ADDR']."', '".time()."', '0', '0', '".$salt."', '')";
+				$user = M('user')->db(2,"DB_CONFIG2")->query($sql);
+				$data = array('username'=>$username,'check'=>$check);
+				M('email_check')->add($data);
+				$_SESSION['email_check'] = $check;
+				$_SESSION['email']		 = $username;
+				$_SESSION['pass']		 = $password;
 			}
 			return $uid ? $uid : 0; //0-未知错误，大于0-注册成功
 		} else {
@@ -134,7 +139,6 @@ class UcenterMemberModel extends Model{
 			default:
 				return 0; //参数错误
 		}
-
 		/* 获取用户数据 */
 		$user = $this->where($map)->find();
 		if(is_array($user) && $user['status']){
@@ -164,9 +168,9 @@ class UcenterMemberModel extends Model{
 			$map['id'] = $uid;
 		}
 
-		$user = $this->where($map)->field('id,username,email,mobile,status')->find();
+		$user = $this->where($map)->field('id,username,mobile,status')->find();
 		if(is_array($user) && $user['status'] = 1){
-			return array($user['id'], $user['username'], $user['email'], $user['mobile']);
+			return array($user['id'], $user['username'], $user['mobile']);
 		} else {
 			return -1; //用户不存在或被禁用
 		}

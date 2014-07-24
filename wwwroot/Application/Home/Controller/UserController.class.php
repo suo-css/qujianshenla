@@ -37,11 +37,12 @@ class UserController extends HomeController {
 			}
 
 			/* 调用注册接口注册用户 */
-            $User = new UserApi;
-			$uid  = $User->register($username, $password);
+            $User  = new UserApi;
+            $check = time();
+			$uid   = $User->register($username, $password,$check);
 			if($uid>0){ //注册成功
 				//TODO: 发送验证邮件
-				email($username);
+				email($username,$check);
 				$this->success('注册成功！',U('checkmail'));
 			} else { //注册失败，显示错误信息
 				$this->error($this->showRegError($uid));
@@ -51,25 +52,47 @@ class UserController extends HomeController {
 			$this->display();
 		}
 	}
+
 	public function regSus(){
 		$this->display();
 	}
+
 	// 邮箱验证
     public function checkmail(){
+    	if($_GET['check']!=""){
+    		if($result = M('email_check')->where(array('check'=>$_GET['check']))->find()){
+    			$user  = new UserApi;
+    			$login = M('ucenter_member')->where(array('username'=>$result['username']))->find();
+				$user->login($login['username'],$_SESSION['pass']);
+    			$data = array('status'=>1);
+    			M('ucenter_member')->where(array('username'=>$result['username']))->save($data);
+    			M('email_check')->where(array('check'=>$_GET['check']))->delete();
+    			$this->redirect('regsus');
+    		}
+    	}
  		$this->display();
     }
+
+    /**
+     * 发送邮箱
+     */
+    public function email(){
+    	email($_SESSION['email'],$_SESSION['email_check']);
+    	echo 1;
+    }
+
 	/* 登录页面 */
 	public function login($username = '', $password = '', $verify = ''){
 		if(IS_POST){ //登录验证
 			/* 检测验证码 */
-			if(!check_verify($verify)){
+/*			if(!check_verify($verify)){
 				$this->error('验证码输入错误！');
-			}
+			}*/
 
 			/* 调用UC登录接口登录 */
 			$user = new UserApi;
 			$uid = $user->login($username, $password);
-			if(0 < $uid){ //UC登录成功
+			if($uid > 0){ //UC登录成功
 				/* 登录用户 */
 				$Member = D('Member');
 				if($Member->login($uid)){ //登录用户

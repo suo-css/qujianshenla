@@ -222,9 +222,9 @@ function avatar_save(){
 
 /**
  * 发送email
- * @param $user_email 邮箱地址
+ * @param $user_email 邮箱地址 $check 校验值
  */
-function email($user_email){
+function email($user_email,$check){
     $email = C('email');
     $localtime=date('y-m-d H:i:s',time());
     $mail = new csmtp();
@@ -234,7 +234,7 @@ function email($user_email){
     //$mail->setCc("XXXX"); //设置抄送，多个抄送，调用多次
     //$mail->setBcc("XXXXX"); //设置秘密抄送，多个秘密抄送，调用多次
     //$mail->addAttachment("XXXX"); //添加附件，多个附件，调用多次
-    $mail->setMail("eamil发送成功!"); //设置邮件主题、内容
+    $mail->setMail('邮箱验证',"<a href=".U('user/checkmail',array('check'=>$check),'',true).">点击验证!</a>"); //设置邮件主题、内容
     $mail->sendMail();
 }
 

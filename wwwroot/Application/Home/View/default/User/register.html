@@ -11,68 +11,74 @@
 
 <block name="body">
 <style>
+    body{
+        background-color: white;
+        background: url('');
+    }
     .emailist{border:1px solid #bdbdbd; border-radius: 4px; background-color:#fff; color:#666; font-size:14px; list-style-type:0; padding:0; margin:0; overflow:hidden;}
     .emailist li{padding:2px 11px; cursor:pointer;}
     .emailist .on, .emailist li:hover{background-color:#eee;}
     .succeed {padding: 3px;background: url(./Public/Home/images/sucess.png) no-repeat #ffffff;width: 16px;height: 16px;position: absolute;display: inline-block;}
-    .steps{width: 720px;margin: 0 auto;}
-    .steps ul{list-style: none;}
-    .steps ul li{float: left;width: 150px;padding-left: 70px;height: 46px;line-height: 46px;font-weight: bold;color: #FFF}
-    .steps ul .active{border-bottom: 3px solid #ff4700}
-
+    .steps{border-bottom: 2px solid #e6e6e6;position: relative;height: 46px;}
+    .steps ul{width: 720px;margin: 0 auto;list-style: none;padding: 0;display: block;font-size: 1.3em;}
+    .steps ul li{float: left;width: 150px;height: 46px;padding-left: 70px;font-weight: bold;display: inline;}
+    .steps ul .active{border-bottom: 2px solid #ff4700}
+    .mgTopPct5{margin-top: 5%};
 </style>
 <div class="steps">
     <ul>
-        <li class="active">填写用户信息</li>
+        <li class="active">填写信息</li>
         <li>验证邮箱</li>
         <li>注册成功</li>
     </ul>
     <div class="clearfix"></div>
 </div>
 <section>
-        <div class="row">
-            <div class="span4">
+        <div class="row mgTopPct5">
+            <div class="span2"></div>
+            <div class="span8">
                 <form class="form-horizontal" action="__SELF__" method="post" role="form">
-                    <div class="form-group">
-                        <label class="span3 control-label" for="inputEmail">登录邮箱</label>
-                        <div class="span8">
+                    <div class="control-group">
+                        <label class="span4 control-label" for="inputEmail">登录邮箱</label>
+                        <div class="span4">
                             <input type="text" id="inputEmail" class="form-control" placeholder="请输入电子邮件" onkeyup="reg_email(this)"  ajaxurl="/member/checkUserEmailUnique.html" errormsg="请填写正确格式的邮箱" nullmsg="请填写邮箱" datatype="e" value="" name="username">
                             <label class="succeed hidden"></label>
                             <span id="email_error" style="display:none;"></span>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="span3 control-label" for="inputPassword">密码</label>
-                        <div class="span8">
-                            <input type="password" id="inputPassword"  class="form-control" placeholder="请输入密码" onkeyup="reg_password(this);"  errormsg="密码为6-20位" nullmsg="请填写密码" datatype="*6-20" name="password">
-                            <label class="succeed hidden"></label>
-                            <span id="password_error" style="display:none;"><span>
-                        </div>
+                    <div class="control-group">
+                            <label class="span4 control-label" for="inputPassword">密码</label>
+                            <div class="span4">
+                                <input type="password" id="inputPassword"  class="form-control" placeholder="请输入密码" onkeyup="reg_password(this);"  errormsg="密码为6-20位" nullmsg="请填写密码" datatype="*6-20" name="password">
+                                <label class="succeed hidden"></label>
+                                <span id="password_error" style="display:none;"><span>
+                            </div>
                     </div>
-                    <div class="form-group">
-                        <label class="span3 control-label" for="inputRepassword">确认密码</label>
-                        <div class="span8">
+                    <div class="control-group">
+                        <label class="span4 control-label" for="inputRepassword">确认密码</label>
+                        <div class="span4">
                             <input type="password" id="inputRepassword" class="form-control" placeholder="请再次输入密码" onkeyup="reg_repassword();" recheck="password" errormsg="您两次输入的密码不一致" nullmsg="请填确认密码" datatype="*" name="repassword">
                             <label class="succeed hidden"></label>
                             <span id="repassword_error" style="display:none;"><span>
                         </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label class="span3 control-label" for="inputCode">验证码</label>
-                        <div class="span8">
+                    <div class="control-group">
+                        <label class="span4 control-label" for="inputCode">验证码</label>
+                        <div class="span4">
                             <input type="text" id="inputCode" class="form-control" placeholder="请输入验证码"  errormsg="请填写5位验证码" nullmsg="请填写验证码" datatype="*5-5" name="verify">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="span3 control-label"></label>
-                        <div class="span8">
+                    <div class="control-group">
+                        <label class="span4 control-label"></label>
+                        <div class="span4">
                             <img class="verifyimg reloadverify" alt="点击切换" src="{:U('verify')}" style="cursor:pointer;">
                         </div>
                         <div class="span8 Validform_checktip text-warning"></div>
                     </div>
-                    <div class="form-group">
-                        <div class="span8 spanoffset-3">
+                    <div class="control-group">
+                        <label class="span4 control-label"></label>
+                        <div class="span4">
                             <button type="submit" class="btn">注 册</button>
                         </div>
                     </div>
@@ -99,9 +105,8 @@
             var self = $(this);
             $.post(self.attr("action"), self.serialize(), success, "json");
             return false;
-
             function success(data) {
-                if (data.status) {
+                if (data.status) {                    
                     window.location.href = data.url;
                 } else {
                     self.find(".Validform_checktip").text(data.info);

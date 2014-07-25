@@ -11,19 +11,19 @@
 
 <block name="body">
 <style>
-    .emailist{border:1px solid #bdbdbd; border-radius: 4px; background-color:#fff; color:#666; font-size:14px; list-style-type:0; padding:0; margin:0; overflow:hidden;}
-    .emailist li{padding:2px 11px; cursor:pointer;}
-    .emailist .on, .emailist li:hover{background-color:#eee;}
-    .succeed {padding: 3px;background: url(./Public/Home/images/sucess.png) no-repeat #ffffff;width: 16px;height: 16px;position: absolute;display: inline-block;}
-    .steps{width: 720px;margin: 0 auto;}
-    .steps ul{list-style: none;}
-    .steps ul li{float: left;width: 150px;padding-left: 70px;height: 46px;line-height: 46px;font-weight: bold;color: #FFF}
-    .steps ul .active{border-bottom: 3px solid #ff4700}
-    a:hover{text-decoration:none;}
+    body{
+        background-color: white;
+        background: url('');
+    }
+    .steps{border-bottom: 2px solid #e6e6e6;position: relative;height: 46px;}
+    .steps ul{width: 720px;margin: 0 auto;list-style: none;padding: 0;display: block;font-size: 1.3em;}
+    .steps ul li{float: left;width: 150px;height: 46px;padding-left: 70px;font-weight: bold;display: inline;}
+    .steps ul .active{border-bottom: 2px solid #ff4700}
+    .mgTopPct5{margin-top: 5%};
 </style>
 <div class="steps">
     <ul>
-        <li>填写用户信息</li>
+        <li>填写信息</li>
         <li>验证邮箱</li>
         <li class="active">注册成功</li>
     </ul>
@@ -34,9 +34,9 @@
             <div class="span4">
                 <img src="./Public/Home/images/ok.jpg">
             </div>
-            <div class="span8" style="color:#FFF;font-size:30px;line-height:30px;">
-                注册成功,<br>
-                是否<a href="{:U('user/profiles')}">完善用户信息</a>.
+            <div class="span8" style="font-size:30px;line-height:30px;">
+                恭喜，注册成功。<br>
+                是否<a href="#">完善用户信息</a>.       
             </div>
         </div>
     </section>

@@ -1,37 +1,47 @@
 <extend name="Base/common" />
-<block name="header">
-    <header class="jumbotron subhead" id="overview">
+<block name="poster">
+</block>
+<block name="header">    
         <div class="container">
-            <h2>用户注册</h2>
-            <p><span><span class="pull-left"><span>已经有账号? <a href="{:U('User/login')}">点此登录</a> </span> </span></p>
+            <img src="Public/Home/images/big_tm/去健身.png">
         </div>
-    </header>
+    
 </block>
 
 <block name="body">
 <style>
+    body{
+        background-color: white;
+        background: url('');
+    }
     .emailist{border:1px solid #bdbdbd; border-radius: 4px; background-color:#fff; color:#666; font-size:14px; list-style-type:0; padding:0; margin:0; overflow:hidden;}
     .emailist li{padding:2px 11px; cursor:pointer;}
     .emailist .on, .emailist li:hover{background-color:#eee;}
     .succeed {padding: 3px;background: url(./Public/Home/images/sucess.png) no-repeat #ffffff;width: 16px;height: 16px;position: absolute;display: inline-block;}
-    .steps{width: 720px;margin: 0 auto;}
-    .steps ul{list-style: none;}
-    .steps ul li{float: left;width: 150px;padding-left: 70px;height: 46px;line-height: 46px;font-weight: bold;color: #FFF}
-    .steps ul .active{border-bottom: 3px solid #ff4700}
-
+    .steps{border-bottom: 2px solid #e6e6e6;position: relative;height: 46px;}
+    .steps ul{width: 720px;margin: 0 auto;list-style: none;padding: 0;display: block;font-size: 1.3em;}
+    .steps ul li{float: left;width: 150px;height: 46px;padding-left: 70px;font-weight: bold;display: inline;}
+    .steps ul .active{border-bottom: 2px solid #ff4700}
+    .mgTopPct5{margin-top: 5%};
 </style>
 <div class="steps">
     <ul>
-        <li>填写用户信息</li>
+        <li>填写信息</li>
         <li class="active">验证邮箱</li>
         <li>注册成功</li>
     </ul>
     <div class="clearfix"></div>
 </div>
 <section>
-        <div class="row">
-            <div class="span6">
-                <button class="btn" onclick=email()>重新发送邮件</button>
+        <div class="row mgTopPct5">
+            <div class="span12 mgTopPct5">
+                您是否收到了激活邮件？如果没收到可以点击左侧的【重新发送邮件】按钮，也可以跳过此步骤（建议不要跳过，邮件是找回密码的方式之一）
+            </div>
+            <div class="span6 mgTopPct5">
+                <button class="btn">重新发送邮件</button>
+            </div>
+            <div class="span6 mgTopPct5">
+                <button class="btn">跳过此步骤</button>
             </div>
         </div>
     </section>

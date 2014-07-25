@@ -1,164 +1,218 @@
 <extend name="Base/common" />
-<block name="header">
-    <header class="jumbotron subhead" id="overview">
+<block name="poster">
+</block>
+<block name="header">    
         <div class="container">
-            <h2>用户信息</h2>
+            <img src="Public/Home/images/big_tm/去健身.png">
         </div>
-    </header>
 </block>
 
 <block name="body">
-    <section>
-        <div class="row">
-            <div class="span4">
-                <form class="form-horizontal" action="{:U()}" method="post" >
-                    
-                    <div id="img_save"><a href='#myModal' role='button' data-toggle='modal'><?php echo avatars();?></a></div>
-
-                    <div class="form-group">
-                        <label class="span4 control-label" for="nickname">昵称</label>
-                        <div class="span8">
-                            <input type="text" value="{$result.nickname}" name="nickname" class="form-control" placeholder="请输入昵称">
+    <style>
+        body{
+            background-color: white;
+            background: url('');
+        }
+        .user_header{
+            width: 100%;
+            height: 37px;
+            line-height: 37px;
+            border: 2px solid #CCC;
+            border-right: 0px;
+        }
+        .ctn{
+            width: 980px;
+            margin:0 auto;
+            position: relative;
+            border-right: 2px solid #CCC;
+            border-bottom: 2px solid #CCC;
+        }
+        .user_space {
+            width: 100%;
+            height: 700px;
+        }
+        .user_guide{
+            opacity: 0.85;
+            filter:'opacity(85)';
+            height: 100%;
+            color: white;
+            font-weight: 800;
+            background-color: #313131;
+            width: 270px;
+            float: left;
+        }
+        .user_info{
+            width:710px;
+            height: 100%;
+            float: left;
+        }
+        .clear{
+            clear: both;
+        }
+        .user_guide ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .user_guide ul li{
+            color: #FFF;
+            margin: 0px;
+            width: 100%;
+            padding: 15px 0px;
+            text-align: right;
+        }
+        .user_guide ul li a{
+            color: #FFF;
+            width: 100%;
+            padding: 5px ;
+        }
+        .user_guide ul li:hover{
+            background-color: #CCC;
+        }
+        .user_guide ul li:hover a{
+            color: #000;
+            background-color: #CCC;
+        }
+        .hr{
+            margin: 0 auto;
+            width: 95%;
+            border: 1px solid #E0E0E0;
+        }
+        .control-group{
+            margin-top: 2%;
+        }
+        a:hover{
+            text-decoration: none;
+        }
+    </style>
+    <div class="ctn">
+        <div class="user_header">空间设置</div>
+        <div class="user_space">
+            <div class="user_guide">
+                <ul>
+                    <li>
+                        <a>基本资料</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="user_info">
+                <form class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label" for="inputEmail">头像</label>
+                        <div class="controls">
+                            <div style="width: 70px;height: 70px;border: 1px solid #CCC;"></div>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="span4 control-label" for="realname">真实姓名</label>
-                        <div class="span8">
-                            <input type="text" value="{$result.realname}" name="realname"  class="form-control" placeholder="请输入真实姓名">
+                    <div class="hr"></div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputEmail">昵称</label>
+                        <div class="controls">
+                            <input type="text" id="inputEmail" placeholder="昵称">
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="span4 control-label" for="realname">电话号码</label>
-                        <div class="span8">
-                            <input type="text" name="telephone" value="{$result.telephone}"  class="form-control" placeholder="请输入真实姓名">
+                    <div class="hr"></div>
+                    <div class="control-group">
+                        <label class="control-label" for="realName">真实姓名</label>
+                        <div class="controls">
+                            <input type="password" id="realName" placeholder="真实姓名">
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="span4 control-label" for="sex">性别</label>
-                        <div class="span8">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" value="1" name='sex' <if condition="$result['sex'] eq 1 ">checked</if>>
-                                    男
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio"  name="sex" value="2" <if condition="$result['sex'] eq 2 ">checked</if>>
-                                    女
-                                </label>
-                            </div>
+                    <div class="control-group">
+                        <label class="control-label" for="sex">性别</label>
+                        <div class="controls">
+                            <label class="radio">
+                                <input type="radio" name="optionsRadios" id="sex1" value="option1" checked>
+                                男
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="optionsRadios" id="sex2" value="option2">
+                                女
+                            </label>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="span4 control-label"  for="telephone">家庭地址</label>
-                        <div class="span8">
-                            <input type="text" value="{$result.homeadd}" onclick="show_address();"  name="homeadd"  class="form-control" placeholder="请输入家庭地址">
-                        </div>    
-                    </div>  
-        
-                    
-
-                    <div class="form-group">
-                        <label class="span4 control-label" for="telephone">健身房地址</label>
-                        <div class="span8">
-                            <input type="text" value="{$result.gymadd}" name="gymadd"  class="form-control" placeholder="请输入健身房地址">
-                        </div>    
-                    </div>
-
-                    <div class="form-group">
-                        <label class="span4 control-label" for="telephone">职业</label>
-                        <div class="span8">
-                            <input type="text" name="occupation" value="{$result.occupation}"  class="form-control" placeholder="请输入职业">
-                         </div> 
-                    </div>      
-
-                    <div class="form-group">
-                        <label class="span4 control-label" for="telephone">生日</label>
-                        <div class="span8">
-                            <input type="text" id="time-start" name="birthday"  value="{$result.birthday}"  class="form-control" onkeyup="$(this).val('')" placeholder="请输入生日">
-                        </div>
-                        
-                    <div>
-                        
-                    </div>
-                                        
-                    <div class="form-group">
-                        <div class="span8 spanoffset-4">
-                            <button type="submit" class="btn submit-btn ajax-post">保存</button>
+                    <div class="hr"></div>
+    
+                    <div class="control-group">
+                        <label class="control-label" for="time-start">生日</label>
+                        <div class="controls">
+                            <input type="text" id="time-start" placeholder="生日">
                         </div>
                     </div>
-                    <div class="controls Validform_checktip text-warning"></div>
-                    <input type="hidden" name=id value="{$result.id}">
+                    <div class="control-group">
+                        <label class="control-label" for="inputPassword">职业</label>
+                        <div class="controls">
+                            <input type="text" id="inputPassword" placeholder="职业">
+                        </div>
+                    </div>
+                    <div class="hr"></div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputPassword">电话号码</label>
+                        <div class="controls">
+                            <input type="text" id="inputPassword" placeholder="电话号码">
+                        </div>
+                    </div>
+                    <div class="hr"></div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputPassword">家庭住址</label>
+                        <div class="controls">
+                            <input type="text" id="inputPassword" placeholder="家庭住址" onclick="show_address()">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputPassword">健身房住址</label>
+                        <div class="controls">
+                            <input type="text" id="inputPassword" placeholder="健身房住址">
+                        </div>
+                    </div>
+                    <div class="hr"></div>
+                    <div class="control-group">
+                        <label class="control-label"></label>
+                        <label class="control-label"></label>
+                        <div class="controls">
+                            <button type="submit" class="btn"> 保 存 </button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
-
-                    
-
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
+    </div>
+    <!-- 地址选择器 -->
+    <div class="modal fade" id="Address" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">上传头像</h4>
-              </div>
-              <div class="modal-body">
-                <div id="altContent"  ><!-- 上传图片容器 -->
-                        
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">地址选择</h4>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 地址选择器 -->
-        <div class="modal fade" id="Address" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">地址选择</h4>
-              </div>
-              <div class="modal-body">
+                <div class="modal-body">
                     <div style="width:100%;">
                         <volist name="province" id="vo">
-                            <a href="javascript:;" id="{$vo.id}" onclick="show_citys(this);$(this).css('color','red').siblings().css('color','');">{$vo.name}</a>&nbsp&nbsp&nbsp&nbsp&nbsp 
+                            <a href="javascript:;" id="{$vo.id}" onclick="show_citys(this);$(this).css('color','red').siblings().css('color','');">{$vo.name}</a>&nbsp&nbsp&nbsp&nbsp&nbsp
                         </volist>
                     </div>
                     <div style="width:100%;margin-top:5px;" class="show_div">
                         <hr>
-                        <?php 
+                        <?php
                             foreach ($cityinfo as $k => $v) {
-                                echo "<div  id=city-".$k.">";
-                                    foreach ($cityinfo[$k] as $key => $value) {
-                                      echo "<a href=javascript:; onclick=$(this).css('color','red').siblings().css('color','')>$value[name]</a>&nbsp&nbsp&nbsp&nbsp&nbsp"; 
-                                    }
-                                echo "</div>";
-                            }
-                        ?>
+                        echo "<div  id=city-".$k.">";
+                        foreach ($cityinfo[$k] as $key => $value) {
+                        echo "<a href=javascript:; onclick=$(this).css('color','red').siblings().css('color','')>$value[name]</a>&nbsp&nbsp&nbsp&nbsp&nbsp";
+                        }
+                        echo "</div>";
+                    }
+                    ?>
                     </div>
                     <div style="width:100%;margin-top:5px;">
                         <hr>
-                        
-                    </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-              </div>
-            </div>
-          </div>
-        </div>
 
-    </section>
+                    </div>
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+    <!--地址选择器 结束-->
 </block>
 <block name="side"> </block>
 <block name="script">
@@ -210,15 +264,13 @@
         minView:2,
         autoclose:true
     });
-
     function show_address(){
         $(".show_div div:gt(0)").hide();
         $('#Address').modal();
     }
 
     function show_citys(obj){
-        $("#city-"+obj.id).show()
-                          .siblings('div').hide();
+        $("#city-"+obj.id).show().siblings('div').hide();
         
     }
     </script>

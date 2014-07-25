@@ -104,8 +104,10 @@ class UserController extends HomeController {
 	public function login($username = '', $password = '', $verify = ''){
 		if(IS_POST){ //登录验证
 			/* 检测验证码 */
-			if(!check_verify($verify)){
-				$this->error('验证码输入错误！');
+			if(S('status')>=3){
+				if(!check_verify($verify)){
+					$this->error(array('result'=>'验证码输入错误！'));
+				}
 			}
 			/* 调用UC登录接口登录 */
 			$user = new UserApi;
@@ -115,6 +117,7 @@ class UserController extends HomeController {
 				$Member = D('Member');
 				if($Member->login($uid)){ //登录用户
 					//TODO:跳转到登录前页面
+					S('status',NULL);
 					$this->success('登录成功！',U('Home/Index/index'));
 				} else {
 					$this->error($Member->getError());
@@ -122,15 +125,14 @@ class UserController extends HomeController {
 
 			} else { //登录失败
 				switch($uid) {
-					case -1: $error = "帐号没有激活,<a href=".U('user/checkmail').">激活</a>";$_SESSION['email'] = $username;$_SESSION['email_status'] = 1; 
+					case -1: $error = array('result'=>"帐号没有激活,<a href=".U('user/checkmail').">激活</a>",'status'=>'');$_SESSION['email'] = $username;$_SESSION['email_status'] = 1; 
 					break; //系统级别禁用
-					case -2: $error = '密码错误！'; break;
-					default: $error = '未知错误！'; break; // 0-接口参数错误（调试阶段使用）
+					case -2: pass_check();$error = array('result'=>'用户名或密码错误','status'=>S('status'));break;
+					default: $error = array('result'=>'未知错误！','status'=>''); break; // 0-接口参数错误（调试阶段使用）
 				}
 				$this->error($error);
 			}
-
-		} else { //显示登录表单
+		} else { //显示登录表单	
 			$this->display();
 		}
 	}

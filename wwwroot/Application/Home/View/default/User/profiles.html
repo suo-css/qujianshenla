@@ -258,6 +258,7 @@
             {
                 if(data==1){
                   $("#img_save").html("<img width=60 height=60 src=./Uploads/avatars/{$result.uid}/{$result.uid}.jpg?<?php echo uuid();  ?> alt=>");
+                    location.replace(location.href);
                 }else{
                     alert('服务器繁忙！');
                 }

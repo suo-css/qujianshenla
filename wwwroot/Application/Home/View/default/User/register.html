@@ -24,6 +24,29 @@
     .steps ul li{float: left;width: 150px;height: 46px;padding-left: 70px;font-weight: bold;display: inline;}
     .steps ul .active{border-bottom: 2px solid #ff4700}
     .mgTopPct5{margin-top: 5%};
+    .safeLevel{
+        margin: 0;
+        padding: 0;
+    }
+    .safeLevel ul{
+        list-style: none;
+    }
+    .safeLevel ul li{
+        float: left;
+        background-color: #C4C4C4;
+        margin-left: 1px;
+        font-size: 10px;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        text-align: center;
+        font-weight: bold;
+        color: #FFF;
+        padding: 0px 6px;
+    }
+    .safeLevel ul .active{
+        background-color: #F79100;
+    }
 </style>
 <div class="steps">
     <ul>
@@ -52,6 +75,13 @@
                                 <input type="password" id="inputPassword"  class="form-control" placeholder="请输入密码" onkeyup="reg_password(this);"  errormsg="密码为6-20位" nullmsg="请填写密码" datatype="*6-20" name="password">
                                 <label class="succeed hidden"></label>
                                 <span id="password_error" style="display:none;"><span>
+                            </div>
+                            <div class="safeLevel hidden">
+                                <ul>
+                                    <li id="PassWeak">弱</li>
+                                    <li id="PassNormal">中</li>
+                                    <li id="PassStrong">强</li>
+                                </ul>
                             </div>
                     </div>
                     <div class="control-group">
@@ -157,6 +187,22 @@
 
         function reg_password(obj){
             var firstPassValue = obj.value;
+            var PassPoints = 0;
+            var i = /[0-9]+/;
+            var str = /[A-Za-z]/;
+            var spec=/[,.<>{}~!@#$%^&*]/;
+            if(firstPassValue.length>10){
+                PassPoints++;
+            }//長度
+            if(str.test(firstPassValue)){
+                PassPoints++;
+            }//字母
+            if(i.test(firstPassValue)){
+                PassPoints++;
+            }//數字
+            if(spec.test(firstPassValue)){
+                PassPoints++;
+            }//特殊字符
             if(firstPassValue.length<6 || firstPassValue.length>20){
                 $(obj).parent().find(".succeed").addClass("hidden");
                 $(obj).css({border:"1px solid red"});
@@ -170,7 +216,22 @@
             if(secondPassValue!=""){
                 return reg_repassword();
             }
-                
+            $(".safeLevel").removeClass("hidden");
+            if(PassPoints==1){
+                $("#PassWeak").addClass("active");
+                $("#PassNormal").removeClass("active");
+                $("#PassStrong").removeClass("active");
+            }
+            if(PassPoints==2 || PassPoints==3){
+                $("#PassNormal").addClass("active");
+                $("#PassWeak").removeClass("active");
+                $("#PassStrong").removeClass("active");
+            }
+            if(PassPoints==4){
+                $("#PassStrong").addClass("active");
+                $("#PassWeak").removeClass("active");
+                $("#PassNormal").removeClass("active");
+            }
 
         }
         function reg_repassword(){

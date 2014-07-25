@@ -57,13 +57,15 @@
                     <div class="form-group">
                             <input type="password" id="inputPassword"  class="form-control" placeholder="请输入密码"  errormsg="密码为6-20位" nullmsg="请填写密码" datatype="*6-20" name="password">
                     </div>
+                <div style="display:none;" id="verify">
                     <div class="form-group">
                             <input type="text" id="inputPassword" class="form-control" placeholder="请输入验证码"  errormsg="请填写5位验证码" nullmsg="请填写验证码" datatype="*5-5" name="verify">
                     </div>
                     <div class="form-group">
                             <img class="verifyimg reloadverify" alt="点击切换" src="{:U('verify')}" style="cursor:pointer;">
-                        <div class="span8 Validform_checktip text-warning"></div>
                     </div>
+                </div>
+                     <div class="span8 Validform_checktip text-warning"></div>
                     <div class="form-group">
                             <label class="span8 spanoffset-4 checkbox">
                                 <input type="checkbox"> 自动登陆
@@ -104,7 +106,10 @@
                 if (data.status) {
                     window.location.href = data.url;
                 } else {
-                    self.find(".Validform_checktip").html(data.info);
+                    self.find(".Validform_checktip").html(data.info['result']);
+                    if(data.info['status']>=3){
+                        $("#verify").show();
+                    }
                     //刷新验证码
                     $(".reloadverify").click();
                 }

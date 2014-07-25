@@ -251,6 +251,16 @@ function uuid($prefix = ''){
     return $prefix . $uuid;  
 }    
    
+/**
+ * 用户登陆密码累计
+ */
+function pass_check(){
+  if(S('status')){
+    S('status',S('status')+1);  
+  }else{
+    S('status','1',3600);
+  }
+}
 
 
 

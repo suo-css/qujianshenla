@@ -43,6 +43,7 @@ class UserController extends HomeController {
 			if($uid>0){ //注册成功
 				//TODO: 发送验证邮件
 				email($username,$check);
+				$_SESSION['email_status'] = 1;
 				$this->success('注册成功！',U('checkmail'));
 			} else { //注册失败，显示错误信息
 				$this->error($this->showRegError($uid));
@@ -53,40 +54,60 @@ class UserController extends HomeController {
 		}
 	}
 
+	/**
+	 * 用户注册成功
+	 */
 	public function regsus(){
 		if($_SESSION['regsus']!="1"){
-			$this->redirect('/');
+			$this->redirect('index/index');
 		}
+		unset($_SESSION['regsus']);
+		unset($_SESSION['email_status']);
 		$this->display();
 	}
-
-	// 邮箱验证
-    public function checkmail(){
+	
+	/**
+	 * 用户邮箱验证
+	 */
+	public function checkmail(){
+		if(empty($_SESSION['email_status']) and empty($_GET['check'])){$this->redirect('index/index');}
     	if(!empty($_GET['check'])){
     		$user  = new UserApi;
+    		$type  = empty($_GET['check']) ? 2 : 1;
     		$uid   = $user->email_check($_GET['check']);
     		if($uid>0){
     			$_SESSION['regsus'] = 1;
     			$this->redirect('regsus');
+    		}else{
+    			$this->redirect('index/index');
     		}
     	}
  		$this->display();
     }
 
     /**
-     * 发送邮箱
+     * 重新发送邮箱
      */
     public function email(){
-    	email($_SESSION['email'],$_SESSION['email_check']);
-    	echo 1;
+/*    	if(IS_AJAX){*/
+    		if(!empty($_SESSION['email'])){
+    			$result = M('email_check')->where(array('username'=>$_SESSION['email']))->find();
+	    		email($_SESSION['email'],$result['check']);
+	    		echo 1;
+    		}
+/*    	}else{
+    		$this->redirect('index/index');
+    	}*/
     }
 
 	/* 登录页面 */
 	public function login($username = '', $password = '', $verify = ''){
 		if(IS_POST){ //登录验证
 			/* 检测验证码 */
-			if(!check_verify($verify)){
-				$this->error('验证码输入错误！');
+			if(S('status')>=3){
+				if(!check_verify($verify)){
+					$this->error(array('result'=>'验证码输入错误！'));
+				}
 			}
 			/* 调用UC登录接口登录 */
 			$user = new UserApi;
@@ -96,6 +117,7 @@ class UserController extends HomeController {
 				$Member = D('Member');
 				if($Member->login($uid)){ //登录用户
 					//TODO:跳转到登录前页面
+					S('status',NULL);
 					$this->success('登录成功！',U('Home/Index/index'));
 				} else {
 					$this->error($Member->getError());
@@ -103,14 +125,14 @@ class UserController extends HomeController {
 
 			} else { //登录失败
 				switch($uid) {
-					case -1: $error = '用户不存在或被禁用！'; break; //系统级别禁用
-					case -2: $error = '密码错误！'; break;
-					default: $error = '未知错误！'; break; // 0-接口参数错误（调试阶段使用）
+					case -1: $error = array('result'=>"帐号没有激活,<a href=".U('user/checkmail').">激活</a>",'status'=>'');$_SESSION['email'] = $username;$_SESSION['email_status'] = 1; 
+					break; //系统级别禁用
+					case -2: pass_check();$error = array('result'=>'用户名或密码错误','status'=>S('status'));break;
+					default: $error = array('result'=>'未知错误！','status'=>''); break; // 0-接口参数错误（调试阶段使用）
 				}
 				$this->error($error);
 			}
-
-		} else { //显示登录表单
+		} else { //显示登录表单	
 			$this->display();
 		}
 	}

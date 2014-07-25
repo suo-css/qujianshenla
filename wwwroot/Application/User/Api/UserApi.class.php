@@ -43,6 +43,15 @@ class UserApi extends Api{
     }
 
     /**
+     * 用户注册成功，自动登陆
+     * @param string $check 用户注册生成校验码
+     */
+    public function email_check($check){
+        return $this->model->email_check($check);
+    }
+
+
+    /**
      * 获取用户信息
      * @param  string  $uid         用户ID或用户名
      * @param  boolean $is_username 是否使用用户名查询

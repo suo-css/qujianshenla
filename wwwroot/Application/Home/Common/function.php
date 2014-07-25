@@ -238,25 +238,24 @@ function email($user_email,$check){
     $mail->sendMail();
 }
 
+/**
+ * UUID 用于邮箱验证
+ */
+function uuid($prefix = ''){  
+    $chars = md5(uniqid(mt_rand(), true));  
+    $uuid  = substr($chars,0,8) . '-';  
+    $uuid .= substr($chars,8,4) . '-';  
+    $uuid .= substr($chars,12,4) . '-';  
+    $uuid .= substr($chars,16,4) . '-';  
+    $uuid .= substr($chars,20,12);  
+    return $prefix . $uuid;  
+}    
+   
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-//发邮件的类
 /**
 * 邮件发送类
 * 支持发送纯文本邮件和HTML格式的邮件，可以多收件人，多抄送，多秘密抄送，带附件(单个或多个附件),支持到服务器的ssl连接

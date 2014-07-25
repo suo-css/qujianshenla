@@ -125,7 +125,14 @@ class UserController extends HomeController {
 
 			} else { //登录失败
 				switch($uid) {
-					case -1: $error = array('result'=>"帐号没有激活,<a href=".U('user/checkmail').">激活</a>",'status'=>'');$_SESSION['email'] = $username;$_SESSION['email_status'] = 1; 
+					case -1:
+					if(M('email_check')->where(array('username'=>$username))->find()){
+						$error = array('result'=>"帐号没有激活,<a href=".U('user/checkmail').">激活</a>",'status'=>'');
+						$_SESSION['email'] = $username;
+						$_SESSION['email_status'] = 1; 
+					}else{
+						$error = array('result'=>"用户名不存在,或被禁用!",'status'=>'');
+					}
 					break; //系统级别禁用
 					case -2: pass_check();$error = array('result'=>'用户名或密码错误','status'=>S('status'));break;
 					default: $error = array('result'=>'未知错误！','status'=>''); break; // 0-接口参数错误（调试阶段使用）

@@ -94,7 +94,7 @@
                     $("button:submit").removeClass("log-in").attr("disabled", false);
                 });
 
-/*
+
         $("form").submit(function() {
             var self = $(this);
             $.post(self.attr("action"), self.serialize(), success, "json");
@@ -104,12 +104,12 @@
                 if (data.status) {
                     window.location.href = data.url;
                 } else {
-                    self.find(".Validform_checktip").text(data.info);
+                    self.find(".Validform_checktip").html(data.info);
                     //刷新验证码
                     $(".reloadverify").click();
                 }
             }
-        });*/
+        });
 
         $(function() {
             $("#inputEmail").mailAutoComplete({

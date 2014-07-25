@@ -104,7 +104,6 @@ class UcenterMemberModel extends Model{
 				$user = M('user')->db(2,"DB_CONFIG2")->query($sql);
 				$data = array('username'=>$username,'check'=>$check);
 				M('email_check')->add($data);
-				$_SESSION['email_check'] = $check;
 				$_SESSION['email']		 = $username;
 			}
 			return $uid ? $uid : 0; //0-未知错误，大于0-注册成功
@@ -178,8 +177,10 @@ class UcenterMemberModel extends Model{
             $data  = array('status'=>1);
             $this->where(array('username'=>$result['username']))->save($data);
             $uid   = $this->login($login['username'],$login['password'],'1','1');
-            M('email_check')->where(array('check'=>$_GET['check']))->delete();
+            M('email_check')->where(array('check'=>$check))->delete();
             return $uid;
+        }else{
+        	return '0';
         }
 	}
 

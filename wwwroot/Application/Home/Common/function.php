@@ -189,15 +189,13 @@ function avatars(){
  * @return 保存更新用户头像
  */
 function resizejpg($imgsrc,$imgdst,$imgwidth,$imgheight,$uid,$size){ 
-  //$imgsrc jpg格式图像路径 $imgdst jpg格式图像保存文件名 $imgwidth要改变的宽度 $imgheight要改变的高度
-  //取得图片的宽度,高度值
   $arr = getimagesize($imgsrc);                     
   header("Content-type: image/jpg");
   $imgWidth = $imgwidth;
   $imgHeight = $imgheight;
   // Create image and define colors
   $imgsrc = imagecreatefromjpeg($imgsrc);
-  $image = imagecreatetruecolor($imgWidth, $imgHeight);  //创建一个彩色的底图
+  $image = imagecreatetruecolor($imgWidth, $imgHeight);
   imagecopyresampled($image, $imgsrc, 0, 0, 0, 0,$imgWidth,$imgHeight,$arr[0], $arr[1]);
   $ucenterurl = './discuz/upload/uc_server';
   $uid  = sprintf("%09d", $uid);
@@ -224,9 +222,9 @@ function avatar_save(){
 
 /**
  * 发送email
- * @param $user_email 邮箱地址
+ * @param $user_email 邮箱地址 $check 校验值
  */
-function email($user_email){
+function email($user_email,$check){
     $email = C('email');
     $localtime=date('y-m-d H:i:s',time());
     $mail = new csmtp();
@@ -236,29 +234,28 @@ function email($user_email){
     //$mail->setCc("XXXX"); //设置抄送，多个抄送，调用多次
     //$mail->setBcc("XXXXX"); //设置秘密抄送，多个秘密抄送，调用多次
     //$mail->addAttachment("XXXX"); //添加附件，多个附件，调用多次
-    $mail->setMail("eamil发送成功!"); //设置邮件主题、内容
+    $mail->setMail('邮箱验证',"<a href=".U('user/checkmail',array('check'=>$check),'',true).">点击验证!</a>"); //设置邮件主题、内容
     $mail->sendMail();
 }
 
+/**
+ * UUID 用于邮箱验证
+ */
+function uuid($prefix = ''){  
+    $chars = md5(uniqid(mt_rand(), true));  
+    $uuid  = substr($chars,0,8) . '-';  
+    $uuid .= substr($chars,8,4) . '-';  
+    $uuid .= substr($chars,12,4) . '-';  
+    $uuid .= substr($chars,16,4) . '-';  
+    $uuid .= substr($chars,20,12);  
+    return $prefix . $uuid;  
+}    
+   
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-//发邮件的类
 /**
 * 邮件发送类
 * 支持发送纯文本邮件和HTML格式的邮件，可以多收件人，多抄送，多秘密抄送，带附件(单个或多个附件),支持到服务器的ssl连接

@@ -87,7 +87,7 @@ class UcenterMemberModel extends Model{
 	 * @param  string $mobile   用户手机号码
 	 * @return integer          注册成功-用户信息，注册失败-错误编号
 	 */
-	public function register($username,$password){
+	public function register($username,$password,$check){
 		$data = array(
 			'username' => $username,
 			'mobile'   => '',
@@ -100,8 +100,12 @@ class UcenterMemberModel extends Model{
 				//discuz用户表同步
 				$salt = substr(uniqid(rand()), -6);
 				$password = md5(md5($password).$salt);
-				$sql = "INSERT INTO `pre_ucenter_members` VALUES ('".$uid."', '".$username."', '".$password."', '".$username."', '', '', '".$_SERVER['REMOTE_ADDR']."', '".time()."', '0', '0', '".$salt."', '')";
-				$user = M('user')->db(2,"DB_CONFIG2")->query($sql);	
+				$sql  = "INSERT INTO `pre_ucenter_members` VALUES ('".$uid."', '".$username."', '".$password."', '".$username."', '', '', '".$_SERVER['REMOTE_ADDR']."', '".time()."', '0', '0', '".$salt."', '')";
+				$user = M('user')->db(2,"DB_CONFIG2")->query($sql);
+				$data = array('username'=>$username,'check'=>$check);
+				M('email_check')->add($data);
+				$_SESSION['email_check'] = $check;
+				$_SESSION['email']		 = $username;
 			}
 			return $uid ? $uid : 0; //0-未知错误，大于0-注册成功
 		} else {
@@ -116,7 +120,7 @@ class UcenterMemberModel extends Model{
 	 * @param  integer $type     用户名类型 （1-用户名，2-邮箱，3-手机，4-UID）
 	 * @return integer           登录成功-用户ID，登录失败-错误编号
 	 */
-	public function login($username, $password, $type = 1){
+	public function login($username, $password, $type = 1,$check = 0){
 		$map = array();
 		switch ($type) {
 			case 1:
@@ -134,20 +138,49 @@ class UcenterMemberModel extends Model{
 			default:
 				return 0; //参数错误
 		}
-
 		/* 获取用户数据 */
 		$user = $this->where($map)->find();
 		if(is_array($user) && $user['status']){
 			/* 验证用户密码 */
-			if(think_ucenter_md5($password, UC_AUTH_KEY) === $user['password']){
-				$this->updateLogin($user['id']); //更新用户登录信息
-				return $user['id']; //登录成功，返回用户ID
-			} else {
-				return -2; //密码错误
+			switch ($check) {
+				case '0':
+					if(think_ucenter_md5($password, UC_AUTH_KEY) === $user['password']){
+						$this->updateLogin($user['id']); //更新用户登录信息
+						return $user['id']; //登录成功，返回用户ID
+					} else {
+						return -2; //密码错误
+					}
+					break;
+				case '1':
+					if($password === $user['password']){
+						$this->updateLogin($user['id']); //更新用户登录信息
+						$Member = D('Member');
+						if($Member->login($uid)){ //登录用户
+						   return $user['id']; //登录成功，返回用户ID
+						}	
+					} else {
+						return -2; //密码错误
+					}
+					break;
 			}
 		} else {
 			return -1; //用户不存在或被禁用
 		}
+	}
+
+    /**
+     * 用户注册成功，自动登陆
+     * @param string $check 用户注册生成校验码
+     */
+	public function email_check($check){
+		if($result = M('email_check')->where(array('check'=>$check))->find()){
+            $login = $this->where(array('username'=>$result['username']))->find();
+            $data  = array('status'=>1);
+            $this->where(array('username'=>$result['username']))->save($data);
+            $uid   = $this->login($login['username'],$login['password'],'1','1');
+            M('email_check')->where(array('check'=>$_GET['check']))->delete();
+            return $uid;
+        }
 	}
 
 	/**
@@ -164,9 +197,9 @@ class UcenterMemberModel extends Model{
 			$map['id'] = $uid;
 		}
 
-		$user = $this->where($map)->field('id,username,email,mobile,status')->find();
+		$user = $this->where($map)->field('id,username,mobile,status')->find();
 		if(is_array($user) && $user['status'] = 1){
-			return array($user['id'], $user['username'], $user['email'], $user['mobile']);
+			return array($user['id'], $user['username'], $user['mobile']);
 		} else {
 			return -1; //用户不存在或被禁用
 		}

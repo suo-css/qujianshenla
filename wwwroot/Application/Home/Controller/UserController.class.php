@@ -37,12 +37,13 @@ class UserController extends HomeController {
 			}
 
 			/* 调用注册接口注册用户 */
-            $User = new UserApi;
-			$uid  = $User->register($username, $password);
+            $User  = new UserApi;
+            $check = uuid();
+			$uid   = $User->register($username, $password,$check);
 			if($uid>0){ //注册成功
 				//TODO: 发送验证邮件
-				email($username);
-				$this->success('注册成功！',U('login'));
+				email($username,$check);
+				$this->success('注册成功！',U('checkmail'));
 			} else { //注册失败，显示错误信息
 				$this->error($this->showRegError($uid));
 			}
@@ -51,13 +52,35 @@ class UserController extends HomeController {
 			$this->display();
 		}
 	}
-	public function regSus(){
+
+	public function regsus(){
+		if($_SESSION['regsus']!="1"){
+			$this->redirect('/');
+		}
 		$this->display();
 	}
+
 	// 邮箱验证
     public function checkmail(){
+    	if(!empty($_GET['check'])){
+    		$user  = new UserApi;
+    		$uid   = $user->email_check($_GET['check']);
+    		if($uid>0){
+    			$_SESSION['regsus'] = 1;
+    			$this->redirect('regsus');
+    		}
+    	}
  		$this->display();
     }
+
+    /**
+     * 发送邮箱
+     */
+    public function email(){
+    	email($_SESSION['email'],$_SESSION['email_check']);
+    	echo 1;
+    }
+
 	/* 登录页面 */
 	public function login($username = '', $password = '', $verify = ''){
 		if(IS_POST){ //登录验证
@@ -65,11 +88,10 @@ class UserController extends HomeController {
 			if(!check_verify($verify)){
 				$this->error('验证码输入错误！');
 			}
-
 			/* 调用UC登录接口登录 */
 			$user = new UserApi;
 			$uid = $user->login($username, $password);
-			if(0 < $uid){ //UC登录成功
+			if($uid > 0){ //UC登录成功
 				/* 登录用户 */
 				$Member = D('Member');
 				if($Member->login($uid)){ //登录用户

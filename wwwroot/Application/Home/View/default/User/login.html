@@ -35,6 +35,13 @@
             .emailist li{padding:2px 11px; cursor:pointer;}
             .emailist .on, .emailist li:hover{background-color:#eee;}
         </style>
+
+    <style>
+        .emailist{border:1px solid #bdbdbd; border-radius: 4px; background-color:#fff; color:#666; font-size:14px; list-style-type:0; padding:0; margin:0; overflow:hidden;}
+        .emailist li{padding:2px 11px; cursor:pointer;}
+        .emailist .on, .emailist li:hover{background-color:#eee;}
+    </style>
+
     <section>
         <div class="row">
             <div class="span6 login-poster">
@@ -87,7 +94,7 @@
                     $("button:submit").removeClass("log-in").attr("disabled", false);
                 });
 
-
+/*
         $("form").submit(function() {
             var self = $(this);
             $.post(self.attr("action"), self.serialize(), success, "json");
@@ -102,7 +109,7 @@
                     $(".reloadverify").click();
                 }
             }
-        });
+        });*/
 
         $(function() {
             $("#inputEmail").mailAutoComplete({

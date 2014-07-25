@@ -191,6 +191,10 @@
             var i = /[0-9]+/;
             var str = /[A-Za-z]/;
             var spec=/[,.<>{}~!@#$%^&*]/;
+            $("#PassWeak").removeClass("active");
+            $("#PassNormal").removeClass("active");
+            $("#PassStrong").removeClass("active");
+            $(".safeLevel").addClass("hidden");
             if(firstPassValue.length>10){
                 PassPoints++;
             }//長度
@@ -219,18 +223,13 @@
             $(".safeLevel").removeClass("hidden");
             if(PassPoints==1){
                 $("#PassWeak").addClass("active");
-                $("#PassNormal").removeClass("active");
-                $("#PassStrong").removeClass("active");
+
             }
             if(PassPoints==2 || PassPoints==3){
                 $("#PassNormal").addClass("active");
-                $("#PassWeak").removeClass("active");
-                $("#PassStrong").removeClass("active");
             }
             if(PassPoints==4){
                 $("#PassStrong").addClass("active");
-                $("#PassWeak").removeClass("active");
-                $("#PassNormal").removeClass("active");
             }
 
         }

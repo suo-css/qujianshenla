@@ -96,36 +96,38 @@
                 </ul>
             </div>
             <div class="user_info">
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="{:U()}" method="post">
                     <div class="control-group">
                         <label class="control-label" for="inputEmail">头像</label>
                         <div class="controls">
-                            <div style="width: 70px;height: 70px;border: 1px solid #CCC;"></div>
+                            <a href="#myModal" role="button"  data-toggle="modal">
+                                    <?php echo avatars();?>
+                            </a>
                         </div>
                     </div>
                     <div class="hr"></div>
                     <div class="control-group">
                         <label class="control-label" for="inputEmail">昵称</label>
                         <div class="controls">
-                            <input type="text" id="inputEmail" placeholder="昵称">
+                            <input type="text" name="nickname" value="{$result.nickname}" id="inputEmail" placeholder="昵称">
                         </div>
                     </div>
                     <div class="hr"></div>
                     <div class="control-group">
                         <label class="control-label" for="realName">真实姓名</label>
                         <div class="controls">
-                            <input type="password" id="realName" placeholder="真实姓名">
+                            <input type="text" name="realname"value="{$result.realname}"  id="realName" placeholder="真实姓名">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="sex">性别</label>
                         <div class="controls">
                             <label class="radio">
-                                <input type="radio" name="optionsRadios" id="sex1" value="option1" checked>
+                                <input type="radio" name='sex' value="1" <if condition="$result['sex'] eq 1 ">checked</if> id="sex1" value="option1" checked>
                                 男
                             </label>
                             <label class="radio">
-                                <input type="radio" name="optionsRadios" id="sex2" value="option2">
+                                <input type="radio" name="sex" value="2" <if condition="$result['sex'] eq 2 ">checked</if> id="sex2" value="option2">
                                 女
                             </label>
                         </div>
@@ -135,35 +137,36 @@
                     <div class="control-group">
                         <label class="control-label" for="time-start">生日</label>
                         <div class="controls">
-                            <input type="text" id="time-start" placeholder="生日">
+                            <input type="text" name="birthday" value="{$result.birthday}" id="time-start" placeholder="生日">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="inputPassword">职业</label>
                         <div class="controls">
-                            <input type="text" id="inputPassword" placeholder="职业">
+                            <input type="text" name="occupation" value="{$result.occupation}" id="inputPassword" placeholder="职业">
                         </div>
                     </div>
                     <div class="hr"></div>
                     <div class="control-group">
                         <label class="control-label" for="inputPassword">电话号码</label>
                         <div class="controls">
-                            <input type="text" id="inputPassword" placeholder="电话号码">
+                            <input type="text" name="telephone" value="{$result.telephone}" id="inputPassword" placeholder="电话号码">
                         </div>
                     </div>
                     <div class="hr"></div>
                     <div class="control-group">
                         <label class="control-label" for="inputPassword">家庭住址</label>
                         <div class="controls">
-                            <input type="text" id="inputPassword" placeholder="家庭住址" onclick="show_address()">
+                            <input type="text" id="inputPassword" name="homeadd" value="{$result.homeadd}" placeholder="家庭住址" onclick="show_address()">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="inputPassword">健身房住址</label>
                         <div class="controls">
-                            <input type="text" id="inputPassword" placeholder="健身房住址">
+                            <input type="text" name="gymadd" value="{$result.gymadd}" id="inputPassword" placeholder="健身房住址">
                         </div>
                     </div>
+                    <input type="hidden" name=id value="{$result.id}">
                     <div class="hr"></div>
                     <div class="control-group">
                         <label class="control-label"></label>
@@ -176,13 +179,33 @@
             </div>
         </div>
     </div>
-    <!-- 地址选择器 -->
-    <div class="modal fade" id="Address" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+
+    <!-- Modal -->
+    <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:750px;">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">地址选择</h4>
+                    <h4 class="modal-title" id="myModalLabel">上传头像</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="altContent"  ><!-- 上传图片容器 -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal end-->
+    <!-- 地址选择器 -->
+    <div class="modal hide fade" id="Address" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" >
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel2">地址选择</h4>
                 </div>
                 <div class="modal-body">
                     <div style="width:100%;">
@@ -225,7 +248,7 @@
     <script src="http://open.web.meitu.com/sources/xiuxiu.js" type="text/javascript"></script>
     <script type="text/javascript">
         window.onload=function(){
-            xiuxiu.embedSWF("altContent",5,"520","420");
+            xiuxiu.embedSWF("altContent",5,"550","550");
                /*第1个参数是加载编辑器div容器，第2个参数是编辑器类型，第3个参数是div容器宽，第4个参数是div容器高*/
             var url = "{:U('user/upload')}";
             xiuxiu.setUploadURL("http://127.0.0.1/"+url);//修改为您自己的上传接收图片程序 

@@ -67,12 +67,18 @@ class UserController extends HomeController {
 	}
 
 	/**
-	 * 用户邮箱验证
+	 * 修改密码
 	 */
-	public function password(){
+	public function set_password(){
  		$this->display();
     }
 	
+	/**
+	 * setting
+	 */
+	public function setting(){
+ 		$this->display();
+    }
 	/**
 	 * 用户邮箱验证
 	 */
@@ -206,7 +212,7 @@ class UserController extends HomeController {
      * 个人用户信息更新
      * @author huajie <banhuajie@163.com>
      */
-    public function profiles(){
+    public function set_profiles(){
 		if ( !is_login() ) {
 			$this->error( '您还没有登陆',U('User/login') );
 		}

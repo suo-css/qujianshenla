@@ -312,10 +312,17 @@
             $(".sectioninfo_show div").hide();
             $(".province a:eq(0)").click();  
         }else{
-            var val = obj.value.split(" ");
-            $(".province a[name="+val[0]+"]").click();
-            $(".city div a[name="+val[1]+"]").click();
-            $(".sectioninfo_show div a[name="+val[2]+"]").click();
+            var val     = obj.value.split(" ");
+            var length  = val.length;
+            if(length>0){
+                $(".province a[name="+val[0]+"]").click();
+            }
+            if(length>1){
+                $(".city div a[name="+val[1]+"]").click();
+            }
+            if(length>2){
+                $(".sectioninfo_show div a[name="+val[2]+"]").click();
+            }
         }
         $('#Address').modal();
     }

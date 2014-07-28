@@ -65,6 +65,13 @@ class UserController extends HomeController {
 		unset($_SESSION['email_status']);
 		$this->display();
 	}
+
+	/**
+	 * 用户邮箱验证
+	 */
+	public function password(){
+ 		$this->display();
+    }
 	
 	/**
 	 * 用户邮箱验证

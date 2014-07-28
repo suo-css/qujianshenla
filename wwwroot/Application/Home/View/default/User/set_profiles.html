@@ -1,100 +1,5 @@
-<extend name="Base/common" />
-<block name="poster">
-</block>
-<block name="header">    
-        <div class="container">
-            <img src="Public/Home/images/big_tm/去健身.png">
-        </div>
-</block>
-
-<block name="body">
-    <style>
-        body{
-            background-color: white;
-            background: url('');
-        }
-        .user_header{
-            width: 100%;
-            height: 37px;
-            line-height: 37px;
-            border: 2px solid #CCC;
-            border-right: 0px;
-        }
-        .ctn{
-            width: 980px;
-            margin:0 auto;
-            position: relative;
-            border-right: 2px solid #CCC;
-            border-bottom: 2px solid #CCC;
-        }
-        .user_space {
-            width: 100%;
-            height: 700px;
-        }
-        .user_guide{
-            opacity: 0.85;
-            filter:'opacity(85)';
-            height: 100%;
-            color: white;
-            font-weight: 800;
-            background-color: #313131;
-            width: 270px;
-            float: left;
-        }
-        .user_info{
-            width:710px;
-            height: 100%;
-            float: left;
-        }
-        .clear{
-            clear: both;
-        }
-        .user_guide ul{
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        .user_guide ul li{
-            color: #FFF;
-            margin: 0px;
-            width: 100%;
-            padding: 15px 0px;
-            text-align: right;
-        }
-        .user_guide ul li a{
-            color: #FFF;
-            width: 100%;
-            padding: 5px ;
-        }
-        .user_guide ul li:hover{
-            background-color: #CCC;
-        }
-        .user_guide ul li:hover a{
-            color: #000;
-            background-color: #CCC;
-        }
-        .hr{
-            margin: 0 auto;
-            width: 95%;
-            border: 1px solid #E0E0E0;
-        }
-        .control-group{
-            margin-top: 2%;
-        }
-        a:hover{
-            text-decoration: none;
-        }
-    </style>
-    <div class="ctn">
-        <div class="user_header">空间设置</div>
-        <div class="user_space">
-            <div class="user_guide">
-                <ul>
-                    <li>
-                        <a>基本资料</a>
-                    </li>
-                </ul>
-            </div>
+<extend name="User/setting" />
+<block name="setting_content">
             <div class="user_info">
                 <form class="form-horizontal" action="{:U()}" method="post">
                     <div class="control-group">
@@ -180,9 +85,8 @@
                     </div>
                 </form>
             </div>
-        </div>
-    </div>
-
+        </block>
+<block name="hide">
     <!-- Modal -->
     <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:750px;">
         <div class="modal-dialog modal-lg">
@@ -249,7 +153,7 @@
     </div>
     <!--地址选择器 结束-->
 </block>
-<block name="side"> </block>
+
 <block name="script">
 <link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
 <php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>

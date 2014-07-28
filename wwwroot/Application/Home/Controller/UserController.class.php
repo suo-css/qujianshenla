@@ -266,6 +266,11 @@ class UserController extends HomeController {
             $this->display();
         }
     }
+    public function profiles(){
+		
+            $this->display();
+        
+    }
     //头像上传
     public function upload(){
     	$post_input = 'php://input';

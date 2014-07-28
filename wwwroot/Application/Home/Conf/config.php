@@ -15,7 +15,10 @@ return array(
 
     // 预先加载的标签库
     'TAGLIB_PRE_LOAD'     =>    'OT\\TagLib\\Article,OT\\TagLib\\Think',
-        
+    
+    //网站地址
+    'HTTP_ADDRESS'       =>  'http://127.0.0.1/',  
+
     /* 主题设置 */
     'DEFAULT_THEME' =>  'default',  // 默认模板主题名称
 

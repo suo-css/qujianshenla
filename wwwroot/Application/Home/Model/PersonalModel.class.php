@@ -17,11 +17,11 @@ class PersonalModel extends Model{
 	protected $_validate = array(
 		array('nickname', 'require', '昵称不能为空', self::EXISTS_VALIDATE, 'regex', self::MODEL_BOTH),
 		array('realname', 'require', '真实姓名不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
+		array('birthday', 'require', '生日不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
+		array('occupation', 'require', '职业不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
 		array('telephone', 'require', '电话号码不能为空', self::MUST_VALIDATE),
 		array('homeadd', 'require', '家庭地址不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
-		array('gymadd', 'require', '健身房地址不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
-		array('occupation', 'require', '职业不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
-		array('birthday', 'require', '生日不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
+		array('gymadd', 'require', '健身房地址不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),	
 	);
 	
 	/**

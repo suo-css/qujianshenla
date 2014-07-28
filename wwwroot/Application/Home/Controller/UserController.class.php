@@ -214,30 +214,41 @@ class UserController extends HomeController {
                 $this->error($personal->getError());
             }
         }else{
-        	p(session('user_auth'));
-        	echo is_login();die;
         	if(!M('personal')->where(array('uid'=>is_login()))->find()){$data=array('uid'=>is_login(),'birthday'=>'');M('personal')->add($data);}
         	
         	$result   = M('personal')->where(array('uid'=>is_login()))->find();
      		
      		if(!S('province')){
-     			$this->province = $province = M('provinceinfo')->field('id,name')->select();
+     			$this->province = $province = M('provinceinfo')->field('id,name')->where(array('status'=>1))->select();
      			S('province',$province,7200);
      		}else{
      			$this->province = $province = S('province');
      		}
 
        	    if(!S('cityinfo')){
-     			$cityinfo = M('cityinfo')->field('name,province_id')->select();
+     			$cityinfo = M('cityinfo')->field('name,province_id,id')->where(array('status'=>1))->select();
      			$array = array();
 	     		foreach ($cityinfo as $k => $v) {
-	     			$array[$v['province_id']][] = array('name'=>$v['name']); 
+	     			$array[$v['province_id']][] = array('id'=>$v['id'],'name'=>$v['name']); 
 	     		}
 	     		$this->cityinfo = $array;
      			S('cityinfo',$array,7200);
      		}else{
      			$this->cityinfo = $cityinfo = S('cityinfo');
      		}
+
+     		if(S('sectioninfo')){
+     			$sectioninfo = M('sectioninfo')->field('name,cityid')->where(array('status'=>1))->select();
+     			$array = array();
+     			foreach ($sectioninfo as $k => $v) {
+	     			$array[$v['cityid']][] = array('id'=>$v['id'],'name'=>$v['name']); 
+	     		}
+	     		$this->sectioninfo = $array;
+     			S('sectioninfo',$array,7200);
+     		}else{
+     			$this->sectioninfo = $sectioninfo = S('sectioninfo');
+     		}
+
         	$this->result = $result;
             $this->display();
         }

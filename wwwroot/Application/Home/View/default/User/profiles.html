@@ -159,7 +159,7 @@
                     <div class="control-group">
                         <label class="control-label" for="inputPassword">家庭住址</label>
                         <div class="controls">
-                            <input type="text" id="inputPassword" name="homeadd" value="{$result.homeadd}" placeholder="家庭住址" onclick="show_address()">
+                            <input type="text" id="homeadd" name="homeadd" value="{$result.homeadd}" placeholder="家庭住址" onclick="show_address(this)">
                         </div>
                     </div>
                     <div class="control-group">
@@ -168,6 +168,7 @@
                             <input type="text" name="gymadd" value="{$result.gymadd}" id="inputPassword" placeholder="健身房住址">
                         </div>
                     </div>
+                    <div class="span8 Validform_checktip text-warning"></div>
                     <input type="hidden" name=id value="{$result.id}">
                     <div class="hr"></div>
                     <div class="control-group">
@@ -195,7 +196,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" id="hide" class="btn btn-default" data-dismiss="modal">关闭</button>
                 </div>
             </div>
         </div>
@@ -210,30 +211,39 @@
                     <h4 class="modal-title" id="myModalLabel2">地址选择</h4>
                 </div>
                 <div class="modal-body">
-                    <div style="width:100%;">
+                    <div style="width:100%;" class="province">
                         <volist name="province" id="vo">
-                            <a href="javascript:;" id="{$vo.id}" onclick="show_citys(this);$(this).css('color','red').siblings().css('color','');">{$vo.name}</a>&nbsp&nbsp&nbsp&nbsp&nbsp
+                            <a href="javascript:;" id="{$vo.id}" name={$vo.name} onclick="show_citys(this);$(this).css('color','red').siblings().css('color','');">{$vo.name}</a>&nbsp&nbsp&nbsp&nbsp&nbsp
                         </volist>
                     </div>
-                    <div style="width:100%;margin-top:5px;" class="show_div">
+                    <div style="width:100%;margin-top:5px;" class="city">
                         <hr>
-                        <?php
-                            foreach ($cityinfo as $k => $v) {
-                        echo "<div  id=city-".$k.">";
-                        foreach ($cityinfo[$k] as $key => $value) {
-                        echo "<a href=javascript:; onclick=$(this).css('color','red').siblings().css('color','')>$value[name]</a>&nbsp&nbsp&nbsp&nbsp&nbsp";
+                    <?php
+                        foreach ($cityinfo as $k => $v) {
+                          echo "<div  id=city-".$k.">";
+                            foreach ($cityinfo[$k] as $key => $value) {
+                                echo "<a href=javascript:; id=$value[id] name=$value[name] onclick=show_sectioninfo(this)>$value[name]</a>&nbsp&nbsp&nbsp&nbsp&nbsp";
+                             }
+                          echo "</div>";
                         }
-                        echo "</div>";
-                    }
                     ?>
                     </div>
-                    <div style="width:100%;margin-top:5px;">
+                    <div style="width:100%;margin-top:5px;" class="sectioninfo_show">
                         <hr>
-
+                        <?php
+                            foreach ($sectioninfo as $k => $v) {
+                              echo "<div  id=sectioninfo-".$k.">";
+                                foreach ($sectioninfo[$k] as $key => $value) {
+                                    echo "<a href=javascript:; name=$value[name]  onclick='sectioninfo(this)';>$value[name]</a>&nbsp&nbsp&nbsp&nbsp&nbsp";
+                                 }
+                              echo "</div>";
+                            }
+                        ?>
                     </div>
                 </div>
+                <span id="province_show"></span>-<span id="city_show"></span>-<span id="sectioninfo_show"></span>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-default" id="save_address" data-dismiss="modal">关闭</button>
             </div>
         </div>
     </div>
@@ -253,12 +263,18 @@
             xiuxiu.embedSWF("altContent",5,"550","550");
                /*第1个参数是加载编辑器div容器，第2个参数是编辑器类型，第3个参数是div容器宽，第4个参数是div容器高*/
             var url = "{:U('user/upload')}";
-            xiuxiu.setUploadURL("http://127.0.0.1/"+url);//修改为您自己的上传接收图片程序 
+            xiuxiu.setUploadURL("<?php echo C('HTTP_ADDRESS') ?>"+url);//修改为您自己的上传接收图片程序 
+            xiuxiu.onInit = function ()
+            {   
+                var img_src   = "__ROOT__/Uploads/avatars/54/ad37eda6-830f-7b4e-788c-c912831c9d08.jpg";
+                xiuxiu.loadPhoto(img_src);
+            }     
             xiuxiu.onUploadResponse = function (data)
             {
-                if(data==1){
-                  $("#img_save").html("<img width=60 height=60 src=./Uploads/avatars/{$result.uid}/{$result.uid}.jpg?<?php echo uuid();  ?> alt=>");
-                    location.replace(location.href);
+                var obj = eval('(' + data + ')');
+                if(obj.status==1){
+                  $("#img_save").html("<img width=60 id=img_src height=60 src="+obj.img+" alt=>");
+                  $("#hide").click();
                 }else{
                     alert('服务器繁忙！');
                 }
@@ -290,14 +306,47 @@
         minView:2,
         autoclose:true
     });
-    function show_address(){
-        $(".show_div div:gt(0)").hide();
+    //:visible
+    function show_address(obj){
+        if(obj.value==""){
+            $(".sectioninfo_show div").hide();
+            $(".province a:eq(0)").click();  
+        }else{
+            var val     = obj.value.split(" ");
+            var length  = val.length;
+            if(length>0){
+                $(".province a[name="+val[0]+"]").click();
+            }
+            if(length>1){
+                $(".city div a[name="+val[1]+"]").click();
+            }
+            if(length>2){
+                $(".sectioninfo_show div a[name="+val[2]+"]").click();
+            }
+        }
         $('#Address').modal();
     }
-
+    //城市
     function show_citys(obj){
+        $("#province_show").text($(obj).text());
         $("#city-"+obj.id).show().siblings('div').hide();
-        
     }
+    //城市下的区域
+    function show_sectioninfo(obj){
+        $("#city_show").text($(obj).text());
+        $(obj).css('color','red').siblings().css('color','');
+        $("#sectioninfo-"+obj.id).show().siblings('div').hide();
+    }
+    //区域选择
+    function sectioninfo(obj){
+        $(obj).css('color','red').siblings().css('color','');
+        $("#sectioninfo_show").text($(obj).text());
+    }
+    $("#save_address").click(function(){
+        var province = $("#province_show").text();
+        var city     = $("#city_show").text();
+        var sectioninfo = $("#sectioninfo_show").text();
+        $("#homeadd").val(province+" "+city+" "+sectioninfo);
+    })
     </script>
 </block>

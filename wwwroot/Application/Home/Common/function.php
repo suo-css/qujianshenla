@@ -178,7 +178,10 @@ function actiontype($id){
 function avatars(){
   $save_path = './Uploads/avatars/'.is_login();
   if(is_dir($save_path)){
-    return "<img width=60 height=60 src=./Uploads/avatars/".is_login()."/".is_login().".jpg alt=>";
+    $res = M('personal')->where(array('uid'=>is_login()))->find();
+    return "<img width=60 height=60  src=".$res['iconurl']." alt=>";
+  }else{
+    return "<img width=60 height=60  src=./Uploads/avatars/avatars.jpg alt=>";
   }
 }
 
@@ -189,8 +192,7 @@ function avatars(){
  * @return 保存更新用户头像
  */
 function resizejpg($imgsrc,$imgdst,$imgwidth,$imgheight,$uid,$size){ 
-  $arr = getimagesize($imgsrc);                     
-  header("Content-type: image/jpg");
+  $arr = getimagesize($imgsrc);                   
   $imgWidth = $imgwidth;
   $imgHeight = $imgheight;
   // Create image and define colors
@@ -215,8 +217,9 @@ function resizejpg($imgsrc,$imgdst,$imgwidth,$imgheight,$uid,$size){
  */
 function avatar_save(){
   $size = array('big'=>'200','middle'=>'120','small'=>'48');
+  $res = M('personal')->where(array('uid'=>is_login()))->find();
   foreach ($size as $k => $v) {
-      resizejpg('./Uploads/avatars/'.is_login().'/'.is_login().'.jpg','jpg',$v,$v,is_login(),$k);
+      resizejpg($res['iconurl'],'jpg',$v,$v,is_login(),$k);
   }
 }
 

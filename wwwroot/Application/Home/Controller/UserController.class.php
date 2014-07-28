@@ -214,7 +214,10 @@ class UserController extends HomeController {
                 $this->error($personal->getError());
             }
         }else{
+        	p(session('user_auth'));
+        	echo is_login();die;
         	if(!M('personal')->where(array('uid'=>is_login()))->find()){$data=array('uid'=>is_login(),'birthday'=>'');M('personal')->add($data);}
+        	
         	$result   = M('personal')->where(array('uid'=>is_login()))->find();
      		
      		if(!S('province')){
@@ -246,19 +249,18 @@ class UserController extends HomeController {
 		is_dir($save_path) || mkdir($save_path);
 		$postdata = file_get_contents( $post_input );
 		if ( isset( $postdata ) && strlen( $postdata ) > 0 ) {
-			$filename = $save_path . '/' . is_login() . '.jpg';
+			$uuid = uuid();
+			$filename  = $save_path . '/'.$uuid .'.jpg';
 			$handle = fopen( $filename, 'w+' );
 			fwrite( $handle, $postdata );
 			fclose( $handle );
 			if ( is_file( $filename ) ) {
-				avatar_save();
-				echo 1;
-				exit ();
-			}else {
-				die ( '上传失败' );
+				$personal = D('personal');
+				$personal->upload($filename);
+				$json = json_encode(array('img'=>$filename,'status'=>'1'));
+				echo $json;
 			}
-		}else {
-			die ( '没有图片信息!' );
 		}
+
 	}	
 }

@@ -139,6 +139,9 @@ class UcenterMemberModel extends Model{
 		}
 		/* 获取用户数据 */
 		$user = $this->where($map)->find();
+		session('user_auth', null);
+        session('user_auth_sign', null);
+
 		if(is_array($user) && $user['status']){
 			/* 验证用户密码 */
 			switch ($check) {
@@ -155,6 +158,7 @@ class UcenterMemberModel extends Model{
 						$this->updateLogin($user['id']); //更新用户登录信息
 						$Member = D('Member');
 						if($Member->login($uid)){ //登录用户
+															p(session('user_auth'));die;
 						   return $user['id']; //登录成功，返回用户ID
 						}	
 					} else {

@@ -23,4 +23,16 @@ class PersonalModel extends Model{
 		array('occupation', 'require', '职业不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
 		array('birthday', 'require', '生日不能为空', self::MUST_VALIDATE , 'regex', self::MODEL_BOTH),
 	);
+	
+	/**
+	 * 头像上传
+	 * @param $filename 头像地址
+	 */
+	public function upload($filename){
+		$res = M('personal')->where(array('uid'=>is_login()))->find();
+		unlink($res['iconurl']);//删除原有头像文件
+		$data = array('iconurl'=>$filename);
+		M('personal')->where(array('uid'=>is_login()))->save($data);//更新头像地址
+		avatar_save();//论坛头像同步
+	}
 }

@@ -195,7 +195,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" id="hide" class="btn btn-default" data-dismiss="modal">关闭</button>
                 </div>
             </div>
         </div>
@@ -253,12 +253,13 @@
             xiuxiu.embedSWF("altContent",5,"550","550");
                /*第1个参数是加载编辑器div容器，第2个参数是编辑器类型，第3个参数是div容器宽，第4个参数是div容器高*/
             var url = "{:U('user/upload')}";
-            xiuxiu.setUploadURL("http://127.0.0.1/"+url);//修改为您自己的上传接收图片程序 
+            xiuxiu.setUploadURL("<?php echo C('HTTP_ADDRESS'); ?>"+url);//修改为您自己的上传接收图片程序 
             xiuxiu.onUploadResponse = function (data)
             {
-                if(data==1){
-                  $("#img_save").html("<img width=60 height=60 src=./Uploads/avatars/{$result.uid}/{$result.uid}.jpg?<?php echo uuid();  ?> alt=>");
-                    location.replace(location.href);
+                var obj = eval('(' + data + ')');
+                if(obj.status==1){
+                  $("#img_save").html("<img width=60 id=img_src height=60 src="+obj.img+" alt=>");
+                  $("#hide").click();
                 }else{
                     alert('服务器繁忙！');
                 }

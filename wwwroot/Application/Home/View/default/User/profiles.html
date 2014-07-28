@@ -241,7 +241,7 @@
                         ?>
                     </div>
                 </div>
-                <span id="province_show"></span>-<span id="city_show"></span>-<span id="sectioninfo_show"></span>
+                <span id="province_show"></span> <span id="city_show"></span> <span id="sectioninfo_show"></span>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" id="save_address" data-dismiss="modal">关闭</button>
             </div>
@@ -322,6 +322,8 @@
             }
             if(length>2){
                 $(".sectioninfo_show div a[name="+val[2]+"]").click();
+            }else{
+                $(".sectioninfo_show div").hide();
             }
         }
         $('#Address').modal();
@@ -330,12 +332,18 @@
     function show_citys(obj){
         $("#province_show").text($(obj).text());
         $("#city-"+obj.id).show().siblings('div').hide();
+        $("#city-"+obj.id+" a:eq(0)").click();
     }
     //城市下的区域
     function show_sectioninfo(obj){
         $("#city_show").text($(obj).text());
         $(obj).css('color','red').siblings().css('color','');
-        $("#sectioninfo-"+obj.id).show().siblings('div').hide();
+        if($("#sectioninfo-"+obj.id).length>0){
+            $("#sectioninfo-"+obj.id).show().siblings('div').hide();
+        }else{
+            $("#sectioninfo_show").text('');
+            $(".sectioninfo_show div").hide();
+        }
     }
     //区域选择
     function sectioninfo(obj){

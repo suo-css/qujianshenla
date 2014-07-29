@@ -61,6 +61,11 @@ class ExerciseController extends HomeController {
         }
     }
 
+    public function exc_test(){
+            $this->display();
+    }
+        
+
     public function exc_filter(){
             $list = M("Mainmuscletype");
             $list = $list->getField('id, name');

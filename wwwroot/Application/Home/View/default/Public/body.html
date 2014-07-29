@@ -1,135 +1,42 @@
-    <div id="main" class="container">
-        <style type="text/css">
-            .user_information{
-                color:white;
-                font-weight:800;
-                background-color:#052249;
-                padding-top: 10px;
-                padding-right:20px;
-                padding-bottom:10px;
-                padding-left:10px;
-                border-style:;
-            }
-            
-            .main-container{
-                margin-top: 50px;
-            }
+<!-- Big row 整体布局 最外层row -->
+<div id="main" class="row main-container">
+      <!-- 除了header&footer的所有内容 -->   
+  <block name="main-container">
 
-            .main-content{
-                margin-top: 20px;
-                margin-left: 10px;
-            }
-            .poster{
-                margin-left: 40px;
-            }
-            .accordion-group{
-                border-style: none;
-                text-align: right;
-                color: #30BCB9;
-            }
-            /*.user_space{
-                border-style: solid;
-                border-color: #09D0F9;
-            }*/
-            .user_space{
-                opacity: 0.85;
-                filter:alpha(opacity=85);
-                height: 700px
-            }
-            .user_information{
-                height: 100%;
-            }
-        </style>
+    <style type="text/css">
+    .main-container{
+        margin-top: 50px;
+    }
+    </style>
 
-        <div class="row main-container">
-            <block name="poster">
-               <div class="poster">
-                 <img src="Public/Home/images/big_tm/222.png">
-               </div>
-            </block>
+    <!-- 左侧主要内容 span9-->
+    <div class="main-content span9">
+       <block name="left"></block>
+       <block name="body"></block>
+    </div>   
 
-            <div class="main-content">
-               <block name="side">
-                <!-- 左侧 nav
-                ================================================== -->
-                  <div class="span3 bs-docs-sidebar">
-                    <!---->
-                    <div class="user_space">
-                        <div class="user_information">
-                             <div class="span1.5">
-                               <div class="name">郭佳佳</div>
-                               <div>今天任务是啥</div>
-                             </div>
-
-                            <div class="touxiang">
-                               <img src="Public/Home/images/big_tm/333.jpg">
-                            </div>
-
-                       
-                            <div class="target">
-                              <div class="accordion" id="accordion">
-                                <div class="accordion-group">
-                                    <div class="accordion-heading">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                            目标与进程
-                                        </a>
-                                    </div>
-                                    <div id="collapseOne" class="accordion-body collapse in">
-                                        <div class="accordion-inner">
-                                            <div class="panel-body">
-                                        <a href="{:U('User/login')}">登陆</a>
-                                         <a href="{:U('User/password')}">修改</a>
-                                          <a href="{:U('User/register')}">注册</a>
-                                           <a href="{:U('User/logout')}">退出</a>
-                                    </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-group">
-                                    <div class="accordion-heading">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                            我的健身计划
-                                        </a>
-                                    </div>
-                                    <div id="collapseTwo" class="accordion-body collapse">
-                                        <div class="accordion-inner">
-                                            我的健身计划 我的健身计划 我的健身计划 我的健身计划 我的健身计划 我的健身计划
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-group">
-                                    <div class="accordion-heading">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                            我的饮食计划
-                                        </a>
-                                    </div>
-                                    <div id="collapseThree" class="accordion-body collapse">
-                                        <div class="accordion-inner">
-                                            我的饮食计划 我的饮食计划 我的饮食计划 我的饮食计划 我的饮食计划 我的饮食计划
-                                        </div>
-                                    </div>
-                                </div>
-                               </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </block>
-            <block name="body">
-
-            </block>
-             <block name="right">
-
-            </block>
-        </div>    
+   <!-- 右侧导航 span3-->
+   <div class="side span3">
+        <!-- side block -->
+        <block name="side">
+            <div class="panle"></div>
+            <div class="panle oriBgcolor">
+            <h4>我的健身</h4>
+                 <a class="links" href="{:U('Exercise/exc_test')}">现在的goal页面</a></br>
+                 <a class="links" href="{:U('Exercise/exc_common')}">之前的goal页面</a>
+                
+            </div>
+            <div class="panle oriBgcolor">广告位</div>
+        </block>
     </div>
-</div>
+
 
     <script type="text/javascript">
-        $(function() {
-            $(window).resize(function() {
-                $("#main-container").css("min-height", $(window).height() - 343);
-            }).resize();
-        })
+    $(function() {
+        $(window).resize(function() {
+            $("#main-container").css("min-height", $(window).height() - 343);
+        }).resize();
+    })
     </script>
-
+  </block>
+</div>

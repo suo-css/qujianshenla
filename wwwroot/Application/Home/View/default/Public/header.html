@@ -1,133 +1,98 @@
 <!-- 导航条
-================================================== -->
-<style type="text/css">
-   .navbar-default{
-    
-   }
-   #Index_nav{
-   
-   }
-   #mid_nav{
-   
-   }
-   .navbar-brand{
+  ================================================== -->
+  <block name="header">
+    <style type="text/css">
+    .top-fix-bar .top-fix-inner {
+      position: fixed;
+      z-index: 500;
+      width: 100%;
+      top: 0px;
+      left: 0px;
+      height: 41px;
+      color: #BABABA;
+      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+    }
 
-   }
-   
+    .top-fix-bar .top-fix-inner {
+      background-color: #2BA7DF;
+    }
+    .top-fix-bar .top-fix-container {
+      position: relative;
+      height: 41px;
+      z-index: 550;
+    }
+    .top-fix-bar .top-fix-wrap {
+      width: 1170px;
+      margin: 0px auto;
+      position: relative;
+    }
+    .nav-pills{
+      font-size: 1em;
+      font-weight: bold;
 
-   .top-fix-bar .top-fix-inner {
-    position: fixed;
-    z-index: 500;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    height: 41px;
-    color: #BABABA;
-    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
-}
-  
-.top-fix-bar .top-fix-inner {
-    background-color: #1F1F1F;
-}
-.top-fix-bar .top-fix-container {
-    position: relative;
-    height: 41px;
-    z-index: 550;
-}
-.top-fix-bar .top-fix-wrap {
-    width: 1170px;
-    margin: 0px auto;
-    position: relative;
-}
-.nav-pills{
-  font-size: 1em;
-  font-weight: bold;
+    }
+    .links {
+      color: white;
+    }
+    body{
+      background-image: url("");
+      background-color: #EEF3FA;
+    }
+    </style>
 
-}
-.links {
-  color: white;
-}
-#brand{
-  font-size: 1.5em;
-}
-body{
-  background-image: url("Public/Home/images/big_tm/111.png");
-}
-</style>
-<!---
-<div style="background-color: blue">
- <ul class="nav nav-tabs">
 
-                <li><a href="{:U('BodySpace/Index')}" id="User_nav" >空间</a></li>
-                <li><a href="{:U('Exercise/exc_common')}" id="Exercise_nav">健身</a></li>
-                <li class="active"><a href="{:U('nri/Index')}" id="Nutri_nav">饮食</a></li>
-                <li><a href="{:U('near/Index')}" id="Around_nav">周边</a></li>
-                <li><a href="#" id="Mall_nav">商城</a></li>
-
-</ul>
-</div>
--->
-
-<block name="header">
-<div class="header">
-  <div class="top-fix-bar" >
-   <div class="top-fix-inner">     
-      <div class="top-fix-wrap">      
-                <ul class="nav nav-pills">
-                <li> <a class="links" href="{:U('BodySpace/Index')}" id="brand" >去健身啦</a></li>
-                <li> <a class="links" href="{:U('BodySpace/Index')}" id="User_nav" ><i class="icon-home icon-white"></i> 空间</a></li>
-                <li> <a class="links" href="{:U('Exercise/exc_common')}" id="Exercise_nav"><i class="icon-road icon-white"></i> 健身</a></li>
-                <li> <a class="links" href="{:U('nri/Index')}" id="Nutri_nav"><i class="icon-leaf icon-white"></i> 饮食</a></li>
-                <li> <a class="links" href="{:U('near/Index')}" id="Around_nav"><i class="icon-th-large icon-white"></i> 周边</a></li>
-                <li> <a class="links" href="#" id="Mall_nav"><i class="icon-tags icon-white"></i> 商城</a></li>
-                <if condition="is_login()">
-                        <li class="dropdown pull-right">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-left:0;padding-right:0">{:get_username()} <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{:U('User/set_profiles')}">设置</a></li>
-                                <li><a href="{:U('User/logout')}">退出</a></li>
-                            </ul>
-                        </li>
-                <else/>
-                        <li class="pull-right">
-                            <a href="{:U('User/login')}">登录</a>
-                        </li>
-                        <li class="pull-right">
-                            <a href="{:U('User/register')}" style="padding-left:0;padding-right:0">注册</a>
-                        </li>
-                </if>
+    <div class="header">
+      <div class="top-fix-bar" >
+       <div class="top-fix-inner">     
+        <div class="top-fix-wrap">      
+          <ul class="nav nav-pills">
+            <li>
+              <a class="links" href="{:U('Home/Index')}" id="brand" style="padding-top: 0px;">
+                <img src="Public/Home/images/big_tm/logo-white-35.png">
+              </a>
+            </li>
+            <li> <a class="links" href="{:U('BodySpace/Index')}" id="User_nav" ><i class="icon-home icon-white"></i> 空间</a></li>
+            <li> <a class="links" href="{:U('Exercise/exc_common')}" id="Exercise_nav"><i class="icon-road icon-white"></i> 健身</a></li>
+            <li> <a class="links" href="{:U('nri/Index')}" id="Nutri_nav"><i class="icon-leaf icon-white"></i> 饮食</a></li>
+            <li> <a class="links" href="{:U('near/Index')}" id="Around_nav"><i class="icon-th-large icon-white"></i> 周边</a></li>
+            <li> <a class="links" href="#" id="Mall_nav"><i class="icon-tags icon-white"></i> 商城</a></li>
+            <if condition="is_login()">
+              <li class="dropdown pull-right">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-left:0;padding-right:0">{:get_username()} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{:U('User/set_profiles')}">设置</a></li>
+                  <li><a href="{:U('User/logout')}">退出</a></li>
                 </ul>
+              </li>
+              <else/>
+              <li class="pull-right">
+                <a href="{:U('User/login')}">登录</a>
+              </li>
+              <li class="pull-right">
+                <a href="{:U('User/register')}" style="padding-left:0;padding-right:0">注册</a>
+              </li>
+            </if>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
-          
-    
 
-
-      
-      
-        <div class="collapse navbar-collapse navbar-right">
-                <if condition="is_login()">
-                    <ul class="nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-left:0;padding-right:0">{:get_username()} <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{:U('User/profile')}">修改密码</a>
-                                <li><a href="{:U('User/logout')}">退出</a>
-                            </ul>
-                      
-                    </ul>
-                <else/>
-                    <ul class="nav" style="margin-right:0">
-                        <li>
-                            <a href="{:U('User/login')}">登录</a>
-                        
-                        <li>
-                            <a href="{:U('User/register')}" style="padding-left:0;padding-right:0">注册</a>
-                        
-                    </ul>
-                </if>
-            </div>
-
+  <div class="collapse navbar-collapse navbar-right">
+    <if condition="is_login()">
+      <ul class="nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-left:0;padding-right:0">{:get_username()} <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="{:U('User/profile')}">修改密码</a>
+            <li><a href="{:U('User/logout')}">退出</a>
+          </ul>
+      </ul>
+    <else/>
+      <ul class="nav" style="margin-right:0">
+        <li><a href="{:U('User/login')}">登录</a>
+        <li><a href="{:U('User/register')}" style="padding-left:0;padding-right:0">注册</a>
+      </ul>
+    </if>
+  </div>
 </block>

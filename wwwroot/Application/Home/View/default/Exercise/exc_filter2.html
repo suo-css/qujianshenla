@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="ex-hr"></div>
-            <br>
+            <br/>
             <div class="row">
                 <div class="span3">
                     <input type="text" class="search-query">
@@ -76,221 +76,170 @@
                             肌群
                         </div>
                         <div class="span5">
+                        <volist name="_list" id="vo" key="k">
                             <div class="ex-checkbox">
-                                腹肌 <input type="checkbox" class="checkbox">
+                                {$vo} <input type="checkbox" class="checkbox ids" checked name="mainmuscleid" value="{$k}" />
                             </div>
-                            <div class="ex-checkbox">
-                                腹肌 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="ex-checkbox">
-                                腹肌 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="ex-checkbox">
-                                腹肌 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="ex-checkbox">
-                                腹肌 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="ex-checkbox">
-                                腹肌 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="ex-checkbox">
-                                腹肌 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="ex-checkbox">
-                                腹肌 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="ex-checkbox">
-                                腹肌 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="ex-checkbox">
-                                腹肌 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="ex-checkbox">
-                                腹肌 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="ex-checkbox">
-                                腹肌 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="ex-checkbox">
-                                全选 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="clearfix"></div>
+                        </volist>
+                        <div class="ex-checkbox">
+                                全选 <input type="checkbox" class="checkbox selectall" checked name="mainmuscleid" value=""/>
                         </div>
+                        <div class="clearfix"></div>
+                        </div>
+                        
                         <div class="span1 b">
-                            锻炼方式
+                            锻炼类型
                         </div>
                         <div class="span5">
+                        <volist name="_list2" id="vo" key="k">
                             <div class="ex-checkbox">
-                                有氧运动 <input type="checkbox" class="checkbox">
+                                {$vo} <input type="checkbox" class="checkbox ids" checked name="exercisetypeid" value="{$k}" />
                             </div>
-                            <div class="ex-checkbox">
-                                无氧运动 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="ex-checkbox">
-                                增强式锻炼 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="ex-checkbox">
-                                全选 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="clearfix"></div>
+                        </volist>
+                        <div class="ex-checkbox">
+                                全选 <input type="checkbox" class="checkbox selectall" checked name="exercisetypeid" value=""/>
                         </div>
+                        <div class="clearfix"></div>
+                        </div>
+                        
+                        
                         <div class="span1 b">
                             设备类型
                         </div>
                         <div class="span5">
+                        <volist name="_list3" id="vo" key="k">
                             <div class="ex-checkbox">
-                                健身带 <input type="checkbox" class="checkbox">
+                                {$vo} <input type="checkbox" class="checkbox ids" checked name="equiptypeid" value="{$k}" />
                             </div>
-                            <div class="ex-checkbox">
-                                瑜伽柱 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="ex-checkbox">
-                                全选 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="clearfix"></div>
+                        </volist>
+                        <div class="ex-checkbox">
+                                全选 <input  type="checkbox" class="checkbox selectall" checked name="equiptypeid" value=""/>
                         </div>
+                        <div class="clearfix"></div>
+                        </div>
+                        
                         <div class="span1 b">
                             力量类型
                         </div>
                         <div class="span5">
+                        <volist name="_list4" id="vo" key="k">
                             <div class="ex-checkbox">
-                                推 <input type="checkbox" class="checkbox">
+                                {$vo} <input type="checkbox" class="checkbox ids" checked name="forcetypeid" value="{$k}" />
                             </div>
+                        </volist>
+                        <div class="ex-checkbox">
+                                全选 <input type="checkbox" class="checkbox selectall" checked name="forcetypeid" value=""/>
+                        </div>
+                        <div class="clearfix"></div>
+                        </div>
+                        
+                        <div class="span1 b">
+                            运行类型
+                        </div>
+                        <div class="span5">
+                        <volist name="_list5" id="vo" key="k">
                             <div class="ex-checkbox">
-                                拉 <input type="checkbox" class="checkbox">
+                                {$vo} <input type="checkbox" class="checkbox ids" checked name="sporttypeid" value="{$k}" />
                             </div>
+                        </volist>
+                        <div class="ex-checkbox">
+                                全选 <input type="checkbox" class="checkbox selectall" checked name="sporttypeid" value=""/>
+                        </div>
+                        <div class="clearfix"></div>
+                        </div>
+                    
+                        <div class="span1 b">
+                            专家类型
+                        </div>
+                        <div class="span5">
+                        <volist name="_list6" id="vo" key="k">
                             <div class="ex-checkbox">
-                                静态 <input type="checkbox" class="checkbox">
+                                {$vo} <input type="checkbox" class="checkbox ids" checked name="leveltypeid" value="{$k}" />
                             </div>
-                            <div class="ex-checkbox">
-                                其他 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="ex-checkbox">
-                                全选 <input type="checkbox" class="checkbox">
-                            </div>
-                            <div class="clearfix"></div>
+                        </volist>
+                        <div class="ex-checkbox">
+                                全选 <input type="checkbox" class="checkbox selectall" checked name="leveltypeid" value=""/>
+                        </div>
+                        <div class="clearfix"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="ex-hr"></div>
-            <div class="row">
-                <div class="span3">
-                    <div class="ex-panel">
-                        <div class="mark">
-                            9
-                        </div>
-                        <div class="ex-desc">
-                            <ul>
-                                <li><img src="__PUBLIC__/Home/images/exeName.png" style="vertical-align: middle;">硬拉</li>
-                                <li><img src="__PUBLIC__/Home/images/exePart.png" style="vertical-align: middle;">肩肌</li>
-                                <li><img src="__PUBLIC__/Home/images/exe.png" style="vertical-align: middle;">杠铃</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="span3">
-                    <div class="ex-panel">
-                        <div class="mark">
-                            9
-                        </div>
-                        <div class="ex-desc">
-                            <ul>
-                                <li><img src="__PUBLIC__/Home/images/exeName.png" style="vertical-align: middle;">硬拉</li>
-                                <li><img src="__PUBLIC__/Home/images/exePart.png" style="vertical-align: middle;">肩肌</li>
-                                <li><img src="__PUBLIC__/Home/images/exe.png" style="vertical-align: middle;">杠铃</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="span3">
-                    <div class="ex-panel">
-                        <div class="mark">
-                            9
-                        </div>
-                        <div class="ex-desc">
-                            <ul>
-                                <li><img src="__PUBLIC__/Home/images/exeName.png" style="vertical-align: middle;">硬拉</li>
-                                <li><img src="__PUBLIC__/Home/images/exePart.png" style="vertical-align: middle;">肩肌</li>
-                                <li><img src="__PUBLIC__/Home/images/exe.png" style="vertical-align: middle;">杠铃</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div class="row" id="excInfo">
+                
             </div>
         </div>
         <div class="clearfix"></div>
     </div>
     <script type="text/javascript" >
         $("document").ready(function() {
-            $(".ids").click(function() {
-                var filter_1 = "";
-                var filter_2 = "";
-                var filter_3 = "";
-                var filter_4 = "";
-                var filter_5 = "";
-                var filter_6 = "";
-                $("input[name='mainmuscleid']:checkbox:checked").each(function() {
-                    filter_1 += $(this).val() + ',';
-                });
-                $("input[name='exercisetypeid']:checkbox:checked").each(function() {
-                    filter_2 += $(this).val() + ',';
-                });
-                $("input[name='equiptypeid']:checkbox:checked").each(function() {
-                    filter_3 += $(this).val() + ',';
-                });
-                $("input[name='forcetypeid']:checkbox:checked").each(function() {
-                    filter_4 += $(this).val() + ',';
-                });
-                $("input[name='sporttypeid']:checkbox:checked").each(function() {
-                    filter_5 += $(this).val() + ',';
-                });
-                $("input[name='leveltypeid']:checkbox:checked").each(function() {
-                    filter_6 += $(this).val() + ',';
-                });
-
-                $.post("{:U('Exercise/search')}", {'filter_1': filter_1, 'filter_2': filter_2,
-                    'filter_3': filter_3, 'filter_4': filter_4, 'filter_5': filter_5, 'filter_6': filter_6},
-                function(data) {
-                    if (data.status)
-                    {
-                        //alert(data.info[0].ename);
-                        
-                        $("#excInfo").empty();
-                        for (var i = 0; i < data.info.length; i++)
-                        {
-                            
-                            var exc = '<div class="span12" style="border:2px;outline:#3399FF solid thick;">';
-                            exc += '<div class="span3"><image src="Public/Exercise/images/1.png" /><image src="Public/Exercise/images/2.png" /></div>';
-                          exc +='<div class="span7"><h5>'+"<a href={:U("Exercise/exc_all",'','')}/eid/"+data.info[i].eid+">" + data.info[i].ename+"</a>"+data.info[i].action+"</h5>";
-                          exc +='<h6>目标肌群</h6><h6>'+data.info[i].mtname+'</h6>';
-                           exc +='<h6>器械</h6><h6>'+data.info[i].eqtname+'</h6></div>';
-                            exc +='</div>';
-         // <a href=javascript:; onclick=action(this); id="+data.info[i].eid+">添加为喜欢动作</a>
-                            $("#excInfo").append(exc);
-//                            $("#excInfo").append("<tr>");
-//                            $("#excInfo").append("<td><a href='{:U("Exercise/exc_all")}'>" + data.info[i].ename + "</a></td>");
-//                            $("#excInfo").append("<td>" + data.info[i].mtname + "</td>");
-//                            $("#excInfo").append("<td>" + data.info[i].etname + "</td>");
-//                            $("#excInfo").append("<td>" + data.info[i].eqtname + "</td>");
-//                            $("#excInfo").append("<td>" + data.info[i].ftname + "</td>");
-//                            $("#excInfo").append("<td>" + data.info[i].stname + "</td>");
-//                            $("#excInfo").append("<td>" + data.info[i].ltname + "</td>");
-//                            $("#excInfo").append("<td>" + data.info[i].sex + "</td>");
-//                            $("#excInfo").append("<tr>");
-                        }
-                        
-                    }
-                    else
-                    {
-                        //$("#excInfo").append("获取失败");
-                    }
-                }, 'json');
+            search();
+            $(".iCheck-helper").click(function() {
+                var $prev = $(this).prev()
+                flag = $prev.hasClass("selectall");    //全选
+                if(flag){   
+                    name = $prev.attr("name");
+                    $("input[name='"+name+"']").not($prev).iCheck('check');
+                }else{
+                    
+                }
+                //search();
             });
-
         })
-
+    function search(){
+        var filter_1 = "";
+        var filter_2 = "";
+        var filter_3 = "";
+        var filter_4 = "";
+        var filter_5 = "";
+        var filter_6 = "";
+        $("input[name='mainmuscleid']:checkbox:checked").each(function() {  //肌群
+            filter_1 += $(this).val() + ',';
+        });
+        $("input[name='exercisetypeid']:checkbox:checked").each(function() {    //锻炼类型
+            filter_2 += $(this).val() + ',';
+        });
+        $("input[name='equiptypeid']:checkbox:checked").each(function() {       //设备类型
+            filter_3 += $(this).val() + ',';
+        });
+        $("input[name='forcetypeid']:checkbox:checked").each(function() {       //力量类型
+            filter_4 += $(this).val() + ',';
+        });
+        $("input[name='sporttypeid']:checkbox:checked").each(function() {       //运行类型
+            filter_5 += $(this).val() + ',';
+        });
+        $("input[name='leveltypeid']:checkbox:checked").each(function() {       //专家类型
+            filter_6 += $(this).val() + ',';
+        });
+        $.post("{:U('Exercise/search')}", {'filter_1': filter_1, 'filter_2': filter_2,
+            'filter_3': filter_3, 'filter_4': filter_4, 'filter_5': filter_5, 'filter_6': filter_6},function(data) {
+            if (data.status){
+                $("#excInfo").html("");
+                var html = "";
+                $.each(data.info, function (i, n) { 
+                    html += "<div class=\"span3\">";
+                    html += "<div class=\"ex-panel\">";
+                    html += "<div class=\"mark\">";
+                    html +=  9+"<img src=\"__PUBLIC__/Exercise/images/1.png\" /><img src=\"__PUBLIC__/Exercise/images/2.png\" />";
+                    html += "</div>";  
+                        html +="<div class=\"ex-desc\">";
+                            html += "<ul>";
+                                html += "<li><img src=\"__PUBLIC__/Home/images/exeName.png\" style=\"vertical-align: middle;\"/>"+n.ename+"</li>";
+                                html += "<li><img src=\"__PUBLIC__/Home/images/exePart.png\" style=\"vertical-align: middle;\"/>"+n.mtname+"</li>";
+                                html += "<li><img src=\"__PUBLIC__/Home/images/exe.png\" style=\"vertical-align: middle;\"/>"+n.eqtname+"</li>";
+                            html += "</ul>";
+                        html += "</div>";
+                    html += "</div>";
+                html += "</div>";
+                });   
+                $("#excInfo").append(html); 
+            }
+            else{
+                //$("#excInfo").append("获取失败");
+            }
+        }, 'json');
+    }
     function action(obj){
         var id  = obj.id;
         var url = "{:U('Exercise/addaction')}";

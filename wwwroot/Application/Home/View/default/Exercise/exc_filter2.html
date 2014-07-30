@@ -12,11 +12,40 @@
                 radioClass: 'iradio_square-blue',
                 increaseArea: '20%' // optional
             });
+            $(".mark").mouseover(function(){
+                setTimeout(function(){
+                    $mark.attr("shown","true");
+                },1);
+            }).mouseout(function(){
+                var $mark = this;
+                $mark.attr("shown","false");
+                setTimeout(function(){
+                    if($mark.attr("shown")==="false"){
+                        $mark.slideUp();
+                    }
+                },100);
+            });
+            $(".ex-panel").mouseover(function(){
+                var $mark = $(this).find(".mark");
+                $mark.attr("shown","true");
+                if($mark.attr("isFns")=="false")return false;
+                $mark.attr("isFns","false");
+                $mark.slideDown(function(){
+                    $mark.attr("isFns","true");
+                });
+            }).mouseout(function(){
+                var $mark = $(this).find(".mark");
+                $mark.attr("shown","false");
+                setTimeout(function(){
+                    if($mark.attr("shown")==="false"){
+                        $mark.slideUp();
+                    }
+                },100);
+            });
         });
     </script>
     <div class="row main-container">
         <div class="span9">
-            
             <div class="tsWeekHot">
                 本周最热
             </div>

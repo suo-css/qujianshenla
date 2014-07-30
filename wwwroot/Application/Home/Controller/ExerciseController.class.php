@@ -126,6 +126,9 @@ class ExerciseController extends HomeController {
             $this->assign("_list6", $list6);
             $this->display();
 	}
+    public function exc_filter2(){
+            $this->display();
+    }
         
     public function search()
         {

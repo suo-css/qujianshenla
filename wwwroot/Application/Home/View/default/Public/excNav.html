@@ -1,19 +1,133 @@
      
-  <style type="text/css">
-  </style>
+<style>
+        .nav-sec-desc{
+            padding: 5px 15px;
+        }
+        .nav-sec{
+            height: 22px;
+            border-bottom: 3px solid #C8C9C9;
+        }
+        .nav-sec ul{
+            list-style: none;
+            float: right;
+        }
+        .nav-sec ul li{
+            float: left;
+        }
+        .nav-sec ul li a{
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav-sec ul li .active{
+            border-bottom: 3px solid #2BA7DF;
+        }
+        .nav-sec ul li a:hover{
+            text-decoration: none;
+        }
+        .tsWeekHot{
+  
+            font-size: 24px;
+        }
+        .ex-panel{
+            /**/
+            margin: 15px 0px;
+            padding: 39px 19px 14px;
+            border-radius: 5px;
+            border: 1px solid rgb(221, 221, 221);
+            position: relative;
+            background-color: #DBDBDC;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            height: 135px;
+        }
+        .mark{
+            position: absolute;
+            z-index: 1;
+            left: 10px;
+            top: 15px;
+            font-size: 34px;
+        }
+        .like{
+            width: 35px;
+            height: 35px;
+            background: url("img/like.png");
+        }
+        .unlike{
+            width: 35px;
+            height: 35px;
+            background: url("img/unlike.png");
+        }
+        .strength{
+            width: 35px;
+            height: 35px;
+            background: url("img/strength.png");
+        }
+        .machine{
+            width: 35px;
+            height: 35px;
+            background: url("img/machine.png");
+        }
+        .noMachine{
+            width: 35px;
+            height: 35px;
+            background: url("img/nomach.png");
+        }
+        .ex-desc{
+            width:100%;
+            position: absolute;
+            height: 40px;
+            line-height: 40px;
+            bottom:0px;
+            left: 0px;
+            background-color: #F6F6F6;
+        }
+        .ex-desc ul{
+            width:100%;
+            height: 40px;
+            line-height: 40px;
+            list-style: none;
+            display: inline-table;
+            margin-left: 0px;
+        }
+        .ex-desc li{
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            float: left;
+            width: 33.3%;
 
-
-
-
-
-      <div class="span8 exc-nav">
-               <ul class="nav nav-tabs pull-right">
-                  <li><a href="{:U('Exercise/exc_filter')}" id="filter_nav" >过滤器</a></li>
-                  <li><a href="{:U('Exercise/exc_ind')}" id="tml_nav">计划</a></li>
-                  <li><a href="{:U('Exercise/exc_doc')}" id="doc_nav">文章</a></li>
-               </ul>
-       </div>
-
+        }
+        .ex-desc div{
+            display: inline-block;
+        }
+        .ex-hr{
+            margin: 0 auto;
+            width: 99%;
+            border: 2px solid #E0E0E0;
+            border-radius: 1px;
+        }
+        .ex-checkbox{
+            height: 24px;
+            line-height: 24px;
+            width: 110px;
+            float: left;
+            margin-right: 5px;
+        }
+        .ex-checkbox .icheckbox_square-blue{
+            float: right;
+            margin-right: 15px;
+        }
+    </style>
+      
+      <div class="nav-sec">
+                <ul>
+                    <li><a href="#" class="nav-sec-desc active">动作库</a></li>
+                    <li><a href="#" class="nav-sec-desc">健身计划</a></li>
+                    <li><a href="#" class="nav-sec-desc">专栏</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
 
   <script type="text/javascript">
        $("#filter_nav").mouseover(function(){

@@ -128,18 +128,7 @@ function p($arr){
  */
 function goaltype($id){
    $list   = M('goaltype')->where(array('status'=>1,'moduleid'=>$id))->select();
-   foreach ($list as $v) {
-       $result = M('goal')->where(array('status'=>1,'uid'=>is_login(),'detailtypeid'=>$v['id']))->find();
-       if(!$result){
-          $name  = json_encode($v['typename']);
-          $data .="<div><div id=type-$v[id]></div><span>".$v['typename']."  </span><a href=javascript:; onclick='add_goal($v[id],$name)';>新增目标</a></div><br>";
-       }else{
-          $json  = json_encode(array('startvalue'=>$result['startvalue'],'startdate'=>$result['startdate'],'goalvalue'=>$result['goalvalue'],'goaldate'=>$result['goaldate'],'name'=>$v['typename'],'id'=>$v['id'],'currentvalue'=>$result['currentvalue']));
-          $data .="<div><div id=type-$v[id]>".$result['startvalue']."-".$result['startdate']."-".$result['goalvalue']."-".$result['goaldate']."</div><span>".$v['typename']."  </span><a href=javascript:; onclick=update_goal($json)>修改目标</a>  <a href=".U('Exercise/delete_goal',array('id'=>$result['id'])) .">删除目标</a></div><br>";
-       }
-       
-   }
-   return $data;
+   return $list;
 }
 
 /**
@@ -152,6 +141,46 @@ function show_goal($id){
     }
   
 }
+
+/**
+ * 判断用户是否已经定制了目标
+ * @param  $id动作ID
+ * @return bool
+ */
+function goal_type($id){
+  $result = M('goal')->where(array('detailtypeid'=>$id))->find();
+  if($result){
+    return 1;
+  }else{
+    return 0;
+  }
+}
+
+/**
+ * 根据动作ID查询该用户是否已经制定了目标
+ * @param  $id动作ID $type 字段值
+ * @return string 
+ */
+function goal_types($id,$type){
+  $result = M('goal')->where(array('detailtypeid'=>$id))->find();
+  if($type=='currentvalue'){
+      if($result['currentvalue']!=0){
+        $res = ($result['currentvalue']-$result['startvalue'])/($result['goalvalue']-$result['startvalue'])*100;
+        if($res>100){
+          return '100%';
+        }else{
+          return $res;
+        }
+      }else{
+        return $result['currentvalue'];
+      }
+      
+  }else{
+    echo $result[$type];
+  }
+  
+}
+
 
 /**
  * 判断用户是否已经添加了对应的

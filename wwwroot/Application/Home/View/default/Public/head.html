@@ -9,12 +9,13 @@
 <script src="__STATIC__/bootstrap/js/html5shiv.js"></script>
 <![endif]-->
 <block name="style"></block>
-<!--[if lt IE 9]>
+
 <script type="text/javascript" src="__STATIC__/jquery-1.10.2.min.js"></script>
-<![endif]-->
-<!--[if gte IE 9]><!-->
+
+<!--
 <script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js"></script>
-<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+-->
+<!-- <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> -->
 <script type="text/javascript" src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
 <!--<![endif]-->
 <!-- 页面header钩子，一般用于加载插件CSS文件和代码 -->
@@ -22,8 +23,8 @@
   
 
 
-    <script type="text/javascript" src="js/hcharts/highcharts.js"></script>
-    <script type="text/javascript" src="js/hcharts/exporting.js"></script>
+    <script type="text/javascript" src="__STATIC__/hcharts/highcharts.js"></script>
+    <script type="text/javascript" src="__STATIC__/hcharts/exporting.js"></script>
     <style>
         
         .bd1{
@@ -65,13 +66,14 @@
 		    margin: 0px;
 		    padding: 0px;
 		    width:80%;
+		    margin: 5px 0px;
 		}
-		.myProgress-start{
+		.myProgress-weight-start{
 		    width: 35px;
 		    height: 35px;
 		    line-height: 35px;
 		    text-align: center;
-		    background: url("img/progess_start.png");
+		    background: url("__PUBLIC__/Home/images/progess_weight_start.png");
 		    border-radius: 50%;
 		    /*background-color: #C8C9C9;*/
 		    z-index: 1;
@@ -80,12 +82,96 @@
 		    left: 0px;
 
 		}
+		.myProgress-weight-end{
+		    width: 35px;
+		    height: 35px;
+		    line-height: 35px;
+		    text-align: center;
+		    background: url("__PUBLIC__/Home/images/progess_weight_start.png");
+		    border-radius: 50%;
+		    /*background-color: #C8C9C9;*/
+		    z-index: 1;
+		    position: absolute;
+		    top: 0px;
+		    right: 0px;
+		}
+		.myProgress-strength-start{
+			width: 35px;
+		    height: 35px;
+		    line-height: 35px;
+		    text-align: center;
+		    background: url("__PUBLIC__/Home/images/progess_strength_start.png");
+		    border-radius: 50%;
+		    /*background-color: #C8C9C9;*/
+		    z-index: 1;
+		    position: absolute;
+		    top: 0px;
+		    left: 0px;
+		}
+
+		.myProgress-strength-end{
+		    width: 35px;
+		    height: 35px;
+		    line-height: 35px;
+		    text-align: center;
+		    background: url("__PUBLIC__/Home/images/progess_strength_start.png");
+		    border-radius: 50%;
+		    /*background-color: #C8C9C9;*/
+		    z-index: 1;
+		    position: absolute;
+		    top: 0px;
+		    right: 0px;
+		}
+
+		.myProgress-strength-cur{
+		    width: 35px;
+		    height: 35px;
+		    line-height: 35px;
+		    text-align: center;
+		    background: url("__PUBLIC__/Home/images/progess_goal.png");
+		    border-radius: 50%;
+		    /*background-color: #C8C9C9;*/
+		    z-index: 1;
+		    position: absolute;
+		    top: 0px;
+		    right: 0px;
+		}
+
+
+		.myProgress-dimension-start{
+			width: 35px;
+		    height: 35px;
+		    line-height: 35px;
+		    text-align: center;
+		    background: url("__PUBLIC__/Home/images/progess_dimension_start.png");
+		    border-radius: 50%;
+		    /*background-color: #C8C9C9;*/
+		    z-index: 1;
+		    position: absolute;
+		    top: 0px;
+		    left: 0px;
+		}
+
+		.myProgress-dimension-end{
+		    width: 35px;
+		    height: 35px;
+		    line-height: 35px;
+		    text-align: center;
+		    background: url("__PUBLIC__/Home/images/progess_dimension_start.png");
+		    border-radius: 50%;
+		    /*background-color: #C8C9C9;*/
+		    z-index: 1;
+		    position: absolute;
+		    top: 0px;
+		    right: 0px;
+		}
+
 		.myProgress-goal{
 		    width: 35px;
 		    height: 35px;
 		    line-height: 35px;
 		    text-align: center;
-		    background: url("img/progess_goal.png");
+		    background: url("__PUBLIC__/Home/images/progess_goal.png");
 		    border-radius: 50%;
 		    /*background-color: #C8C9C9;*/
 		    z-index: 1;
@@ -102,10 +188,17 @@
 		    top: 5px;
 		    left: 30px;
 		}
-		.myProgress-done{
+		.myProgress-weight-done{
 		    height: 25px;
-		    width:55%;
-		    background: url("img/progess_bg.png");
+		    background-color: #F39800;
+		}
+		.myProgress-strength-done{
+		    height: 25px;
+		    background-color: #AD81B7;
+		}
+		.myProgress-dimension-done{
+		    height: 25px;
+		    background-color: #79AD33;
 		}
 		.floatL{
 		    float: left;
@@ -113,7 +206,16 @@
 		.floatR{
 		    float:right;
 		}
-		</style>
+		.mgTop5{
+			margin-top:5px;
+		}
+		.mgTop20{
+			margin-top:20px;
+		}
+		.todayFrame{
+			height:40px;line-height:40px
+		}
+	</style>
 
 
 

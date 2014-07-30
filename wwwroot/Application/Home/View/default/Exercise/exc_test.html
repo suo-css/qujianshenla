@@ -10,7 +10,7 @@
                         当前体脂  <span style="font-size: 32px;line-height: 32px;">35</span> %
                     </div>
                 </div>
-                <div class="span8">
+                <div class="span4">
                     <div  style="position: absolute;top: 3px;right: 3px;">
                         选择具体:
                         <select>
@@ -29,96 +29,555 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="span5">
                 <div class="panle h300">
-                    体重体脂
-                    <div>
-                        <br>
-                        <div class="floatL">起始时间:2012-6-8</div>
-                        <div class="floatR">结束时间:2015-3-4</div>
+                    <span class="b">体重</span>
+                    <div style="margin-top:20px">
+                        <div class="floatL b">起始时间:2012-6-8</div>
+                        <div class="floatR b">结束时间:2015-3-4</div>
                         <div class="clearfix"></div>
                         <div class="myProgress">
-                            <div class="myProgress-start">35</div>
+                            <div class="myProgress-weight-start">35</div>
                             <div class="myProgress-pgs">
-                                <div class="myProgress-done"></div>
+                                <div class="myProgress-weight-done" style="width:50%"></div>
                             </div>
                             <div class="myProgress-goal">46</div>
                         </div>
-                        <div>
-                            <input type="text"><button class="btn">提 交</button>
+                        <div style="mgTop5 todayFrame">
+                            今天的体重 :
+                            <input type="text" style="width:150px">&nbsp;<button class="btn" style="margin-top:-10px">提 交</button>
+                        </div>
+                    </div>
+                    <span class="b">体脂</span>
+                    <div class="mgTop20">
+                        <div class="floatL b">起始时间:2012-6-8</div>
+                        <div class="floatR b">结束时间:2015-3-4</div>
+                        <div class="clearfix"></div>
+                        <div class="myProgress">
+                            <div class="myProgress-weight-start">35</div>
+                            <div class="myProgress-pgs">
+                                <div class="myProgress-weight-done" style="width:50%"></div>
+                            </div>
+                            <div class="myProgress-goal">46</div>
+                        </div>
+                        <div class="mgTop5 todayFrame" >
+                            今天的体重 :
+                            <input type="text" style="width:150px">&nbsp;<button class="btn" style="margin-top:-10px">提 交</button>
                         </div>
                     </div>
                 </div>
-                <div class="panle h300">力量</div>
+
+
+                <div class="panle h300">
+                    <span class="b">力量 </span>
+                    <br>
+                    <volist name='list' id="vo">
+                        <if condition="goal_type($vo['id']) neq 0"> 
+                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)"  type="edit">编辑</a> <a href="javascript:;" onclick="delete_goal(this)" id="{$vo.id}">删除</a>
+                            <div style="margin-top:20px">
+                                <input type="hidden" name="" value="<?php goal_types($vo['id'],'id') ?>" id="id_{$vo.id}">
+                                <div class="floatL b">起始时间:
+                                    <span id="start_{$vo.id}"><?php goal_types($vo['id'],'startdate') ?></span>
+                                </div>
+                                <div class="floatR b">结束时间:
+                                    <span id="end_{$vo.id}"><?php goal_types($vo['id'],'goaldate') ?></span>
+                                </div>     
+                                <div class="clearfix"></div>
+                                <div class="myProgress">
+                                    <div class="myProgress-strength-start">
+                                        <span id="start_value_{$vo.id}"><?php goal_types($vo['id'],'startvalue') ?></span>
+                                    </div>
+                                    <div class="myProgress-pgs">
+                                    <div class="myProgress-strength-done" id="length_{$vo.id}" style="width:<?php echo goal_types($vo['id'],'currentvalue') ?>%">  
+                                    </div>
+                                    </div>
+
+                                    <if condition="goal_types($vo['id'],'currentvalue') lt 100">
+                                      <div  class="myProgress-strength-cur" id="class_{$vo.id}-strength">
+                                    <else />
+                                      <div  class="myProgress-strength-end" id="class_{$vo.id}-strength">
+                                    </if>
+
+                                    <span id="end_value_{$vo.id}"><?php goal_types($vo['id'],'goalvalue') ?></span>
+                                    </div>
+                                </div>
+                               <div class="mgTop5 todayFrame" >
+                                    今天的{$vo.typename} :
+                                    <input type="text" value="" id="current-<?php goal_types($vo['id'],'id') ?>" style="width:150px">&nbsp;<button class="btn" style="margin-top:-10px" onclick="current(<?php goal_types($vo['id'],'id') ?>,{$vo.id},'strength')">提 交</button>
+                                    <span style="display:none;" id="current-error-<?php goal_types($vo['id'],'id') ?>"></span>
+                                </div>
+                            </div>
+                         <else />
+                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)" type="add">编辑</a><span id='delete_save_{$vo.id}'></span>
+
+                            <span id="{$vo.id}_class_add" style="display:none;">strength</span>
+
+                            <div style="margin-top:20px">
+                                <input type="hidden" name="" value="" id="id_{$vo.id}">
+                                <div class="floatL b">起始时间:<span id="start_{$vo.id}"></span></div>
+                                <div class="floatR b">结束时间:<span id="end_{$vo.id}"></span></div>
+                                <div class="clearfix"></div>
+                                <div class="myProgress">
+                                    <div class="myProgress-strength-start"><span id="start_value_{$vo.id}">0</span></div>
+                                    <div class="myProgress-pgs">
+                                        <div class="myProgress-strength-done" id="length_{$vo.id}" style="width:0%"></div>
+                                    </div>
+                                    <div class="myProgress-goal" id="class_{$vo.id}-strength"><span id="end_value_{$vo.id}">0</span></div>
+                                </div>
+                            </div>
+                            <div class="mgTop5 todayFrame" style="display:none;" id="current_save_{$vo.id}">
+                                    今天的{$vo.typename} :
+                                    <span>
+
+                                    </span> 
+                            </div>
+                         </if>
+                    </volist>    
+                </div>
             </div>
+
+
+
+
             <div class="span4">
-                <div class="panle h670">维度</div>
+                <div class="panle h670">
+                    <span class="b">维度</span>
+                     <br>
+                    <volist name='list1' id="vo">
+                        <if condition="goal_type($vo['id']) neq 0"> 
+                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)"  type="edit">编辑</a><a href="javascript:;" onclick="delete_goal(this)" id="{$vo.id}">删除</a>
+                            <div style="margin-top:20px">
+                                <input type="hidden" name="" value="<?php goal_types($vo['id'],'id') ?>" id="id_{$vo.id}">
+                                <div class="floatL b">起始时间:
+                                    <span id="start_{$vo.id}"><?php goal_types($vo['id'],'startdate') ?></span>
+                                </div>
+                                <div class="floatR b">结束时间:
+                                    <span id="end_{$vo.id}"><?php goal_types($vo['id'],'goaldate') ?></span>
+                                </div>   
+
+                                <div class="clearfix"></div>
+                                <div class="myProgress">
+                                    <div class="myProgress-dimension-start">
+                                        <span id="start_value_{$vo.id}"><?php goal_types($vo['id'],'startvalue') ?></span>
+                                    </div>
+                                    <div class="myProgress-pgs">
+                                    <div class="myProgress-dimension-done" id="length_{$vo.id}" style="width:<?php echo goal_types($vo['id'],'currentvalue') ?>%">  
+                                    </div>
+                                    </div>
+                                    <if condition="goal_types($vo['id'],'currentvalue') lt 100">
+                                      <div class="myProgress-goal" id="class_{$vo.id}-dimension" >
+                                    <else />
+                                      <div class="myProgress-dimension-end" id="class_{$vo.id}-dimension" >
+                                    </if>
+
+                                    
+
+                                    <span id="end_value_{$vo.id}"><?php goal_types($vo['id'],'goalvalue') ?></span>
+                                    </div>
+                                </div>
+                               <div class="mgTop5 todayFrame" >
+                                    今天的{$vo.typename} :
+                                    <input type="text" value="" id="current-<?php goal_types($vo['id'],'id') ?>" style="width:150px">&nbsp;<button class="btn" style="margin-top:-10px" onclick="current(<?php goal_types($vo['id'],'id','dimension') ?>,{$vo.id},'dimension')">提 交</button>
+                                    <span style="display:none;" id="current-error-<?php goal_types($vo['id'],'id') ?>"></span>
+                                </div>
+                            </div>
+                         <else />
+                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)" type="add">编辑</a><span id='delete_save_{$vo.id}'></span>
+
+                            <span id="{$vo.id}_class_add" style="display:none;">dimension</span>
+
+                            <div style="margin-top:20px">
+                                <input type="hidden" name="" value="" id="id_{$vo.id}">
+                                <div class="floatL b">起始时间:<span id="start_{$vo.id}"></span></div>
+                                <div class="floatR b">结束时间:<span id="end_{$vo.id}"></span></div>
+                                <div class="clearfix"></div>
+                                <div class="myProgress">
+                                    <div class="myProgress-dimension-start"><span id="start_value_{$vo.id}">0</span></div>
+                                    <div class="myProgress-pgs">
+                                        <div class="myProgress-dimension-done" id="length_{$vo.id}" style="width:0%"></div>
+                                    </div>
+                                    <div class="myProgress-goal" id="class_{$vo.id}-dimension"><span id="end_value_{$vo.id}">0</span></div>
+                                </div>
+                            </div>
+                            <div class="mgTop5 todayFrame" style="display:none;" id="current_save_{$vo.id}">
+                                    今天的{$vo.typename} :
+                                    <span>
+
+                                    </span> 
+                            </div>
+                         </if>
+                    </volist>  
+                </div>
             </div>
-        </div>
-        <div class="panle">
-            近期任务
         </div>
 
+         <!--弹出-->
+        <!-- Modal -->
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="create_goal"></h3>
+
+          </div>
+          <div class="modal-body">
+                <input type="hidden" id="detailtypeid" value=""> 
+                <input type="hidden" id="type" value="">
+                <input type="hidden" id="save_id" value="">
+                开始值：<input type="text" name="" id="startvalue" ><br>
+                目标值：<input type="text" name="" id="goalvalue" ><br>
+                目标时间：<input type="text" onkeyup="this.value=''" id="goaldate">
+                <br>
+                <span style="color:red;display:none;" id="save_error"></span>
+          </div>
+          <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" id="create_hide"  aria-hidden="true">关闭</button>
+            <button class="btn btn-primary" id="save">保存</button>
+          </div>
+        </div>
+
+
+        <div class="panle">
+           <div class="demo">
+                <div class="history">
+                <?php foreach($eventslist as $key=>$value):?>
+                    <div class="history-date">
+                        <ul>
+                            <h2 class="<?php if($key==0){ echo 'first';}else{ echo 'date02';}?>">
+                                <a href="#nogo"><?php echo $value['ymd'];?>年</a>
+                                 <?php if($key==0): ?><img src="Public/Home/images/big_tm/img05.gif"alt="时间轴" /><?php endif;?>
+                            </h2>
+                            <?php foreach($value['list'] as $k=>$val):?>
+                            <li class="green">
+                                <h3><?php echo substr($val['create_time'],5,2);?>.<?php echo substr($val['create_time'],8,2);?><span><?php echo $value['ymd'];?></span></h3>
+                                <dl>
+                                    <dt><?php echo $val['title'];?><span><?php echo $val['content'];?></span></dt>
+                                </dl>
+                            </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endforeach;?>
+                </div>
+            </div>
+        </div>
+
+        <link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+        <php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+        <link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+        <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+        <script type="text/javascript">
+            $(function () {
+                //$('#myModal').modal();
+                function initProgress(){
+                    var $pgs = $(".myProgress-pgs");
+                    $pgs.each(function(){
+                        var $ts = $(this)
+                        var $prt = $(this).parent();
+                        $ts.width($prt.width()-58);
+                    });
+                    
+                }
+                initProgress();
+                $(window).resize(initProgress);
+                $('#charts').highcharts({
+                    exporting: {
+                        url:"http://export.hcharts.cn"
+                    },
+                    title: {
+                        text: 'Monthly Average Temperature',
+                        x: -20 //center
+                    },
+                    xAxis: {
+                        categories: ['一', '五', '十', '十五', '二十', '二六','七', '八', '九', '十', '十一', '十二','十三']
+                        //设置横坐标
+                    },
+                    yAxis: {
+                        title: {
+                            text: '重量(Kg)'//设置纵坐标单位
+                        },
+                        plotLines: [{
+                            value: 0,
+                            width: 1,
+                            color: '#808080'
+                        }]
+                    },
+                    tooltip: {
+                        valueSuffix: '°C'
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0
+                    },
+                    series: [{
+                        name: '东京',
+                        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6,9.5]
+                    }]
+                });
+                   
+                //新建目标
+                $("#save").click(function(){
+                    startvalue = $.trim($("#startvalue").val());
+                    goalvalue = $.trim($("#goalvalue").val());
+                    goaldate = $.trim($("#goaldate").val());
+                    detailtypeid = $.trim($("#detailtypeid").val());
+                    type = $.trim($("#type").val());
+                    time = "<?php echo date('Y-m-d') ?>";
+                    starttime = "<?php echo time();?>";
+                    save_id = $("#save_id").val();
+                    if(startvalue==null || startvalue==""){
+                        $("#save_error").show().text("开始值不能为空！");
+                        $("#startvalue").focus();
+                        return;
+                    }
+                    if(goalvalue==null || goalvalue==""){
+                        $("#save_error").show().text("目标值不能为空！");
+                        $("#goalvalue").focus();
+                        return;
+                    } 
+                    if (isNaN(startvalue)) {
+                        $("#save_error").show().text("开始值须为数字！");
+                        $("#startvalue").focus();
+                        return;
+                    };
+                    if (isNaN(goalvalue)) {
+                        $("#save_error").show().text("目标值须为数字！");
+                        $("#goalvalue").focus();
+                        return;
+                    };
+                    if(goaldate==null || goaldate==""){
+                        $("#save_error").show().text("目标时间不能为空！");
+                        $("#goaldate").focus();
+                        return;
+                    }
+                    $("#save_error").hide();
+                    str = goaldate.replace(/-/g,'/'); 
+                    var date = new Date(str); 
+                    var endtime = date.getTime() / 1000;
+                    if(endtime<starttime){
+                        $("#save_error").show().text("目标时间不能小于当前日期！");
+                        $("#goaldate").focus();
+                        return;
+                    }
+                    var posturl = "{:U('Exercise/goal')}";
+                    var info = {
+                        startvalue:startvalue,
+                        goalvalue:goalvalue,
+                        goaldate:goaldate,
+                        detailtypeid:detailtypeid,
+                        type:type,
+                        save_id:save_id
+                    };
+                    $.post(posturl,info,function(data){
+                        if(data.errno==1){
+                            $("#create_hide").click();
+                            $("#start_"+detailtypeid).html(time);
+                            $("#end_"+detailtypeid).html(goaldate);
+                            $("#start_value_"+detailtypeid).text(startvalue);
+                            $("#end_value_"+detailtypeid).text(goalvalue);
+                            $("#startvalue").val("");
+                            $("#goalvalue").val("");
+                            $("#goaldate").val("");
+                            $("#"+detailtypeid).attr("type","edit");
+                            if(data.id){
+                                $("#id_"+detailtypeid).val(data.id);
+                                $("#current_save_"+detailtypeid).show();
+                                var class_add = $("#"+detailtypeid+"_class_add").text();;
+                                $("#current_save_"+detailtypeid+" span").html("<input type=text id=current-"+data.id+" style=width:150px><button onclick=current("+data.id+","+detailtypeid+",'"+class_add+"') class=btn style=margin-top:-10px>提 交</button><span style=display:none; id=current-error-"+data.id+" ></span>");
+                                        }
+                                $("#delete_save_"+detailtypeid).html("<a href=javascript:; onclick='delete_goal(this)'' id="+detailtypeid+">删除</a>");        
+                        }else{
+                            alert(data.msg);
+                        }
+                    },'json');
+                }); 
+                $('#goaldate').datetimepicker({
+                    format: 'yyyy-mm-dd',
+                    language:"zh-CN",
+                    minView:2,
+                    autoclose:true
+                });
+            });
+
+            //添加新的goal,id 动作ID,name 动作名称
+            function goaledit(obj){
+                $("#create_goal").text(obj.name);
+                $("#detailtypeid").val(obj.id);
+                
+                type = $(obj).attr('type');
+                if(type=='edit'){
+                    $("#startvalue").val($("#start_value_"+obj.id).text());
+                    $("#startvalue").attr('disabled',true);
+                    $("#goalvalue").val($("#end_value_"+obj.id).text());
+                    $("#goaldate").val($("#end_"+obj.id).text());
+                    $("#save_id").val($("#id_"+obj.id).val());
+                }else{
+                    $("#startvalue").attr('disabled',false);
+                    $("#startvalue").val("");
+                    $("#goalvalue").val("");
+                    $("#goaldate").val("");
+                }
+                $("#type").val(type);
+                $('#myModal').modal();
+            }
+
+            function current(id,tid,clas){
+
+                var current  =  Number(parseInt($.trim($("#current-"+id).val())));//当前值
+
+                var start    = $("#start_value_"+tid).text()//起始值
+
+                var end      = $("#end_value_"+tid).text()//目标值
+
+                var url      = "{:U('Exercise/current')}"
+
+                var strclass =  "myProgress-"+clas+"-cur";
+
+                var endclass =  "myProgress-"+clas+"-end";
+
+                if(current!="" && current!=null){
+                    $.post(url,{id:id,current:current,detailtypeid:tid,startvalue:current},function(data){
+                        if(data){
+                            //如果目标值大于起始值
+                            if(end<start){
+                                //如果目标值
+                                if(current<end || current==end){
+                                    var len = "100%";
+                                    $("#length_"+tid).animate({width:len},function(){
+                                        $("#class_"+tid+"-"+clas).removeClass(strclass);
+                                        $("#class_"+tid+"-"+clas).removeClass("myProgress-goal");
+                                        $("#class_"+tid+"-"+clas).addClass(endclass);
+                                    });
+                                }else{
+                                    var len = (current-start)/(end-start)*100+"%";
+                                    $("#length_"+tid).animate({width:len});
+                                    $("#class_"+tid+"-"+clas).removeClass(endclass);
+                                    $("#class_"+tid+"-"+clas).addClass("myProgress-goal");
+                                }
+                            }else{
+                                //如果更新值大于目标值
+                                if(current>=end){
+                                    $("#length_"+tid).animate({width:'100%'},function(){
+                                        $("#class_"+tid+"-"+clas).removeClass(strclass);
+                                        $("#class_"+tid+"-"+clas).removeClass("myProgress-goal");
+                                        $("#class_"+tid+"-"+clas).addClass(endclass);
+                                    });
+                                }
+
+                                //如果更新值大于起始值，小于目标值
+                                if(current>start && current<end && current!=end){
+                                    var len = (current-start)/(end-start)*100+"%";
+                                    $("#length_"+tid).animate({width:len});
+                                    $("#class_"+tid+"-"+clas).removeClass(endclass);
+                                    $("#class_"+tid+"-"+clas).addClass("myProgress-goal");
+                                }
+
+                                //如果更新值小于或者等于起始值
+                                if(current==start || current<start){
+                                     $("#length_"+tid).animate({width:'0%'});
+                                }
+                            }
+
+                            $("#current-error-"+id).show().text('更新成功！');
+                        }
+                    })
+                }
+            }
+
+            //目标删除
+            function delete_goal(obj){
+                var url = "{:U('Exercise/delete_goal')}";
+                $.post(url,{id:obj.id},function(data){
+                    if(data==1){
+                        window.location.href=location.href;
+                    }
+                })
+            }
+        </script>
+ <style type="text/css">
+        *{margin:0;padding:0;list-style-type:none;}
+        a,img{border:0;}
+        body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+
+        .demo{width:960px;margin:60px auto 0 auto;}
+        /*history*/
+        .history{background:url(Public/Home/images/big_tm/line04.gif) repeat-y 211px 0;overflow:hidden;position:relative;}
+        .history-date{overflow:hidden;position:relative;}
+        .history-date h2{background:#fff url(Public/Home/images/big_tm/icon06.gif) no-repeat 158px 0;height:59px;font-size:25px;font-family:微软雅黑;font-weight:normal;padding-left:45px;margin-bottom:74px; }
+        .history-date h2.first{position:absolute;left:0;top:0;width:779px;z-index:99;}
+        .history-date h2 a{color:#00bbff;display:inline-block;*display:inline;zoom:1;background:url(Public/Home/images/big_tm/icon08.gif) no-repeat right 50%;padding-right:17px;margin:21px 97px 0 0;}
+        .history-date h2 a:hover{text-decoration:none;}
+        .history-date h2 img{vertical-align:-5px;}
+        .history-date h2.date02{background:none;}
+        .history-date ul li{background:url(Public/Home/images/big_tm/icon07.gif) no-repeat 180px 0;padding-bottom:50px;zoom:1;}
+        .history-date ul li.last{padding-bottom:0;}
+        .history-date ul li:after{content:" ";display:block;height:0;clear:both;visibility:hidden;}
+        .history-date ul li h3{float:left;width:168px;text-align:right;padding-right:19px;color:#c3c3c3;font:normal 18px/16px Arial;}
+        .history-date ul li h3 span{display:block;color:#d0d0d0;font-size:12px;}
+        .history-date ul li dl{float:left;padding-left:41px;margin-top:-5px;font-family:微软雅黑;}
+        .history-date ul li dl dt{font:20px/22px 微软雅黑;color:#737373;}
+        .history-date ul li dl dt span{display:block;color:#787878;font-size:12px;}
+        .history-date ul li.green h3{color:#1db702;}
+        .history-date ul li.green h3 span{color:#a8dda3;}
+        .history-date ul li.green dl{margin-top:-8px;}
+        .history-date ul li.green dl dt{font-size:30px;line-height:28px;}
+        .history-date ul li.green dl dt a{display:inline-block;*display:inline;zoom:1;overflow:hidden;vertical-align:middle;margin-left:12px;}
+        .history-date ul li.green dl dd{padding-top:20px;display:none;}
+        .history-date ul li.green dl dd img{float:left;}
+        .history-date ul li.green dl dd p{overflow:hidden;zoom:1;line-height:21px;color:#787878;}
+
+        .history-date h2.first .more-history{font-size:16px;background:transparent;margin-left:30px;}
+        .history-date h2.first .more-history:hover{text-decoration:underline;}
+
+        *body .history-date ul li dl dt{_font-size:12px!important;_font-weight:bold;}
+        *body .history-date ul li dl dt span{_font-weight:normal!important;}
+        *body .history-date ul li.green dl dt a{_background:transparent!important;*background:transparent!important;*font-size:12px!important;_font-weight:normal!important;}
+        </style>
+
+        <script type="text/javascript">
+        $(function(){
+            systole();
+        });
+
+        function systole(){
+            if(!$(".history").length){
+                return;
+            }
+            var $warpEle = $(".history-date"),
+            $targetA = $warpEle.find("h2 a,ul li dl dt a"),
+            parentH,
+            eleTop = [];
+
+            parentH = $warpEle.parent().height();
+            $warpEle.parent().css({"height":59});
+
+            setTimeout(function(){
+
+                $warpEle.find("ul").children(":not('h2:first')").each(function(idx){
+                    eleTop.push($(this).position().top);
+                    $(this).css({"margin-top":-eleTop[idx]}).children().hide();
+                }).animate({"margin-top":0}, 1600).children().fadeIn();
+
+                $warpEle.parent().animate({"height":parentH}, 2600);
+
+                $warpEle.find("ul").children(":not('h2:first')").addClass("bounceInDown").css({"-webkit-animation-duration":"2s","-webkit-animation-delay":"0","-webkit-animation-timing-function":"ease","-webkit-animation-fill-mode":"both"}).end().children("h2").css({"position":"relative"});
+
+            }, 600);
+
+            $targetA.click(function(){
+                $(this).parent().css({"position":"relative"});
+                $(this).parent().siblings().slideToggle();
+                $warpEle.parent().removeAttr("style");
+                return false;
+            });
+        };
+        </script>
         <div class="clearfix"></div>
 
-        <script>
-        $(function () {
-            function initProgress(){
-                var $pgs = $(".myProgress-pgs");
-                var $prt = $pgs.parents(".myProgress");
-                $pgs.width($prt.width()-58);
-            }
-            initProgress();
-            $(window).resize(initProgress);
 
-
-            $('#charts').highcharts({
-                exporting: {
-                    url:"http://export.hcharts.cn"
-                },
-            title: {//设置标题
-                text: 'Monthly Average Temperature',
-                x: -20 //center
-            },
-            /*
-            subtitle: {//设置副标题
-                text: 'Source: WorldClimate.com',
-                x: -20
-            },
-            */
-            xAxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-                //设置横坐标
-            },
-            yAxis: {
-                title: {
-                    text: '重量(Kg)'//设置纵坐标单位
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
-            },
-            tooltip: {
-                valueSuffix: '°C'
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle',
-                borderWidth: 0
-            },
-            series: [{
-                name: 'Tokyo',
-                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-            },  {
-                name: 'Berlin',
-                data: [0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0, 9.6]
-            }]
-        });
-});
-    </script>
 </block>
+
+  

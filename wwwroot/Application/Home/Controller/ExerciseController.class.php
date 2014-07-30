@@ -51,6 +51,8 @@ class ExerciseController extends HomeController {
     public function delete_goal(){
         if(M('goal')->where(array('uid'=>is_login(),'detailtypeid'=>I('id')))->delete()){
             M('goalhistory')->where(array('uid'=>is_login(),'detailtypeid'=>I('id')))->delete();
+            $data = array('status'=>I('status'));
+            M('goalevents')->where(array('uid'=>is_login(),'detailtypeid'=>I('id'),'status'=>1))->save($data);
             echo 1;
         }
     }
@@ -75,6 +77,7 @@ class ExerciseController extends HomeController {
                 $arr['currenttime'] = date('Y-m-d H:i:s',time());
                 $re = M('goal')->add($arr);
                 $msg['id'] = $re;
+                $goal = D('Exercise')->goalevents(I('detailtypeid'),I('startvalue'),I('goalvalue'),I('goaldate'),'add');
             }else{
                 $arr['id'] = I('save_id');                
                 $arr['currentvalue'] = $arr['startvalue'];
@@ -88,9 +91,7 @@ class ExerciseController extends HomeController {
             }else{
                 $msg['msg'] = I('save_id');
             }
-
-            echo json_encode($msg);
-         
+            echo json_encode($msg);    
         }
     }
 
@@ -102,8 +103,7 @@ class ExerciseController extends HomeController {
         $this->list1 = $list1 = goaltype('2');//维度
 
         $goalEvents = M('goalevents');
-        $conditions['uid'] = 54;
-        $conditions['datetypeid'] = 4;
+        $conditions['uid'] = is_login();
         $re = $goalEvents->where($conditions)->order('create_time desc')->select();
         foreach($re as $item){
             $dates[]=substr($item['create_time'],0,4);

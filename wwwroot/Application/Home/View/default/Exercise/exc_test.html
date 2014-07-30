@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                          <else />
-                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)" type="add">编辑</a><span id='delete_save_{$vo.id}'></span>
+                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}-力量" onclick="goaledit(this)" type="add">编辑</a><span id='delete_save_{$vo.id}'></span>
 
                             <span id="{$vo.id}_class_add" style="display:none;">strength</span>
 
@@ -183,7 +183,7 @@
                                 </div>
                             </div>
                          <else />
-                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)" type="add">编辑</a><span id='delete_save_{$vo.id}'></span>
+                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}-维度" onclick="goaledit(this)" type="add">编辑</a><span id='delete_save_{$vo.id}'></span>
 
                             <span id="{$vo.id}_class_add" style="display:none;">dimension</span>
 
@@ -221,6 +221,7 @@
 
           </div>
           <div class="modal-body">
+                <input type="hidden" id="create_molde">
                 <input type="hidden" id="detailtypeid" value=""> 
                 <input type="hidden" id="type" value="">
                 <input type="hidden" id="save_id" value="">
@@ -238,26 +239,31 @@
 
 
         <div class="panle">
-           <div class="demo">
+            <div class="demo">
                 <div class="history">
-                <?php foreach($eventslist as $key=>$value):?>
-                    <div class="history-date">
-                        <ul>
-                            <h2 class="<?php if($key==0){ echo 'first';}else{ echo 'date02';}?>">
-                                <a href="#nogo"><?php echo $value['ymd'];?>年</a>
-                                 <?php if($key==0): ?><img src="Public/Home/images/big_tm/img05.gif"alt="时间轴" /><?php endif;?>
-                            </h2>
-                            <?php foreach($value['list'] as $k=>$val):?>
-                            <li class="green">
-                                <h3><?php echo substr($val['create_time'],5,2);?>.<?php echo substr($val['create_time'],8,2);?><span><?php echo $value['ymd'];?></span></h3>
-                                <dl>
-                                    <dt><?php echo $val['title'];?><span><?php echo $val['content'];?></span></dt>
-                                </dl>
-                            </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                <?php endforeach;?>
+                    <?php foreach($eventslist as $key=>$value):?>
+                        <div class="history-date">
+                            <ul>
+                                <h2 class="<?php if($key==0){ echo 'first';}else{ echo 'date02';}?>">
+                                    <a href="#nogo"><?php echo $value['ymd'];?>年</a>
+                                     <?php if($key==0): ?><img src="Public/Home/images/big_tm/img05.gif"alt="时间轴" /><?php endif;?>
+                                </h2>
+                                <?php foreach($value['list'] as $k=>$val):?>
+                                <li class="green">
+                                    <h3><?php echo substr($val['create_time'],5,2);?>.<?php echo substr($val['create_time'],8,2);?><span><?php echo $value['ymd'];?></span></h3>
+                                    <dl>
+                                        <dt><?php echo $val['title'];?><span><?php echo $val['content'];?></span>
+                                            <if condition="$val['status'] eq 1"> 任务正在进行中
+                                             <elseif condition="$val['status'] eq 2"/>任务失败
+                                             <else /> 任务完成
+                                            </if>
+                                        </dt>
+                                    </dl>
+                                </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endforeach;?>
                 </div>
             </div>
         </div>
@@ -388,7 +394,25 @@
                                 var class_add = $("#"+detailtypeid+"_class_add").text();;
                                 $("#current_save_"+detailtypeid+" span").html("<input type=text id=current-"+data.id+" style=width:150px><button onclick=current("+data.id+","+detailtypeid+",'"+class_add+"') class=btn style=margin-top:-10px>提 交</button><span style=display:none; id=current-error-"+data.id+" ></span>");
                                         }
-                                $("#delete_save_"+detailtypeid).html("<a href=javascript:; onclick='delete_goal(this)'' id="+detailtypeid+">删除</a>");        
+                                $("#delete_save_"+detailtypeid).html("<a href=javascript:; onclick='delete_goal(this)'' id="+detailtypeid+">删除</a>"); 
+
+                                //历史事件
+                                if(type=='add'){
+
+                                    var action =  $("#create_goal").text();
+                                    var modal  =  $("#create_molde").val();
+
+                                    var li ="<li class=green ><h3><?php echo date('m') ?>.<?php echo date('d') ?><span><?php echo date('Y') ?></span></h3><dl style=font-size:30px;color:#737373;>新增了一个"+modal+"目标<dt><span>"+action+"从"+startvalue+"到"+goalvalue+","+goaldate+"截止</span></dt></dl></li>";
+                                    var div = "<div class=history-date><ul><h2 class=first><a id=show_h href=#nogo><?php echo date('Y') ?>年</a></h2>"+li+"</ul></div>";
+                                    if($(".history div:eq(0)").length<1){
+                                        $(".history").append(div);
+                                        systole()
+                                        setTimeout("show_h()",4000);
+                                    }else{
+                                        $(".history div:eq(0) ul li:eq(0)").before(li)
+                                    }
+                                }    
+
                         }else{
                             alert(data.msg);
                         }
@@ -404,9 +428,10 @@
 
             //添加新的goal,id 动作ID,name 动作名称
             function goaledit(obj){
-                $("#create_goal").text(obj.name);
+                var arr = obj.name.split('-');
+                $("#create_goal").text(arr[0]);
+                $("#create_molde").val(arr[1]);
                 $("#detailtypeid").val(obj.id);
-                
                 type = $(obj).attr('type');
                 if(type=='edit'){
                     $("#startvalue").val($("#start_value_"+obj.id).text());
@@ -489,12 +514,18 @@
 
             //目标删除
             function delete_goal(obj){
-                var url = "{:U('Exercise/delete_goal')}";
-                $.post(url,{id:obj.id},function(data){
-                    if(data==1){
-                        window.location.href=location.href;
+                var url    = "{:U('Exercise/delete_goal')}";
+                var width  = $("#length_"+obj.id).attr('style').split(':');
+                var status = (width[1].replace("%","")<100) ? 2 : 3;
+                $.post(url,{id:obj.id,status:status},function(data){
+                    if(data){
+                         location.reload(location.href);
                     }
                 })
+            }
+
+            function show_h(){
+                $("#show_h").click();
             }
         </script>
  <style type="text/css">
@@ -563,7 +594,7 @@
 
                 $warpEle.parent().animate({"height":parentH}, 2600);
 
-                $warpEle.find("ul").children(":not('h2:first')").addClass("bounceInDown").css({"-webkit-animation-duration":"2s","-webkit-animation-delay":"0","-webkit-animation-timing-function":"ease","-webkit-animation-fill-mode":"both"}).end().children("h2").css({"position":"relative"});
+                $warpEle.find("ul").children(":not('h2:first')").addClass("bounceInDown").css({"-webkit-animation-duration":"2s","-webkit-animation-delay":"0","-webkit-animation-timing-function":"ease","-webkit-animation-fill-mode":"both","display":"none"}).end().children("h2").css({"position":"relative"});
 
             }, 600);
 

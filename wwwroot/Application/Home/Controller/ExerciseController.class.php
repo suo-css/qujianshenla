@@ -18,9 +18,7 @@ class ExerciseController extends HomeController {
 	/* 用户中心首页 */
     public function exc_common(){
             $this->list     = $list      = M('goalmodule')->where(array('status'=>1))->select();
-
             $this->goaltype = $goaltype  = M('goalcontinuetype')->where(array('status'=>1))->select(); 
-
             if($_POST){
                 foreach ($_POST['type'] as $k => $v) {
                     $table = D('goalcontinue');
@@ -35,22 +33,53 @@ class ExerciseController extends HomeController {
             $this->display();
 	}
 	
+    /**
+     * 目标动作更新值
+     */
+    public function current(){
+        $arr = array('currentvalue'=>I('current'));
+        $re = M('goal')->where(array('id'=>I('id')))->save($arr);
+        $status = ($re) ? 1 : 0;
+        echo $status;
+/*        $data = array('uid'=>is_login(),'detailtypeid'=>I('detailtypeid'),'value'=>$arr['startvalue'],'date'=>date('Y-m-d'));
+        $re   = M('goalhistory')->add($data);*/
+    }
+
+    /**
+     * 目标动作的新增与更新
+     */
     public function goal(){
         if(IS_AJAX){     
-            switch (I('sta')) {
-                case '0':
-                    $date = array('uid'=>is_login(),'startvalue'=>I('startvalue'),'startdate'=>date('Y-m-d'),'goalvalue'=>I('goalvalue'),'goaldate'=>I('goaldate'),'detailtypeid'=>I('id'),'status'=>1,'create_time'=>date('Y-m-d H:i:s',time()));
-                    M('goal')->where(array('uid'=>is_login(),'detailtypeid'=>I('id')))->delete();
-                    M('goal')->add($date);
-                    echo 1;
-                    break;
-                case '1':
-                    $date = array('uid'=>is_login(),'currentvalue'=>I('currentvalue'),'currenttime'=>date('Y-m-d'),'startvalue'=>I('startvalue'),'startdate'=>date('Y-m-d'),'goalvalue'=>I('goalvalue'),'goaldate'=>I('goaldate'),'detailtypeid'=>I('id'),'status'=>1,'create_time'=>date('Y-m-d H:i:s',time()));
-                    M('goal')->where(array('uid'=>is_login(),'detailtypeid'=>I('id')))->delete();
-                    M('goal')->add($date);
-                    echo 1;
-                    break;
+            $msg = array('errno'=>0,'msg'=>'');
+            $arr['startvalue'] = I('startvalue');
+            $arr['goalvalue'] = I('goalvalue');
+            $arr['goaldate'] = I('goaldate');
+            $type = I('type');
+            if($type=='add'){
+                $arr['detailtypeid'] = I('detailtypeid');
+                $arr['uid'] = is_login();
+                $arr['status'] = 1;
+                $arr['create_time'] = date('Y-m-d H:i:s',time());
+                $arr['startdate'] = date('Y-m-d H:i:s',time());
+                $arr['currentvalue'] = 0;
+                $arr['currenttime'] = date('Y-m-d H:i:s',time());
+                $re = M('goal')->add($arr);
+                $msg['id'] = $re;
+            }else{
+                $arr['id'] = I('save_id');                
+                $arr['currentvalue'] = $arr['startvalue'];
+                $arr['currenttime']  = date('Y-m-d H:i:s',time());
+                $re = M('goal')->save($arr);
             }
+
+            if($re){
+                $msg['errno']=1;
+                $msg['msg'] = '';
+            }else{
+                $msg['msg'] = I('save_id');
+            }
+
+            echo json_encode($msg);
          
         }
     }
@@ -61,7 +90,12 @@ class ExerciseController extends HomeController {
         }
     }
 
+    /**
+     * GOAL首页
+     */
     public function exc_test(){
+            $this->list  = $list  = goaltype('1');//力量
+            $this->list1 = $list1 = goaltype('2');//维度
             $this->display();
     }
         

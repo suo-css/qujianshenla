@@ -40,9 +40,19 @@ class ExerciseController extends HomeController {
         $arr = array('currentvalue'=>I('current'));
         $re = M('goal')->where(array('id'=>I('id')))->save($arr);
         $status = ($re) ? 1 : 0;
+        $data = array('uid'=>is_login(),'detailtypeid'=>I('detailtypeid'),'value'=>I('startvalue'),'date'=>date('Y-m-d'));
+        $re   = M('goalhistory')->add($data);
         echo $status;
-/*        $data = array('uid'=>is_login(),'detailtypeid'=>I('detailtypeid'),'value'=>$arr['startvalue'],'date'=>date('Y-m-d'));
-        $re   = M('goalhistory')->add($data);*/
+    }
+
+    /**
+     * 目标动作删除
+     */
+    public function delete_goal(){
+        if(M('goal')->where(array('uid'=>is_login(),'detailtypeid'=>I('id')))->delete()){
+            M('goalhistory')->where(array('uid'=>is_login(),'detailtypeid'=>I('id')))->delete();
+            echo 1;
+        }
     }
 
     /**
@@ -84,19 +94,35 @@ class ExerciseController extends HomeController {
         }
     }
 
-    public function delete_goal(){
-        if(M('goal')->where(array('id'=>$_GET['id']))->delete()){
-            $this->redirect('exc_common');
-        }
-    }
-
     /**
      * GOAL首页
      */
     public function exc_test(){
-            $this->list  = $list  = goaltype('1');//力量
-            $this->list1 = $list1 = goaltype('2');//维度
-            $this->display();
+        $this->list  = $list  = goaltype('1');//力量
+        $this->list1 = $list1 = goaltype('2');//维度
+
+        $goalEvents = M('goalevents');
+        $conditions['uid'] = 54;
+        $conditions['datetypeid'] = 4;
+        $re = $goalEvents->where($conditions)->order('create_time desc')->select();
+        foreach($re as $item){
+            $dates[]=substr($item['create_time'],0,4);
+        }
+        $dates=array_flip(array_flip($dates));//清除重复
+        $eventslist=array_values($dates);//设置组坐标从0开始
+        foreach($eventslist as $key=>$value){
+            foreach($re as $k=>$val){
+                if(substr($val['create_time'],0,4) == $value){
+                    $array[$key]['ymd'] = $value;
+                    $array[$key]['list'][$k] = $val;
+                }else{
+                    continue;
+                }
+            }
+        }
+        $this->assign('eventslist',$array);
+
+        $this->display();
     }
         
 

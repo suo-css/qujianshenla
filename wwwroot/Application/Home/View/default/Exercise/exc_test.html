@@ -70,11 +70,11 @@
 
 
                 <div class="panle h300">
-                    <span class="b">力量</span>
+                    <span class="b">力量 </span>
                     <br>
                     <volist name='list' id="vo">
                         <if condition="goal_type($vo['id']) neq 0"> 
-                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)"  type="edit">编辑</a>
+                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)"  type="edit">编辑</a> <a href="javascript:;" onclick="delete_goal(this)" id="{$vo.id}">删除</a>
                             <div style="margin-top:20px">
                                 <input type="hidden" name="" value="<?php goal_types($vo['id'],'id') ?>" id="id_{$vo.id}">
                                 <div class="floatL b">起始时间:
@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                          <else />
-                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)" type="add">编辑</a>
+                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)" type="add">编辑</a><span id='delete_save_{$vo.id}'></span>
 
                             <span id="{$vo.id}_class_add" style="display:none;">strength</span>
 
@@ -123,8 +123,14 @@
                                     <div class="myProgress-pgs">
                                         <div class="myProgress-strength-done" id="length_{$vo.id}" style="width:0%"></div>
                                     </div>
-                                    <div class="myProgress-goal"><span id="end_value_{$vo.id}">0</span></div>
+                                    <div class="myProgress-goal" id="class_{$vo.id}-strength"><span id="end_value_{$vo.id}">0</span></div>
                                 </div>
+                            </div>
+                            <div class="mgTop5 todayFrame" style="display:none;" id="current_save_{$vo.id}">
+                                    今天的{$vo.typename} :
+                                    <span>
+
+                                    </span> 
                             </div>
                          </if>
                     </volist>    
@@ -140,7 +146,7 @@
                      <br>
                     <volist name='list1' id="vo">
                         <if condition="goal_type($vo['id']) neq 0"> 
-                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)"  type="edit">编辑</a>
+                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)"  type="edit">编辑</a><a href="javascript:;" onclick="delete_goal(this)" id="{$vo.id}">删除</a>
                             <div style="margin-top:20px">
                                 <input type="hidden" name="" value="<?php goal_types($vo['id'],'id') ?>" id="id_{$vo.id}">
                                 <div class="floatL b">起始时间:
@@ -177,7 +183,7 @@
                                 </div>
                             </div>
                          <else />
-                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)" type="add">编辑</a>
+                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)" type="add">编辑</a><span id='delete_save_{$vo.id}'></span>
 
                             <span id="{$vo.id}_class_add" style="display:none;">dimension</span>
 
@@ -189,9 +195,9 @@
                                 <div class="myProgress">
                                     <div class="myProgress-dimension-start"><span id="start_value_{$vo.id}">0</span></div>
                                     <div class="myProgress-pgs">
-                                        <div class="myProgress-strength-done" id="length_{$vo.id}" style="width:0%"></div>
+                                        <div class="myProgress-dimension-done" id="length_{$vo.id}" style="width:0%"></div>
                                     </div>
-                                    <div class="myProgress-goal"><span id="end_value_{$vo.id}">0</span></div>
+                                    <div class="myProgress-goal" id="class_{$vo.id}-dimension"><span id="end_value_{$vo.id}">0</span></div>
                                 </div>
                             </div>
                             <div class="mgTop5 todayFrame" style="display:none;" id="current_save_{$vo.id}">
@@ -232,7 +238,28 @@
 
 
         <div class="panle">
-            sadf
+           <div class="demo">
+                <div class="history">
+                <?php foreach($eventslist as $key=>$value):?>
+                    <div class="history-date">
+                        <ul>
+                            <h2 class="<?php if($key==0){ echo 'first';}else{ echo 'date02';}?>">
+                                <a href="#nogo"><?php echo $value['ymd'];?>年</a>
+                                 <?php if($key==0): ?><img src="Public/Home/images/big_tm/img05.gif"alt="时间轴" /><?php endif;?>
+                            </h2>
+                            <?php foreach($value['list'] as $k=>$val):?>
+                            <li class="green">
+                                <h3><?php echo substr($val['create_time'],5,2);?>.<?php echo substr($val['create_time'],8,2);?><span><?php echo $value['ymd'];?></span></h3>
+                                <dl>
+                                    <dt><?php echo $val['title'];?><span><?php echo $val['content'];?></span></dt>
+                                </dl>
+                            </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endforeach;?>
+                </div>
+            </div>
         </div>
 
         <link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
@@ -306,22 +333,11 @@
                         $("#startvalue").focus();
                         return;
                     }
-
                     if(goalvalue==null || goalvalue==""){
                         $("#save_error").show().text("目标值不能为空！");
                         $("#goalvalue").focus();
                         return;
-                    }
-
-                    if(startvalue<goalvalue){
-                        alert(startvalue);
-                        alert(goalvalue);
-                        alert('1');
-                        $("#save_error").show().text("开始值不能小于或等于目标值!");
-                        $("#startvalue").focus();
-                        return;
-                    }
-                    return 
+                    } 
                     if (isNaN(startvalue)) {
                         $("#save_error").show().text("开始值须为数字！");
                         $("#startvalue").focus();
@@ -355,7 +371,6 @@
                         type:type,
                         save_id:save_id
                     };
-                    return
                     $.post(posturl,info,function(data){
                         if(data.errno==1){
                             $("#create_hide").click();
@@ -373,6 +388,7 @@
                                 var class_add = $("#"+detailtypeid+"_class_add").text();;
                                 $("#current_save_"+detailtypeid+" span").html("<input type=text id=current-"+data.id+" style=width:150px><button onclick=current("+data.id+","+detailtypeid+",'"+class_add+"') class=btn style=margin-top:-10px>提 交</button><span style=display:none; id=current-error-"+data.id+" ></span>");
                                         }
+                                $("#delete_save_"+detailtypeid).html("<a href=javascript:; onclick='delete_goal(this)'' id="+detailtypeid+">删除</a>");        
                         }else{
                             alert(data.msg);
                         }
@@ -409,6 +425,7 @@
             }
 
             function current(id,tid,clas){
+
                 var current  =  Number(parseInt($.trim($("#current-"+id).val())));//当前值
 
                 var start    = $("#start_value_"+tid).text()//起始值
@@ -422,27 +439,46 @@
                 var endclass =  "myProgress-"+clas+"-end";
 
                 if(current!="" && current!=null){
-                    $.post(url,{id:id,current:current},function(data){
+                    $.post(url,{id:id,current:current,detailtypeid:tid,startvalue:current},function(data){
                         if(data){
-                            //如果更新值大于目标值
-                            if(current>=end){
-                                $("#length_"+tid).animate({width:'100%'},function(){
-                                    $("#class_"+tid+"-"+clas).removeClass(strclass);
-                                    $("#class_"+tid+"-"+clas).removeClass("myProgress-goal");
-                                    $("#class_"+tid+"-"+clas).addClass(endclass);
-                                });
-                            }
+                            //如果目标值大于起始值
+                            if(end<start){
+                                //如果目标值
+                                if(current<end || current==end){
+                                    var len = "100%";
+                                    $("#length_"+tid).animate({width:len},function(){
+                                        $("#class_"+tid+"-"+clas).removeClass(strclass);
+                                        $("#class_"+tid+"-"+clas).removeClass("myProgress-goal");
+                                        $("#class_"+tid+"-"+clas).addClass(endclass);
+                                    });
+                                }else{
+                                    var len = (current-start)/(end-start)*100+"%";
+                                    $("#length_"+tid).animate({width:len});
+                                    $("#class_"+tid+"-"+clas).removeClass(endclass);
+                                    $("#class_"+tid+"-"+clas).addClass("myProgress-goal");
+                                }
+                            }else{
+                                //如果更新值大于目标值
+                                if(current>=end){
+                                    $("#length_"+tid).animate({width:'100%'},function(){
+                                        $("#class_"+tid+"-"+clas).removeClass(strclass);
+                                        $("#class_"+tid+"-"+clas).removeClass("myProgress-goal");
+                                        $("#class_"+tid+"-"+clas).addClass(endclass);
+                                    });
+                                }
 
-                            //如果更新值大于起始值，小于目标值
-                            if(current>start && current<end && current!=end){
-                                var len = (current-start)/(end-start)*100+"%";
-                                $("#length_"+tid).animate({width:len});
-                                $("#class_"+tid+"-"+clas).removeClass(endclass);
-                                $("#class_"+tid+"-"+clas).addClass("myProgress-goal");
-                            }
-                            //如果更新值小于或者等于起始值
-                            if(current==start || current<start){
-                                 $("#length_"+tid).animate({width:'0%'});
+                                //如果更新值大于起始值，小于目标值
+                                if(current>start && current<end && current!=end){
+                                    var len = (current-start)/(end-start)*100+"%";
+                                    $("#length_"+tid).animate({width:len});
+                                    $("#class_"+tid+"-"+clas).removeClass(endclass);
+                                    $("#class_"+tid+"-"+clas).addClass("myProgress-goal");
+                                }
+
+                                //如果更新值小于或者等于起始值
+                                if(current==start || current<start){
+                                     $("#length_"+tid).animate({width:'0%'});
+                                }
                             }
 
                             $("#current-error-"+id).show().text('更新成功！');
@@ -450,7 +486,98 @@
                     })
                 }
             }
+
+            //目标删除
+            function delete_goal(obj){
+                var url = "{:U('Exercise/delete_goal')}";
+                $.post(url,{id:obj.id},function(data){
+                    if(data==1){
+                        window.location.href=location.href;
+                    }
+                })
+            }
         </script>
+ <style type="text/css">
+        *{margin:0;padding:0;list-style-type:none;}
+        a,img{border:0;}
+        body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+
+        .demo{width:960px;margin:60px auto 0 auto;}
+        /*history*/
+        .history{background:url(Public/Home/images/big_tm/line04.gif) repeat-y 211px 0;overflow:hidden;position:relative;}
+        .history-date{overflow:hidden;position:relative;}
+        .history-date h2{background:#fff url(Public/Home/images/big_tm/icon06.gif) no-repeat 158px 0;height:59px;font-size:25px;font-family:微软雅黑;font-weight:normal;padding-left:45px;margin-bottom:74px; }
+        .history-date h2.first{position:absolute;left:0;top:0;width:779px;z-index:99;}
+        .history-date h2 a{color:#00bbff;display:inline-block;*display:inline;zoom:1;background:url(Public/Home/images/big_tm/icon08.gif) no-repeat right 50%;padding-right:17px;margin:21px 97px 0 0;}
+        .history-date h2 a:hover{text-decoration:none;}
+        .history-date h2 img{vertical-align:-5px;}
+        .history-date h2.date02{background:none;}
+        .history-date ul li{background:url(Public/Home/images/big_tm/icon07.gif) no-repeat 180px 0;padding-bottom:50px;zoom:1;}
+        .history-date ul li.last{padding-bottom:0;}
+        .history-date ul li:after{content:" ";display:block;height:0;clear:both;visibility:hidden;}
+        .history-date ul li h3{float:left;width:168px;text-align:right;padding-right:19px;color:#c3c3c3;font:normal 18px/16px Arial;}
+        .history-date ul li h3 span{display:block;color:#d0d0d0;font-size:12px;}
+        .history-date ul li dl{float:left;padding-left:41px;margin-top:-5px;font-family:微软雅黑;}
+        .history-date ul li dl dt{font:20px/22px 微软雅黑;color:#737373;}
+        .history-date ul li dl dt span{display:block;color:#787878;font-size:12px;}
+        .history-date ul li.green h3{color:#1db702;}
+        .history-date ul li.green h3 span{color:#a8dda3;}
+        .history-date ul li.green dl{margin-top:-8px;}
+        .history-date ul li.green dl dt{font-size:30px;line-height:28px;}
+        .history-date ul li.green dl dt a{display:inline-block;*display:inline;zoom:1;overflow:hidden;vertical-align:middle;margin-left:12px;}
+        .history-date ul li.green dl dd{padding-top:20px;display:none;}
+        .history-date ul li.green dl dd img{float:left;}
+        .history-date ul li.green dl dd p{overflow:hidden;zoom:1;line-height:21px;color:#787878;}
+
+        .history-date h2.first .more-history{font-size:16px;background:transparent;margin-left:30px;}
+        .history-date h2.first .more-history:hover{text-decoration:underline;}
+
+        *body .history-date ul li dl dt{_font-size:12px!important;_font-weight:bold;}
+        *body .history-date ul li dl dt span{_font-weight:normal!important;}
+        *body .history-date ul li.green dl dt a{_background:transparent!important;*background:transparent!important;*font-size:12px!important;_font-weight:normal!important;}
+        </style>
+
+        <script type="text/javascript">
+        $(function(){
+            systole();
+        });
+
+        function systole(){
+            if(!$(".history").length){
+                return;
+            }
+            var $warpEle = $(".history-date"),
+            $targetA = $warpEle.find("h2 a,ul li dl dt a"),
+            parentH,
+            eleTop = [];
+
+            parentH = $warpEle.parent().height();
+            $warpEle.parent().css({"height":59});
+
+            setTimeout(function(){
+
+                $warpEle.find("ul").children(":not('h2:first')").each(function(idx){
+                    eleTop.push($(this).position().top);
+                    $(this).css({"margin-top":-eleTop[idx]}).children().hide();
+                }).animate({"margin-top":0}, 1600).children().fadeIn();
+
+                $warpEle.parent().animate({"height":parentH}, 2600);
+
+                $warpEle.find("ul").children(":not('h2:first')").addClass("bounceInDown").css({"-webkit-animation-duration":"2s","-webkit-animation-delay":"0","-webkit-animation-timing-function":"ease","-webkit-animation-fill-mode":"both"}).end().children("h2").css({"position":"relative"});
+
+            }, 600);
+
+            $targetA.click(function(){
+                $(this).parent().css({"position":"relative"});
+                $(this).parent().siblings().slideToggle();
+                $warpEle.parent().removeAttr("style");
+                return false;
+            });
+        };
+        </script>
+        <div class="clearfix"></div>
+
+
 </block>
 
   

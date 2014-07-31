@@ -81,7 +81,7 @@
                     axisCrossingValue: -10
                 },
                 categoryAxis: {
-                    categories: [2002, ,,,,,,,,,,,,,,,,2005, 2006, ,,,,,,2,0,,0,7,,, ,2,0,0,8,, ,,2,0,0,9,,, ,2,0,1,0,,, ,2,0,1,1,],
+                    categories: [2002, 2003, 2004, ,,,,,,,,,,,,,,,,2005, 2006, ,,,,,,2,0,,0,7,,, ,2,0,0,8,, ,,2,0,0,9,,, ,2,0,1,0,,, ,2,0,1,1,],
                     majorGridLines: {
                         visible: false
                     }
@@ -123,7 +123,7 @@ $("#time-start").click(function () {
 var start =$("#time-start").val();
 // alert($("#time-start").val()); 
 
-var  x = "<?php echo strtotime("+start+") ?>";
+var  x = "<?php echo strtotime('2009-1-22') ?>";
 alert(x);
 }); 
 

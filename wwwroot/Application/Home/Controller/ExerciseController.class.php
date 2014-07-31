@@ -175,6 +175,9 @@ class ExerciseController extends HomeController {
             $list6 = $list6->getField('id, name');
             $this->assign("_list6", $list6);
             
+            $exercise = M("Exercise");
+            $exerciselist = $exercise->field('eid,ename')->select();
+            $this->assign('exerciselist',$exerciselist);
             $this->display();
     }
         
@@ -254,7 +257,7 @@ class ExerciseController extends HomeController {
         $exercise = M("Exercise");
         $ename = I('ename');
         $map['ename'] = array('like','%'.$ename.'%');
-        $exerciselist = $exercise->where($map)->select();
+        $exerciselist = $exercise->where($map)->field('eid,ename')->select();
         $data["status"] = 0;
         if(count($exerciselist) > 0){
             $data["status"] = 1;

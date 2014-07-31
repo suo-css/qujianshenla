@@ -274,6 +274,11 @@ class ExerciseController extends HomeController {
     }
     
     public function exc_all(){
+
+        $table=M('ucenter_member exercisecomment');
+        $res=$table->join('news N on exercisecomment.uid=N.id')->select();
+        p($res);die;
+
         $list = M('exercisecomment')->where(array('eid'=>$_GET['eid']));
         $list = $this->lists('exercisecomment', null, null,null, null);
         int_to_string($list);

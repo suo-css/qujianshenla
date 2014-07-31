@@ -240,6 +240,7 @@
 
         <div class="panle">
             <div class="demo">
+                <span id="status_div" style="display:none;">0</span>
                 <div class="history">
                     <?php foreach($eventslist as $key=>$value):?>
                         <div class="history-date">
@@ -396,22 +397,27 @@
                                 $("#current_save_"+detailtypeid+" span").html("<input type=text id=current-"+data.id+" style=width:150px><button onclick=current("+data.id+","+detailtypeid+",'"+class_add+"') class=btn style=margin-top:-10px>提 交</button><span style=display:none; id=current-error-"+data.id+" ></span>");
                                         }
                                 $("#delete_save_"+detailtypeid).html("<a href=javascript:; onclick='delete_goal(this)'' id="+data.id+"-"+detailtypeid+">删除</a>"); 
-
                                 //历史事件
                                 if(type=='add'){
-
                                     var action =  $("#create_goal").text();
                                     var modal  =  $("#create_molde").val();
-
-                                    var li ="<li class='green bounceInDown' style='margin-top: 0px; -webkit-animation: 2s ease 0ms both; display: none;'><h3><?php echo date('m') ?>.<?php echo date('d') ?><span><?php echo date('Y') ?></span></h3><dl style=font-size:30px;color:#737373;>新增了一个"+modal+"目标<dt><span>"+action+"从"+startvalue+"到"+goalvalue+","+goaldate+"截止</span>任务进行中</dt></dl></li>";
+                                    var li ="<li class='green'><h3><?php echo date('m') ?>.<?php echo date('d') ?><span><?php echo date('Y') ?></span></h3><dl style=font-size:30px;color:#737373;>新增了一个"+modal+"目标<dt><span>"+action+"从"+startvalue+"到"+goalvalue+","+goaldate+"截止</span>任务进行中</dt></dl></li>";
                                     var div = "<div class=history-date><ul><h2 class=first><a id=show_h href=#nogo><?php echo date('Y') ?>年</a></h2>"+li+"</ul></div>";
                                     if($(".history div:eq(0)").length<1){
+                                        $("#status_div").text('1');
                                         $(".history").append(div);
                                         systole()
                                         setTimeout("show_h()",4000);
                                     }else{
-                                        $(".history div:eq(0) ul li:eq(0)").before(li) 
-                                        show_h();
+                                       if($("#status_div").text('1')=='1'){
+                                            $(".history div:eq(0) ul li:eq(0)").before(li); 
+                                       }else{
+                                           if($(".history div ul li").is(':hidden')){
+                                            show_h();
+                                           }
+                                           var li ="<li class='green bounceInDown' style='margin-top: 0px; -webkit-animation: 2s ease 0ms both;'><h3><?php echo date('m') ?>.<?php echo date('d') ?><span><?php echo date('Y') ?></span></h3><dl style=font-size:30px;color:#737373;>新增了一个"+modal+"目标<dt><span>"+action+"从"+startvalue+"到"+goalvalue+","+goaldate+"截止</span>任务进行中</dt></dl></li>"; 
+                                            $(".history div:eq(0) ul li:eq(0)").before(li); 
+                                        }
                                     }
                                 }    
 

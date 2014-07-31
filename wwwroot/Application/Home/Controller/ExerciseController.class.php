@@ -84,7 +84,6 @@ class ExerciseController extends HomeController {
                 $arr['currenttime']  = date('Y-m-d H:i:s',time());
                 $re = M('goal')->save($arr);
             }
-
             if($re){
                 $msg['errno']=1;
                 $msg['msg'] = '';
@@ -101,7 +100,6 @@ class ExerciseController extends HomeController {
     public function exc_test(){
         $this->list  = $list  = goaltype('1');//力量
         $this->list1 = $list1 = goaltype('2');//维度
-
         $goalEvents = M('goalevents');
         $conditions['uid'] = is_login();
         $re = $goalEvents->where($conditions)->order('create_time desc')->select();

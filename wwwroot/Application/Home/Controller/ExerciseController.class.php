@@ -51,6 +51,8 @@ class ExerciseController extends HomeController {
     public function delete_goal(){
         if(M('goal')->where(array('uid'=>is_login(),'detailtypeid'=>I('id')))->delete()){
             M('goalhistory')->where(array('uid'=>is_login(),'detailtypeid'=>I('id')))->delete();
+            $data = array('status'=>I('status'));
+            M('goalevents')->where(array('uid'=>is_login(),'detailtypeid'=>I('id'),'status'=>1))->save($data);
             echo 1;
         }
     }
@@ -75,22 +77,20 @@ class ExerciseController extends HomeController {
                 $arr['currenttime'] = date('Y-m-d H:i:s',time());
                 $re = M('goal')->add($arr);
                 $msg['id'] = $re;
+                $goal = D('Exercise')->goalevents(I('detailtypeid'),I('startvalue'),I('goalvalue'),I('goaldate'),'add');
             }else{
                 $arr['id'] = I('save_id');                
                 $arr['currentvalue'] = $arr['startvalue'];
                 $arr['currenttime']  = date('Y-m-d H:i:s',time());
                 $re = M('goal')->save($arr);
             }
-
             if($re){
                 $msg['errno']=1;
                 $msg['msg'] = '';
             }else{
                 $msg['msg'] = I('save_id');
             }
-
-            echo json_encode($msg);
-         
+            echo json_encode($msg);    
         }
     }
 
@@ -100,10 +100,8 @@ class ExerciseController extends HomeController {
     public function exc_test(){
         $this->list  = $list  = goaltype('1');//力量
         $this->list1 = $list1 = goaltype('2');//维度
-
         $goalEvents = M('goalevents');
-        $conditions['uid'] = 54;
-        $conditions['datetypeid'] = 4;
+        $conditions['uid'] = is_login();
         $re = $goalEvents->where($conditions)->order('create_time desc')->select();
         foreach($re as $item){
             $dates[]=substr($item['create_time'],0,4);
@@ -176,35 +174,43 @@ class ExerciseController extends HomeController {
             $list6 = M("Leveltype");
             $list6 = $list6->getField('id, name');
             $this->assign("_list6", $list6);
+            
             $this->display();
     }
         
     public function search()
         {
-            $filter1 = I('filter_1');
-            $filter1 = substr($filter1,0,strlen($filter1)-2);
-            $map['mainmuscleID'] = array('in', $filter1);
-            
-            $filter2 = I('filter_2');
-            
-            $filter2 = substr($filter2,0,strlen($filter2)-2);
-            $map['exercisetypeID'] = array('in', $filter2);
-            
-            $filter3 = I('filter_3');
-            $filter3 = substr($filter3,0,strlen($filter3)-2);
-            $map['equiptypeID'] = array('in', $filter3);
-            
-            $filter4 = I('filter_4');
-            $filter4 = substr($filter4,0,strlen($filter4)-2);
-            $map['forcetypeID'] = array('in', $filter4);
-            
-            $filter5 = I('filter_5');
-            $filter5 = substr($filter5, 0,strlen($filter5)-2);
-            $map['sporttypeID'] = array('in', $filter5);
-            
-            $filter6 = I('filter_6');
-            $filter6 = substr($filter6,0,strlen($filter6)-2);
-            $map['levelID'] = array('in', $filter6);
+            $type = I('type');
+            /*type 1 表示 复选框搜索  2 表示 搜索框搜索*/
+            if($type==1){
+                $filter1 = I('filter_1');
+                $filter1 = substr($filter1,0,strlen($filter1)-2);
+                $map['mainmuscleID'] = array('in', $filter1);
+                
+                $filter2 = I('filter_2');
+                
+                $filter2 = substr($filter2,0,strlen($filter2)-2);
+                $map['exercisetypeID'] = array('in', $filter2);
+                
+                $filter3 = I('filter_3');
+                $filter3 = substr($filter3,0,strlen($filter3)-2);
+                $map['equiptypeID'] = array('in', $filter3);
+                
+                $filter4 = I('filter_4');
+                $filter4 = substr($filter4,0,strlen($filter4)-2);
+                $map['forcetypeID'] = array('in', $filter4);
+                
+                $filter5 = I('filter_5');
+                $filter5 = substr($filter5, 0,strlen($filter5)-2);
+                $map['sporttypeID'] = array('in', $filter5);
+                
+                $filter6 = I('filter_6');
+                $filter6 = substr($filter6,0,strlen($filter6)-2);
+                $map['levelID'] = array('in', $filter6);
+            }else if($type==2){
+                $ename = I('ename');
+                $map['ename'] = array('like','%'.$ename.'%');
+            }
             
             //$exercise = D('Exercise');
             $exercise = M("Exercise");
@@ -244,7 +250,19 @@ class ExerciseController extends HomeController {
             }
             $this->ajaxReturn($data, 'json');
         }
-
+    public function getename(){
+        $exercise = M("Exercise");
+        $ename = I('ename');
+        $map['ename'] = array('like','%'.$ename.'%');
+        $exerciselist = $exercise->where($map)->select();
+        $data["status"] = 0;
+        if(count($exerciselist) > 0){
+            $data["status"] = 1;
+            $data["info"] = $exerciselist;
+        }
+        $this->ajaxReturn($data,'json');
+    }
+    
     public function exc_all(){
         $list = M('exercisecomment')->where(array('eid'=>$_GET['eid']));
         $list = $this->lists('exercisecomment', null, null,null, null);

@@ -511,7 +511,6 @@
                     })
                 }
             }
-
             //目标删除
             function delete_goal(obj){
                 var url    = "{:U('Exercise/delete_goal')}";
@@ -523,7 +522,6 @@
                     }
                 })
             }
-
             function show_h(){
                 $("#show_h").click();
             }
@@ -581,12 +579,9 @@
             $targetA = $warpEle.find("h2 a,ul li dl dt a"),
             parentH,
             eleTop = [];
-
             parentH = $warpEle.parent().height();
             $warpEle.parent().css({"height":59});
-
             setTimeout(function(){
-
                 $warpEle.find("ul").children(":not('h2:first')").each(function(idx){
                     eleTop.push($(this).position().top);
                     $(this).css({"margin-top":-eleTop[idx]}).children().hide();

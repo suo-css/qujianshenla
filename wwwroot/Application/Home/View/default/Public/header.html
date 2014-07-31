@@ -52,7 +52,7 @@
               </a>
             </li>
             <li> <a class="links" href="{:U('BodySpace/Index')}" id="User_nav" ><i class="icon-home icon-white"></i> 空间</a></li>
-            <li> <a class="links" href="{:U('Exercise/exc_common')}" id="Exercise_nav"><i class="icon-road icon-white"></i> 健身</a></li>
+            <li> <a class="links" href="{:U('Exercise/exc_goal')}" id="Exercise_nav"><i class="icon-road icon-white"></i> 健身</a></li>
             <li> <a class="links" href="{:U('nri/Index')}" id="Nutri_nav"><i class="icon-leaf icon-white"></i> 饮食</a></li>
             <li> <a class="links" href="{:U('near/Index')}" id="Around_nav"><i class="icon-th-large icon-white"></i> 周边</a></li>
             <li> <a class="links" href="#" id="Mall_nav"><i class="icon-tags icon-white"></i> 商城</a></li>
@@ -66,10 +66,10 @@
               </li>
               <else/>
               <li class="pull-right">
-                <a href="{:U('User/login')}">登录</a>
+                <a class="links" href="{:U('User/login')}">登录</a>
               </li>
               <li class="pull-right">
-                <a href="{:U('User/register')}" style="padding-left:0;padding-right:0">注册</a>
+                <a class="links" href="{:U('User/register')}" style="padding-left:0;padding-right:0">注册</a>
               </li>
             </if>
           </ul>
@@ -82,7 +82,7 @@
     <if condition="is_login()">
       <ul class="nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-left:0;padding-right:0">{:get_username()} <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle links" data-toggle="dropdown" style="padding-left:0;padding-right:0">{:get_username()} <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="{:U('User/profile')}">修改密码</a>
             <li><a href="{:U('User/logout')}">退出</a>

@@ -130,34 +130,21 @@
       
       <div class="nav-sec">
                 <ul>
-                    <li><a href="#" class="nav-sec-desc active">动作库</a></li>
-                    <li><a href="#" class="nav-sec-desc">健身计划</a></li>
+                    <li><a href="{:U('Exercise/exc_goal')}" class="nav-sec-desc">我的目标</a></li>
+                    <li><a href="{:U('Exercise/exc_ind')}" class="nav-sec-desc ">制定计划</a></li>
+                    <li><a href="{:U('Exercise/exc_filter')}" class="nav-sec-desc ">动作库</a></li>
+                    <li><a href="{:U('Exercise/exc_all')}" class="nav-sec-desc">动作入口</a></li>
                     <li><a href="#" class="nav-sec-desc">专栏</a></li>
                 </ul>
                 <div class="clearfix"></div>
             </div>
 
+   <!-- 变色JS -->
   <script type="text/javascript">
-       $("#filter_nav").mouseover(function(){
-        $("#filter_nav").css({"border-bottom-style":"solid"," border-bottom-color":"#EB6001"});
+       $(".nav-sec-desc").mouseover(function(){
+         $(this).addClass("active");
       });
-      $("#filter_nav").mouseleave(function(){
-        $("#filter_nav").css({"border-bottom-style":""});
-      });
-       
-      $("#tml_nav").mouseover(function(){
-        $("#tml_nav").css({"border-bottom-style":"solid"," border-color":"#EB6001"});
-      });
-      $("#tml_nav").mouseleave(function(){
-        $("#tml_nav").css({"border-bottom-style":""});
-      });
-      $("#doc_nav").mouseover(function(){
-        $("#doc_nav").css({"border-bottom-style":"solid"," border-color":"#EB6001"});
-      });
-      $("#doc_nav").mouseleave(function(){
-        $("#doc_nav").css({"border-bottom-style":""});
-      });
-      $("#").mouseleave(function(){
-        $("#Mall_nav").css({"background-color":"#3399FF","color":"white"});
-      });    
+      $(".nav-sec-desc").mouseleave(function(){
+        $(".nav-sec-desc").removeClass("active");
+      });   
   </script>

@@ -15,23 +15,35 @@ namespace Home\Controller;
  */
 class ExerciseController extends HomeController {
 
-	/* 用户中心首页 */
-    public function exc_common(){
-            $this->list     = $list      = M('goalmodule')->where(array('status'=>1))->select();
-            $this->goaltype = $goaltype  = M('goalcontinuetype')->where(array('status'=>1))->select(); 
-            if($_POST){
-                foreach ($_POST['type'] as $k => $v) {
-                    $table = D('goalcontinue');
-                    $table->uid   = is_login();
-                    $table->value = $v;
-                    $table->continuetypeid = $k;
-                    $table->create_time = date('Y-m-d H:i:s',time()); 
-                    $table->status = 1;
-                    $table->add(); 
+    
+    /**
+     * GOAL首页
+     */
+    public function exc_goal(){
+        $this->list  = $list  = goaltype('1');//力量
+        $this->list1 = $list1 = goaltype('2');//维度
+        $goalEvents = M('goalevents');
+        $conditions['uid'] = is_login();
+        $re = $goalEvents->where($conditions)->order('create_time desc')->select();
+        foreach($re as $item){
+            $dates[]=substr($item['create_time'],0,4);
+        }
+        $dates=array_flip(array_flip($dates));//清除重复
+        $eventslist=array_values($dates);//设置组坐标从0开始
+        foreach($eventslist as $key=>$value){
+            foreach($re as $k=>$val){
+                if(substr($val['create_time'],0,4) == $value){
+                    $array[$key]['ymd'] = $value;
+                    $array[$key]['list'][$k] = $val;
+                }else{
+                    continue;
                 }
             }
-            $this->display();
-	}
+        }
+        $this->assign('eventslist',$array);
+
+        $this->display();
+    }
 	
     /**
      * 目标动作更新值
@@ -100,64 +112,12 @@ class ExerciseController extends HomeController {
             echo json_encode($msg);    
         }
     }
-
+    
     /**
-     * GOAL首页
+     * 动作库
      */
-    public function exc_test(){
-        $this->list  = $list  = goaltype('1');//力量
-        $this->list1 = $list1 = goaltype('2');//维度
-        $goalEvents = M('goalevents');
-        $conditions['uid'] = is_login();
-        $re = $goalEvents->where($conditions)->order('create_time desc')->select();
-        foreach($re as $item){
-            $dates[]=substr($item['create_time'],0,4);
-        }
-        $dates=array_flip(array_flip($dates));//清除重复
-        $eventslist=array_values($dates);//设置组坐标从0开始
-        foreach($eventslist as $key=>$value){
-            foreach($re as $k=>$val){
-                if(substr($val['create_time'],0,4) == $value){
-                    $array[$key]['ymd'] = $value;
-                    $array[$key]['list'][$k] = $val;
-                }else{
-                    continue;
-                }
-            }
-        }
-        $this->assign('eventslist',$array);
-
-        $this->display();
-    }
-        
-
+    
     public function exc_filter(){
-            $list = M("Mainmuscletype");
-            $list = $list->getField('id, name');
-            $this->assign("_list", $list);
-            
-            $list2 = M("Exercisetype");
-            $list2 = $list2->getField('id, name');
-            $this->assign("_list2", $list2);
-            
-            $list3 = M("Equiptype");
-            $list3 = $list3->getField('id, name');
-            $this->assign("_list3", $list3);
-            
-            $list4 = M("Forcetype");
-            $list4 = $list4->getField('id, name');
-            $this->assign("_list4", $list4);
-            
-            $list5 = M("Sporttype");
-            $list5 = $list5->getField('id, name');
-            $this->assign("_list5", $list5);
-            
-            $list6 = M("Leveltype");
-            $list6 = $list6->getField('id, name');
-            $this->assign("_list6", $list6);
-            $this->display();
-	}
-    public function exc_filter2(){
             $list = M("Mainmuscletype");
             $list = $list->getField('id, name');
             $this->assign("_list", $list);

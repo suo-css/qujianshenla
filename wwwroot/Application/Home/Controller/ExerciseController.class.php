@@ -364,5 +364,8 @@ class ExerciseController extends HomeController {
         $this->assign('list',$list);
         $this->display();
     }
+    public function lineChart(){
+        $this->display();
+    }
 }
 

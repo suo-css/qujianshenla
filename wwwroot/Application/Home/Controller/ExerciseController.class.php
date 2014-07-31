@@ -174,6 +174,7 @@ class ExerciseController extends HomeController {
             $list6 = M("Leveltype");
             $list6 = $list6->getField('id, name');
             $this->assign("_list6", $list6);
+            
             $this->display();
     }
         
@@ -249,6 +250,18 @@ class ExerciseController extends HomeController {
             }
             $this->ajaxReturn($data, 'json');
         }
+    public function getename(){
+        $exercise = M("Exercise");
+        $ename = I('ename');
+        $map['ename'] = array('like','%'.$ename.'%');
+        $exerciselist = $exercise->where($map)->select();
+        $data["status"] = 0;
+        if(count($exerciselist) > 0){
+            $data["status"] = 1;
+            $data["info"] = $exerciselist;
+        }
+        $this->ajaxReturn($data,'json');
+    }
     
     public function exc_all(){
         $list = M('exercisecomment')->where(array('eid'=>$_GET['eid']));

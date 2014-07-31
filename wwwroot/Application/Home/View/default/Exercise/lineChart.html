@@ -114,20 +114,17 @@
         language:"zh-CN",
         minView:2,
         autoclose:true
+    }).on('changeDate', function(ev){
+        var strdate = $("#time-start").val();
+        var enddate = this.value;
+        var url     = "{:U('Exercise/lineChart')}";
+        $.post(url,{strdate:strdate,enddate:enddate},function(data){
+            alert(data);
+        },'json')
     });
     </script>
 
-    <script type="text/javascript"> 
-$(document).ready(function () { 
-$("#time-start").click(function () { 
-var start =$("#time-start").val();
-// alert($("#time-start").val()); 
-
-var  x = "<?php echo strtotime("+start+") ?>";
-alert(x);
-}); 
-
-}); 
+<script type="text/javascript"> 
 </script> 
 </div>
 

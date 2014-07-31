@@ -380,6 +380,9 @@ class ExerciseController extends HomeController {
         $this->display();
     }
     public function lineChart(){
+        if(IS_AJAX){
+            
+        }
         $this->display();
     }
 }

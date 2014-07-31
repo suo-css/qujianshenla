@@ -74,7 +74,7 @@
                     <br>
                     <volist name='list' id="vo">
                         <if condition="goal_type($vo['id']) neq 0"> 
-                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)"  type="edit">编辑</a> <a href="javascript:;" onclick="delete_goal(this)" id="{$vo.id}">删除</a>
+                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)"  type="edit">编辑</a> <a href="javascript:;" onclick="delete_goal(this)" id="<?php goal_types($vo['id'],'id') ?>-{$vo.id}">删除</a>
                             <div style="margin-top:20px">
                                 <input type="hidden" name="" value="<?php goal_types($vo['id'],'id') ?>" id="id_{$vo.id}">
                                 <div class="floatL b">起始时间:
@@ -146,7 +146,7 @@
                      <br>
                     <volist name='list1' id="vo">
                         <if condition="goal_type($vo['id']) neq 0"> 
-                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)"  type="edit">编辑</a><a href="javascript:;" onclick="delete_goal(this)" id="{$vo.id}">删除</a>
+                            <span class="b">{$vo.typename}</span> <a href="javascript:;" id="{$vo.id}" name="{$vo.typename}" onclick="goaledit(this)"  type="edit">编辑</a><a href="javascript:;" onclick="delete_goal(this)" id="<?php goal_types($vo['id'],'id') ?>-{$vo.id}">删除</a>
                             <div style="margin-top:20px">
                                 <input type="hidden" name="" value="<?php goal_types($vo['id'],'id') ?>" id="id_{$vo.id}">
                                 <div class="floatL b">起始时间:
@@ -245,7 +245,7 @@
                         <div class="history-date">
                             <ul>
                                 <h2 class="<?php if($key==0){ echo 'first';}else{ echo 'date02';}?>">
-                                    <a href="#nogo"><?php echo $value['ymd'];?>年</a>
+                                    <a href="#nogo" id="show_h"><?php echo $value['ymd'];?>年</a>
                                      <?php if($key==0): ?><img src="Public/Home/images/big_tm/img05.gif"alt="时间轴" /><?php endif;?>
                                 </h2>
                                 <?php foreach($value['list'] as $k=>$val):?>
@@ -253,8 +253,8 @@
                                     <h3><?php echo substr($val['create_time'],5,2);?>.<?php echo substr($val['create_time'],8,2);?><span><?php echo $value['ymd'];?></span></h3>
                                     <dl>
                                         <dt><?php echo $val['title'];?><span><?php echo $val['content'];?></span>
-                                            <if condition="$val['status'] eq 1"> 任务正在进行中
-                                             <elseif condition="$val['status'] eq 2"/>任务失败
+                                            <if condition="$val['task_state'] eq 1"> 任务正在进行中
+                                             <elseif condition="$val['task_state'] eq 2"/>任务失败
                                              <else /> 任务完成
                                             </if>
                                         </dt>
@@ -326,6 +326,7 @@
                    
                 //新建目标
                 $("#save").click(function(){
+
                     startvalue = $.trim($("#startvalue").val());
                     goalvalue = $.trim($("#goalvalue").val());
                     goaldate = $.trim($("#goaldate").val());
@@ -394,7 +395,7 @@
                                 var class_add = $("#"+detailtypeid+"_class_add").text();;
                                 $("#current_save_"+detailtypeid+" span").html("<input type=text id=current-"+data.id+" style=width:150px><button onclick=current("+data.id+","+detailtypeid+",'"+class_add+"') class=btn style=margin-top:-10px>提 交</button><span style=display:none; id=current-error-"+data.id+" ></span>");
                                         }
-                                $("#delete_save_"+detailtypeid).html("<a href=javascript:; onclick='delete_goal(this)'' id="+detailtypeid+">删除</a>"); 
+                                $("#delete_save_"+detailtypeid).html("<a href=javascript:; onclick='delete_goal(this)'' id="+data.id+"-"+detailtypeid+">删除</a>"); 
 
                                 //历史事件
                                 if(type=='add'){
@@ -402,14 +403,15 @@
                                     var action =  $("#create_goal").text();
                                     var modal  =  $("#create_molde").val();
 
-                                    var li ="<li class=green ><h3><?php echo date('m') ?>.<?php echo date('d') ?><span><?php echo date('Y') ?></span></h3><dl style=font-size:30px;color:#737373;>新增了一个"+modal+"目标<dt><span>"+action+"从"+startvalue+"到"+goalvalue+","+goaldate+"截止</span></dt></dl></li>";
+                                    var li ="<li class='green bounceInDown' style='margin-top: 0px; -webkit-animation: 2s ease 0ms both; display: none;'><h3><?php echo date('m') ?>.<?php echo date('d') ?><span><?php echo date('Y') ?></span></h3><dl style=font-size:30px;color:#737373;>新增了一个"+modal+"目标<dt><span>"+action+"从"+startvalue+"到"+goalvalue+","+goaldate+"截止</span>任务进行中</dt></dl></li>";
                                     var div = "<div class=history-date><ul><h2 class=first><a id=show_h href=#nogo><?php echo date('Y') ?>年</a></h2>"+li+"</ul></div>";
                                     if($(".history div:eq(0)").length<1){
                                         $(".history").append(div);
                                         systole()
                                         setTimeout("show_h()",4000);
                                     }else{
-                                        $(".history div:eq(0) ul li:eq(0)").before(li)
+                                        $(".history div:eq(0) ul li:eq(0)").before(li) 
+                                        show_h();
                                     }
                                 }    
 
@@ -513,10 +515,11 @@
             }
             //目标删除
             function delete_goal(obj){
+                var id     = obj.id.split('-');
                 var url    = "{:U('Exercise/delete_goal')}";
-                var width  = $("#length_"+obj.id).attr('style').split(':');
+                var width  = $("#length_"+id[1]).attr('style').split(':');
                 var status = (width[1].replace("%","")<100) ? 2 : 3;
-                $.post(url,{id:obj.id,status:status},function(data){
+                $.post(url,{id:id[0],detailtypeid:id[1],status:status},function(data){
                     if(data){
                          location.reload(location.href);
                     }

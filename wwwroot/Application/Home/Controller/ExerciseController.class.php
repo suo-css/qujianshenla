@@ -40,8 +40,15 @@ class ExerciseController extends HomeController {
         $arr = array('currentvalue'=>I('current'));
         $re = M('goal')->where(array('id'=>I('id')))->save($arr);
         $status = ($re) ? 1 : 0;
-        $data = array('uid'=>is_login(),'detailtypeid'=>I('detailtypeid'),'value'=>I('startvalue'),'date'=>date('Y-m-d'));
-        $re   = M('goalhistory')->add($data);
+        //如果今天有更新的记录，那么就更新值，没有就新增一条记录
+        if(M('goalhistory')->where(array('uid'=>is_login(),'date'=>date('Y-m-d',time()),'detailtypeid'=>I('detailtypeid')))->find()){
+            $data = array('value'=>I('startvalue'));
+            $re   = M('goalhistory')->where(array('uid'=>is_login(),'date'=>date('Y-m-d',time()),'detailtypeid'=>I('detailtypeid')))->save($data);
+        }else{
+            $data = array('uid'=>is_login(),'detailtypeid'=>I('detailtypeid'),'value'=>I('startvalue'),'date'=>date('Y-m-d'));
+            $re   = M('goalhistory')->add($data);
+        }
+
         echo $status;
     }
 
@@ -49,10 +56,10 @@ class ExerciseController extends HomeController {
      * 目标动作删除
      */
     public function delete_goal(){
-        if(M('goal')->where(array('uid'=>is_login(),'detailtypeid'=>I('id')))->delete()){
-            M('goalhistory')->where(array('uid'=>is_login(),'detailtypeid'=>I('id')))->delete();
-            $data = array('status'=>I('status'));
-            M('goalevents')->where(array('uid'=>is_login(),'detailtypeid'=>I('id'),'status'=>1))->save($data);
+        if(M('goal')->where(array('uid'=>is_login(),'id'=>I('id')))->delete()){
+            M('goalhistory')->where(array('uid'=>is_login(),'detailtypeid'=>I('detailtypeid')))->delete();
+            $data = array('task_state'=>I('status'));
+            M('goalevents')->where(array('uid'=>is_login(),'goal_id'=>I('id'),'status'=>1))->save($data);
             echo 1;
         }
     }
@@ -77,7 +84,7 @@ class ExerciseController extends HomeController {
                 $arr['currenttime'] = date('Y-m-d H:i:s',time());
                 $re = M('goal')->add($arr);
                 $msg['id'] = $re;
-                $goal = D('Exercise')->goalevents(I('detailtypeid'),I('startvalue'),I('goalvalue'),I('goaldate'),'add');
+                $goal = D('Exercise')->goalevents(I('detailtypeid'),I('startvalue'),I('goalvalue'),I('goaldate'),'add',$re);
             }else{
                 $arr['id'] = I('save_id');                
                 $arr['currentvalue'] = $arr['startvalue'];

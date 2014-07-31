@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin\Model;
+namespace Home\Model;
 use Think\Model;
 
 /**
@@ -50,7 +50,7 @@ class ExerciseModel extends Model{
         
        // public function search($mainmuscleID, $exercisetypeID, $equiptypeID,
          //       $forcetypeID, $sporttypeID, $levelID, $field = true){
-        public function search($mainmuscleID,  $field = true){
+    public function search($mainmuscleID,  $field = true){
             /* 获取分类信息 */
             $map = array();
             if(is_numeric($mainmuscleID)){ //通过ID查询
@@ -85,7 +85,7 @@ class ExerciseModel extends Model{
             $description = "";
             $imageurl = "";
             $video = "";
-		$data = array(
+		    $data = array(
                         'ename' => $ename, 
                         'mainmuscleID' => $mainmuscletype,    
                         'exercisetypeID' => $exercisetype,
@@ -124,7 +124,23 @@ class ExerciseModel extends Model{
 		return empty($data['eid']) ? $this->add() : $this->save();
 	}
 
-
-
-
+    /**
+     * 动作历史记录
+     * @param $datailtypeid 动作ID 
+     * @param $strvalue     起始值 
+     * @param $endvalue     结束值 
+     * @param $time         创建时间
+     * @param $type         操作属性
+     * @param $goalid       新增目标ID
+     */
+    public function goalevents($datailtypeid,$strvalue,$endvalue,$time,$type,$goalid){
+        if($type=='add'){
+            $action = M('goaltype')->where(array('id'=>$datailtypeid))->find();
+            $module = M('goalmodule')->where(array('id'=>$action['moduleid']))->find();
+            $title   = "新增了一个".$module['name']."目标";
+            $content = $action['typename']."从".$strvalue."到".$endvalue.",".$time."截止";
+            $data = array('uid'=>is_login(),'goal_id'=>$goalid,'dateiltypeid'=>$datailtypeid,'title'=>$title,'content'=>$content,'create_time'=>date('Y-m-d H:i:s',time()));
+            M('goalevents')->add($data);    
+        }
+    }
 }

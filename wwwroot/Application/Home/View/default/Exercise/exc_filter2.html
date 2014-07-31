@@ -2,7 +2,7 @@
 <extend name="Base/common"/>
 <block name="body">
     <include file="Public/excNav"/>
-    <link href="__STATIC__/iCheck/skins/square/blue.css" rel="stylesheet">
+    <link href="__STATIC__/iCheck/skins/square/blue.css" rel="stylesheet"/>
     <script src="__STATIC__/iCheck/icheck.min.js?v=1.0.2"></script>
     
     <script>
@@ -28,9 +28,9 @@
                         </div>
                         <div class="ex-desc">
                             <ul>
-                                <li><img src="__PUBLIC__/Home/images/exeName.png" style="vertical-align: middle;">硬拉</li>
-                                <li><img src="__PUBLIC__/Home/images/exePart.png" style="vertical-align: middle;">肩肌</li>
-                                <li><img src="__PUBLIC__/Home/images/exe.png" style="vertical-align: middle;">杠铃</li>
+                                <li><img src="__PUBLIC__/Home/images/exeName.png" style="vertical-align: middle;"/>硬拉</li>
+                                <li><img src="__PUBLIC__/Home/images/exePart.png" style="vertical-align: middle;"/>肩肌</li>
+                                <li><img src="__PUBLIC__/Home/images/exe.png" style="vertical-align: middle;"/>杠铃</li>
                             </ul>
                         </div>
                     </div>
@@ -56,9 +56,9 @@
                         </div>
                         <div class="ex-desc">
                             <ul>
-                                <li><img src="__PUBLIC__/Home/images/exeName.png" style="vertical-align: middle;">硬拉</li>
-                                <li><img src="__PUBLIC__/Home/images/exePart.png" style="vertical-align: middle;">肩肌</li>
-                                <li><img src="__PUBLIC__/Home/images/exe.png" style="vertical-align: middle;">杠铃</li>
+                                <li><img src="__PUBLIC__/Home/images/exeName.png" style="vertical-align: middle;"/>硬拉</li>
+                                <li><img src="__PUBLIC__/Home/images/exePart.png" style="vertical-align: middle;"/>肩肌</li>
+                                <li><img src="__PUBLIC__/Home/images/exe.png" style="vertical-align: middle;"/>杠铃</li>
                             </ul>
                         </div>
                     </div>
@@ -67,10 +67,16 @@
             <div class="ex-hr"></div>
             <br/>
             <div class="row">
-                <div class="span3" >
-                    <input type="text" class="search-query" id="ename" />
-                    <img src="__PUBLIC__/Home/images/search.png" style="" onclick="searchename()"/>
-                    <div id="getename"></div>
+                <div class="span3" style="position:relative;">
+                    <div class="dropdown">
+                        <input class="dropdown-toggle search-query" type="text" id="dLabel" onkeyup="openP()" role="button" data-toggle="dropdown" data-target="#" >
+                        <img src="__PUBLIC__/Home/images/search.png" id="searchimg" style="position: absolute;top: 8px;right: 40px;"/>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" id="getename" style="max-height: 200px;overflow-y: scroll;">
+                            <volist name="exerciselist" id="vo" key="k">
+                                <li onclick="searchename(this)"><a>{$vo.ename}</a></li>
+                            </volist>
+                        </ul>
+                    </div>
                 </div>
                 <div class="span6">
                     <div class="row">
@@ -188,9 +194,6 @@
                 }
                 search();
             });
-            $("#ename").blur(function(){
-                getename();
-            })
         })
     function search(){
         var filter_1 = "";
@@ -239,17 +242,15 @@
             }
         })
     }
+    
+    function openP(){
+        getename();
+        $('#dLabel').dropdown();
+    }
     //输入框 模糊搜索
     function searchename(obj){
-        //ename = $("#ename").val();
         ename = $(obj).text();
-        /*
-        if(ename=="" || ename==null){
-            alert("请输入搜索的内容！");
-            $("#ename").focus();
-            return;
-        }
-        */
+        $("#dLabel").val(ename);
         /*type 1 表示 复选框搜索  2 表示 搜索框搜索*/
         $.post("{:U('Exercise/search')}",{ename:ename,type:'2'},function(data){
             if(data.status==1){
@@ -260,22 +261,22 @@
             }
         },'json');
     }
-    
     //
     function getename(){
-        ename = $("#ename").val();
+        ename = $("#dLabel").val();
         $("#getename").html("");
         $.post("{:U('Exercise/getename')}",{ename:ename},function(data){
             var html = "";
             if(data.status==1){
                 $.each(data.info,function(i,n){
-                    html += "<div onclick=\"searchename(this)\">"+n.ename+"</div>";
+                    html += "<li onclick=\"searchename(this)\"><a href=\"javascript:;\">"+n.ename+"</a></li>";
                 });
             }else{
-                html += "<div>没有您想要的结果！</div>";
+                html += "<li><a>没有您想要的结果！</a></li>";
             }
             $("#getename").append(html);
         },'json');
+        
     }
     
     function excInfo(info){

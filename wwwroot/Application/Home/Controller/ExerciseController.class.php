@@ -380,10 +380,66 @@ class ExerciseController extends HomeController {
         $this->display();
     }
     public function lineChart(){
-        if(IS_AJAX){
+
             
-        }
+       // if(IS_AJAX){
+
+
+            $strdate = '2012-07-01';
+            $enddate = '2014-08-01';
+
+            $strsec = strtotime($strdate);
+            $endsec = strtotime($enddate);
+            $midsec = $endsec-$strsec;
+            $secsec = $midsec/5;
+            $day1 = $strdate;
+            $day2 = $strsec + $secsec;
+            $day3 = $strsec + $secsec*2;
+            $day4 = $strsec + $secsec*3;
+            $day5 = $strsec + $secsec*4;
+            $day6 = $enddate;
+            $day2 = date('Y-m-d',$day2);
+            $day3 = date('Y-m-d',$day3);
+            $day4 = date('Y-m-d',$day4);
+            $day5 = date('Y-m-d',$day5);
+           // echo $day1." /  ".$day2." /  ".$day3." /  ".$day4." /  ".$day5." /  ".$day6;
+
+            $cursec = $strsec;
+
+            $value1 = "";
+            $date1 = ""; 
+
+            while($cursec<$endsec){
+
+                $cur = date('Y-m-d',$cursec);
+
+                if ($cur==$day1||$cur==$day2||$cur==$day3||$cur==$day4||$cur==$day5||$cur==$day6){
+                    $date1 .= $cur;
+                }
+                else{
+                    $date1 .= ",";
+                }
+
+                $res = M('goalhistory')->where(array('uid'=>'54','datailtypeid'=>'5','date'=>$cur))->find();
+                
+                if ($res){
+                    $value1 .= $res['value'];
+                }
+                else{
+                    $value1 .= ",";
+                }
+   
+
+                $cursec+=3600*24;
+                
+                
+            }
+            $arr = json_encode(array('date'=>$date1,'vlaue'=>$value1));
+       // }    
+        echo $date1;
+
+        echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+        echo $value1;
         $this->display();
     }
 }
-

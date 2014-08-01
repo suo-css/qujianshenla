@@ -131,18 +131,16 @@ class ExerciseModel extends Model{
      * @param $endvalue     结束值 
      * @param $time         创建时间
      * @param $type         操作属性
+     * @param $goalid       新增目标ID
      */
-    public function goalevents($datailtypeid,$strvalue,$endvalue,$time,$type){
+    public function goalevents($datailtypeid,$strvalue,$endvalue,$time,$type,$goalid){
         if($type=='add'){
             $action = M('goaltype')->where(array('id'=>$datailtypeid))->find();
             $module = M('goalmodule')->where(array('id'=>$action['moduleid']))->find();
             $title   = "新增了一个".$module['name']."目标";
             $content = $action['typename']."从".$strvalue."到".$endvalue.",".$time."截止";
-            $data = array('uid'=>is_login(),'dateiltypeid'=>$action['moduleid'],'title'=>$title,'content'=>$content,'create_time'=>date('Y-m-d H:i:s',time()));
+            $data = array('uid'=>is_login(),'goal_id'=>$goalid,'dateiltypeid'=>$datailtypeid,'title'=>$title,'content'=>$content,'create_time'=>date('Y-m-d H:i:s',time()));
             M('goalevents')->add($data);    
         }
     }
-
-
-
 }

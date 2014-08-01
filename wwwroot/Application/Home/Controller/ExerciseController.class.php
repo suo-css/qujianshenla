@@ -40,8 +40,15 @@ class ExerciseController extends HomeController {
         $arr = array('currentvalue'=>I('current'));
         $re = M('goal')->where(array('id'=>I('id')))->save($arr);
         $status = ($re) ? 1 : 0;
-        $data = array('uid'=>is_login(),'detailtypeid'=>I('detailtypeid'),'value'=>I('startvalue'),'date'=>date('Y-m-d'));
-        $re   = M('goalhistory')->add($data);
+        //如果今天有更新的记录，那么就更新值，没有就新增一条记录
+        if(M('goalhistory')->where(array('uid'=>is_login(),'date'=>date('Y-m-d',time()),'detailtypeid'=>I('detailtypeid')))->find()){
+            $data = array('value'=>I('startvalue'));
+            $re   = M('goalhistory')->where(array('uid'=>is_login(),'date'=>date('Y-m-d',time()),'detailtypeid'=>I('detailtypeid')))->save($data);
+        }else{
+            $data = array('uid'=>is_login(),'detailtypeid'=>I('detailtypeid'),'value'=>I('startvalue'),'date'=>date('Y-m-d'));
+            $re   = M('goalhistory')->add($data);
+        }
+
         echo $status;
     }
 
@@ -49,10 +56,10 @@ class ExerciseController extends HomeController {
      * 目标动作删除
      */
     public function delete_goal(){
-        if(M('goal')->where(array('uid'=>is_login(),'detailtypeid'=>I('id')))->delete()){
-            M('goalhistory')->where(array('uid'=>is_login(),'detailtypeid'=>I('id')))->delete();
-            $data = array('status'=>I('status'));
-            M('goalevents')->where(array('uid'=>is_login(),'detailtypeid'=>I('id'),'status'=>1))->save($data);
+        if(M('goal')->where(array('uid'=>is_login(),'id'=>I('id')))->delete()){
+            M('goalhistory')->where(array('uid'=>is_login(),'detailtypeid'=>I('detailtypeid')))->delete();
+            $data = array('task_state'=>I('status'));
+            M('goalevents')->where(array('uid'=>is_login(),'goal_id'=>I('id'),'status'=>1))->save($data);
             echo 1;
         }
     }
@@ -77,7 +84,7 @@ class ExerciseController extends HomeController {
                 $arr['currenttime'] = date('Y-m-d H:i:s',time());
                 $re = M('goal')->add($arr);
                 $msg['id'] = $re;
-                $goal = D('Exercise')->goalevents(I('detailtypeid'),I('startvalue'),I('goalvalue'),I('goaldate'),'add');
+                $goal = D('Exercise')->goalevents(I('detailtypeid'),I('startvalue'),I('goalvalue'),I('goaldate'),'add',$re);
             }else{
                 $arr['id'] = I('save_id');                
                 $arr['currentvalue'] = $arr['startvalue'];
@@ -260,6 +267,11 @@ class ExerciseController extends HomeController {
     }
     
     public function exc_all(){
+
+        $table=M('ucenter_member exercisecomment');
+        $res=$table->join('news N on exercisecomment.uid=N.id')->select();
+        p($res);die;
+
         $list = M('exercisecomment')->where(array('eid'=>$_GET['eid']));
         $list = $this->lists('exercisecomment', null, null,null, null);
         int_to_string($list);
@@ -460,5 +472,67 @@ class ExerciseController extends HomeController {
         $this->assign('list',$list);
         $this->display();
     }
-}
+    public function lineChart(){
 
+            
+       // if(IS_AJAX){
+
+
+            $strdate = '2012-07-01';
+            $enddate = '2014-08-01';
+
+            $strsec = strtotime($strdate);
+            $endsec = strtotime($enddate);
+            $midsec = $endsec-$strsec;
+            $secsec = $midsec/5;
+            $day1 = $strdate;
+            $day2 = $strsec + $secsec;
+            $day3 = $strsec + $secsec*2;
+            $day4 = $strsec + $secsec*3;
+            $day5 = $strsec + $secsec*4;
+            $day6 = $enddate;
+            $day2 = date('Y-m-d',$day2);
+            $day3 = date('Y-m-d',$day3);
+            $day4 = date('Y-m-d',$day4);
+            $day5 = date('Y-m-d',$day5);
+           // echo $day1." /  ".$day2." /  ".$day3." /  ".$day4." /  ".$day5." /  ".$day6;
+
+            $cursec = $strsec;
+
+            $value1 = "";
+            $date1 = ""; 
+
+            while($cursec<$endsec){
+
+                $cur = date('Y-m-d',$cursec);
+
+                if ($cur==$day1||$cur==$day2||$cur==$day3||$cur==$day4||$cur==$day5||$cur==$day6){
+                    $date1 .= $cur;
+                }
+                else{
+                    $date1 .= ",";
+                }
+
+                $res = M('goalhistory')->where(array('uid'=>'54','datailtypeid'=>'5','date'=>$cur))->find();
+                
+                if ($res){
+                    $value1 .= $res['value'];
+                }
+                else{
+                    $value1 .= ",";
+                }
+   
+
+                $cursec+=3600*24;
+                
+                
+            }
+            $arr = json_encode(array('date'=>$date1,'vlaue'=>$value1));
+       // }    
+        echo $date1;
+
+        echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+        echo $value1;
+        $this->display();
+    }
+}

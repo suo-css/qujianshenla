@@ -148,78 +148,71 @@ class ExerciseController extends HomeController {
             $this->display();
     }
         
-    public function search()
-        {
-            $type = I('type');
-            /*type 1 表示 复选框搜索  2 表示 搜索框搜索*/
-            if($type==1){
-                $filter1 = I('filter_1');
-                $filter1 = substr($filter1,0,strlen($filter1)-2);
-                $map['mainmuscleID'] = array('in', $filter1);
-                
-                $filter2 = I('filter_2');
-                
-                $filter2 = substr($filter2,0,strlen($filter2)-2);
-                $map['exercisetypeID'] = array('in', $filter2);
-                
-                $filter3 = I('filter_3');
-                $filter3 = substr($filter3,0,strlen($filter3)-2);
-                $map['equiptypeID'] = array('in', $filter3);
-                
-                $filter4 = I('filter_4');
-                $filter4 = substr($filter4,0,strlen($filter4)-2);
-                $map['forcetypeID'] = array('in', $filter4);
-                
-                $filter5 = I('filter_5');
-                $filter5 = substr($filter5, 0,strlen($filter5)-2);
-                $map['sporttypeID'] = array('in', $filter5);
-                
-                $filter6 = I('filter_6');
-                $filter6 = substr($filter6,0,strlen($filter6)-2);
-                $map['levelID'] = array('in', $filter6);
-            }else if($type==2){
-                $ename = I('ename');
-                $map['ename'] = array('like','%'.$ename.'%');
-            }
+    public function search(){
+        $type = I('type');
+        /*type 1 表示 复选框搜索  2 表示 搜索框搜索*/
+        if($type==1){
+            $filter1 = I('filter_1');
+            $filter1 = substr($filter1,0,strlen($filter1)-2);
+            $map['mainmuscleID'] = array('in', $filter1);
             
-            //$exercise = D('Exercise');
-            $exercise = M("Exercise");
-            /*$info = $exercise->table('Exercise exc, Mainmuscletype t1')
-                    ->where ( 'exc.mainmuslceID = t1.id')
-                    ->field('exc.ename as ename, t1.name as mname, exc.sex, exc.rating')
-                    ->select();*/
+            $filter2 = I('filter_2');
             
-            $prefix   = C('DB_PREFIX');
-            $l_table  = $prefix.('exercise');
-            $r_table1  = $prefix.('mainmuscletype');
-            $r_table2  = $prefix.('exercisetype');
-            $r_table3  = $prefix.('equiptype');
-            $r_table4  = $prefix.('forcetype');
-            $r_table5  = $prefix.('sporttype');
-            $r_table6  = $prefix.('leveltype');
+            $filter2 = substr($filter2,0,strlen($filter2)-2);
+            $map['exercisetypeID'] = array('in', $filter2);
             
-            $info = M() ->table($l_table.' exc')
-                       ->where( $map )
-                       ->join ( $r_table1.' t1 on exc.mainmuscleID = t1.id' )
-                    ->join ( $r_table2.' t2 on exc.exercisetypeID = t2.id' )
-                    ->join ( $r_table3.' t3 on exc.equiptypeID = t3.id' )
-                    ->join ( $r_table4.' t4 on exc.forcetypeID = t4.id' )
-                    ->join ( $r_table5.' t5 on exc.sporttypeID = t5.id' )
-                    ->join ( $r_table6.' t6 on exc.levelID = t6.id' )
-                    ->field('exc.ename as ename, t1.name as mtname, t2.name as etname, t3.name as eqtname,'
-                            . 't4.name as ftname, t5.name as stname, exc.eid,t6.name as ltname, exc.sex, exc.rating')
-                    ->select();
-        
-            $data["status"] = 0;
-            if(count($info) > 0){
-                $data["status"] = 1;
-                foreach ($info as $k => $v) {
-                    $info[$k]['action'] = actiontype($v['eid']);
-                }
-                $data["info"] = $info;
-            }
-            $this->ajaxReturn($data, 'json');
+            $filter3 = I('filter_3');
+            $filter3 = substr($filter3,0,strlen($filter3)-2);
+            $map['equiptypeID'] = array('in', $filter3);
+            
+            $filter4 = I('filter_4');
+            $filter4 = substr($filter4,0,strlen($filter4)-2);
+            $map['forcetypeID'] = array('in', $filter4);
+            
+            $filter5 = I('filter_5');
+            $filter5 = substr($filter5, 0,strlen($filter5)-2);
+            $map['sporttypeID'] = array('in', $filter5);
+            
+            $filter6 = I('filter_6');
+            $filter6 = substr($filter6,0,strlen($filter6)-2);
+            $map['levelID'] = array('in', $filter6);
+        }else if($type==2){
+            $ename = I('ename');
+            $map['ename'] = array('like','%'.$ename.'%');
         }
+        
+        $exercise = M("Exercise");
+        $prefix   = C('DB_PREFIX');
+        $l_table  = $prefix.('exercise');
+        $r_table1  = $prefix.('mainmuscletype');
+        $r_table2  = $prefix.('exercisetype');
+        $r_table3  = $prefix.('equiptype');
+        $r_table4  = $prefix.('forcetype');
+        $r_table5  = $prefix.('sporttype');
+        $r_table6  = $prefix.('leveltype');
+        
+        $info = M() ->table($l_table.' exc')
+                   ->where( $map )
+                   ->join ( $r_table1.' t1 on exc.mainmuscleID = t1.id' )
+                ->join ( $r_table2.' t2 on exc.exercisetypeID = t2.id' )
+                ->join ( $r_table3.' t3 on exc.equiptypeID = t3.id' )
+                ->join ( $r_table4.' t4 on exc.forcetypeID = t4.id' )
+                ->join ( $r_table5.' t5 on exc.sporttypeID = t5.id' )
+                ->join ( $r_table6.' t6 on exc.levelID = t6.id' )
+                ->field('exc.ename as ename, t1.name as mtname, t2.name as etname, t3.name as eqtname,'
+                        . 't4.name as ftname, t5.name as stname, exc.eid,t6.name as ltname, exc.sex, exc.rating')
+                ->select();
+    
+        $data["status"] = 0;
+        if(count($info) > 0){
+            $data["status"] = 1;
+            foreach ($info as $k => $v) {
+                $info[$k]['action'] = actiontype($v['eid']);
+            }
+            $data["info"] = $info;
+        }
+        $this->ajaxReturn($data, 'json');
+    }
     public function getename(){
         $exercise = M("Exercise");
         $ename = I('ename');
@@ -245,10 +238,108 @@ class ExerciseController extends HomeController {
         $this->assign('list', $list);
         $this->display();
     }
+    /*exc_all 新*/
+    public function exc_all2(){
+        if(!isset($_GET['eid'])){
+            return;
+        }
+        $eid = $_GET['eid'];
+        $prefix   = C('DB_PREFIX');
+        /*查询评论*/
+        
+        $conditions['eid'] = $eid;
+        $conditions['status'] = 1;
+        $conditions['replyid'] = 0;
+        /*
+        $exercisecomment = $prefix.('exercisecomment');
+        $personal = $prefix.('personal');//->join( $personal.' user on exc.uid = user.id ' )
+        $list = M()->table($exercisecomment.' exc')->where($conditions)->field('exc.*')->select();
+        //$list = $this->lists($list,$conditions);
+        */
+        $list = $this->recursiveReply($conditions);
+        //var_dump($list);
+        int_to_string($list);
+        //p($list);
+        $this->assign('exercisecomment', $list);
+        
+        
+        /*查询动作信息*/
+        $exercise = M("Exercise");
+        $map['eid'] = $eid;
+        $l_table  = $prefix.('exercise');           //动作
+        $r_table1  = $prefix.('mainmuscletype');    //主要肌群
+        $r_table2  = $prefix.('exercisetype');      //运动类型
+        $r_table3  = $prefix.('equiptype');         //器械
+        $r_table4  = $prefix.('forcetype');         //推 拉  静态
+        $r_table5  = $prefix.('sporttype');         //是  否 
+        $r_table6  = $prefix.('leveltype');         //等级
+        
+        $info = M() ->table($l_table.' exc')
+                   ->where( $map )
+                   ->join ( $r_table1.' t1 on exc.mainmuscleID = t1.id' )
+                ->join ( $r_table2.' t2 on exc.exercisetypeID = t2.id' )
+                ->join ( $r_table3.' t3 on exc.equiptypeID = t3.id' )
+                ->join ( $r_table4.' t4 on exc.forcetypeID = t4.id' )
+                ->join ( $r_table5.' t5 on exc.sporttypeID = t5.id' )
+                ->join ( $r_table6.' t6 on exc.levelID = t6.id' )
+                ->field('exc.ename as ename,exc.imgurl,exc.description, t1.name as mtname, t2.name as etname, t3.name as eqtname,'
+                        . 't4.name as ftname, t5.name as stname, exc.eid,t6.name as ltname, exc.sex, exc.rating')
+                ->find();
+        //var_dump($info);
+        $this->assign('info',$info);
+        $this->display();
+    }
+    
+    //递归查询 评论 回复
+    public function recursiveReply($conditions){
+        $list = M('exercisecomment')->where($conditions)->order("create_time desc")->select();
+        if(count($list)>0){
+            foreach($list as $key=>&$value){
+                $user = M('personal')->where(array("uid"=>$value['uid']))->field('nickname,iconurl')->find();
+                $value['nickname'] = $user['nickname'];
+                $value['iconurl'] = $user['iconurl'];
+                $where['replyid'] = $value['cid'];
+                //$value['replynums'] = M('exercisecomment')->where($where)->count();  //回复数
+                $value['reply'] = M('exercisecomment')->where($where)->order("create_time desc")->select();
+                if(count($value['reply'])>0){
+                    $value['reply'] = $this->recursiveReply($where);
+                }else{
+                    continue;
+                }
+            }
+        }
+        return $list;
+    } 
+    
+    public function reviewedit(){
+        if(IS_AJAX){
+            $msg = array("status"=>0,"msg"=>"网络故障，请稍后！");
+            $arr['eid'] = I('eid');
+            $arr['uid'] = is_login()==null?54:is_login();
+            $arr['replyid'] = I('replyid');
+            $arr['content'] = I('content');
+            $arr['create_time'] = date('Y-m-d H:i:s',time());
+            $arr['status'] = 1;
+            $arr['viewnum'] = '';
+            $re = M('exercisecomment')->add($arr);
+            if($re){
+                $user = M('personal')->where(array("uid"=>$arr['uid']))->field('nickname,iconurl')->find();
+                $arr['nickname'] = $user['nickname'];
+                $arr['iconurl'] = $user['iconurl'];
+                $arr['create_time'] = time_tran($arr['create_time']);
+                $arr['cid'] = $re;
+                $msg['status'] = 1;
+                $msg['info'] = $arr;
+            }
+            echo json_encode($msg);
+        } 
+    }
+    
 
     /**
      * 评论添加
      */
+     /*
     public function add_review(){
         if(IS_AJAX){
             $data = array(
@@ -267,10 +358,11 @@ class ExerciseController extends HomeController {
             } 
         }
     }
-
+*/
     /**
      * 评论回复
      */
+     /*
     public function reply_save(){
        if(IS_AJAX){
             $data = array(
@@ -289,6 +381,7 @@ class ExerciseController extends HomeController {
             } 
         }
     }
+    */
 
     /**
      * 添加喜欢的动作

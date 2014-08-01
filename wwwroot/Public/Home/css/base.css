@@ -51,7 +51,7 @@
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: url("__PUBLIC__/Home/images/progess_weight_start.png");
+    background: url("../images/progess_weight_start.png");
     border-radius: 50%;
     /*background-color: #C8C9C9;*/
     z-index: 1;
@@ -65,7 +65,7 @@
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: url("__PUBLIC__/Home/images/progess_weight_start.png");
+    background: url("../images/progess_weight_start.png");
     border-radius: 50%;
     /*background-color: #C8C9C9;*/
     z-index: 1;
@@ -78,7 +78,7 @@
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: url("__PUBLIC__/Home/images/progess_strength_start.png");
+    background: url("../images/progess_strength_start.png");
     border-radius: 50%;
     /*background-color: #C8C9C9;*/
     z-index: 1;
@@ -92,7 +92,7 @@
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: url("__PUBLIC__/Home/images/progess_strength_start.png");
+    background: url("../images/progess_strength_start.png");
     border-radius: 50%;
     /*background-color: #C8C9C9;*/
     z-index: 1;
@@ -106,7 +106,7 @@
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: url("__PUBLIC__/Home/images/progess_goal.png");
+    background: url("../images/progess_goal.png");
     border-radius: 50%;
     /*background-color: #C8C9C9;*/
     z-index: 1;
@@ -121,7 +121,7 @@
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: url("__PUBLIC__/Home/images/progess_dimension_start.png");
+    background: url("../images/progess_dimension_start.png");
     border-radius: 50%;
     /*background-color: #C8C9C9;*/
     z-index: 1;
@@ -135,7 +135,7 @@
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: url("__PUBLIC__/Home/images/progess_dimension_start.png");
+    background: url("../images/progess_dimension_start.png");
     border-radius: 50%;
     /*background-color: #C8C9C9;*/
     z-index: 1;
@@ -149,7 +149,7 @@
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: url("__PUBLIC__/Home/images/progess_goal.png");
+    background: url("../images/progess_goal.png");
     border-radius: 50%;
     /*background-color: #C8C9C9;*/
     z-index: 1;
